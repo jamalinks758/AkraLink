@@ -122,6 +122,15 @@ section{padding:5rem 0}
   border-bottom:1px solid rgba(255,255,255,.06);
   transition:padding .3s ease,box-shadow .3s ease;
 }
+   
+.nav-logo {
+  height: 38px;
+  width: auto;
+  border-radius: 8px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+   
 #mainNav.scrolled{padding:.6rem 0;box-shadow:0 4px 28px rgba(0,0,0,.4)}
 .navbar-brand{display:flex;align-items:center;gap:.6rem;text-decoration:none}
 .b-akra{font-weight:800;font-size:1.2rem;color:#fff;letter-spacing:-.01em}
@@ -363,12 +372,13 @@ footer{background:var(--navy-dp);padding:4rem 0 2rem;color:rgba(255,255,255,.5)}
 <!-- ═══════════ NAVBAR ══════════════════════════════════ -->
 <nav class="navbar navbar-expand-lg" id="mainNav">
   <div class="container">
-    <a class="navbar-brand" href="https://jamalinks758.github.io/AkraLink/">
-      <div>
-        <span class="b-akra">Akra</span><span class="b-link">Link</span>
-        <span class="b-sub">Launch. Link. Grow.</span>
-      </div>
-    </a>
+   <a class="navbar-brand" href="https://jamalinks758.github.io/AkraLink/">
+  <img src="images/akralink-logo.webp" alt="AkraLink Logo Image" class="nav-logo" loading="lazy">
+  <div>
+    <span class="b-akra">Akra</span><span class="b-link">Link</span>
+    <span class="b-sub">Launch. Link. Grow.</span>
+  </div>
+</a>
 
     <div class="d-flex align-items-center gap-2 ms-auto d-lg-none">
       <button class="theme-btn" id="themeToggleMob" aria-label="Toggle theme"><i id="themeIconMob" class="bi bi-sun-fill"></i></button>
