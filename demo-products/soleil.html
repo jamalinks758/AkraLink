@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soleil — Caribbean Bistro & Bar</title>
+<meta name="description" content="Where the Caribbean sun meets the table. Fresh, locally-sourced dishes. Open daily in Saint Lucia.">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<!-- AOS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════
+   TOKENS
+═══════════════════════════════════ */
+:root{
+  --charcoal:  #1A1410;
+  --deep:      #120E0B;
+  --amber:     #D4820A;
+  --amber-lt:  #F5A623;
+  --amber-glow:#FFBE4D;
+  --cream:     #F7F0E6;
+  --cream-dk:  #EDE3D4;
+  --text:      #2A1F14;
+  --muted:     #7A6A58;
+  --white:     #FFFFFF;
+  --wa:        #25D366;
+  --rad:       .75rem;
+  --rad-lg:    1.25rem;
+  --trans:     all .3s ease;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  overflow-x:hidden;
+  line-height:1.65;
+}
+
+/* ═══════════════════════════════════
+   TYPOGRAPHY
+═══════════════════════════════════ */
+.display{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:700;
+  line-height:1.05;
+  letter-spacing:-.02em;
+}
+.serif{font-family:'Cormorant Garamond',serif}
+
+/* ═══════════════════════════════════
+   NAVBAR
+═══════════════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  padding:1.1rem 0;
+  background:rgba(26,20,16,.92);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(212,130,10,.14);
+  transition:padding .3s;
+}
+nav.scrolled{padding:.7rem 0;box-shadow:0 4px 32px rgba(0,0,0,.5)}
+.nav-inner{
+  max-width:1100px;margin:0 auto;
+  padding:0 1.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-brand{
+  display:flex;align-items:center;gap:.55rem;text-decoration:none;
+}
+.brand-mark{
+  width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(135deg,var(--amber),var(--amber-glow));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-weight:700;
+  font-size:1.15rem;color:#fff;flex-shrink:0;
+}
+.brand-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.3rem;font-weight:700;color:#fff;letter-spacing:.02em;
+}
+.nav-links{display:flex;align-items:center;gap:.2rem}
+.nav-link{
+  color:rgba(255,255,255,.58);text-decoration:none;
+  font-size:.82rem;font-weight:500;padding:.45rem .75rem;
+  border-radius:.5rem;transition:var(--trans);
+}
+.nav-link:hover{color:#fff;background:rgba(255,255,255,.07)}
+.nav-reserve{
+  background:var(--amber);color:#fff;font-weight:600;
+  font-size:.81rem;padding:.48rem 1.15rem;border-radius:var(--rad);
+  text-decoration:none;transition:var(--trans);
+  display:flex;align-items:center;gap:.35rem;
+}
+.nav-reserve:hover{background:var(--amber-lt);transform:translateY(-1px)}
+.nav-mobile-toggle{
+  display:none;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);
+  border-radius:.5rem;padding:.4rem .6rem;cursor:pointer;color:rgba(255,255,255,.8);
+  font-size:1rem;
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-mobile-toggle{display:block}
+}
+
+/* ═══════════════════════════════════
+   HERO
+═══════════════════════════════════ */
+.hero{
+  min-height:100vh;position:relative;
+  display:flex;align-items:center;
+  background:
+    linear-gradient(to bottom, rgba(18,14,11,.45) 0%, rgba(26,20,16,.72) 60%, rgba(18,14,11,.92) 100%),
+    url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1600&q=85') center/cover no-repeat;
+  overflow:hidden;
+}
+/* Grain overlay */
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:1;
+}
+/* Warm amber glow bottom-left */
+.hero::after{
+  content:'';position:absolute;bottom:-120px;left:-100px;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(212,130,10,.22) 0%,transparent 65%);
+  pointer-events:none;z-index:1;
+}
+.hero-content{
+  position:relative;z-index:2;
+  max-width:1100px;margin:0 auto;padding:0 1.5rem;
+  padding-top:6rem;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:rgba(212,130,10,.14);border:1px solid rgba(212,130,10,.3);
+  color:var(--amber-glow);font-size:.7rem;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;
+  padding:.3rem .95rem;border-radius:2rem;margin-bottom:1.5rem;
+}
+.hero-title{
+  font-size:clamp(3.2rem,8vw,6.5rem);
+  color:#fff;margin-bottom:.5rem;
+}
+.hero-title .italic{font-style:italic;color:var(--amber-glow)}
+.hero-tagline{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.1rem,2.5vw,1.5rem);
+  font-weight:400;font-style:italic;
+  color:rgba(255,255,255,.52);
+  margin-bottom:2rem;letter-spacing:.02em;
+}
+.hero-sub{
+  color:rgba(255,255,255,.55);
+  font-size:.92rem;max-width:440px;
+  line-height:1.8;margin-bottom:2.4rem;
+}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.85rem;align-items:center}
+.btn-reserve{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--amber);color:#fff;font-weight:600;
+  font-size:.88rem;padding:.82rem 1.9rem;border-radius:var(--rad);
+  text-decoration:none;transition:var(--trans);border:none;cursor:pointer;
+}
+.btn-reserve:hover{background:var(--amber-lt);transform:translateY(-2px);box-shadow:0 10px 30px rgba(212,130,10,.38)}
+.btn-wa{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--wa);color:#fff;font-weight:600;
+  font-size:.88rem;padding:.82rem 1.9rem;border-radius:var(--rad);
+  text-decoration:none;transition:var(--trans);
+}
+.btn-wa:hover{background:#1cb857;transform:translateY(-2px);box-shadow:0 10px 30px rgba(37,211,102,.32)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:transparent;color:rgba(255,255,255,.72);font-weight:500;
+  font-size:.85rem;padding:.82rem 1.5rem;border-radius:var(--rad);
+  text-decoration:none;transition:var(--trans);
+  border:1.5px solid rgba(255,255,255,.22);
+}
+.btn-ghost:hover{border-color:rgba(255,255,255,.5);color:#fff}
+
+/* Floating pills */
+.hero-pills{
+  display:flex;flex-wrap:wrap;gap:.65rem;margin-top:2.5rem;
+}
+.pill{
+  display:flex;align-items:center;gap:.4rem;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  color:rgba(255,255,255,.68);
+  font-size:.72rem;font-weight:500;
+  padding:.32rem .88rem;border-radius:2rem;
+  backdrop-filter:blur(8px);
+}
+.pill i{color:var(--amber-glow)}
+
+/* ═══════════════════════════════════
+   ABOUT BAND
+═══════════════════════════════════ */
+.about-band{
+  background:var(--charcoal);
+  padding:3rem 0;
+}
+.ab-inner{
+  max-width:1100px;margin:0 auto;padding:0 1.5rem;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;
+}
+.ab-item{
+  display:flex;align-items:center;gap:.85rem;
+  border-right:1px solid rgba(255,255,255,.07);
+  padding-right:1.5rem;
+}
+.ab-item:last-child{border-right:none}
+.ab-icon{
+  width:44px;height:44px;border-radius:.65rem;
+  background:linear-gradient(135deg,rgba(212,130,10,.22),rgba(245,166,35,.1));
+  border:1px solid rgba(212,130,10,.22);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--amber-glow);font-size:1.1rem;flex-shrink:0;
+}
+.ab-label{font-size:.68rem;color:rgba(255,255,255,.38);font-weight:500;text-transform:uppercase;letter-spacing:.1em;display:block}
+.ab-val{font-size:.92rem;color:rgba(255,255,255,.82);font-weight:600;display:block}
+@media(max-width:768px){
+  .ab-inner{grid-template-columns:repeat(2,1fr)}
+  .ab-item:nth-child(2){border-right:none}
+}
+
+/* ═══════════════════════════════════
+   SECTION SHARED
+═══════════════════════════════════ */
+.section{padding:5.5rem 0}
+.container{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+.section-eyebrow{
+  font-size:.67rem;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--amber);margin-bottom:.6rem;display:block;
+}
+.section-title{
+  font-size:clamp(2rem,4vw,3rem);
+  color:var(--text);margin-bottom:.7rem;
+}
+.section-sub{color:var(--muted);font-size:.93rem;max-width:520px;line-height:1.8}
+.divider-amber{
+  width:42px;height:2.5px;
+  background:linear-gradient(90deg,var(--amber),var(--amber-glow));
+  border-radius:2px;margin:.85rem 0 1.2rem;
+}
+
+/* ═══════════════════════════════════
+   ABOUT / STORY SECTION
+═══════════════════════════════════ */
+.about-section{background:var(--cream)}
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:4rem;align-items:center;
+}
+.about-img-wrap{position:relative}
+.about-img{
+  width:100%;height:480px;object-fit:cover;
+  border-radius:var(--rad-lg);
+  background:
+    linear-gradient(145deg,rgba(212,130,10,.09),rgba(26,20,16,.08)),
+    url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80') center/cover no-repeat;
+}
+.about-badge{
+  position:absolute;bottom:-1.5rem;right:-1.5rem;
+  background:var(--charcoal);border-radius:var(--rad-lg);
+  padding:1.25rem 1.6rem;box-shadow:0 16px 48px rgba(0,0,0,.28);
+  text-align:center;
+}
+.ab-big{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.8rem;font-weight:700;color:var(--amber-glow);line-height:1;display:block;
+}
+.ab-small{font-size:.7rem;color:rgba(255,255,255,.45);letter-spacing:.12em;text-transform:uppercase}
+.about-quote{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.35rem;font-style:italic;
+  color:var(--text);line-height:1.6;
+  border-left:3px solid var(--amber);
+  padding-left:1.2rem;margin:1.5rem 0;
+}
+.about-body{color:var(--muted);font-size:.93rem;line-height:1.82;margin-bottom:1.4rem}
+
+@media(max-width:768px){
+  .about-grid{grid-template-columns:1fr}
+  .about-badge{right:.5rem}
+}
+
+/* ═══════════════════════════════════
+   CONTACT / HOURS SECTION
+═══════════════════════════════════ */
+.contact-section{background:var(--cream-dk)}
+.contact-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;
+}
+.contact-card{
+  background:var(--white);
+  border-radius:var(--rad-lg);
+  padding:2rem;
+  box-shadow:0 4px 24px rgba(0,0,0,.06);
+  border:1px solid rgba(0,0,0,.05);
+}
+.contact-row{
+  display:flex;align-items:flex-start;gap:1rem;
+  padding:.9rem 0;border-bottom:1px solid rgba(0,0,0,.06);
+}
+.contact-row:last-child{border-bottom:none}
+.cr-icon{
+  width:38px;height:38px;border-radius:.5rem;flex-shrink:0;
+  background:linear-gradient(135deg,rgba(212,130,10,.14),rgba(245,166,35,.07));
+  display:flex;align-items:center;justify-content:center;
+  color:var(--amber);font-size:.95rem;
+}
+.cr-label{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:.15rem}
+.cr-val{font-size:.9rem;font-weight:600;color:var(--text)}
+.hours-table{width:100%;border-collapse:collapse;font-size:.87rem}
+.hours-table td{padding:.48rem 0;color:var(--muted)}
+.hours-table td:first-child{font-weight:600;color:var(--text);width:55%}
+.hours-table td:last-child{text-align:right;color:var(--amber);font-weight:500}
+.wa-cta-box{
+  background:linear-gradient(135deg,var(--charcoal),rgba(26,20,16,.95));
+  border-radius:var(--rad-lg);padding:2rem;text-align:center;
+  border:1px solid rgba(212,130,10,.18);margin-top:1.5rem;
+}
+.wa-cta-box .bi-whatsapp{font-size:2rem;color:var(--wa);display:block;margin-bottom:.7rem}
+.wa-cta-box h4{
+  font-family:'Cormorant Garamond',serif;
+  color:#fff;font-size:1.3rem;margin-bottom:.4rem;
+}
+.wa-cta-box p{color:rgba(255,255,255,.45);font-size:.83rem;margin-bottom:1.1rem}
+
+@media(max-width:768px){
+  .contact-grid{grid-template-columns:1fr}
+}
+
+/* ═══════════════════════════════════
+   LOCK OVERLAY SYSTEM
+═══════════════════════════════════ */
+.locked-section{position:relative}
+.lock-blur{
+  filter:blur(7px);
+  pointer-events:none;
+  user-select:none;
+  opacity:.55;
+}
+.lock-overlay{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  z-index:10;
+  background:linear-gradient(135deg,rgba(26,20,16,.72),rgba(18,14,11,.68));
+  backdrop-filter:blur(3px);
+  border-radius:var(--rad-lg);
+}
+.lock-box{
+  text-align:center;padding:2.5rem 2rem;max-width:400px;
+}
+.lock-icon{
+  width:60px;height:60px;border-radius:50%;
+  background:linear-gradient(135deg,var(--amber),var(--amber-glow));
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1.1rem;
+  box-shadow:0 8px 28px rgba(212,130,10,.38);
+  font-size:1.4rem;color:#fff;
+}
+.lock-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:.5rem;
+}
+.lock-sub{
+  color:rgba(255,255,255,.55);font-size:.82rem;
+  line-height:1.7;margin-bottom:1.3rem;
+}
+.lock-tier-badges{
+  display:flex;gap:.5rem;justify-content:center;margin-bottom:1.3rem;
+}
+.ltb{
+  font-size:.66rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;padding:.28rem .85rem;border-radius:2rem;
+}
+.ltb-link{background:rgba(37,99,235,.25);color:#93BBFF;border:1px solid rgba(37,99,235,.35)}
+.ltb-grow{background:rgba(212,130,10,.25);color:var(--amber-glow);border:1px solid rgba(212,130,10,.35)}
+.lock-btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--wa);color:#fff;font-weight:600;
+  font-size:.84rem;padding:.72rem 1.6rem;border-radius:var(--rad);
+  text-decoration:none;transition:var(--trans);
+}
+.lock-btn:hover{background:#1cb857;transform:translateY(-2px)}
+
+/* ═══════════════════════════════════
+   MENU GRID (locked)
+═══════════════════════════════════ */
+.menu-section{background:var(--cream)}
+.menu-filter-bar{
+  display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.2rem;
+}
+.mf-btn{
+  background:var(--white);border:1.5px solid rgba(0,0,0,.08);
+  color:var(--muted);font-size:.8rem;font-weight:500;
+  padding:.42rem 1.1rem;border-radius:2rem;cursor:pointer;
+  transition:var(--trans);
+}
+.mf-btn.active,.mf-btn:hover{
+  background:var(--charcoal);color:#fff;border-color:var(--charcoal);
+}
+.menu-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;
+}
+.menu-card{
+  background:var(--white);border-radius:var(--rad-lg);
+  overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.05);
+  border:1px solid rgba(0,0,0,.05);transition:var(--trans);
+}
+.menu-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.1)}
+.mc-img{
+  height:160px;background:center/cover no-repeat;
+  position:relative;
+}
+.mc-badge{
+  position:absolute;top:.65rem;left:.65rem;
+  background:var(--amber);color:#fff;
+  font-size:.63rem;font-weight:700;letter-spacing:.08em;
+  padding:.22rem .65rem;border-radius:2rem;
+}
+.mc-body{padding:1rem 1.1rem 1.2rem}
+.mc-name{font-size:.97rem;font-weight:600;color:var(--text);margin-bottom:.25rem}
+.mc-desc{font-size:.77rem;color:var(--muted);line-height:1.6;margin-bottom:.65rem}
+.mc-footer{display:flex;align-items:center;justify-content:space-between}
+.mc-price{font-size:1rem;font-weight:700;color:var(--amber)}
+.mc-order{
+  display:flex;align-items:center;gap:.3rem;
+  background:var(--wa);color:#fff;font-size:.72rem;font-weight:600;
+  padding:.28rem .75rem;border-radius:.5rem;text-decoration:none;transition:var(--trans);
+}
+.mc-order:hover{background:#1cb857}
+@media(max-width:768px){
+  .menu-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .menu-grid{grid-template-columns:1fr}
+}
+
+/* ═══════════════════════════════════
+   GALLERY (locked)
+═══════════════════════════════════ */
+.gallery-section{background:var(--cream-dk)}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:240px 240px;
+  gap:1rem;
+}
+.gallery-grid .g-item:first-child{
+  grid-column:1/3;grid-row:1/3;
+}
+.g-item{
+  border-radius:var(--rad);
+  background:center/cover no-repeat;
+  overflow:hidden;
+}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.g-item:hover img{transform:scale(1.04)}
+@media(max-width:768px){
+  .gallery-grid{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:auto;
+  }
+  .gallery-grid .g-item:first-child{grid-column:1/3;grid-row:auto;height:200px}
+  .g-item{height:160px}
+}
+
+/* ═══════════════════════════════════
+   TESTIMONIALS (locked)
+═══════════════════════════════════ */
+.testimonials-section{background:var(--charcoal)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.testi-card{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:var(--rad-lg);padding:1.7rem 1.5rem;
+  transition:var(--trans);
+}
+.testi-card:hover{background:rgba(255,255,255,.07);transform:translateY(-3px)}
+.testi-stars{color:var(--amber-glow);font-size:.8rem;margin-bottom:.8rem;letter-spacing:.12em}
+.testi-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem;font-style:italic;
+  color:rgba(255,255,255,.72);line-height:1.65;margin-bottom:1.1rem;
+}
+.testi-author{display:flex;align-items:center;gap:.7rem}
+.ta-avatar{
+  width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(135deg,var(--amber),var(--amber-glow));
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;font-weight:700;color:#fff;flex-shrink:0;
+}
+.ta-name{font-size:.84rem;font-weight:600;color:rgba(255,255,255,.82);display:block}
+.ta-loc{font-size:.72rem;color:rgba(255,255,255,.35)}
+@media(max-width:768px){.testi-grid{grid-template-columns:1fr}}
+
+/* ═══════════════════════════════════
+   FAQ (locked)
+═══════════════════════════════════ */
+.faq-section{background:var(--cream)}
+.faq-item{
+  background:var(--white);border-radius:var(--rad);
+  border:1.5px solid rgba(0,0,0,.07);
+  margin-bottom:.75rem;overflow:hidden;transition:var(--trans);
+}
+.faq-item:hover{border-color:rgba(212,130,10,.22)}
+.faq-q{
+  padding:1.1rem 1.4rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;
+  font-weight:600;font-size:.9rem;color:var(--text);
+}
+.faq-q i{color:var(--amber);transition:transform .3s;flex-shrink:0;margin-left:.75rem}
+.faq-a{
+  display:none;padding:.2rem 1.4rem 1.1rem;
+  color:var(--muted);font-size:.86rem;line-height:1.8;
+}
+.faq-item.open .faq-a{display:block}
+.faq-item.open .faq-q i{transform:rotate(180deg)}
+.faq-item.open{border-color:rgba(212,130,10,.3)}
+
+/* ═══════════════════════════════════
+   PROMO BANNER (locked)
+═══════════════════════════════════ */
+.promo-banner{
+  background:linear-gradient(135deg,var(--charcoal) 0%,rgba(26,20,16,.96) 50%,rgba(212,130,10,.15) 100%);
+  border:1.5px solid rgba(212,130,10,.22);
+  border-radius:var(--rad-lg);
+  padding:2rem 2.4rem;
+  display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;
+}
+.pb-text h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.5rem;color:#fff;font-weight:700;margin-bottom:.3rem;
+}
+.pb-text p{color:rgba(255,255,255,.45);font-size:.83rem}
+.pb-tag{
+  background:var(--amber);color:#fff;font-weight:800;
+  font-size:1.7rem;padding:.5rem 1.3rem;border-radius:var(--rad);
+  font-family:'Cormorant Garamond',serif;white-space:nowrap;
+}
+
+/* ═══════════════════════════════════
+   FINAL CTA
+═══════════════════════════════════ */
+.final-cta{
+  background:
+    linear-gradient(135deg,rgba(18,14,11,.94) 0%,rgba(26,20,16,.96) 100%),
+    url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=75') center/cover no-repeat;
+  padding:6rem 0;text-align:center;
+}
+.final-cta h2{
+  font-size:clamp(2rem,5vw,3.4rem);color:#fff;margin-bottom:.8rem;
+}
+.final-cta p{color:rgba(255,255,255,.45);font-size:.95rem;max-width:500px;margin:0 auto 2rem}
+.cta-btns{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap}
+
+/* ═══════════════════════════════════
+   FOOTER
+═══════════════════════════════════ */
+footer{background:var(--deep);padding:2.5rem 0;text-align:center}
+.footer-brand{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.3rem;font-weight:700;color:var(--amber-glow);
+  margin-bottom:.5rem;display:block;
+}
+footer p{color:rgba(255,255,255,.28);font-size:.77rem;margin-bottom:.4rem}
+.footer-akra{
+  display:inline-flex;align-items:center;gap:.35rem;
+  margin-top:.8rem;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
+  border-radius:2rem;padding:.32rem 1rem;
+  color:rgba(255,255,255,.35);font-size:.7rem;font-weight:500;
+  text-decoration:none;transition:var(--trans);
+}
+.footer-akra:hover{color:rgba(255,255,255,.65);border-color:rgba(255,255,255,.18)}
+.footer-akra strong{color:var(--amber-glow)}
+
+/* ═══════════════════════════════════
+   WHATSAPP FLOAT
+═══════════════════════════════════ */
+.wa-float{
+  position:fixed;bottom:1.6rem;right:1.6rem;z-index:999;
+  width:56px;height:56px;border-radius:50%;
+  background:var(--wa);color:#fff;font-size:1.55rem;
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;box-shadow:0 6px 28px rgba(37,211,102,.45);
+  transition:var(--trans);
+}
+.wa-float:hover{transform:scale(1.1);color:#fff}
+.wa-float-pulse{
+  position:absolute;inset:0;border-radius:50%;
+  background:var(--wa);opacity:.35;
+  animation:wapulse 2.2s infinite;
+}
+@keyframes wapulse{
+  0%{transform:scale(1);opacity:.35}
+  70%{transform:scale(1.7);opacity:0}
+  100%{transform:scale(1.7);opacity:0}
+}
+
+/* ═══════════════════════════════════
+   AKRALINK DEMO BADGE
+═══════════════════════════════════ */
+.demo-bar{
+  position:fixed;top:0;left:0;right:0;z-index:1100;
+  background:linear-gradient(90deg,var(--charcoal),rgba(26,20,16,.98));
+  border-bottom:2px solid var(--amber);
+  padding:.45rem 1.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:.72rem;
+}
+.demo-label{
+  display:flex;align-items:center;gap:.5rem;
+  color:rgba(255,255,255,.55);
+}
+.demo-label strong{color:var(--amber-glow)}
+.demo-cta-link{
+  display:flex;align-items:center;gap:.4rem;
+  background:var(--amber);color:#fff;font-weight:700;
+  font-size:.7rem;padding:.3rem .9rem;border-radius:var(--rad);
+  text-decoration:none;transition:var(--trans);white-space:nowrap;
+}
+.demo-cta-link:hover{background:var(--amber-lt);color:#fff}
+
+/* push content below demo bar */
+body.has-demo-bar nav{top:36px}
+body.has-demo-bar .hero{padding-top:10rem}
+
+/* ═══════════════════════════════════
+   UTILITIES
+═══════════════════════════════════ */
+.text-amber{color:var(--amber)}
+.text-muted{color:var(--muted)}
+.mt-1{margin-top:.5rem}.mt-2{margin-top:1rem}.mt-3{margin-top:1.5rem}
+.mb-2{margin-bottom:1rem}.mb-3{margin-bottom:1.5rem}
+.text-center{text-align:center}
+
+/* Locked wrapper */
+.lock-wrapper{position:relative;border-radius:var(--rad-lg);overflow:hidden}
+</style>
+</head>
+<body class="has-demo-bar">
+
+<!-- DEMO BAR -->
+<div class="demo-bar">
+  <div class="demo-label">
+    <i class="bi bi-eye" style="color:var(--amber-glow)"></i>
+    <span>You're viewing an <strong>AkraLink demo</strong> — this is what your restaurant website could look like</span>
+  </div>
+  <a href="https://jamalinks758.github.io/AkraLink/" class="demo-cta-link">
+    <i class="bi bi-lightning-charge-fill"></i> Get my site — from $24.99/mo
+  </a>
+</div>
+
+<!-- NAVBAR -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">
+      <div class="brand-mark">S</div>
+      <span class="brand-text">Soleil</span>
+    </a>
+    <div class="nav-links">
+      <a href="#about" class="nav-link">Our Story</a>
+      <a href="#contact" class="nav-link">Find Us</a>
+      <a href="#menu" class="nav-link">Menu</a>
+      <a href="https://wa.me/17587235872?text=Hi%20Soleil!%20I'd%20like%20to%20make%20a%20reservation." class="nav-reserve" target="_blank">
+        <i class="bi bi-calendar2-check"></i> Reserve a Table
+      </a>
+    </div>
+    <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').style.display='flex'">
+      <i class="bi bi-list"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content" data-aos="fade-up" data-aos-duration="900">
+    <div class="hero-eyebrow">
+      <i class="bi bi-sun"></i> Caribbean Bistro & Bar · Saint Lucia
+    </div>
+    <h1 class="display hero-title">
+      Where the<br><span class="italic">Sun Meets</span><br>the Table
+    </h1>
+    <p class="hero-tagline">Fresh. Local. Unforgettable.</p>
+    <p class="hero-sub">Handcrafted Caribbean dishes rooted in island tradition, elevated for modern palates. Every plate tells a story.</p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/17587235872?text=Hi%20Soleil!%20I'd%20like%20to%20make%20a%20reservation." class="btn-reserve" target="_blank">
+        <i class="bi bi-calendar2-check"></i> Reserve a Table
+      </a>
+      <a href="https://wa.me/17587235872?text=Hi!%20I'd%20like%20to%20order%20from%20Soleil." class="btn-wa" target="_blank">
+        <i class="bi bi-whatsapp"></i> Order on WhatsApp
+      </a>
+      <a href="#about" class="btn-ghost">
+        Our Story <i class="bi bi-arrow-down"></i>
+      </a>
+    </div>
+    <div class="hero-pills" data-aos="fade-up" data-aos-delay="200">
+      <span class="pill"><i class="bi bi-geo-alt-fill"></i> Rodney Bay, Saint Lucia</span>
+      <span class="pill"><i class="bi bi-clock-fill"></i> Open Daily 11am – 10pm</span>
+      <span class="pill"><i class="bi bi-star-fill"></i> 4.9 on Google</span>
+      <span class="pill"><i class="bi bi-wifi"></i> Free WiFi</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT BAND -->
+<div class="about-band">
+  <div class="ab-inner">
+    <div class="ab-item" data-aos="fade-up" data-aos-delay="0">
+      <div class="ab-icon"><i class="bi bi-calendar-check"></i></div>
+      <div>
+        <span class="ab-label">Established</span>
+        <span class="ab-val">Since 2018</span>
+      </div>
+    </div>
+    <div class="ab-item" data-aos="fade-up" data-aos-delay="80">
+      <div class="ab-icon"><i class="bi bi-people-fill"></i></div>
+      <div>
+        <span class="ab-label">Happy Guests</span>
+        <span class="ab-val">12,000+</span>
+      </div>
+    </div>
+    <div class="ab-item" data-aos="fade-up" data-aos-delay="160">
+      <div class="ab-icon"><i class="bi bi-egg-fried"></i></div>
+      <div>
+        <span class="ab-label">Menu Items</span>
+        <span class="ab-val">40+ Dishes</span>
+      </div>
+    </div>
+    <div class="ab-item" data-aos="fade-up" data-aos-delay="240">
+      <div class="ab-icon"><i class="bi bi-award-fill"></i></div>
+      <div>
+        <span class="ab-label">Recognition</span>
+        <span class="ab-val">Best Dining 2023</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-section section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div data-aos="fade-right">
+        <div class="about-img-wrap">
+          <div class="about-img"></div>
+          <div class="about-badge">
+            <span class="ab-big">7+</span>
+            <span class="ab-small">Years of Flavour</span>
+          </div>
+        </div>
+      </div>
+      <div data-aos="fade-left">
+        <span class="section-eyebrow">Our Story</span>
+        <h2 class="display section-title">Born from the<br><em>island's heartbeat</em></h2>
+        <div class="divider-amber"></div>
+        <blockquote class="about-quote">
+          "I didn't want to cook what people expected from the Caribbean — I wanted to cook what the Caribbean actually tastes like."
+          <br><small style="font-size:.75rem;color:var(--muted);margin-top:.3rem;display:block">— Chef Maricel Joseph, Founder</small>
+        </blockquote>
+        <p class="about-body">
+          Soleil started as a weekend pop-up at Reduit Beach. Seven years later, we're still sourcing from the same local farmers, the same fishermen, the same women making dasheen bread in Dennery. We just have a roof now.
+        </p>
+        <p class="about-body">
+          Every dish on our menu has a story. We'll tell you all of them if you ask.
+        </p>
+        <a href="https://wa.me/17587235872?text=Hi%20Soleil!%20I'd%20like%20to%20make%20a%20reservation." class="btn-reserve" target="_blank" style="margin-top:.5rem">
+          <i class="bi bi-whatsapp"></i> Book Your Table
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT & HOURS -->
+<section class="contact-section section" id="contact">
+  <div class="container">
+    <div class="text-center mb-3" data-aos="fade-up">
+      <span class="section-eyebrow">Find Us</span>
+      <h2 class="display section-title">Come Dine With Us</h2>
+      <div class="divider-amber" style="margin:auto"></div>
+    </div>
+    <div class="contact-grid" data-aos="fade-up" data-aos-delay="100">
+      <div>
+        <div class="contact-card">
+          <h4 class="serif" style="font-size:1.1rem;margin-bottom:1rem;color:var(--text)">📍 Location & Hours</h4>
+          <div class="contact-row">
+            <div class="cr-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div>
+              <span class="cr-label">Address</span>
+              <span class="cr-val">12 Marina Walk, Rodney Bay<br>Saint Lucia, W.I.</span>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="cr-icon"><i class="bi bi-telephone-fill"></i></div>
+            <div>
+              <span class="cr-label">Phone / WhatsApp</span>
+              <span class="cr-val">+1 (758) 723-5872</span>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="cr-icon"><i class="bi bi-envelope-fill"></i></div>
+            <div>
+              <span class="cr-label">Email</span>
+              <span class="cr-val">hello@soleillc.com</span>
+            </div>
+          </div>
+          <div class="contact-row" style="border-bottom:none">
+            <div class="cr-icon"><i class="bi bi-instagram"></i></div>
+            <div>
+              <span class="cr-label">Instagram</span>
+              <span class="cr-val">@soleilstlucia</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-card" style="margin-top:1rem">
+          <h4 class="serif" style="font-size:1.1rem;margin-bottom:.8rem;color:var(--text)">🕐 Opening Hours</h4>
+          <table class="hours-table">
+            <tr><td>Monday – Thursday</td><td>11am – 9pm</td></tr>
+            <tr><td>Friday – Saturday</td><td>11am – 11pm</td></tr>
+            <tr><td>Sunday</td><td>10am – 8pm</td></tr>
+            <tr><td>Public Holidays</td><td>12pm – 8pm</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div data-aos="fade-left">
+        <!-- Map placeholder -->
+        <div style="border-radius:var(--rad-lg);overflow:hidden;height:280px;background:var(--cream-dk);border:1.5px solid rgba(0,0,0,.07);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;flex-direction:column;gap:.5rem">
+          <i class="bi bi-map" style="font-size:2.5rem;color:var(--muted)"></i>
+          <p style="color:var(--muted);font-size:.83rem;text-align:center">Rodney Bay Marina, Saint Lucia<br><small>Google Maps embed goes here</small></p>
+        </div>
+
+        <div class="wa-cta-box">
+          <i class="bi bi-whatsapp"></i>
+          <h4>Order or Reserve on WhatsApp</h4>
+          <p>Message us your order, book a table, or ask about daily specials. We reply fast.</p>
+          <a href="https://wa.me/17587235872?text=Hi%20Soleil!%20I'd%20like%20to%20order%20or%20make%20a%20reservation." class="btn-wa" target="_blank">
+            <i class="bi bi-whatsapp"></i> Message Us Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU (LOCKED) -->
+<section class="menu-section section" id="menu">
+  <div class="container">
+    <div class="text-center mb-3" data-aos="fade-up">
+      <span class="section-eyebrow">Our Menu</span>
+      <h2 class="display section-title">Made Fresh, Every Day</h2>
+      <div class="divider-amber" style="margin:auto"></div>
+      <p class="section-sub" style="margin:auto;margin-top:.75rem">Local ingredients. Bold flavours. All-day dining.</p>
+    </div>
+
+    <div class="lock-wrapper" data-aos="fade-up" data-aos-delay="100">
+      <div class="lock-blur">
+        <div class="menu-filter-bar">
+          <button class="mf-btn active">All</button>
+          <button class="mf-btn">Starters</button>
+          <button class="mf-btn">Mains</button>
+          <button class="mf-btn">Seafood</button>
+          <button class="mf-btn">Drinks</button>
+          <button class="mf-btn">Desserts</button>
+        </div>
+        <div class="menu-grid">
+          <!-- Card 1 -->
+          <div class="menu-card">
+            <div class="mc-img" style="background-image:url('https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500&q=75')">
+              <span class="mc-badge">Chef's Pick</span>
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Grilled Mahi-Mahi</div>
+              <div class="mc-desc">Caught this morning. Served with mango salsa, coconut rice & roasted breadfruit.</div>
+              <div class="mc-footer">
+                <span class="mc-price">$34</span>
+                <a href="#" class="mc-order"><i class="bi bi-whatsapp"></i> Order</a>
+              </div>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="menu-card">
+            <div class="mc-img" style="background-image:url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&q=75')">
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Creole Vegetable Bowl</div>
+              <div class="mc-desc">Seasonal island vegetables, spiced chickpeas, cucumber yogurt, dasheen bread.</div>
+              <div class="mc-footer">
+                <span class="mc-price">$22</span>
+                <a href="#" class="mc-order"><i class="bi bi-whatsapp"></i> Order</a>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="menu-card">
+            <div class="mc-img" style="background-image:url('https://images.unsplash.com/photo-1544025162-d76594e8f7e2?w=500&q=75')">
+              <span class="mc-badge">Popular</span>
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">BBQ Jerk Ribs</div>
+              <div class="mc-desc">Slow-smoked 12 hours. Served with festival, fried plantain & coleslaw.</div>
+              <div class="mc-footer">
+                <span class="mc-price">$42</span>
+                <a href="#" class="mc-order"><i class="bi bi-whatsapp"></i> Order</a>
+              </div>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="menu-card">
+            <div class="mc-img" style="background-image:url('https://images.unsplash.com/photo-1547592180-85f173990554?w=500&q=75')"></div>
+            <div class="mc-body">
+              <div class="mc-name">Callaloo Soup</div>
+              <div class="mc-desc">Island classic. Silky callaloo, coconut milk, crab meat & handmade dumplings.</div>
+              <div class="mc-footer">
+                <span class="mc-price">$16</span>
+                <a href="#" class="mc-order"><i class="bi bi-whatsapp"></i> Order</a>
+              </div>
+            </div>
+          </div>
+          <!-- Card 5 -->
+          <div class="menu-card">
+            <div class="mc-img" style="background-image:url('https://images.unsplash.com/photo-1551024506-0bccd828d307?w=500&q=75')">
+              <span class="mc-badge">New</span>
+            </div>
+            <div class="mc-body">
+              <div class="mc-name">Passion Fruit Cheesecake</div>
+              <div class="mc-desc">Local passion fruit curd, vanilla bean cheesecake, ginger biscuit crumble.</div>
+              <div class="mc-footer">
+                <span class="mc-price">$14</span>
+                <a href="#" class="mc-order"><i class="bi bi-whatsapp"></i> Order</a>
+              </div>
+            </div>
+          </div>
+          <!-- Card 6 -->
+          <div class="menu-card">
+            <div class="mc-img" style="background-image:url('https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=500&q=75')"></div>
+            <div class="mc-body">
+              <div class="mc-name">Rum Punch Flights</div>
+              <div class="mc-desc">Three house blends — classic, sorrel & green mango. Made with XO rum.</div>
+              <div class="mc-footer">
+                <span class="mc-price">$18</span>
+                <a href="#" class="mc-order"><i class="bi bi-whatsapp"></i> Order</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- LOCK OVERLAY -->
+      <div class="lock-overlay">
+        <div class="lock-box">
+          <div class="lock-icon"><i class="bi bi-lock-fill"></i></div>
+          <div class="lock-tier-badges">
+            <span class="ltb ltb-link">Link Plan</span>
+            <span class="ltb ltb-grow">Grow Plan</span>
+          </div>
+          <h3 class="lock-title">Filterable Menu Grid</h3>
+          <p class="lock-sub">This interactive, category-filtered product menu is included in the Link & Grow plans. Let your customers browse and order directly from your website.</p>
+          <a href="https://wa.me/17587235872?text=Hi!%20I%20want%20to%20unlock%20the%20menu%20grid%20feature%20for%20my%20restaurant%20website." class="lock-btn" target="_blank">
+            <i class="bi bi-whatsapp"></i> Unlock This Feature
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMO BANNER (LOCKED) -->
+<section style="background:var(--cream-dk);padding:3rem 0">
+  <div class="container">
+    <div class="lock-wrapper" data-aos="fade-up">
+      <div class="lock-blur">
+        <div class="promo-banner">
+          <div class="pb-text">
+            <h3>🌅 Sunday Brunch Special — Every Sunday</h3>
+            <p>3-course brunch with bottomless mimosas. Now taking bookings for June & July.</p>
+          </div>
+          <div class="pb-tag">30% OFF</div>
+          <a href="#" class="btn-reserve"><i class="bi bi-calendar2-check"></i> Book Sunday Brunch</a>
+        </div>
+      </div>
+      <div class="lock-overlay">
+        <div class="lock-box">
+          <div class="lock-icon"><i class="bi bi-megaphone-fill"></i></div>
+          <div class="lock-tier-badges">
+            <span class="ltb ltb-grow">Grow Plan</span>
+          </div>
+          <h3 class="lock-title">Seasonal Promo Banners</h3>
+          <p class="lock-sub">Monthly promotional banner updates — holidays, specials, events — managed for you. Grow plan only.</p>
+          <a href="https://wa.me/17587235872?text=Hi!%20I'm%20interested%20in%20the%20Grow%20plan%20for%20promo%20banners." class="lock-btn" target="_blank">
+            <i class="bi bi-whatsapp"></i> Upgrade to Grow
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY (LOCKED) -->
+<section class="gallery-section section">
+  <div class="container">
+    <div class="text-center mb-3" data-aos="fade-up">
+      <span class="section-eyebrow">Gallery</span>
+      <h2 class="display section-title">A Feast for the Eyes</h2>
+      <div class="divider-amber" style="margin:auto"></div>
+    </div>
+    <div class="lock-wrapper" data-aos="fade-up" data-aos-delay="100">
+      <div class="lock-blur">
+        <div class="gallery-grid">
+          <div class="g-item" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=75');background-size:cover;background-position:center">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=75" alt="Soleil ambience" style="width:100%;height:100%;object-fit:cover;opacity:0">
+          </div>
+          <div class="g-item" style="background:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=75') center/cover;height:240px"></div>
+          <div class="g-item" style="background:url('https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&q=75') center/cover;height:240px"></div>
+          <div class="g-item" style="background:url('https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&q=75') center/cover;height:240px"></div>
+          <div class="g-item" style="background:url('https://images.unsplash.com/photo-1544025162-d76594e8f7e2?w=600&q=75') center/cover;height:240px"></div>
+        </div>
+      </div>
+      <div class="lock-overlay">
+        <div class="lock-box">
+          <div class="lock-icon"><i class="bi bi-images"></i></div>
+          <div class="lock-tier-badges">
+            <span class="ltb ltb-link">Link Plan</span>
+            <span class="ltb ltb-grow">Grow Plan</span>
+          </div>
+          <h3 class="lock-title">Photo Gallery</h3>
+          <p class="lock-sub">Showcase your food, your space, your vibe. A full photo gallery is included from the Link plan upward.</p>
+          <a href="https://wa.me/17587235872?text=Hi!%20I%20want%20to%20add%20a%20photo%20gallery%20to%20my%20restaurant%20website." class="lock-btn" target="_blank">
+            <i class="bi bi-whatsapp"></i> Unlock Gallery
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS (LOCKED) -->
+<section class="testimonials-section section">
+  <div class="container">
+    <div class="text-center mb-3" data-aos="fade-up">
+      <span class="section-eyebrow" style="color:var(--amber-glow)">Reviews</span>
+      <h2 class="display section-title" style="color:#fff">What Our Guests Say</h2>
+      <div class="divider-amber" style="margin:auto"></div>
+    </div>
+    <div class="lock-wrapper" data-aos="fade-up" data-aos-delay="100">
+      <div class="lock-blur">
+        <div class="testi-grid">
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"The mahi-mahi was the best fish I've had in the Caribbean. Full stop. We went back three nights in a row."</p>
+            <div class="testi-author">
+              <div class="ta-avatar">A</div>
+              <div>
+                <span class="ta-name">Amanda R.</span>
+                <span class="ta-loc">Toronto, Canada</span>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"Soleil is the soul of Rodney Bay. Chef Maricel came out to our table and explained every ingredient. Extraordinary."</p>
+            <div class="testi-author">
+              <div class="ta-avatar">D</div>
+              <div>
+                <span class="ta-name">David M.</span>
+                <span class="ta-loc">London, UK</span>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"We hosted our anniversary dinner here and the team made it so special. The passion fruit cheesecake alone is worth flying to Saint Lucia for."</p>
+            <div class="testi-author">
+              <div class="ta-avatar">S</div>
+              <div>
+                <span class="ta-name">Simone & Eric T.</span>
+                <span class="ta-loc">Miami, Florida</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lock-overlay">
+        <div class="lock-box">
+          <div class="lock-icon"><i class="bi bi-chat-quote-fill"></i></div>
+          <div class="lock-tier-badges">
+            <span class="ltb ltb-grow">Grow Plan</span>
+          </div>
+          <h3 class="lock-title">Testimonials Section</h3>
+          <p class="lock-sub">Let your best reviews do the selling. Curated testimonials section with star ratings, included in the Grow plan.</p>
+          <a href="https://wa.me/17587235872?text=Hi!%20I'm%20interested%20in%20the%20Grow%20plan%20for%20the%20testimonials%20section." class="lock-btn" target="_blank">
+            <i class="bi bi-whatsapp"></i> Upgrade to Grow
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ (LOCKED) -->
+<section class="faq-section section">
+  <div class="container" style="max-width:760px">
+    <div class="text-center mb-3" data-aos="fade-up">
+      <span class="section-eyebrow">FAQ</span>
+      <h2 class="display section-title">Common Questions</h2>
+      <div class="divider-amber" style="margin:auto"></div>
+    </div>
+    <div class="lock-wrapper" data-aos="fade-up" data-aos-delay="100">
+      <div class="lock-blur">
+        <div class="faq-item open">
+          <div class="faq-q">Do you take reservations? <i class="bi bi-chevron-down"></i></div>
+          <div class="faq-a">Yes — message us on WhatsApp to book a table. We recommend booking for Friday and Saturday evenings at least 2 days ahead.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Is there parking available? <i class="bi bi-chevron-down"></i></div>
+          <div class="faq-a">Yes, free parking is available at Rodney Bay Marina, directly outside the restaurant.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Do you cater for dietary requirements? <i class="bi bi-chevron-down"></i></div>
+          <div class="faq-a">We have vegetarian and vegan options, and can accommodate most allergies with advance notice. Let us know when you book.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Can I order for delivery or pickup? <i class="bi bi-chevron-down"></i></div>
+          <div class="faq-a">Pickup orders are welcome — just message us on WhatsApp at least 30 minutes ahead. We do not currently offer delivery.</div>
+        </div>
+      </div>
+      <div class="lock-overlay">
+        <div class="lock-box">
+          <div class="lock-icon"><i class="bi bi-patch-question-fill"></i></div>
+          <div class="lock-tier-badges">
+            <span class="ltb ltb-grow">Grow Plan</span>
+          </div>
+          <h3 class="lock-title">FAQ Accordion</h3>
+          <p class="lock-sub">Answer your most asked questions automatically — reducing messages and saving you time. Grow plan feature.</p>
+          <a href="https://wa.me/17587235872?text=Hi!%20I%20want%20the%20FAQ%20accordion%20on%20my%20restaurant%20website." class="lock-btn" target="_blank">
+            <i class="bi bi-whatsapp"></i> Upgrade to Grow
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container" data-aos="fade-up">
+    <h2 class="display">Your table is waiting.<br><em style="color:var(--amber-glow)">Come as you are.</em></h2>
+    <p>Reserve a table or order online — we're open daily. No dress code. Just good food and good company.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/17587235872?text=Hi%20Soleil!%20I'd%20like%20to%20make%20a%20reservation." class="btn-reserve" target="_blank">
+        <i class="bi bi-calendar2-check"></i> Reserve a Table
+      </a>
+      <a href="https://wa.me/17587235872?text=Hi!%20I'd%20like%20to%20order%20for%20pickup." class="btn-wa" target="_blank">
+        <i class="bi bi-whatsapp"></i> Order Pickup
+      </a>
+    </div>
+    <!-- AkraLink attribution -->
+    <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.06)">
+      <p style="color:rgba(255,255,255,.2);font-size:.72rem;margin-bottom:.6rem">This is a demo website built by</p>
+      <a href="https://jamalinks758.github.io/AkraLink/" class="footer-akra" style="margin:0 auto">
+        <i class="bi bi-lightning-charge-fill" style="color:var(--amber-glow)"></i>
+        Powered by <strong>AkraLink</strong> — get your restaurant online from $24.99/month
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <span class="footer-brand">Soleil</span>
+    <p>Caribbean Bistro & Bar · Rodney Bay, Saint Lucia</p>
+    <p>© 2026 Soleil. All rights reserved. · This is a demo site created by AkraLink.</p>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/17587235872?text=Hi%20Soleil!%20I'd%20like%20to%20get%20in%20touch." class="wa-float" target="_blank">
+  <div class="wa-float-pulse"></div>
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<!-- AOS + Bootstrap JS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({once:true,duration:700,easing:'ease-out-cubic'});
+
+// Navbar scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>60);
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.closest('.faq-item');
+    item.classList.toggle('open');
+  });
+});
+
+// Mobile nav close on link click
+document.querySelectorAll('.nav-link').forEach(l=>{
+  l.addEventListener('click',()=>{
+    const nl=document.querySelector('.nav-links');
+    if(window.innerWidth<=768) nl.style.display='none';
+  });
+});
+// Mobile nav close on outside click
+document.addEventListener('click',e=>{
+  const nl=document.querySelector('.nav-links');
+  const toggle=document.querySelector('.nav-mobile-toggle');
+  if(window.innerWidth<=768 && !nl.contains(e.target) && e.target!==toggle){
+    nl.style.display='none';
+  }
+});
+</script>
+</body>
+</html>
