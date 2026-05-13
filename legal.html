@@ -13,9 +13,9 @@
   DEPLOYMENT CHECKLIST:
   [ y] CONFIG values filled (business name, phone, URL, location, date)
   [ y] Feature flags set correctly (analytics, payments, whatsapp, etc.)
-  [ ] File saved as legal.html in client site root
-  [ ] "Do Not Sell" link added to index.html footer (US-facing sites)
-  [ ] Tested in light mode and dark mode
+  [ y] File saved as legal.html in client site root
+  [ y] "Do Not Sell" link added to index.html footer (US-facing sites)
+  [ y] Tested in light mode and dark mode
   [ ] All WhatsApp buttons open correctly with client number
 ═══════════════════════════════════════════════════════════════════════
 -->
@@ -1126,13 +1126,13 @@ if (logoImg) logoImg.alt = C.businessName + ' Logo';
 const CONFIG = {
 
   // ── Business Identity ──────────────────────────────────────────
-  businessName   : "jamaLinks",           // Client's trading name
+  businessName   : "AkraLink",           // Client's trading name
   businessPhone  : "17587235872",                 // WhatsApp number — digits only, no spaces
   businessEmail  : "jamalinks758@gmail.com",   // Business email — leave "" if none
   businessAddress: "Vieux Fort, Saint Lucia",       // Physical address or "Based in X, Y"
-  websiteURL     : "jamalinks758.github.io/jamalinks/",         // Domain — no https://
+  websiteURL     : "jamalinks758.github.io/AkraLink/",         // Domain — no https://
   location       : "Saint Lucia",                 // Island / Country (for governing law)
-  policyDate     : "April 2026",                // Month Year of this policy version
+  policyDate     : "May 2026",                // Month Year of this policy version
 
   // ── Business Hours (shown in contact section) ──────────────────
   businessHours  : "Monday – Saturday, 9 AM – 6 PM",
@@ -1148,14 +1148,14 @@ const CONFIG = {
 
   // ── Analytics ──────────────────────────────────────────────────
   usesGA4        : false,    // Google Analytics 4 installed?
-  usesPlausible  : true,   // Plausible Analytics installed?
+  usesPlausible  : false,   // Plausible Analytics installed?
   // NOTE: Set only one to true. If both false, analytics section hides.
 
   // ── Tracking & Advertising ────────────────────────────────────
   usesFbPixel    : false,   // Facebook / Meta Pixel installed?
 
   // ── Payments ──────────────────────────────────────────────────
-  usesPaypal     : true,    // PayPal payment button or checkout?
+  usesPaypal     : false,    // PayPal payment button or checkout?
   usesStripe     : false,   // Stripe (future use)
 
   // ── Communication ─────────────────────────────────────────────
