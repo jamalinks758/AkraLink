@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harbour Light Church — A Community of Faith · St. Lucia</title>
+<meta name="description" content="A warm, welcoming community of faith in Castries, St. Lucia. Sunday services at 8 AM and 10:30 AM. All are welcome. Send a prayer request via WhatsApp.">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+:root{
+  --navy:    #0D1F3C;
+  --navy-lt: #162d52;
+  --card-dk: #122444;
+  --gold:    #C9983A;
+  --gold-lt: #DBA94A;
+  --gold-dk: #A87C2A;
+  --warm:    #F5EFE0;
+  --warm-dk: #E8DCCA;
+  --white:   #FFFFFF;
+  --text:    #1A2640;
+  --muted:   #6B7A90;
+  --border-l:rgba(0,0,0,.07);
+  --border-d:rgba(255,255,255,.08);
+  --purple:  #4A3060;
+  --green:   #25D366;
+  --rad:     .7rem;
+  --rad-lg:  1.25rem;
+  --trans:   all .3s ease;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{overflow-x:hidden;scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--warm);color:var(--text);line-height:1.68}
+h1,h2,h3,h4,h5,h6{font-family:'Lora',serif;color:var(--text);line-height:1.1}
+section{padding:5.5rem 0}
+.bg-navy{background:var(--navy)}
+.bg-white{background:#fff}
+.bg-warm{background:var(--warm)}
+
+/* UTILITIES */
+.sec-label{display:inline-flex;align-items:center;gap:.5rem;font-family:'DM Sans',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.85rem}
+.sec-label.lbl-w{color:rgba(201,152,58,.85)}
+.sec-label.lbl-wh{color:rgba(255,255,255,.5)}
+.sec-label::before,.sec-label::after{content:'';display:block;width:20px;height:1px;background:currentColor;opacity:.45}
+.cross-div{display:flex;align-items:center;justify-content:center;gap:.75rem;margin:.85rem 0 1.4rem;color:var(--gold);font-size:.9rem}
+.cross-div::before,.cross-div::after{content:'';flex:1;max-width:55px;height:1px;background:var(--gold);opacity:.35}
+.gold-text{color:var(--gold)}
+.navy-text{color:var(--navy)}
+
+/* BUTTONS */
+.btn-wa{display:inline-flex;align-items:center;gap:.48rem;background:#25D366;color:#fff;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.87rem;padding:.78rem 1.65rem;border-radius:var(--rad);border:none;text-decoration:none;transition:var(--trans);cursor:pointer;white-space:nowrap}
+.btn-wa:hover{background:#1cb857;color:#fff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.32)}
+.btn-gold{display:inline-flex;align-items:center;gap:.48rem;background:var(--gold);color:#fff;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.87rem;padding:.78rem 1.65rem;border-radius:var(--rad);border:none;text-decoration:none;transition:var(--trans);cursor:pointer;white-space:nowrap}
+.btn-gold:hover{background:var(--gold-lt);color:#fff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,152,58,.32)}
+.btn-outline-w{display:inline-flex;align-items:center;gap:.48rem;background:transparent;color:#fff;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.87rem;padding:.78rem 1.65rem;border-radius:var(--rad);border:2px solid rgba(255,255,255,.24);text-decoration:none;transition:var(--trans);cursor:pointer;white-space:nowrap}
+.btn-outline-w:hover{background:rgba(255,255,255,.09);color:#fff;border-color:rgba(255,255,255,.5)}
+.btn-outline-g{display:inline-flex;align-items:center;gap:.48rem;background:transparent;color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.87rem;padding:.78rem 1.65rem;border-radius:var(--rad);border:2px solid var(--gold);text-decoration:none;transition:var(--trans);cursor:pointer;white-space:nowrap}
+.btn-outline-g:hover{background:var(--gold);color:#fff}
+.btn-navy{display:inline-flex;align-items:center;gap:.48rem;background:var(--navy);color:#fff;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.87rem;padding:.78rem 1.65rem;border-radius:var(--rad);border:none;text-decoration:none;transition:var(--trans);cursor:pointer;white-space:nowrap}
+.btn-navy:hover{background:var(--navy-lt);color:#fff;transform:translateY(-2px)}
+
+/* NAVBAR */
+#mainNav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.9rem 0;background:rgba(13,31,60,.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.07);transition:var(--trans)}
+#mainNav.scrolled{padding:.55rem 0;box-shadow:0 4px 32px rgba(0,0,0,.45)}
+.navbar-brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.brand-cross{width:36px;height:36px;border-radius:.5rem;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;color:#fff}
+.b-name{font-family:'Lora',serif;font-size:1.22rem;font-weight:700;color:#fff;display:block;line-height:1.1}
+.b-sub{font-size:.43rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.32);display:block;margin-top:.08rem}
+.nav-link{color:rgba(255,255,255,.62)!important;font-size:.83rem;font-weight:500;padding:.42rem .7rem!important;transition:var(--trans)}
+.nav-link:hover{color:#fff!important}
+.nav-cta{background:var(--gold)!important;color:#fff!important;border-radius:var(--rad)!important;padding:.42rem 1.1rem!important;font-weight:700!important;font-size:.81rem!important;display:flex!important;align-items:center!important;gap:.35rem!important}
+.nav-cta:hover{background:var(--gold-lt)!important;transform:translateY(-1px)}
+.navbar-toggler{border:1.5px solid rgba(255,255,255,.2);border-radius:.45rem;padding:.36rem .58rem}
+.navbar-toggler-icon{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")!important}
+
+/* HERO */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:8.5rem 0 5rem;position:relative;overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(13,31,60,.62) 0%,rgba(13,31,60,.78) 55%,rgba(13,31,60,.97) 100%),
+    url('https://images.unsplash.com/photo-1438032005730-c779502df39b?w=1600&q=85') center/cover no-repeat;
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(201,152,58,.16) 0%,transparent 60%)}
+/* light rays */
+.light-rays{position:absolute;top:0;left:50%;transform:translateX(-50%);width:120%;height:60%;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,rgba(201,152,58,.1) 0%,transparent 65%)}
+.hero-badge{display:inline-flex;align-items:center;gap:.45rem;background:rgba(201,152,58,.13);border:1px solid rgba(201,152,58,.28);color:var(--gold);font-size:.67rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .9rem;border-radius:2rem;margin-bottom:1.35rem}
+.hero-title{font-size:clamp(2.6rem,6vw,4.8rem);font-weight:700;color:#fff;line-height:1.04;margin-bottom:.65rem;letter-spacing:-.01em}
+.hero-title em{color:var(--gold);font-style:italic}
+.hero-verse{font-family:'Lora',serif;font-size:clamp(.9rem,1.8vw,1.15rem);color:rgba(245,239,224,.65);font-style:italic;margin-bottom:1.35rem;max-width:480px;line-height:1.65}
+.hero-verse span{display:block;font-size:.75rem;color:rgba(201,152,58,.7);font-style:normal;font-weight:600;margin-top:.35rem;letter-spacing:.06em}
+.hero-desc{font-size:.93rem;color:rgba(255,255,255,.55);max-width:430px;line-height:1.78;margin-bottom:2rem}
+/* service times panel */
+.times-panel{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+  border-radius:var(--rad-lg);padding:1.75rem 1.5rem;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+}
+.tp-title{font-family:'Lora',serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:1.1rem;display:flex;align-items:center;gap:.5rem}
+.tp-title i{color:var(--gold)}
+.service-row{display:flex;align-items:center;gap:.85rem;padding:.7rem 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.service-row:last-of-type{border-bottom:none}
+.sr-ico{width:38px;height:38px;border-radius:.55rem;background:rgba(201,152,58,.15);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.sr-day{font-size:.85rem;font-weight:600;color:#fff;display:block;line-height:1.2}
+.sr-time{font-size:.7rem;color:rgba(255,255,255,.45);display:block}
+.sr-name{font-size:.72rem;color:var(--gold);font-weight:600;margin-left:auto;text-align:right;flex-shrink:0}
+.tp-note{font-size:.62rem;color:rgba(255,255,255,.28);text-align:center;margin-top:.85rem}
+
+/* WELCOME STRIP */
+.welcome-strip{background:var(--gold);padding:1.1rem 0}
+.ws-item{display:flex;align-items:center;gap:.55rem;color:#fff;font-size:.82rem;font-weight:600}
+.ws-item i{font-size:1.05rem}
+.ws-sep{width:1px;background:rgba(255,255,255,.22);min-height:1.6rem;align-self:stretch}
+
+/* WELCOME / ABOUT */
+.welcome-section{background:#fff}
+.pastor-img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--rad-lg);display:block}
+.pastor-img-ph{width:100%;aspect-ratio:4/5;background:linear-gradient(160deg,var(--navy-lt),var(--navy));border-radius:var(--rad-lg);display:flex;align-items:center;justify-content:center;font-size:5rem}
+.pastor-badge{position:absolute;bottom:-1.1rem;right:-1.1rem;background:var(--navy);color:#fff;border-radius:var(--rad-lg);padding:1.1rem 1.3rem;box-shadow:0 12px 36px rgba(13,31,60,.35);text-align:center}
+.pb-num{font-family:'Lora',serif;font-size:2rem;font-weight:700;line-height:1;display:block;color:var(--gold)}
+.pb-lbl{font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.75}
+.welcome-text h2{font-size:clamp(1.9rem,4vw,2.7rem);margin-bottom:.65rem}
+.welcome-text p{font-size:.9rem;color:var(--muted);line-height:1.78;margin-bottom:.95rem}
+.pastor-sig{font-family:'Lora',serif;font-size:1.4rem;font-style:italic;color:var(--gold);margin-top:.85rem}
+.pastor-title{font-size:.75rem;color:var(--muted);margin-top:.15rem}
+
+/* SERVICE TIMES */
+.times-section{background:var(--warm)}
+.time-card{
+  background:#fff;border:1.5px solid var(--border-l);
+  border-radius:var(--rad-lg);padding:1.85rem 1.5rem;
+  height:100%;text-align:center;position:relative;overflow:hidden;
+  transition:var(--trans);
+}
+.time-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--gold);opacity:0;transition:var(--trans)}
+.time-card:hover{box-shadow:0 16px 48px rgba(0,0,0,.09);transform:translateY(-5px)}
+.time-card:hover::before{opacity:1}
+.time-card.featured{border-color:var(--gold);box-shadow:0 4px 20px rgba(201,152,58,.15)}
+.time-card.featured::before{opacity:1}
+.tc-ico{font-size:2rem;margin-bottom:.85rem;display:block}
+.tc-day{font-family:'Lora',serif;font-size:1.2rem;font-weight:700;color:var(--navy);margin-bottom:.25rem}
+.tc-time{font-size:1.5rem;font-weight:700;color:var(--gold);font-family:'Lora',serif;margin-bottom:.35rem}
+.tc-name{font-size:.78rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.09em;margin-bottom:.65rem}
+.tc-desc{font-size:.8rem;color:var(--muted);line-height:1.6;margin:0}
+.tc-badge{display:inline-block;background:var(--gold);color:#fff;font-size:.58rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:.18rem .55rem;border-radius:2rem;margin-bottom:.65rem}
+
+/* MINISTRIES */
+.ministries-section{background:#fff}
+.min-card{
+  background:var(--warm);border:1.5px solid var(--border-l);
+  border-radius:var(--rad-lg);padding:1.65rem;
+  height:100%;transition:var(--trans);
+}
+.min-card:hover{box-shadow:0 12px 36px rgba(0,0,0,.08);transform:translateY(-4px);border-color:var(--gold)}
+.min-ico{width:54px;height:54px;border-radius:.85rem;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1rem}
+.mi-gold{background:rgba(201,152,58,.12);color:var(--gold-dk)}
+.mi-navy{background:rgba(13,31,60,.08);color:var(--navy)}
+.mi-purple{background:rgba(74,48,96,.1);color:var(--purple)}
+.mi-green{background:rgba(37,211,102,.08);color:#16a34a}
+.min-card h5{font-family:'Lora',serif;font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:.38rem}
+.min-card p{font-size:.82rem;color:var(--muted);line-height:1.65;margin-bottom:.85rem}
+.min-contact{display:inline-flex;align-items:center;gap:.32rem;color:var(--gold);font-size:.78rem;font-weight:600;text-decoration:none;transition:var(--trans)}
+.min-contact:hover{color:var(--gold-lt);gap:.5rem}
+
+/* GIVE */
+.give-section{
+  background:
+    linear-gradient(135deg,rgba(13,31,60,.94) 0%,rgba(13,31,60,.98) 100%),
+    url('https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=1200&q=80') center/cover no-repeat;
+  padding:5.5rem 0;position:relative;overflow:hidden;
+}
+.give-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(201,152,58,.12) 0%,transparent 60%)}
+.give-section .container{position:relative;z-index:2}
+.give-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--rad-lg);padding:2rem;height:100%}
+.give-card h4{font-family:'Lora',serif;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:.5rem}
+.give-card p{font-size:.83rem;color:rgba(255,255,255,.52);line-height:1.68;margin-bottom:1.25rem}
+.give-method{display:flex;align-items:flex-start;gap:.7rem;padding:.7rem;background:rgba(255,255,255,.05);border-radius:.65rem;margin-bottom:.6rem;border:1px solid rgba(255,255,255,.07)}
+.gm-ico{width:36px;height:36px;border-radius:.5rem;background:rgba(201,152,58,.15);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.gm-name{font-size:.82rem;font-weight:600;color:#fff;display:block;margin-bottom:.08rem}
+.gm-desc{font-size:.7rem;color:rgba(255,255,255,.4);line-height:1.4}
+
+/* CONTACT */
+.contact-section{background:var(--warm)}
+.contact-card{background:#fff;border:1.5px solid var(--border-l);border-radius:var(--rad-lg);padding:1.85rem;height:100%;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.contact-card h4{font-family:'Lora',serif;font-size:1.3rem;font-weight:700;color:var(--text);margin-bottom:1.1rem}
+.cc-row{display:flex;gap:.75rem;margin-bottom:.95rem;align-items:flex-start;font-size:.84rem}
+.cc-row i{color:var(--gold);font-size:1.05rem;margin-top:.18rem;flex-shrink:0}
+.cc-row span{color:var(--text);line-height:1.55}
+.cc-row strong{color:var(--navy);display:block}
+.serv-row{display:flex;justify-content:space-between;align-items:center;padding:.52rem 0;border-bottom:1px solid var(--border-l);font-size:.82rem}
+.serv-row:last-child{border-bottom:none}
+.sr-day-lbl{color:var(--text)}
+.sr-time-lbl{color:var(--gold);font-weight:600}
+
+/* PRAYER REQUEST — highlighted CTA box */
+.prayer-box{
+  background:var(--navy);border-radius:var(--rad-lg);
+  padding:2.5rem 2rem;text-align:center;
+  position:relative;overflow:hidden;
+}
+.prayer-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(201,152,58,.15) 0%,transparent 65%)}
+.prayer-box .container{position:relative;z-index:2}
+.prayer-box h3{font-family:'Lora',serif;font-size:1.65rem;font-weight:700;color:#fff;margin-bottom:.5rem}
+.prayer-box p{font-size:.88rem;color:rgba(255,255,255,.52);line-height:1.7;margin-bottom:1.5rem;max-width:380px;margin-left:auto;margin-right:auto}
+
+/* LOCKED */
+.locked-section{position:relative;overflow:hidden}
+.locked-content{filter:blur(5px);pointer-events:none;user-select:none;opacity:.5}
+.lock-overlay{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(13,31,60,.8);backdrop-filter:blur(2px);text-align:center;padding:2rem}
+.lock-icon{width:64px;height:64px;border-radius:50%;background:rgba(201,152,58,.12);border:2px solid rgba(201,152,58,.28);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--gold);margin:0 auto 1.1rem}
+.lock-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(201,152,58,.1);border:1px solid rgba(201,152,58,.22);color:var(--gold);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .72rem;border-radius:2rem;margin-bottom:.85rem}
+.lock-title{font-family:'Lora',serif;font-size:1.65rem;font-weight:700;color:#fff;margin-bottom:.42rem}
+.lock-sub{font-size:.8rem;color:rgba(255,255,255,.48);margin-bottom:1.35rem;max-width:275px;line-height:1.65}
+
+/* EVENTS CALENDAR (locked) */
+.events-section{background:var(--warm);padding:5.5rem 0}
+.event-card{background:#fff;border:1.5px solid var(--border-l);border-radius:var(--rad);padding:1.1rem;display:flex;gap:1rem;align-items:flex-start;margin-bottom:.75rem;transition:var(--trans)}
+.event-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.07);border-color:var(--gold)}
+.event-date-box{min-width:52px;text-align:center;background:var(--navy);border-radius:.55rem;padding:.55rem .5rem;flex-shrink:0}
+.edb-day{font-family:'Lora',serif;font-size:1.4rem;font-weight:700;color:var(--gold);line-height:1;display:block}
+.edb-mon{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.55);display:block}
+.event-name{font-family:'Lora',serif;font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.18rem}
+.event-meta{font-size:.74rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:.65rem}
+.event-meta i{color:var(--gold);font-size:.8rem}
+
+/* TESTIMONIES (locked) */
+.testi-section-ch{background:#fff;padding:5.5rem 0}
+.ch-card{background:var(--warm);border:1.5px solid rgba(201,152,58,.12);border-radius:var(--rad-lg);padding:1.85rem;position:relative}
+.chq{font-size:2.8rem;line-height:1;color:var(--gold);opacity:.22;position:absolute;top:.7rem;left:1.2rem;font-family:Georgia,serif}
+.ch-stars{color:var(--gold);font-size:.75rem;margin-bottom:.65rem;padding-top:.85rem}
+.ch-text{font-size:.85rem;color:var(--muted);line-height:1.73;margin-bottom:1rem;font-style:italic}
+.ch-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--gold));color:#fff;font-weight:700;font-size:.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ch-name{font-weight:600;font-size:.83rem;color:var(--navy)}
+.ch-loc{font-size:.67rem;color:var(--muted)}
+
+/* CTA */
+.cta-section{
+  background:
+    linear-gradient(135deg,rgba(13,31,60,.95) 0%,rgba(13,31,60,.92) 100%),
+    url('https://images.unsplash.com/photo-1438032005730-c779502df39b?w=1200&q=80') center/cover no-repeat;
+  padding:6rem 0;position:relative;text-align:center;overflow:hidden;
+}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,152,58,.12) 0%,transparent 60%)}
+.cta-section .container{position:relative;z-index:2}
+
+/* FOOTER */
+footer{background:#080E1C;padding:3.5rem 0 1.5rem;border-top:1px solid rgba(255,255,255,.06)}
+.f-name{font-family:'Lora',serif;font-size:1.3rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:.55rem}
+.f-name span{color:var(--gold)}
+.f-about{font-size:.79rem;color:rgba(255,255,255,.38);line-height:1.72;max-width:275px;margin-top:.5rem}
+.f-head{font-size:.67rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:.85rem}
+.f-lnk{display:block;font-size:.79rem;color:rgba(255,255,255,.38);text-decoration:none;margin-bottom:.42rem;transition:var(--trans)}
+.f-lnk:hover{color:var(--gold)}
+.f-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:1.25rem;margin-top:2.25rem;font-size:.7rem;color:rgba(255,255,255,.2);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem;align-items:center}
+.soc-btn{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.42);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.85rem;transition:var(--trans)}
+.soc-btn:hover{transform:translateY(-2px)}
+.soc-btn.wa:hover{background:#25D366;border-color:#25D366;color:#fff}
+.soc-btn.ig:hover{background:#E1306C;border-color:#E1306C;color:#fff}
+.soc-btn.fb:hover{background:#1877F2;border-color:#1877F2;color:#fff}
+.soc-btn.yt:hover{background:#FF0000;border-color:#FF0000;color:#fff}
+
+.wa-float{position:fixed!important;bottom:1.5rem!important;right:1.5rem!important;width:56px!important;height:56px!important;background:#25D366!important;color:#fff!important;border-radius:50%!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:1.6rem!important;box-shadow:0 4px 20px rgba(37,211,102,.45)!important;text-decoration:none!important;z-index:9999!important;transition:var(--trans)!important}
+.wa-float:hover{transform:scale(1.1)!important;box-shadow:0 6px 28px rgba(37,211,102,.6)!important}
+
+.akra-banner{background:rgba(13,31,60,.06);border-top:1px solid rgba(13,31,60,.12);padding:.65rem 0;text-align:center;font-size:.7rem;color:rgba(13,31,60,.45)}
+.akra-banner a{color:var(--gold-dk);text-decoration:none;font-weight:600}
+.akra-banner a:hover{color:var(--gold)}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+.from-right{transform:translateX(18px)}.from-right.visible{transform:none}
+.from-left{transform:translateX(-18px)}.from-left.visible{transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+@media(max-width:767px){
+  .pastor-badge{bottom:-.75rem;right:-.5rem;padding:.9rem 1rem}
+  .pb-num{font-size:1.7rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <div class="brand-cross">✝</div>
+      <div>
+        <span class="b-name">Harbour Light Church</span>
+        <span class="b-sub">A Community of Faith · St. Lucia</span>
+      </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-lg-center gap-lg-1 mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#welcome">Welcome</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#ministries">Ministries</a></li>
+        <li class="nav-item"><a class="nav-link" href="#give">Give</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Visit Us</a></li>
+        <li class="nav-item ms-lg-2">
+          <a class="nav-link nav-cta" href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20send%20a%20prayer%20request%20to%20Harbour%20Light%20Church">
+            <i class="bi bi-whatsapp"></i> Prayer Request
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ══════════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="light-rays"></div>
+  <div class="container position-relative" style="z-index:2">
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-6">
+        <div class="hero-badge reveal"><i class="bi bi-brightness-high-fill"></i> Castries, Saint Lucia · Est. 1998</div>
+        <h1 class="hero-title reveal d1">You are<br><em>welcome</em> here.</h1>
+        <p class="hero-verse reveal d2">
+          "For I know the plans I have for you — plans to prosper you and not to harm you, plans to give you hope and a future."
+          <span>Jeremiah 29:11</span>
+        </p>
+        <p class="hero-desc reveal d2">Harbour Light Church is a warm, multi-generational community of faith in the heart of Castries. Come as you are. Find your place. Experience the love of God.</p>
+        <div class="d-flex flex-wrap gap-3 reveal d3">
+          <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20visit%20Harbour%20Light%20Church" class="btn-wa"><i class="bi bi-whatsapp"></i> Plan My Visit</a>
+          <a href="#services" class="btn-outline-w"><i class="bi bi-clock"></i> Service Times</a>
+        </div>
+      </div>
+
+      <div class="col-lg-6 reveal from-right d2">
+        <div class="times-panel">
+          <div class="tp-title"><i class="bi bi-calendar-heart-fill"></i> Weekly Services</div>
+
+          <div class="service-row">
+            <div class="sr-ico"><i class="bi bi-sunrise-fill"></i></div>
+            <div><span class="sr-day">Sunday — Early Service</span><span class="sr-time">8:00 AM · Main Sanctuary</span></div>
+            <span class="sr-name">All Welcome</span>
+          </div>
+          <div class="service-row">
+            <div class="sr-ico"><i class="bi bi-sun-fill"></i></div>
+            <div><span class="sr-day">Sunday — Main Service</span><span class="sr-time">10:30 AM · Main Sanctuary</span></div>
+            <span class="sr-name">+ Children's Church</span>
+          </div>
+          <div class="service-row">
+            <div class="sr-ico"><i class="bi bi-moon-stars-fill"></i></div>
+            <div><span class="sr-day">Wednesday — Midweek</span><span class="sr-time">6:30 PM · Fellowship Hall</span></div>
+            <span class="sr-name">Bible Study</span>
+          </div>
+          <div class="service-row">
+            <div class="sr-ico"><i class="bi bi-people-fill"></i></div>
+            <div><span class="sr-day">Friday — Youth Night</span><span class="sr-time">7:00 PM · Youth Centre</span></div>
+            <span class="sr-name">Ages 13–25</span>
+          </div>
+
+          <div style="margin-top:1.1rem">
+            <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20visiting%20Harbour%20Light%20Church" class="btn-wa w-100 justify-content-center"><i class="bi bi-whatsapp"></i> Plan Your Visit</a>
+          </div>
+          <div class="tp-note">Parking available on-site · Children welcome at all services · Live worship every Sunday</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WELCOME STRIP ════════════════════════════════════ -->
+<div class="welcome-strip">
+  <div class="container">
+    <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 gap-md-5">
+      <div class="ws-item"><i class="bi bi-heart-fill"></i> All Are Welcome</div>
+      <div class="ws-sep d-none d-md-block"></div>
+      <div class="ws-item"><i class="bi bi-music-note-beamed"></i> Live Worship Every Sunday</div>
+      <div class="ws-sep d-none d-md-block"></div>
+      <div class="ws-item"><i class="bi bi-people-fill"></i> Children's Church Available</div>
+      <div class="ws-sep d-none d-md-block"></div>
+      <div class="ws-item"><i class="bi bi-whatsapp"></i> Prayer Requests via WhatsApp</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ WELCOME / PASTOR ══════════════════════════════════ -->
+<section class="welcome-section" id="welcome">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+
+      <div class="col-lg-5" data-aos="fade-right">
+        <div class="position-relative">
+          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="Pastor at Harbour Light Church" class="pastor-img">
+          <div class="pastor-badge">
+            <span class="pb-num">25+</span>
+            <span class="pb-lbl">Years of<br>Community</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-7 welcome-text" data-aos="fade-left" data-aos-delay="150">
+        <div class="sec-label">A Message from Our Pastor</div>
+        <h2>A church where every<br>person <em>belongs.</em></h2>
+        <div class="cross-div"><i class="bi bi-plus-lg"></i></div>
+        <p>Harbour Light Church was founded on a simple belief — that everyone, regardless of where they've been or where they are, deserves to experience the transforming love of Jesus Christ. For over 25 years, we have been that harbour for families, young people, and individuals across St. Lucia.</p>
+        <p>Whether you're taking your very first step toward faith, or you're looking for a community to grow deeper with God — there is a place for you here. Come on Sunday. We'll be expecting you.</p>
+        <div class="row g-3 mt-1 mb-3">
+          <div class="col-6">
+            <div style="font-family:'Lora',serif;font-size:1.8rem;font-weight:700;color:var(--gold);line-height:1">500+</div>
+            <div style="font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.09em">Congregation Members</div>
+          </div>
+          <div class="col-6">
+            <div style="font-family:'Lora',serif;font-size:1.8rem;font-weight:700;color:var(--gold);line-height:1">6</div>
+            <div style="font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.09em">Active Ministries</div>
+          </div>
+        </div>
+        <div class="pastor-sig">— Pastor David Emmanuel</div>
+        <div class="pastor-title">Senior Pastor · Harbour Light Church</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICE TIMES ════════════════════════════════════ -->
+<section class="times-section" id="services">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="sec-label">Join Us</div>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem)">Service Times</h2>
+      <div class="cross-div"><i class="bi bi-plus-lg"></i></div>
+      <p style="font-size:.88rem;color:var(--muted);max-width:420px;margin:.5rem auto 0">We gather every week to worship, learn, and grow together. All services are held at our Castries campus unless stated otherwise.</p>
+    </div>
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="time-card">
+          <span class="tc-ico">🌅</span>
+          <div class="tc-day">Sunday</div>
+          <div class="tc-time">8:00 AM</div>
+          <div class="tc-name">Early Morning Service</div>
+          <p class="tc-desc">A quieter, more intimate service. Perfect for those who prefer a peaceful start to Sunday worship.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="time-card featured">
+          <span class="tc-badge">Main Service</span>
+          <span class="tc-ico">☀️</span>
+          <div class="tc-day">Sunday</div>
+          <div class="tc-time">10:30 AM</div>
+          <div class="tc-name">Main Sunday Celebration</div>
+          <p class="tc-desc">Full live worship, children's church running simultaneously, and the weekly sermon. The heart of our Sunday.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="time-card">
+          <span class="tc-ico">📖</span>
+          <div class="tc-day">Wednesday</div>
+          <div class="tc-time">6:30 PM</div>
+          <div class="tc-name">Midweek Bible Study</div>
+          <p class="tc-desc">An in-depth look at scripture in a relaxed, conversational setting. Open to all members and visitors.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+        <div class="time-card">
+          <span class="tc-ico">🙏</span>
+          <div class="tc-day">Friday</div>
+          <div class="tc-time">7:00 PM</div>
+          <div class="tc-name">Youth Night</div>
+          <p class="tc-desc">A vibrant evening for young people aged 13–25. Worship, games, community, and a relevant word for young lives.</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="text-center mt-5" data-aos="fade-up">
+      <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20visit%20Harbour%20Light%20Church%20this%20Sunday" class="btn-gold"><i class="bi bi-whatsapp"></i> Let Us Know You're Coming</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MINISTRIES ════════════════════════════════════════ -->
+<section class="ministries-section" id="ministries">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="sec-label">Get Involved</div>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem)">Our Ministries</h2>
+      <div class="cross-div"><i class="bi bi-plus-lg"></i></div>
+      <p style="font-size:.88rem;color:var(--muted);max-width:420px;margin:.5rem auto 0">There is a place for everyone at Harbour Light. Find the ministry where you belong and where you can serve.</p>
+    </div>
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="min-card">
+          <div class="min-ico mi-gold"><i class="bi bi-music-note-beamed"></i></div>
+          <h5>Worship &amp; Music Ministry</h5>
+          <p>Vocalists, musicians, and sound technicians who lead the church in praise every Sunday. Auditions open throughout the year.</p>
+          <a href="https://wa.me/17581234567?text=I%27m%20interested%20in%20the%20Worship%20Ministry%20at%20Harbour%20Light" class="min-contact"><i class="bi bi-whatsapp"></i> Learn More <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="min-card">
+          <div class="min-ico mi-navy"><i class="bi bi-emoji-smile-fill"></i></div>
+          <h5>Children's Ministry</h5>
+          <p>A safe, fun, and faith-filled environment for children from ages 3–12 during every Sunday 10:30 AM service. Trained volunteers every week.</p>
+          <a href="https://wa.me/17581234567?text=I%27m%20interested%20in%20the%20Children%27s%20Ministry%20at%20Harbour%20Light" class="min-contact"><i class="bi bi-whatsapp"></i> Learn More <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="min-card">
+          <div class="min-ico mi-purple"><i class="bi bi-lightning-fill"></i></div>
+          <h5>Youth Ministry</h5>
+          <p>An energetic community for teens and young adults aged 13–25. Friday night youth services, outings, leadership development, and mentorship.</p>
+          <a href="https://wa.me/17581234567?text=I%27m%20interested%20in%20Youth%20Ministry%20at%20Harbour%20Light" class="min-contact"><i class="bi bi-whatsapp"></i> Learn More <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="min-card">
+          <div class="min-ico mi-gold"><i class="bi bi-people-fill"></i></div>
+          <h5>Men's &amp; Women's Fellowship</h5>
+          <p>Dedicated spaces for men and women to gather, share life, study the Word, and encourage one another throughout the month.</p>
+          <a href="https://wa.me/17581234567?text=I%27m%20interested%20in%20the%20Men%27s%20or%20Women%27s%20Fellowship%20at%20Harbour%20Light" class="min-contact"><i class="bi bi-whatsapp"></i> Learn More <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="min-card">
+          <div class="min-ico mi-green"><i class="bi bi-hand-index-fill"></i></div>
+          <h5>Community Outreach</h5>
+          <p>Feeding programmes, hospital visits, school partnerships, and community service projects — the hands and feet of the church in St. Lucia.</p>
+          <a href="https://wa.me/17581234567?text=I%27m%20interested%20in%20Outreach%20at%20Harbour%20Light" class="min-contact"><i class="bi bi-whatsapp"></i> Learn More <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="min-card">
+          <div class="min-ico mi-navy"><i class="bi bi-camera-video-fill"></i></div>
+          <h5>Media &amp; Technology</h5>
+          <p>Video production, live streaming, photography, and social media — helping the church reach St. Lucia and the wider Caribbean online.</p>
+          <a href="https://wa.me/17581234567?text=I%27m%20interested%20in%20the%20Media%20Ministry%20at%20Harbour%20Light" class="min-contact"><i class="bi bi-whatsapp"></i> Learn More <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GIVE ═══════════════════════════════════════════════ -->
+<section class="give-section" id="give">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="sec-label lbl-w">Support the Ministry</div>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem);color:#fff">Give &amp; Support</h2>
+      <div class="cross-div" style="color:rgba(201,152,58,.6)"><i class="bi bi-plus-lg"></i></div>
+      <p style="font-size:.88rem;color:rgba(255,255,255,.48);max-width:460px;margin:.5rem auto 0">"Each of you should give what you have decided in your heart to give — not reluctantly or under compulsion, for God loves a cheerful giver." — 2 Corinthians 9:7</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="give-card">
+          <h4>Online Giving</h4>
+          <p>Give securely and conveniently online. Your offering supports church operations, outreach programmes, and ministry throughout St. Lucia.</p>
+          <div class="give-method">
+            <div class="gm-ico"><i class="bi bi-paypal"></i></div>
+            <div><span class="gm-name">PayPal</span><span class="gm-desc">Give securely via PayPal — one-time or recurring</span></div>
+          </div>
+          <div class="give-method">
+            <div class="gm-ico"><i class="bi bi-phone-fill"></i></div>
+            <div><span class="gm-name">Bank Transfer</span><span class="gm-desc">Contact us via WhatsApp for bank details</span></div>
+          </div>
+          <a href="https://wa.me/17581234567?text=I%27d%20like%20to%20give%20online%20to%20Harbour%20Light%20Church" class="btn-gold mt-3 w-100 justify-content-center"><i class="bi bi-whatsapp"></i> Get Giving Details</a>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="give-card">
+          <h4>In-Person Offering</h4>
+          <p>Tithes and offerings are received during every Sunday service. Envelopes are available at the entrance and giving boxes are at the front of the sanctuary.</p>
+          <div class="give-method">
+            <div class="gm-ico"><i class="bi bi-envelope-fill"></i></div>
+            <div><span class="gm-name">Tithe Envelopes</span><span class="gm-desc">Available at all Sunday services</span></div>
+          </div>
+          <div class="give-method">
+            <div class="gm-ico"><i class="bi bi-cash-coin"></i></div>
+            <div><span class="gm-name">Giving Boxes</span><span class="gm-desc">Located at the front of the sanctuary</span></div>
+          </div>
+          <a href="https://wa.me/17581234567?text=I%27d%20like%20to%20know%20more%20about%20tithing%20at%20Harbour%20Light%20Church" class="btn-outline-w mt-3 w-100 justify-content-center" style="border-color:rgba(255,255,255,.22)"><i class="bi bi-question-circle"></i> Questions About Giving</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT & LOCATION ════════════════════════════════ -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="sec-label">Find Us</div>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem)">Visit Harbour Light</h2>
+      <div class="cross-div"><i class="bi bi-plus-lg"></i></div>
+      <p style="font-size:.88rem;color:var(--muted);max-width:420px;margin:.5rem auto 0">We meet every week. We'd love to meet you.</p>
+    </div>
+    <div class="row g-4">
+
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="contact-card">
+          <h4><i class="bi bi-geo-alt-fill me-2" style="color:var(--gold)"></i>Address &amp; Contact</h4>
+          <div class="cc-row"><i class="bi bi-pin-map-fill"></i><span><strong>Location</strong>12 Chaussee Road, Castries, Saint Lucia<br><small style="opacity:.6">Beside the Castries Public Library</small></span></div>
+          <div class="cc-row"><i class="bi bi-whatsapp"></i><span><strong>WhatsApp</strong>+1 (758) 123-4567 — prayer requests, visitor enquiries, ministry info</span></div>
+          <div class="cc-row"><i class="bi bi-telephone-fill"></i><span><strong>Church Office</strong>+1 (758) 123-4567 · Mon–Fri, 9 AM – 4 PM</span></div>
+          <div class="cc-row"><i class="bi bi-envelope-fill"></i><span><strong>Email</strong>info@harbourlightchurch.lc</span></div>
+          <div class="cc-row"><i class="bi bi-car-front-fill"></i><span><strong>Parking</strong>Free parking available on-site and on Chaussee Road</span></div>
+          <div style="margin-top:1.25rem">
+            <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20send%20a%20prayer%20request%20to%20Harbour%20Light%20Church" class="btn-wa w-100 justify-content-center"><i class="bi bi-whatsapp"></i> Send a Prayer Request</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="contact-card">
+          <h4><i class="bi bi-clock-fill me-2" style="color:var(--gold)"></i>Weekly Schedule</h4>
+          <div class="serv-row"><span class="sr-day-lbl">Sunday — Early Service</span><span class="sr-time-lbl">8:00 AM</span></div>
+          <div class="serv-row"><span class="sr-day-lbl">Sunday — Main Service</span><span class="sr-time-lbl">10:30 AM</span></div>
+          <div class="serv-row"><span class="sr-day-lbl">Wednesday — Bible Study</span><span class="sr-time-lbl">6:30 PM</span></div>
+          <div class="serv-row"><span class="sr-day-lbl">Friday — Youth Night</span><span class="sr-time-lbl">7:00 PM</span></div>
+          <div style="margin-top:1rem;padding:.85rem;background:rgba(201,152,58,.07);border:1px solid rgba(201,152,58,.15);border-radius:var(--rad);font-size:.8rem;color:var(--text)">
+            <i class="bi bi-info-circle-fill me-2" style="color:var(--gold)"></i>First time visiting? <strong>Message us on WhatsApp</strong> before Sunday and we'll have someone ready to welcome you at the door.
+          </div>
+          <div style="margin-top:1rem">
+            <a href="https://wa.me/17581234567?text=Hi%2C%20I%27m%20visiting%20Harbour%20Light%20Church%20for%20the%20first%20time%20this%20Sunday" class="btn-navy w-100 justify-content-center"><i class="bi bi-whatsapp"></i> I'm Visiting This Sunday</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRAYER REQUEST HIGHLIGHT ══════════════════════════ -->
+<div style="background:var(--navy);padding:4rem 0;position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(201,152,58,.15) 0%,transparent 65%)"></div>
+  <div class="container text-center position-relative" style="z-index:2" data-aos="fade-up">
+    <div style="font-size:2.5rem;margin-bottom:.85rem">🙏</div>
+    <h3 style="font-family:'Lora',serif;font-size:clamp(1.6rem,4vw,2.4rem);color:#fff;margin-bottom:.55rem">Do you need prayer?</h3>
+    <p style="font-size:.9rem;color:rgba(255,255,255,.5);max-width:400px;margin:.5rem auto 1.75rem;line-height:1.75">You don't have to wait until Sunday. Send us your prayer request on WhatsApp — confidential, compassionate, and answered with prayer.</p>
+    <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20submit%20a%20confidential%20prayer%20request%20to%20Harbour%20Light%20Church" class="btn-gold" style="font-size:.95rem;padding:.85rem 2rem"><i class="bi bi-whatsapp"></i> Send a Prayer Request</a>
+    <p style="font-size:.7rem;color:rgba(255,255,255,.22);margin-top:1.1rem">All prayer requests are handled with full confidentiality by our pastoral team.</p>
+  </div>
+</div>
+
+<!-- ═══ EVENTS CALENDAR — LOCKED (Grow Feature) ══════════ -->
+<section class="events-section locked-section" id="events">
+  <div class="locked-content">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="sec-label">Upcoming Events</div>
+        <h2 style="font-size:clamp(2rem,4vw,2.8rem)">What's On at Harbour Light</h2>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="event-card">
+            <div class="event-date-box"><span class="edb-day">18</span><span class="edb-mon">Jan</span></div>
+            <div><div class="event-name">Annual Church Family Day</div><div class="event-meta"><span><i class="bi bi-clock"></i> 10:00 AM</span><span><i class="bi bi-geo-alt"></i> Church Grounds</span><span><i class="bi bi-people"></i> All Welcome</span></div></div>
+          </div>
+          <div class="event-card">
+            <div class="event-date-box"><span class="edb-day">25</span><span class="edb-mon">Jan</span></div>
+            <div><div class="event-name">Youth Leadership Conference</div><div class="event-meta"><span><i class="bi bi-clock"></i> 9:00 AM – 4:00 PM</span><span><i class="bi bi-geo-alt"></i> Fellowship Hall</span><span><i class="bi bi-person-badge"></i> Ages 16–30</span></div></div>
+          </div>
+          <div class="event-card">
+            <div class="event-date-box"><span class="edb-day">2</span><span class="edb-mon">Feb</span></div>
+            <div><div class="event-name">Women's Prayer Breakfast</div><div class="event-meta"><span><i class="bi bi-clock"></i> 7:30 AM</span><span><i class="bi bi-geo-alt"></i> Main Sanctuary</span><span><i class="bi bi-people"></i> Women Only</span></div></div>
+          </div>
+          <div class="event-card">
+            <div class="event-date-box"><span class="edb-day">14</span><span class="edb-mon">Feb</span></div>
+            <div><div class="event-name">Couples' Valentine Banquet</div><div class="event-meta"><span><i class="bi bi-clock"></i> 6:30 PM</span><span><i class="bi bi-geo-alt"></i> Fellowship Hall</span><span><i class="bi bi-ticket"></i> Tickets Required</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="lock-overlay">
+    <div class="lock-icon"><i class="bi bi-calendar-event-fill"></i></div>
+    <div class="lock-badge"><i class="bi bi-stars"></i> Link &amp; Grow Plan Feature</div>
+    <div class="lock-title">Events Calendar</div>
+    <p class="lock-sub">A full upcoming events section so your congregation always knows what's happening — updated monthly by AkraLink.</p>
+    <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20upgrade%20to%20unlock%20the%20events%20calendar%20feature" class="btn-wa"><i class="bi bi-whatsapp"></i> Unlock This Feature</a>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIES — LOCKED (Grow Feature) ════════════ -->
+<section class="testi-section-ch locked-section" id="testimonies">
+  <div class="locked-content">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="sec-label">Testimonies</div>
+        <h2 style="font-size:clamp(2rem,4vw,2.8rem)">Lives Changed by Faith</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="ch-card">
+            <div class="chq">"</div>
+            <div class="ch-text">I walked into Harbour Light for the first time not knowing what to expect. Two years later, this church is my family. My life has completely changed — my marriage, my purpose, my peace.</div>
+            <div class="d-flex align-items-center gap-3"><div class="ch-av">C</div><div><div class="ch-name">Claudia F.</div><div class="ch-loc">Member since 2022 · Castries</div></div></div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="ch-card">
+            <div class="chq">"</div>
+            <div class="ch-text">The youth ministry saved my son. He was going the wrong way and within three months of attending Friday nights, he was a different young man. Pastor David and the team never gave up on him.</div>
+            <div class="d-flex align-items-center gap-3"><div class="ch-av">M</div><div><div class="ch-name">Marcus J.</div><div class="ch-loc">Parent · Gros Islet</div></div></div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="ch-card">
+            <div class="chq">"</div>
+            <div class="ch-text">I sent a prayer request on WhatsApp during one of the darkest moments of my life. Within the hour, Pastor David called me personally. That kind of love is rare. I never looked back.</div>
+            <div class="d-flex align-items-center gap-3"><div class="ch-av">A</div><div><div class="ch-name">Angela T.</div><div class="ch-loc">Member since 2020 · Rodney Bay</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="lock-overlay">
+    <div class="lock-icon"><i class="bi bi-chat-heart-fill"></i></div>
+    <div class="lock-badge"><i class="bi bi-stars"></i> Grow Plan Feature</div>
+    <div class="lock-title">Member Testimonies</div>
+    <p class="lock-sub">Real stories of lives changed — the most powerful invitation a church can extend to someone searching for community.</p>
+    <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20upgrade%20to%20unlock%20the%20testimonies%20feature" class="btn-wa"><i class="bi bi-whatsapp"></i> Unlock This Feature</a>
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA ══════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="container">
+    <div data-aos="fade-up">
+      <div class="sec-label lbl-wh" style="justify-content:center">The door is open</div>
+      <h2 style="font-size:clamp(2.2rem,5vw,3.8rem);color:#fff;margin-bottom:.65rem">Come home this Sunday.</h2>
+      <div class="cross-div" style="color:rgba(201,152,58,.5)"><i class="bi bi-plus-lg"></i></div>
+      <p style="font-size:.93rem;color:rgba(255,255,255,.5);max-width:420px;margin:.5rem auto 2rem;line-height:1.78">Whether you're new to faith, returning after time away, or simply looking for a community — Harbour Light Church is where you belong.</p>
+      <div class="d-flex flex-wrap gap-3 justify-content-center">
+        <a href="https://wa.me/17581234567?text=Hi%2C%20I%27m%20planning%20to%20visit%20Harbour%20Light%20Church%20this%20Sunday" class="btn-wa" style="font-size:.95rem;padding:.85rem 2rem"><i class="bi bi-whatsapp"></i> I'm Coming This Sunday</a>
+        <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20send%20a%20prayer%20request%20to%20Harbour%20Light%20Church" class="btn-outline-w" style="font-size:.95rem;padding:.85rem 2rem"><i class="bi bi-whatsapp"></i> Send a Prayer Request</a>
+      </div>
+      <p style="font-size:.7rem;color:rgba(255,255,255,.22);margin-top:1.25rem">Sundays at 8:00 AM &amp; 10:30 AM · 12 Chaussee Road, Castries, Saint Lucia</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="row g-4 mb-3">
+      <div class="col-lg-5">
+        <div class="f-name">✝ Harbour <span>Light</span> Church</div>
+        <p class="f-about">A warm community of faith in Castries, St. Lucia. Serving the island with love, hope, and the Gospel of Jesus Christ since 1998.</p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="#" class="soc-btn wa"><i class="bi bi-whatsapp"></i></a>
+          <a href="#" class="soc-btn fb"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="soc-btn yt"><i class="bi bi-youtube"></i></a>
+          <a href="#" class="soc-btn ig"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <p class="f-head">The Church</p>
+        <a href="#welcome" class="f-lnk">Welcome &amp; About</a>
+        <a href="#services" class="f-lnk">Service Times</a>
+        <a href="#ministries" class="f-lnk">Ministries</a>
+        <a href="#give" class="f-lnk">Give &amp; Support</a>
+        <a href="#contact" class="f-lnk">Visit Us</a>
+      </div>
+      <div class="col-6 col-lg-3">
+        <p class="f-head">Connect</p>
+        <a href="https://wa.me/17581234567?text=Prayer%20request" class="f-lnk"><i class="bi bi-whatsapp me-1" style="color:#25D366"></i>Send a Prayer Request</a>
+        <a href="https://wa.me/17581234567?text=Plan%20my%20visit" class="f-lnk"><i class="bi bi-geo-alt me-1" style="color:var(--gold)"></i>Plan My Visit</a>
+        <a href="https://wa.me/17581234567?text=Ministry%20enquiry" class="f-lnk"><i class="bi bi-people me-1" style="color:var(--gold)"></i>Ministry Enquiry</a>
+        <a href="https://wa.me/17581234567?text=Giving%20enquiry" class="f-lnk"><i class="bi bi-heart me-1" style="color:var(--gold)"></i>Giving Enquiry</a>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 Harbour Light Church. All rights reserved. · Castries, Saint Lucia</span>
+      <span>A Community of Faith · Est. 1998</span>
+    </div>
+  </div>
+</footer>
+
+<div class="akra-banner">
+  This website was built by <a href="https://jamalinks758.github.io/AkraLink/" target="_blank">AkraLink</a> — Professional websites for Caribbean small businesses. Starting at $24.99/month.
+</div>
+
+<a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20connect%20with%20Harbour%20Light%20Church" class="wa-float" title="Connect via WhatsApp" aria-label="Connect with Harbour Light Church via WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({duration:700,once:true,offset:60,easing:'ease-out-cubic'});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(!t)return;e.preventDefault();
+    t.scrollIntoView({behavior:'smooth',block:'start'});
+    const m=document.getElementById('navMenu');
+    if(m?.classList.contains('show'))bootstrap.Collapse.getInstance(m)?.hide();
+  });
+});
+const fy=document.querySelector('.f-bottom span');
+if(fy)fy.textContent=fy.textContent.replace('2026',new Date().getFullYear());
+</script>
+</body>
+</html>
