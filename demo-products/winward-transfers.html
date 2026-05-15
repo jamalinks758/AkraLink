@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Windward Transfers — Airport & Island Transport · St. Lucia</title>
+<meta name="description" content="Reliable, professional airport transfers and island tours across St. Lucia. Fixed rates. Air-conditioned vehicles. Book instantly via WhatsApp.">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+:root{
+  --navy:    #0B1728;
+  --navy-lt: #122040;
+  --card:    #0F1F38;
+  --blue:    #1A56DB;
+  --blue-lt: #3B82F6;
+  --gold:    #F5B000;
+  --gold-dk: #D4970A;
+  --white:   #FFFFFF;
+  --off:     #F0F4F8;
+  --text:    #1E293B;
+  --muted:   #64748B;
+  --border:  rgba(255,255,255,.09);
+  --border-l:rgba(0,0,0,.07);
+  --green:   #25D366;
+  --rad:     .65rem;
+  --trans:   all .3s ease;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{overflow-x:hidden;scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);line-height:1.65}
+h1,h2,h3,h4,h5,h6{font-family:'Barlow Condensed',sans-serif;color:var(--navy);line-height:1.08;letter-spacing:-.01em}
+section{padding:5.5rem 0}
+.bg-dark-section{background:var(--navy)}
+.bg-light-section{background:var(--off)}
+
+/* UTILITIES */
+.sec-label{display:inline-flex;align-items:center;gap:.45rem;font-family:'DM Sans',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem}
+.sec-label.lbl-w{color:rgba(255,255,255,.55)}
+.sec-label::before,.sec-label::after{content:'';display:block;width:18px;height:1.5px;background:currentColor;opacity:.5}
+.divider-line{width:48px;height:3px;background:linear-gradient(90deg,var(--blue),var(--gold));border-radius:2px;margin:.85rem 0 1.4rem}
+.gold-text{color:var(--gold)}
+.blue-text{color:var(--blue)}
+.white-text{color:#fff}
+
+/* BUTTONS */
+.btn-wa{display:inline-flex;align-items:center;gap:.48rem;background:#25D366;color:#fff;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.87rem;padding:.76rem 1.65rem;border-radius:var(--rad);border:none;text-decoration:none;transition:var(--trans);cursor:pointer;white-space:nowrap}
+.btn-wa:hover{background:#1cb857;color:#fff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.32)}
+.btn-blue{display:inline-flex;align-items:center;gap:.48rem;background:var(--blue);color:#fff;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.87rem;padding:.76rem 1.65rem;border-radius:var(--rad);border:none;text-decoration:none;transition:var(--trans);cursor:pointer;white-space:nowrap}
+.btn-blue:hover{background:var(--blue-lt);color:#fff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,99,235,.32)}
+.btn-gold{display:inline-flex;align-items:center;gap:.48rem;background:var(--gold);color:var(--navy);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.87rem;padding:.76rem 1.65rem;border-radius:var(--rad);border:none;text-decoration:none;transition:var(--trans);cursor:pointer;white-space:nowrap}
+.btn-gold:hover{background:var(--gold-dk);color:var(--navy);transform:translateY(-2px);box-shadow:0 8px 24px rgba(245,176,0,.32)}
+.btn-outline-w{display:inline-flex;align-items:center;gap:.48rem;background:transparent;color:#fff;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.87rem;padding:.76rem 1.65rem;border-radius:var(--rad);border:2px solid rgba(255,255,255,.22);text-decoration:none;transition:var(--trans);cursor:pointer;white-space:nowrap}
+.btn-outline-w:hover{background:rgba(255,255,255,.09);color:#fff;border-color:rgba(255,255,255,.45)}
+
+/* NAVBAR */
+#mainNav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.9rem 0;background:rgba(11,23,40,.95);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.06);transition:var(--trans)}
+#mainNav.scrolled{padding:.55rem 0;box-shadow:0 4px 32px rgba(0,0,0,.5)}
+.navbar-brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.brand-icon{width:36px;height:36px;border-radius:.5rem;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.brand-txt{line-height:1.1}
+.b-name{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;color:#fff;letter-spacing:.02em;display:block}
+.b-sub{font-size:.44rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35);display:block}
+.nav-link{color:rgba(255,255,255,.62)!important;font-size:.83rem;font-weight:500;padding:.42rem .7rem!important;transition:var(--trans)}
+.nav-link:hover{color:#fff!important}
+.nav-cta{background:var(--gold)!important;color:var(--navy)!important;border-radius:var(--rad)!important;padding:.42rem 1.1rem!important;font-weight:700!important;font-size:.81rem!important;display:flex!important;align-items:center!important;gap:.35rem!important;transition:var(--trans)!important}
+.nav-cta:hover{background:var(--gold-dk)!important;transform:translateY(-1px)}
+.navbar-toggler{border:1.5px solid rgba(255,255,255,.2);border-radius:.45rem;padding:.36rem .58rem}
+.navbar-toggler-icon{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")!important}
+
+/* ═══ HERO ═══════════════════════════════════════════════ */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:8rem 0 5rem;position:relative;overflow:hidden;
+  background:
+    linear-gradient(135deg,rgba(11,23,40,.92) 0%,rgba(11,23,40,.78) 50%,rgba(26,86,219,.35) 100%),
+    url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1600&q=85') center/cover no-repeat;
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(245,176,0,.1) 0%,transparent 55%)}
+.hero-badge{display:inline-flex;align-items:center;gap:.45rem;background:rgba(245,176,0,.12);border:1px solid rgba(245,176,0,.28);color:var(--gold);font-size:.67rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .9rem;border-radius:2rem;margin-bottom:1.35rem}
+.hero-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(3rem,7vw,6rem);font-weight:900;color:#fff;line-height:.98;margin-bottom:.75rem;letter-spacing:-.02em;text-transform:uppercase}
+.hero-title span{color:var(--gold)}
+.hero-sub{font-family:'DM Sans',sans-serif;font-size:.98rem;color:rgba(255,255,255,.6);max-width:440px;line-height:1.76;margin-bottom:2rem}
+/* trust row */
+.trust-row{display:flex;flex-wrap:wrap;gap:1.1rem;margin-bottom:2.25rem}
+.trust-item{display:flex;align-items:center;gap:.4rem;font-size:.78rem;color:rgba(255,255,255,.5)}
+.trust-item i{color:var(--gold);font-size:.92rem}
+/* route pills */
+.route-pills{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.35rem}
+.r-pill{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.65);font-size:.72rem;font-weight:500;padding:.28rem .72rem;border-radius:2rem}
+.r-pill i{color:var(--gold);margin-right:.2rem}
+/* hero card */
+.hero-card{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+  border-radius:1.25rem;padding:1.75rem 1.5rem;backdrop-filter:blur(12px);
+}
+.hc-title{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.06em;margin-bottom:1.1rem;display:flex;align-items:center;gap:.5rem}
+.hc-title i{color:var(--gold)}
+.hc-row{display:flex;justify-content:space-between;align-items:center;padding:.58rem 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:.82rem}
+.hc-row:last-child{border-bottom:none}
+.hc-route{color:rgba(255,255,255,.72);display:flex;align-items:center;gap:.4rem}
+.hc-route i{color:var(--gold);font-size:.8rem}
+.hc-price{color:var(--gold);font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:700}
+.hc-note{font-size:.65rem;color:rgba(255,255,255,.3);text-align:center;margin-top:.85rem}
+
+/* ═══ TRUST STRIP ════════════════════════════════════════ */
+.trust-strip{background:var(--gold);padding:1.1rem 0}
+.ts-item{display:flex;align-items:center;gap:.55rem;color:var(--navy);font-size:.82rem;font-weight:600}
+.ts-item i{font-size:1.1rem}
+.ts-sep{width:1px;background:rgba(11,23,40,.18);min-height:1.6rem;align-self:stretch}
+
+/* ═══ FLEET ══════════════════════════════════════════════ */
+.fleet-section{background:var(--off)}
+.fleet-card{
+  background:#fff;border:1.5px solid var(--border-l);
+  border-radius:1.1rem;overflow:hidden;
+  transition:var(--trans);box-shadow:0 2px 12px rgba(0,0,0,.06);
+}
+.fleet-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.12);border-color:var(--blue)}
+.fleet-img{
+  width:100%;aspect-ratio:16/9;overflow:hidden;
+  position:relative;
+}
+.fleet-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.fleet-card:hover .fleet-img img{transform:scale(1.04)}
+.fleet-badge{position:absolute;top:.75rem;right:.75rem;background:var(--blue);color:#fff;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .55rem;border-radius:2rem}
+.fleet-body{padding:1.35rem}
+.fleet-name{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:.2rem}
+.fleet-cap{font-size:.78rem;color:var(--muted);margin-bottom:.9rem}
+.fleet-feature{display:flex;align-items:center;gap:.42rem;font-size:.76rem;color:var(--text);margin-bottom:.32rem}
+.fleet-feature i{color:var(--blue);font-size:.85rem;flex-shrink:0}
+.fleet-price-row{display:flex;align-items:center;justify-content:space-between;margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--border-l)}
+.fleet-from{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.fleet-price{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:700;color:var(--navy)}
+.fleet-price sup{font-size:.75rem;vertical-align:super;font-weight:600}
+
+/* ═══ RATES TABLE ════════════════════════════════════════ */
+.rates-section{background:var(--navy)}
+.rate-card{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
+  border-radius:1rem;overflow:hidden;
+}
+.rate-head{background:rgba(245,176,0,.12);border-bottom:1px solid rgba(255,255,255,.07);padding:.85rem 1.25rem;display:flex;align-items:center;justify-content:space-between}
+.rate-head-title{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.06em}
+.rate-head-badge{background:var(--gold);color:var(--navy);font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.18rem .55rem;border-radius:2rem}
+.rate-row{display:flex;align-items:center;justify-content:space-between;padding:.72rem 1.25rem;border-bottom:1px solid rgba(255,255,255,.05);font-size:.83rem}
+.rate-row:last-child{border-bottom:none}
+.rate-route{color:rgba(255,255,255,.7);display:flex;align-items:center;gap:.4rem}
+.rate-route i{color:var(--gold);font-size:.8rem;flex-shrink:0}
+.rate-price{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:700;color:var(--gold)}
+.rate-note{font-size:.7rem;color:rgba(255,255,255,.25);margin-top:.3rem;padding:0 1.25rem .75rem;display:block}
+
+/* ═══ WHY US ══════════════════════════════════════════════ */
+.why-section{background:#fff}
+.why-card{
+  background:var(--off);border:1.5px solid var(--border-l);
+  border-radius:1rem;padding:1.75rem 1.5rem;
+  height:100%;transition:var(--trans);
+}
+.why-card:hover{box-shadow:0 12px 36px rgba(0,0,0,.09);transform:translateY(-4px);border-color:var(--blue)}
+.why-icon{width:56px;height:56px;border-radius:.85rem;display:flex;align-items:center;justify-content:center;font-size:1.35rem;margin-bottom:1.1rem}
+.wi-blue{background:rgba(26,86,219,.1);color:var(--blue)}
+.wi-gold{background:rgba(245,176,0,.12);color:var(--gold-dk)}
+.wi-green{background:rgba(37,211,102,.1);color:#16a34a}
+.why-card h5{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.03em}
+.why-card p{font-size:.83rem;color:var(--muted);line-height:1.65;margin:0}
+
+/* ═══ CONTACT ════════════════════════════════════════════ */
+.contact-section{background:var(--off)}
+.contact-card{background:#fff;border:1.5px solid var(--border-l);border-radius:1.1rem;padding:2rem;height:100%;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.contact-card h4{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:1.1rem;text-transform:uppercase;letter-spacing:.04em}
+.c-row{display:flex;gap:.75rem;margin-bottom:1rem;align-items:flex-start;font-size:.84rem}
+.c-row i{color:var(--blue);font-size:1.05rem;margin-top:.18rem;flex-shrink:0}
+.c-row span{color:var(--text);line-height:1.55}
+.c-row strong{color:var(--navy);display:block}
+.hours-row{display:flex;justify-content:space-between;align-items:center;padding:.52rem 0;border-bottom:1px solid var(--border-l);font-size:.82rem}
+.hours-row:last-child{border-bottom:none}
+.h-day{color:var(--text)}
+.h-time{color:var(--blue);font-weight:600}
+.h-24{color:var(--gold-dk);font-weight:700}
+
+/* ═══ LOCKED SECTIONS ════════════════════════════════════ */
+.locked-section{position:relative;overflow:hidden}
+.locked-content{filter:blur(5px);pointer-events:none;user-select:none;opacity:.5}
+.lock-overlay{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(11,23,40,.78);backdrop-filter:blur(2px);text-align:center;padding:2rem}
+.lock-icon{width:64px;height:64px;border-radius:50%;background:rgba(245,176,0,.12);border:2px solid rgba(245,176,0,.28);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--gold);margin:0 auto 1.1rem}
+.lock-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(245,176,0,.1);border:1px solid rgba(245,176,0,.22);color:var(--gold);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .72rem;border-radius:2rem;margin-bottom:.85rem}
+.lock-title{font-family:'Barlow Condensed',sans-serif;font-size:1.65rem;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:.03em;margin-bottom:.42rem}
+.lock-sub{font-size:.8rem;color:rgba(255,255,255,.48);margin-bottom:1.35rem;max-width:270px;line-height:1.62}
+
+/* BOOKING FORM (locked) */
+.booking-section{background:var(--navy);padding:5.5rem 0}
+.booking-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:1.25rem;padding:2.5rem 2rem}
+.form-label{font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.35rem}
+.form-control,.form-select{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:#fff;border-radius:var(--rad);padding:.7rem 1rem;font-size:.87rem;font-family:'DM Sans',sans-serif}
+.form-control::placeholder{color:rgba(255,255,255,.3)}
+.form-control:focus,.form-select:focus{background:rgba(255,255,255,.1);border-color:var(--gold);box-shadow:0 0 0 3px rgba(245,176,0,.12);color:#fff}
+.form-select option{background:#0B1728;color:#fff}
+
+/* TESTIMONIALS (locked) */
+.testi-section-transport{background:#fff;padding:5.5rem 0}
+.tt-card{background:var(--off);border:1.5px solid var(--border-l);border-radius:1.1rem;padding:1.75rem;position:relative}
+.tq{font-size:2.8rem;line-height:1;color:var(--blue);opacity:.18;position:absolute;top:.7rem;left:1.2rem;font-family:Georgia,serif}
+.t-stars{color:var(--gold);font-size:.75rem;margin-bottom:.65rem;padding-top:.85rem}
+.t-text{font-size:.85rem;color:var(--muted);line-height:1.72;margin-bottom:1rem}
+.t-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--gold));color:#fff;font-weight:700;font-size:.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.t-name{font-weight:600;font-size:.83rem;color:var(--navy)}
+.t-loc{font-size:.67rem;color:var(--muted)}
+
+/* CTA */
+.cta-section{
+  background:
+    linear-gradient(135deg,rgba(11,23,40,.94) 0%,rgba(17,32,64,.95) 100%),
+    url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1200&q=80') center/cover no-repeat;
+  padding:6rem 0;position:relative;text-align:center;overflow:hidden;
+}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(245,176,0,.1) 0%,transparent 60%)}
+.cta-section .container{position:relative;z-index:2}
+
+/* FOOTER */
+footer{background:#060c16;padding:3rem 0 1.5rem;border-top:1px solid rgba(255,255,255,.06)}
+.f-name{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:.04em;display:flex;align-items:center;gap:.5rem}
+.f-name span{color:var(--gold)}
+.f-about{font-size:.78rem;color:rgba(255,255,255,.36);line-height:1.72;max-width:268px;margin-top:.5rem}
+.f-head{font-size:.67rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:.85rem}
+.f-lnk{display:block;font-size:.78rem;color:rgba(255,255,255,.38);text-decoration:none;margin-bottom:.42rem;transition:var(--trans)}
+.f-lnk:hover{color:var(--gold)}
+.f-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:1.25rem;margin-top:2.25rem;font-size:.7rem;color:rgba(255,255,255,.2);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem;align-items:center}
+.soc-btn{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.42);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.85rem;transition:var(--trans)}
+.soc-btn:hover{transform:translateY(-2px)}
+.soc-btn.wa:hover{background:#25D366;border-color:#25D366;color:#fff}
+.soc-btn.ig:hover{background:#E1306C;border-color:#E1306C;color:#fff}
+.soc-btn.fb:hover{background:#1877F2;border-color:#1877F2;color:#fff}
+
+/* WA FLOAT */
+.wa-float{position:fixed!important;bottom:1.5rem!important;right:1.5rem!important;width:56px!important;height:56px!important;background:#25D366!important;color:#fff!important;border-radius:50%!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:1.6rem!important;box-shadow:0 4px 20px rgba(37,211,102,.45)!important;text-decoration:none!important;z-index:9999!important;transition:var(--trans)!important}
+.wa-float:hover{transform:scale(1.1)!important;box-shadow:0 6px 28px rgba(37,211,102,.6)!important}
+
+/* AKRALINK BANNER */
+.akra-banner{background:rgba(26,86,219,.08);border-top:1px solid rgba(26,86,219,.15);padding:.65rem 0;text-align:center;font-size:.7rem;color:rgba(30,41,59,.55)}
+.akra-banner a{color:var(--blue);text-decoration:none;font-weight:600}
+.akra-banner a:hover{color:var(--blue-lt)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+.from-right{transform:translateX(18px)}.from-right.visible{transform:none}
+.from-left{transform:translateX(-18px)}.from-left.visible{transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+@media(max-width:767px){.hero-card{margin-top:2rem}}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <div class="brand-icon">🚐</div>
+      <div class="brand-txt">
+        <span class="b-name">Windward Transfers</span>
+        <span class="b-sub">St. Lucia · Est. 2016</span>
+      </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-lg-center gap-lg-1 mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#fleet">Our Fleet</a></li>
+        <li class="nav-item"><a class="nav-link" href="#rates">Rates</a></li>
+        <li class="nav-item"><a class="nav-link" href="#why">Why Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item ms-lg-2">
+          <a class="nav-link nav-cta" href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20book%20a%20transfer%20with%20Windward%20Transfers">
+            <i class="bi bi-whatsapp"></i> Book Now
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ══════════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="container position-relative" style="z-index:2">
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-6">
+        <div class="hero-badge reveal"><i class="bi bi-shield-check-fill"></i> Licensed &amp; Insured · St. Lucia</div>
+        <h1 class="hero-title reveal d1">Your Ride.<br><span>On Time.</span><br>Every Time.</h1>
+        <p class="hero-sub reveal d2">Professional airport transfers and island transport across St. Lucia. Fixed rates, air-conditioned vehicles, and drivers who know every road on the island.</p>
+        <div class="trust-row reveal d2">
+          <div class="trust-item"><i class="bi bi-airplane-fill"></i> Airport Transfers</div>
+          <div class="trust-item"><i class="bi bi-map-fill"></i> Island Tours</div>
+          <div class="trust-item"><i class="bi bi-people-fill"></i> Group Charters</div>
+          <div class="trust-item"><i class="bi bi-clock-fill"></i> Available Daily</div>
+        </div>
+        <div class="d-flex flex-wrap gap-3 reveal d3">
+          <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20book%20a%20transfer%20with%20Windward%20Transfers" class="btn-wa"><i class="bi bi-whatsapp"></i> Book Your Transfer</a>
+          <a href="#rates" class="btn-outline-w"><i class="bi bi-cash-coin"></i> View Rates</a>
+        </div>
+        <div class="route-pills reveal d3">
+          <span class="r-pill"><i class="bi bi-geo-alt-fill"></i> UVF Airport</span>
+          <span class="r-pill"><i class="bi bi-geo-alt-fill"></i> Castries</span>
+          <span class="r-pill"><i class="bi bi-geo-alt-fill"></i> Rodney Bay</span>
+          <span class="r-pill"><i class="bi bi-geo-alt-fill"></i> Soufrière</span>
+          <span class="r-pill"><i class="bi bi-geo-alt-fill"></i> Vieux Fort</span>
+        </div>
+      </div>
+
+      <div class="col-lg-6 reveal from-right d2">
+        <div class="hero-card">
+          <div class="hc-title"><i class="bi bi-cash-coin"></i> Fixed Transfer Rates (XCD)</div>
+          <div class="hc-row">
+            <span class="hc-route"><i class="bi bi-arrow-right"></i> UVF Airport → Castries</span>
+            <span class="hc-price">$120</span>
+          </div>
+          <div class="hc-row">
+            <span class="hc-route"><i class="bi bi-arrow-right"></i> UVF Airport → Rodney Bay</span>
+            <span class="hc-price">$160</span>
+          </div>
+          <div class="hc-row">
+            <span class="hc-route"><i class="bi bi-arrow-right"></i> UVF Airport → Soufrière</span>
+            <span class="hc-price">$210</span>
+          </div>
+          <div class="hc-row">
+            <span class="hc-route"><i class="bi bi-arrow-right"></i> Castries → Piton Drive Tour</span>
+            <span class="hc-price">$280</span>
+          </div>
+          <div class="hc-row">
+            <span class="hc-route"><i class="bi bi-arrow-right"></i> Full Island Day Tour</span>
+            <span class="hc-price">$450</span>
+          </div>
+          <div style="margin-top:1.1rem">
+            <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20get%20a%20quote%20from%20Windward%20Transfers" class="btn-wa w-100 justify-content-center"><i class="bi bi-whatsapp"></i> Get a Custom Quote</a>
+          </div>
+          <div class="hc-note">All rates are fixed. No hidden fees. Prices include meet &amp; greet at arrivals.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRUST STRIP ═══════════════════════════════════════ -->
+<div class="trust-strip">
+  <div class="container">
+    <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 gap-md-5">
+      <div class="ts-item"><i class="bi bi-shield-fill-check"></i> Fully Licensed &amp; Insured</div>
+      <div class="ts-sep d-none d-md-block"></div>
+      <div class="ts-item"><i class="bi bi-snow2"></i> Air-Conditioned Vehicles</div>
+      <div class="ts-sep d-none d-md-block"></div>
+      <div class="ts-item"><i class="bi bi-clock-history"></i> Flight Monitoring Included</div>
+      <div class="ts-sep d-none d-md-block"></div>
+      <div class="ts-item"><i class="bi bi-cash-coin"></i> Fixed Rates — No Surprises</div>
+      <div class="ts-sep d-none d-md-block"></div>
+      <div class="ts-item"><i class="bi bi-whatsapp"></i> Instant WhatsApp Booking</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FLEET ══════════════════════════════════════════════ -->
+<section class="fleet-section" id="fleet">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="sec-label">Our Fleet</div>
+      <h2 style="font-size:clamp(2rem,5vw,3rem)">Clean. Comfortable. Reliable.</h2>
+      <div class="divider-line" style="margin:1rem auto 0"></div>
+      <p style="font-size:.88rem;color:var(--muted);max-width:420px;margin:.85rem auto 0">Every vehicle is air-conditioned, regularly serviced, and operated by a licensed, professional driver.</p>
+    </div>
+    <div class="row g-4">
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="fleet-card">
+          <div class="fleet-img">
+            <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&q=80" alt="Sedan transfer vehicle">
+            <span class="fleet-badge">1–3 Passengers</span>
+          </div>
+          <div class="fleet-body">
+            <div class="fleet-name">Executive Sedan</div>
+            <div class="fleet-cap">Toyota Camry · Up to 3 passengers · 2 large bags</div>
+            <div class="fleet-feature"><i class="bi bi-check-circle-fill"></i> Air-conditioned</div>
+            <div class="fleet-feature"><i class="bi bi-check-circle-fill"></i> USB charging ports</div>
+            <div class="fleet-feature"><i class="bi bi-check-circle-fill"></i> Bottled water included</div>
+            <div class="fleet-feature"><i class="bi bi-check-circle-fill"></i> WiFi on request</div>
+            <div class="fleet-price-row">
+              <div><span class="fleet-from">Airport transfers from</span><br><span class="fleet-price"><sup>$</sup>120 <small style="font-size:.7rem;color:var(--muted);font-weight:400">XCD</small></span></div>
+              <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Executive%20Sedan" class="btn-wa" style="font-size:.75rem;padding:.45rem .9rem"><i class="bi bi-whatsapp"></i> Book</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="fleet-card">
+          <div class="fleet-img">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="SUV transfer vehicle">
+            <span class="fleet-badge" style="background:var(--gold);color:var(--navy)">Most Booked</span>
+          </div>
+          <div class="fleet-body">
+            <div class="fleet-name">Premium SUV</div>
+            <div class="fleet-cap">Toyota Land Cruiser · Up to 5 passengers · 4 bags</div>
+            <div class="fleet-feature"><i class="bi bi-check-circle-fill"></i> Air-conditioned</div>
+            <div class="fleet-feature"><i class="bi bi-check-circle-fill"></i> Extra luggage space</div>
+            <div class="fleet-feature"><i class="bi bi-check-circle-fill"></i> Child seat available</div>
+            <div class="fleet-feature"><i class="bi bi-check-circle-fill"></i> Ideal for families</div>
+            <div class="fleet-price-row">
+              <div><span class="fleet-from">Airport transfers from</span><br><span class="fleet-price"><sup>$</sup>150 <small style="font-size:.7rem;color:var(--muted);font-weight:400">XCD</small></span></div>
+              <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Premium%20SUV" class="btn-wa" style="font-size:.75rem;padding:.45rem .9rem"><i class="bi bi-whatsapp"></i> Book</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="fleet-card">
+          <div class="fleet-img">
+            <img src="https://images.unsplash.com/photo-1570125909517-53cb21c89ff2?w=600&q=80" alt="Minivan group transfer">
+            <span class="fleet-badge" style="background:#16a34a">Groups</span>
+          </div>
+          <div class="fleet-body">
+            <div class="fleet-name">Group Minivan</div>
+            <div class="fleet-cap">Toyota Hiace · Up to 12 passengers · 8+ bags</div>
+            <div class="fleet-feature"><i class="bi bi-check-circle-fill"></i> Air-conditioned</div>
+            <div class="fleet-feature"><i class="bi bi-check-circle-fill"></i> Ideal for tour groups</div>
+            <div class="fleet-feature"><i class="bi bi-check-circle-fill"></i> Microphone system</div>
+            <div class="fleet-feature"><i class="bi bi-check-circle-fill"></i> Hotel &amp; resort pickups</div>
+            <div class="fleet-price-row">
+              <div><span class="fleet-from">Airport transfers from</span><br><span class="fleet-price"><sup>$</sup>280 <small style="font-size:.7rem;color:var(--muted);font-weight:400">XCD</small></span></div>
+              <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Group%20Minivan" class="btn-wa" style="font-size:.75rem;padding:.45rem .9rem"><i class="bi bi-whatsapp"></i> Book</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ RATES ══════════════════════════════════════════════ -->
+<section class="rates-section" id="rates">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="sec-label lbl-w">Fixed Rates</div>
+      <h2 style="font-size:clamp(2rem,5vw,3rem);color:#fff">No Surprises. Ever.</h2>
+      <div class="divider-line" style="margin:1rem auto 0"></div>
+      <p style="font-size:.88rem;color:rgba(255,255,255,.45);max-width:420px;margin:.85rem auto 0">All rates are fixed and agreed before you travel. No meters. No surge pricing. No negotiating at the airport.</p>
+    </div>
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="rate-card">
+          <div class="rate-head">
+            <span class="rate-head-title"><i class="bi bi-airplane-fill me-2" style="color:var(--gold)"></i>Airport</span>
+            <span class="rate-head-badge">Sedan</span>
+          </div>
+          <div class="rate-row"><span class="rate-route"><i class="bi bi-arrow-right"></i>UVF → Castries</span><span class="rate-price">$120</span></div>
+          <div class="rate-row"><span class="rate-route"><i class="bi bi-arrow-right"></i>UVF → Rodney Bay</span><span class="rate-price">$160</span></div>
+          <div class="rate-row"><span class="rate-route"><i class="bi bi-arrow-right"></i>UVF → Gros Islet</span><span class="rate-price">$175</span></div>
+          <div class="rate-row"><span class="rate-route"><i class="bi bi-arrow-right"></i>UVF → Soufrière</span><span class="rate-price">$210</span></div>
+          <span class="rate-note">XCD · 1–3 passengers · Includes meet &amp; greet</span>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="rate-card">
+          <div class="rate-head">
+            <span class="rate-head-title"><i class="bi bi-airplane-fill me-2" style="color:var(--gold)"></i>Airport</span>
+            <span class="rate-head-badge" style="background:rgba(255,255,255,.12);color:#fff">SUV</span>
+          </div>
+          <div class="rate-row"><span class="rate-route"><i class="bi bi-arrow-right"></i>UVF → Castries</span><span class="rate-price">$150</span></div>
+          <div class="rate-row"><span class="rate-route"><i class="bi bi-arrow-right"></i>UVF → Rodney Bay</span><span class="rate-price">$190</span></div>
+          <div class="rate-row"><span class="rate-route"><i class="bi bi-arrow-right"></i>UVF → Gros Islet</span><span class="rate-price">$205</span></div>
+          <div class="rate-row"><span class="rate-route"><i class="bi bi-arrow-right"></i>UVF → Soufrière</span><span class="rate-price">$250</span></div>
+          <span class="rate-note">XCD · Up to 5 passengers · Includes meet &amp; greet</span>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="rate-card">
+          <div class="rate-head">
+            <span class="rate-head-title"><i class="bi bi-map-fill me-2" style="color:var(--gold)"></i>Island Tours</span>
+            <span class="rate-head-badge" style="background:#16a34a">Per Day</span>
+          </div>
+          <div class="rate-row"><span class="rate-route"><i class="bi bi-arrow-right"></i>Piton &amp; Soufrière</span><span class="rate-price">$350</span></div>
+          <div class="rate-row"><span class="rate-route"><i class="bi bi-arrow-right"></i>Full Island Tour</span><span class="rate-price">$450</span></div>
+          <div class="rate-row"><span class="rate-route"><i class="bi bi-arrow-right"></i>Marigot Bay &amp; Back</span><span class="rate-price">$220</span></div>
+          <div class="rate-row"><span class="rate-route"><i class="bi bi-arrow-right"></i>North Island Loop</span><span class="rate-price">$280</span></div>
+          <span class="rate-note">XCD · Up to 5 pax · Pickup included</span>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+        <div class="rate-card">
+          <div class="rate-head">
+            <span class="rate-head-title"><i class="bi bi-people-fill me-2" style="color:var(--gold)"></i>Group Charter</span>
+            <span class="rate-head-badge" style="background:rgba(255,255,255,.12);color:#fff">Van</span>
+          </div>
+          <div class="rate-row"><span class="rate-route"><i class="bi bi-arrow-right"></i>UVF → Any North</span><span class="rate-price">$280</span></div>
+          <div class="rate-row"><span class="rate-route"><i class="bi bi-arrow-right"></i>Full Day Charter</span><span class="rate-price">$650</span></div>
+          <div class="rate-row"><span class="rate-route"><i class="bi bi-arrow-right"></i>Resort Shuttle</span><span class="rate-price">$380</span></div>
+          <div class="rate-row"><span class="rate-route"><i class="bi bi-arrow-right"></i>Wedding Transfer</span><span class="rate-price">POA</span></div>
+          <span class="rate-note">XCD · Up to 12 passengers · Custom quotes available</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="text-center mt-5" data-aos="fade-up">
+      <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20get%20a%20quote%20from%20Windward%20Transfers" class="btn-gold"><i class="bi bi-whatsapp"></i> Get a Custom Quote on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY US ══════════════════════════════════════════════ -->
+<section class="why-section" id="why">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="sec-label">Why Windward</div>
+      <h2 style="font-size:clamp(2rem,5vw,3rem)">Why Travellers Choose Us</h2>
+      <div class="divider-line" style="margin:1rem auto 0"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="why-card">
+          <div class="why-icon wi-blue"><i class="bi bi-shield-fill-check"></i></div>
+          <h5>Licensed &amp; Fully Insured</h5>
+          <p>Every driver holds a valid St. Lucia transport licence. Every vehicle is fully insured. You travel with total peace of mind — no exceptions.</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="why-card">
+          <div class="why-icon wi-gold"><i class="bi bi-airplane-fill"></i></div>
+          <h5>Flight Monitoring Included</h5>
+          <p>We track your flight in real time. If your plane is delayed, your driver adjusts — at no extra charge. We're there when you land, not when we feel like it.</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="why-card">
+          <div class="why-icon wi-green"><i class="bi bi-cash-coin"></i></div>
+          <h5>Fixed Rates. No Meters.</h5>
+          <p>Your price is agreed before the journey starts. No meters. No surge pricing. No airport surprises. What you see is what you pay — full stop.</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="why-card">
+          <div class="why-icon wi-blue"><i class="bi bi-clock-history"></i></div>
+          <h5>Punctual. Always.</h5>
+          <p>We build our reputation on time. Our drivers arrive 10 minutes early, every time. Late arrivals cost you — so we don't do them.</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="why-card">
+          <div class="why-icon wi-gold"><i class="bi bi-person-badge-fill"></i></div>
+          <h5>Local Knowledge. Real Value.</h5>
+          <p>Our drivers aren't just drivers — they're St. Lucians. They know the shortcuts, the hidden spots, and can give you the real insider experience at no extra cost.</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="why-card">
+          <div class="why-icon wi-green"><i class="bi bi-whatsapp"></i></div>
+          <h5>Book in 60 Seconds</h5>
+          <p>No forms, no apps, no account creation. Message us on WhatsApp, confirm your details, and your transfer is booked. Done. That fast.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT & HOURS ═══════════════════════════════════ -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="sec-label">Contact &amp; Hours</div>
+      <h2 style="font-size:clamp(2rem,5vw,3rem)">We're Here When You Need Us</h2>
+      <div class="divider-line" style="margin:1rem auto 0"></div>
+    </div>
+    <div class="row g-4">
+
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="contact-card">
+          <h4><i class="bi bi-telephone-fill me-2" style="color:var(--blue)"></i>Contact Us</h4>
+          <div class="c-row"><i class="bi bi-whatsapp" style="color:#25D366"></i><span><strong>WhatsApp Bookings</strong>+1 (758) 123-4567 — message us to book instantly</span></div>
+          <div class="c-row"><i class="bi bi-geo-alt-fill"></i><span><strong>Base Location</strong>Vigie, Castries, Saint Lucia — we serve all routes island-wide</span></div>
+          <div class="c-row"><i class="bi bi-airplane-fill"></i><span><strong>Airport Pickup</strong>Hewanorra International (UVF) &amp; George F.L. Charles (SLU) — both airports covered</span></div>
+          <div class="c-row"><i class="bi bi-envelope-fill"></i><span><strong>Email</strong>info@windwardtransfers.lc</span></div>
+          <div style="margin-top:1.25rem">
+            <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20book%20a%20transfer%20with%20Windward%20Transfers" class="btn-wa w-100 justify-content-center"><i class="bi bi-whatsapp"></i> Message Us to Book</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="contact-card">
+          <h4><i class="bi bi-clock-fill me-2" style="color:var(--blue)"></i>Operating Hours</h4>
+          <div class="hours-row"><span class="h-day">Monday</span><span class="h-24">Available</span></div>
+          <div class="hours-row"><span class="h-day">Tuesday</span><span class="h-24">Available</span></div>
+          <div class="hours-row"><span class="h-day">Wednesday</span><span class="h-24">Available</span></div>
+          <div class="hours-row"><span class="h-day">Thursday</span><span class="h-24">Available</span></div>
+          <div class="hours-row"><span class="h-day">Friday</span><span class="h-24">Available</span></div>
+          <div class="hours-row"><span class="h-day">Saturday</span><span class="h-24">Available</span></div>
+          <div class="hours-row"><span class="h-day">Sunday</span><span class="h-24">Available</span></div>
+          <div style="margin-top:1rem;padding:.75rem 1rem;background:rgba(245,176,0,.07);border:1px solid rgba(245,176,0,.15);border-radius:.65rem;font-size:.78rem;color:var(--text)">
+            <i class="bi bi-info-circle-fill me-2" style="color:var(--gold-dk)"></i>We operate 7 days a week. Early morning and late night airport transfers available — just let us know your flight time.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ONLINE BOOKING FORM — LOCKED (Grow Feature) ═══════ -->
+<section class="booking-section locked-section" id="booking">
+  <div class="locked-content">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="sec-label lbl-w">Instant Booking</div>
+        <h2 style="color:#fff;font-size:clamp(2rem,5vw,3rem)">Book Your Transfer Online</h2>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="booking-card">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Pickup Location</label>
+                <select class="form-select"><option>UVF Airport (Hewanorra)</option><option>SLU Airport (George F.L. Charles)</option><option>Castries</option><option>Rodney Bay</option></select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Drop-off Location</label>
+                <select class="form-select"><option>Castries</option><option>Rodney Bay</option><option>Soufrière</option><option>Gros Islet</option></select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Travel Date</label>
+                <input type="date" class="form-control" placeholder="DD/MM/YYYY">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Pickup Time</label>
+                <input type="time" class="form-control">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Number of Passengers</label>
+                <select class="form-select"><option>1–3 (Sedan)</option><option>4–5 (SUV)</option><option>6–12 (Minivan)</option></select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Your WhatsApp Number</label>
+                <input type="tel" class="form-control" placeholder="+1 (758) ...">
+              </div>
+              <div class="col-12">
+                <button class="btn-wa w-100 justify-content-center" style="padding:.9rem"><i class="bi bi-whatsapp"></i> Confirm Booking via WhatsApp</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="lock-overlay">
+    <div class="lock-icon"><i class="bi bi-calendar-check-fill"></i></div>
+    <div class="lock-badge"><i class="bi bi-stars"></i> Grow Plan Feature</div>
+    <div class="lock-title">Online Booking Form</div>
+    <p class="lock-sub">A fully integrated booking form that sends customer details directly to WhatsApp — ready to confirm in one tap.</p>
+    <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20upgrade%20to%20unlock%20the%20booking%20form%20feature" class="btn-wa"><i class="bi bi-whatsapp"></i> Unlock This Feature</a>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS — LOCKED (Grow Feature) ════════════ -->
+<section class="testi-section-transport locked-section" id="reviews">
+  <div class="locked-content">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="sec-label">Traveller Reviews</div>
+        <h2 style="font-size:clamp(1.8rem,4vw,2.8rem)">What Our Passengers Say</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="tt-card">
+            <div class="tq">"</div>
+            <div class="t-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            <p class="t-text">Booked via WhatsApp and the driver was already waiting when we landed. No stress, no negotiating — exactly what you need after a long flight. Will use every time we visit.</p>
+            <div class="d-flex align-items-center gap-3"><div class="t-av">A</div><div><div class="t-name">Amanda &amp; Steve</div><div class="t-loc">Toronto, Canada · via TripAdvisor</div></div></div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="tt-card">
+            <div class="tq">"</div>
+            <div class="t-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            <p class="t-text">Used Windward for our full island tour. The driver was incredible — knew everything about the island and took us to a waterfall that wasn't even on the tourist map. Outstanding.</p>
+            <div class="d-flex align-items-center gap-3"><div class="t-av">K</div><div><div class="t-name">Kevin M.</div><div class="t-loc">London, UK · via Google</div></div></div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="tt-card">
+            <div class="tq">"</div>
+            <div class="t-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            <p class="t-text">Fixed rates made all the difference. Knew exactly what we'd pay before we even booked. Clean vehicle, professional driver, on time. Recommended them to everyone at our resort.</p>
+            <div class="d-flex align-items-center gap-3"><div class="t-av">P</div><div><div class="t-name">Patricia N.</div><div class="t-loc">Miami, Florida · via Google</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="lock-overlay">
+    <div class="lock-icon"><i class="bi bi-chat-quote-fill"></i></div>
+    <div class="lock-badge"><i class="bi bi-stars"></i> Grow Plan Feature</div>
+    <div class="lock-title">Traveller Testimonials</div>
+    <p class="lock-sub">A dedicated reviews section that builds instant trust with new visitors — your best marketing, automated.</p>
+    <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20upgrade%20to%20unlock%20the%20testimonials%20feature" class="btn-wa"><i class="bi bi-whatsapp"></i> Unlock This Feature</a>
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA ══════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="container">
+    <div data-aos="fade-up">
+      <div class="sec-label lbl-w" style="justify-content:center">Ready to travel?</div>
+      <h2 style="font-size:clamp(2rem,5vw,3.5rem);color:#fff;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;margin-bottom:.65rem">Your Driver is Standing By.</h2>
+      <p style="font-size:.93rem;color:rgba(255,255,255,.52);max-width:420px;margin:.5rem auto 2rem;line-height:1.76">Book your transfer in 60 seconds on WhatsApp. Fixed rates. Professional drivers. No stress. Available every day.</p>
+      <div class="d-flex flex-wrap gap-3 justify-content-center">
+        <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20book%20a%20transfer%20with%20Windward%20Transfers" class="btn-wa" style="font-size:.95rem;padding:.85rem 2rem"><i class="bi bi-whatsapp"></i> Book My Transfer Now</a>
+        <a href="#rates" class="btn-outline-w" style="font-size:.95rem;padding:.85rem 2rem"><i class="bi bi-cash-coin"></i> View All Rates</a>
+      </div>
+      <p style="font-size:.7rem;color:rgba(255,255,255,.22);margin-top:1.25rem">Serving UVF Airport · SLU Airport · All Hotels &amp; Resorts Across St. Lucia</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="row g-4 mb-3">
+      <div class="col-lg-5">
+        <div class="f-name">🚐 <span>Windward</span> Transfers</div>
+        <p class="f-about">Professional airport transfers and island transport across St. Lucia since 2016. Licensed. Insured. On time.</p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="#" class="soc-btn wa"><i class="bi bi-whatsapp"></i></a>
+          <a href="#" class="soc-btn ig"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="soc-btn fb"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <p class="f-head">Services</p>
+        <a href="#fleet" class="f-lnk">Our Fleet</a>
+        <a href="#rates" class="f-lnk">Fixed Rates</a>
+        <a href="#why" class="f-lnk">Why Windward</a>
+        <a href="#contact" class="f-lnk">Contact</a>
+      </div>
+      <div class="col-6 col-lg-3">
+        <p class="f-head">Book Now</p>
+        <a href="https://wa.me/17581234567?text=Airport%20transfer%20booking" class="f-lnk"><i class="bi bi-airplane me-1" style="color:var(--gold)"></i>Airport Transfer</a>
+        <a href="https://wa.me/17581234567?text=Island%20tour%20booking" class="f-lnk"><i class="bi bi-map me-1" style="color:var(--gold)"></i>Island Tour</a>
+        <a href="https://wa.me/17581234567?text=Group%20charter%20enquiry" class="f-lnk"><i class="bi bi-people me-1" style="color:var(--gold)"></i>Group Charter</a>
+        <a href="https://wa.me/17581234567?text=Custom%20quote%20request" class="f-lnk"><i class="bi bi-chat me-1" style="color:var(--gold)"></i>Custom Quote</a>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 Windward Transfers. All rights reserved. · Castries, Saint Lucia</span>
+      <span>Licensed Transport · St. Lucia</span>
+    </div>
+  </div>
+</footer>
+
+<div class="akra-banner">
+  This website was built by <a href="https://jamalinks758.github.io/AkraLink/" target="_blank">AkraLink</a> — Professional websites for Caribbean small businesses. Starting at $24.99/month.
+</div>
+
+<a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20book%20a%20transfer%20with%20Windward%20Transfers" class="wa-float" title="Book via WhatsApp" aria-label="Book transfer via WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({duration:680,once:true,offset:60,easing:'ease-out-cubic'});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(!t)return;e.preventDefault();
+    t.scrollIntoView({behavior:'smooth',block:'start'});
+    const m=document.getElementById('navMenu');
+    if(m?.classList.contains('show'))bootstrap.Collapse.getInstance(m)?.hide();
+  });
+});
+const fy=document.querySelector('.f-bottom span');
+if(fy)fy.textContent=fy.textContent.replace('2026',new Date().getFullYear());
+</script>
+</body>
+</html>
