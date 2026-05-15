@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seagrape Retreat — Boutique Guest House · St. Lucia</title>
+<meta name="description" content="A private Caribbean escape nestled above the sea in St. Lucia. Rooms from $95/night. Book instantly via WhatsApp. Breakfast included.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+:root{
+  --forest:  #1B3A2D;
+  --forest-lt:#24503E;
+  --card-dk: #1E3D30;
+  --terra:   #C4622D;
+  --terra-lt:#D4733E;
+  --sand:    #E8C99A;
+  --sand-lt: #F2DDB8;
+  --cream:   #FAF6EF;
+  --cream-dk:#EDE5D8;
+  --white:   #FFFFFF;
+  --text:    #1B2B22;
+  --muted:   #6B7C70;
+  --border-l:rgba(0,0,0,.07);
+  --border-d:rgba(255,255,255,.09);
+  --green:   #25D366;
+  --rad:     .75rem;
+  --rad-lg:  1.25rem;
+  --trans:   all .3s ease;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{overflow-x:hidden;scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);line-height:1.68}
+h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;color:var(--text);line-height:1.1}
+section{padding:5.5rem 0}
+.bg-forest{background:var(--forest)}
+.bg-cream{background:var(--cream)}
+.bg-white{background:#fff}
+
+/* UTILITIES */
+.sec-label{display:inline-flex;align-items:center;gap:.5rem;font-family:'DM Sans',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);margin-bottom:.85rem}
+.sec-label.lbl-w{color:var(--sand)}
+.sec-label::before,.sec-label::after{content:'';display:block;width:20px;height:1px;background:currentColor;opacity:.5}
+.leaf-div{display:flex;align-items:center;justify-content:center;gap:.6rem;margin:.85rem 0 1.4rem;color:var(--terra);font-size:.9rem;opacity:.6}
+.leaf-div::before,.leaf-div::after{content:'';flex:1;max-width:50px;height:1px;background:var(--terra);opacity:.4}
+.terra-text{color:var(--terra)}
+.sand-text{color:var(--sand)}
+.forest-text{color:var(--forest)}
+
+/* BUTTONS */
+.btn-wa{display:inline-flex;align-items:center;gap:.48rem;background:#25D366;color:#fff;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.87rem;padding:.78rem 1.65rem;border-radius:var(--rad);border:none;text-decoration:none;transition:var(--trans);cursor:pointer;white-space:nowrap}
+.btn-wa:hover{background:#1cb857;color:#fff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.32)}
+.btn-terra{display:inline-flex;align-items:center;gap:.48rem;background:var(--terra);color:#fff;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.87rem;padding:.78rem 1.65rem;border-radius:var(--rad);border:none;text-decoration:none;transition:var(--trans);cursor:pointer;white-space:nowrap}
+.btn-terra:hover{background:var(--terra-lt);color:#fff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,98,45,.32)}
+.btn-outline-w{display:inline-flex;align-items:center;gap:.48rem;background:transparent;color:#fff;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.87rem;padding:.78rem 1.65rem;border-radius:var(--rad);border:2px solid rgba(255,255,255,.25);text-decoration:none;transition:var(--trans);cursor:pointer;white-space:nowrap}
+.btn-outline-w:hover{background:rgba(255,255,255,.09);color:#fff;border-color:rgba(255,255,255,.5)}
+.btn-outline-t{display:inline-flex;align-items:center;gap:.48rem;background:transparent;color:var(--terra);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.87rem;padding:.78rem 1.65rem;border-radius:var(--rad);border:2px solid var(--terra);text-decoration:none;transition:var(--trans);cursor:pointer;white-space:nowrap}
+.btn-outline-t:hover{background:var(--terra);color:#fff}
+
+/* NAVBAR */
+#mainNav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.9rem 0;background:rgba(27,58,45,.95);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.07);transition:var(--trans)}
+#mainNav.scrolled{padding:.55rem 0;box-shadow:0 4px 32px rgba(0,0,0,.45)}
+.navbar-brand{display:flex;flex-direction:column;text-decoration:none;line-height:1.1}
+.b-name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff;font-style:italic;letter-spacing:.01em}
+.b-name span{color:var(--sand)}
+.b-sub{font-size:.43rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.32)}
+.nav-link{color:rgba(255,255,255,.62)!important;font-size:.83rem;font-weight:500;padding:.42rem .7rem!important;transition:var(--trans)}
+.nav-link:hover{color:#fff!important}
+.nav-cta{background:var(--terra)!important;color:#fff!important;border-radius:var(--rad)!important;padding:.42rem 1.1rem!important;font-weight:700!important;font-size:.81rem!important;display:flex!important;align-items:center!important;gap:.35rem!important}
+.nav-cta:hover{background:var(--terra-lt)!important;transform:translateY(-1px)}
+.navbar-toggler{border:1.5px solid rgba(255,255,255,.2);border-radius:.45rem;padding:.36rem .58rem}
+.navbar-toggler-icon{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")!important}
+
+/* HERO */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:8.5rem 0 5rem;position:relative;overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(27,58,45,.55) 0%,rgba(27,58,45,.72) 55%,rgba(27,58,45,.96) 100%),
+    url('https://images.unsplash.com/photo-1540541338537-f9b2b86aea4a?w=1600&q=85') center/cover no-repeat;
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%,rgba(196,98,45,.15) 0%,transparent 55%)}
+.hero-badge{display:inline-flex;align-items:center;gap:.45rem;background:rgba(232,201,154,.12);border:1px solid rgba(232,201,154,.28);color:var(--sand);font-size:.67rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .9rem;border-radius:2rem;margin-bottom:1.35rem}
+.hero-title{font-size:clamp(2.8rem,6vw,5.2rem);font-weight:900;color:#fff;line-height:1.03;margin-bottom:.65rem;letter-spacing:-.015em}
+.hero-title em{color:var(--sand);font-style:italic}
+.hero-sub-tag{font-family:'Playfair Display',serif;font-size:clamp(1rem,2vw,1.3rem);color:rgba(232,201,154,.75);font-style:italic;margin-bottom:1.35rem}
+.hero-desc{font-size:.93rem;color:rgba(255,255,255,.58);max-width:430px;line-height:1.78;margin-bottom:1.85rem}
+.hero-perks{display:flex;flex-wrap:wrap;gap:.85rem;margin-bottom:2rem}
+.h-perk{display:flex;align-items:center;gap:.4rem;font-size:.78rem;color:rgba(255,255,255,.55)}
+.h-perk i{color:var(--sand);font-size:.88rem}
+/* quick booking panel */
+.book-panel{
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
+  border-radius:var(--rad-lg);padding:1.75rem 1.5rem;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+}
+.bp-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:1.1rem;display:flex;align-items:center;gap:.5rem}
+.bp-title i{color:var(--sand);font-size:1rem}
+.bp-rate{display:flex;align-items:flex-end;gap:.35rem;margin-bottom:1.1rem}
+.bp-from{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.42);display:block;margin-bottom:.18rem}
+.bp-price{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;color:var(--sand);line-height:1}
+.bp-per{font-size:.8rem;color:rgba(255,255,255,.42);font-weight:400;margin-bottom:.35rem}
+.room-row{display:flex;align-items:center;justify-content:space-between;padding:.62rem 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:.83rem}
+.room-row:last-of-type{border-bottom:none}
+.rr-name{color:rgba(255,255,255,.72);display:flex;align-items:center;gap:.4rem}
+.rr-name i{color:var(--sand);font-size:.8rem}
+.rr-price{color:var(--sand);font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700}
+.rr-note{font-size:.6rem;color:rgba(255,255,255,.3);display:block;text-align:right;line-height:1.3}
+
+/* SAND STRIP */
+.sand-strip{background:var(--sand);padding:1.1rem 0}
+.ss-item{display:flex;align-items:center;gap:.55rem;color:var(--forest);font-size:.82rem;font-weight:600}
+.ss-item i{font-size:1.05rem}
+.ss-sep{width:1px;background:rgba(27,58,45,.18);min-height:1.6rem;align-self:stretch}
+
+/* ABOUT */
+.about-section{background:var(--cream)}
+.about-img-wrap{position:relative}
+.about-img{width:100%;aspect-ratio:3/4;border-radius:var(--rad-lg);object-fit:cover;display:block}
+.about-img-placeholder{width:100%;aspect-ratio:3/4;border-radius:var(--rad-lg);background:linear-gradient(160deg,var(--forest-lt),var(--forest));display:flex;align-items:center;justify-content:center;font-size:5rem}
+.about-badge{
+  position:absolute;bottom:-1.25rem;right:-1.25rem;
+  background:var(--terra);color:#fff;border-radius:var(--rad-lg);
+  padding:1.25rem 1.4rem;box-shadow:0 12px 36px rgba(196,98,45,.4);text-align:center;
+}
+.ab-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;line-height:1;display:block}
+.ab-lbl{font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+.about-text h2{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:.65rem}
+.about-text p{font-size:.9rem;color:var(--muted);line-height:1.78;margin-bottom:.95rem}
+.incl-item{display:flex;align-items:center;gap:.6rem;font-size:.84rem;color:var(--text);margin-bottom:.45rem}
+.incl-item i{color:var(--terra);font-size:.9rem;flex-shrink:0}
+.owner-sig{font-family:'Playfair Display',serif;font-size:1.45rem;font-style:italic;color:var(--terra);margin-top:1rem}
+
+/* ROOMS */
+.rooms-section{background:#fff}
+.room-card{
+  background:var(--cream);border:1.5px solid rgba(196,98,45,.12);
+  border-radius:var(--rad-lg);overflow:hidden;
+  transition:var(--trans);
+}
+.room-card:hover{box-shadow:0 16px 48px rgba(0,0,0,.1);transform:translateY(-5px);border-color:var(--terra)}
+.room-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .45s ease}
+.room-img-ph{width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:3.5rem;background:linear-gradient(135deg,var(--forest),var(--forest-lt))}
+.room-card:hover .room-img{transform:scale(1.04)}
+.room-body{padding:1.35rem}
+.room-type{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--terra);margin-bottom:.35rem}
+.room-name{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--text);margin-bottom:.35rem}
+.room-desc{font-size:.8rem;color:var(--muted);line-height:1.58;margin-bottom:.85rem}
+.room-amens{display:flex;flex-wrap:wrap;gap:.38rem;margin-bottom:.95rem}
+.r-amen{display:inline-flex;align-items:center;gap:.28rem;font-size:.65rem;color:var(--forest);background:rgba(27,58,45,.07);border-radius:2rem;padding:.2rem .55rem}
+.r-amen i{font-size:.7rem}
+.room-footer{display:flex;align-items:center;justify-content:space-between;padding-top:.85rem;border-top:1px solid var(--border-l)}
+.room-price{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--forest)}
+.room-price small{font-size:.72rem;color:var(--muted);font-weight:400;font-family:'DM Sans',sans-serif}
+.room-book{display:inline-flex;align-items:center;gap:.32rem;background:#25D366;color:#fff;font-size:.73rem;font-weight:700;padding:.42rem .9rem;border-radius:.5rem;text-decoration:none;transition:var(--trans)}
+.room-book:hover{background:#1cb857;color:#fff;transform:translateY(-1px)}
+
+/* AMENITIES */
+.amen-section{background:var(--forest)}
+.amen-card{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);
+  border-radius:var(--rad);padding:1.5rem 1.25rem;text-align:center;
+  transition:var(--trans);
+}
+.amen-card:hover{background:rgba(232,201,154,.1);border-color:rgba(232,201,154,.22);transform:translateY(-3px)}
+.amen-ico{font-size:1.6rem;margin-bottom:.75rem;display:block}
+.amen-name{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:#fff;margin-bottom:.25rem}
+.amen-desc{font-size:.72rem;color:rgba(255,255,255,.45);line-height:1.5;margin:0}
+
+/* LOCATION */
+.loc-section{background:var(--cream)}
+.loc-card{background:#fff;border:1.5px solid var(--border-l);border-radius:var(--rad-lg);padding:1.85rem;height:100%;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.loc-card h4{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--text);margin-bottom:1.1rem}
+.lc-row{display:flex;gap:.75rem;margin-bottom:.95rem;align-items:flex-start;font-size:.84rem}
+.lc-row i{color:var(--terra);font-size:1.05rem;margin-top:.18rem;flex-shrink:0}
+.lc-row span{color:var(--text);line-height:1.55}
+.lc-row strong{color:var(--forest);display:block}
+.nearby-item{display:flex;align-items:center;justify-content:space-between;padding:.52rem 0;border-bottom:1px solid var(--border-l);font-size:.82rem}
+.nearby-item:last-child{border-bottom:none}
+.ni-name{color:var(--text);display:flex;align-items:center;gap:.38rem}
+.ni-name i{color:var(--terra);font-size:.82rem}
+.ni-dist{color:var(--terra);font-weight:600}
+.map-placeholder{width:100%;height:200px;background:linear-gradient(135deg,var(--forest),var(--forest-lt));border-radius:var(--rad);display:flex;align-items:center;justify-content:center;font-size:2.5rem;margin-top:1rem}
+
+/* LOCKED */
+.locked-section{position:relative;overflow:hidden}
+.locked-content{filter:blur(5px);pointer-events:none;user-select:none;opacity:.5}
+.lock-overlay{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(27,58,45,.8);backdrop-filter:blur(2px);text-align:center;padding:2rem}
+.lock-icon{width:64px;height:64px;border-radius:50%;background:rgba(232,201,154,.12);border:2px solid rgba(232,201,154,.28);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--sand);margin:0 auto 1.1rem}
+.lock-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(232,201,154,.1);border:1px solid rgba(232,201,154,.22);color:var(--sand);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .72rem;border-radius:2rem;margin-bottom:.85rem}
+.lock-title{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:#fff;margin-bottom:.42rem}
+.lock-sub{font-size:.8rem;color:rgba(255,255,255,.48);margin-bottom:1.35rem;max-width:275px;line-height:1.65}
+
+/* GALLERY (locked) */
+.gallery-section{background:#fff;padding:5.5rem 0}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem}
+@media(max-width:576px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+.g-item{border-radius:.85rem;overflow:hidden;position:relative}
+.g-item.tall{grid-row:span 2}
+.g-item img{width:100%;height:100%;object-fit:cover;display:block;min-height:180px;transition:transform .4s ease}
+.g-item:hover img{transform:scale(1.05)}
+.g-label{position:absolute;bottom:.65rem;left:.65rem;font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.8);background:rgba(27,58,45,.6);padding:.18rem .45rem;border-radius:.3rem;opacity:0;transition:var(--trans)}
+.g-item:hover .g-label{opacity:1}
+
+/* TESTIMONIALS (locked) */
+.testi-section-g{background:var(--cream);padding:5.5rem 0}
+.tg-card{background:#fff;border:1.5px solid rgba(196,98,45,.1);border-radius:var(--rad-lg);padding:1.85rem;position:relative;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.tgq{font-size:2.8rem;line-height:1;color:var(--terra);opacity:.2;position:absolute;top:.7rem;left:1.2rem;font-family:Georgia,serif}
+.tg-stars{color:var(--terra);font-size:.75rem;margin-bottom:.65rem;padding-top:.85rem}
+.tg-text{font-size:.85rem;color:var(--muted);line-height:1.73;margin-bottom:1rem;font-style:italic}
+.tg-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--terra),var(--sand));color:#fff;font-weight:700;font-size:.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.tg-name{font-weight:600;font-size:.83rem;color:var(--forest)}
+.tg-loc{font-size:.67rem;color:var(--muted)}
+.tg-source{font-size:.6rem;color:var(--terra);font-weight:600;margin-left:auto}
+
+/* CTA */
+.cta-section{
+  background:
+    linear-gradient(135deg,rgba(27,58,45,.94) 0%,rgba(27,58,45,.90) 100%),
+    url('https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=1200&q=80') center/cover no-repeat;
+  padding:6rem 0;position:relative;text-align:center;overflow:hidden;
+}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(196,98,45,.14) 0%,transparent 60%)}
+.cta-section .container{position:relative;z-index:2}
+
+/* FOOTER */
+footer{background:#0F201A;padding:3.5rem 0 1.5rem;border-top:1px solid rgba(255,255,255,.06)}
+.f-name{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:#fff;font-style:italic}
+.f-name span{color:var(--sand)}
+.f-about{font-size:.79rem;color:rgba(255,255,255,.38);line-height:1.72;max-width:275px;margin-top:.5rem}
+.f-head{font-size:.67rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:.85rem}
+.f-lnk{display:block;font-size:.79rem;color:rgba(255,255,255,.38);text-decoration:none;margin-bottom:.42rem;transition:var(--trans)}
+.f-lnk:hover{color:var(--sand)}
+.f-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:1.25rem;margin-top:2.25rem;font-size:.7rem;color:rgba(255,255,255,.2);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem;align-items:center}
+.soc-btn{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.42);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.85rem;transition:var(--trans)}
+.soc-btn:hover{transform:translateY(-2px)}
+.soc-btn.wa:hover{background:#25D366;border-color:#25D366;color:#fff}
+.soc-btn.ig:hover{background:#E1306C;border-color:#E1306C;color:#fff}
+.soc-btn.fb:hover{background:#1877F2;border-color:#1877F2;color:#fff}
+
+.wa-float{position:fixed!important;bottom:1.5rem!important;right:1.5rem!important;width:56px!important;height:56px!important;background:#25D366!important;color:#fff!important;border-radius:50%!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:1.6rem!important;box-shadow:0 4px 20px rgba(37,211,102,.45)!important;text-decoration:none!important;z-index:9999!important;transition:var(--trans)!important}
+.wa-float:hover{transform:scale(1.1)!important;box-shadow:0 6px 28px rgba(37,211,102,.6)!important}
+
+.akra-banner{background:rgba(27,58,45,.06);border-top:1px solid rgba(27,58,45,.12);padding:.65rem 0;text-align:center;font-size:.7rem;color:rgba(27,44,33,.52)}
+.akra-banner a{color:var(--terra);text-decoration:none;font-weight:600}
+.akra-banner a:hover{color:var(--terra-lt)}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+.from-right{transform:translateX(18px)}.from-right.visible{transform:none}
+.from-left{transform:translateX(-18px)}.from-left.visible{transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+@media(max-width:767px){
+  .about-badge{bottom:-.75rem;right:-.5rem;padding:.9rem 1rem}
+  .ab-num{font-size:1.8rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <div class="b-name"><span>Seagrape</span> Retreat</div>
+      <div class="b-sub">Boutique Guest House · St. Lucia</div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-lg-center gap-lg-1 mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#about">Our Story</a></li>
+        <li class="nav-item"><a class="nav-link" href="#rooms">Rooms</a></li>
+        <li class="nav-item"><a class="nav-link" href="#amenities">Amenities</a></li>
+        <li class="nav-item"><a class="nav-link" href="#location">Location</a></li>
+        <li class="nav-item ms-lg-2">
+          <a class="nav-link nav-cta" href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20book%20a%20room%20at%20Seagrape%20Retreat">
+            <i class="bi bi-whatsapp"></i> Book Now
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ══════════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="container position-relative" style="z-index:2">
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-6">
+        <div class="hero-badge reveal"><i class="bi bi-tree-fill"></i> Boutique · Adults Only · Castries, St. Lucia</div>
+        <h1 class="hero-title reveal d1">Wake up to<br><em>paradise.</em></h1>
+        <p class="hero-sub-tag reveal d2">"A quiet escape where the Caribbean comes to you."</p>
+        <p class="hero-desc reveal d2">Seagrape Retreat is a hand-crafted boutique guest house perched above the sea in St. Lucia. Just five private rooms, a garden terrace, and nothing between you and the horizon.</p>
+        <div class="hero-perks reveal d2">
+          <div class="h-perk"><i class="bi bi-sunrise-fill"></i> Breakfast included</div>
+          <div class="h-perk"><i class="bi bi-wifi"></i> Fast WiFi</div>
+          <div class="h-perk"><i class="bi bi-water"></i> Ocean-view terrace</div>
+          <div class="h-perk"><i class="bi bi-car-front-fill"></i> Free parking</div>
+          <div class="h-perk"><i class="bi bi-whatsapp"></i> WhatsApp check-in</div>
+        </div>
+        <div class="d-flex flex-wrap gap-3 reveal d3">
+          <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20book%20a%20room%20at%20Seagrape%20Retreat" class="btn-wa"><i class="bi bi-whatsapp"></i> Check Availability</a>
+          <a href="#rooms" class="btn-outline-w"><i class="bi bi-door-open"></i> View Rooms</a>
+        </div>
+      </div>
+
+      <div class="col-lg-6 reveal from-right d2">
+        <div class="book-panel">
+          <div class="bp-title"><i class="bi bi-calendar-heart"></i> Rooms &amp; Nightly Rates</div>
+          <div class="bp-rate">
+            <div>
+              <span class="bp-from">Starting from</span>
+              <span class="bp-price">$95</span>
+            </div>
+            <span class="bp-per">USD / night</span>
+          </div>
+          <div class="room-row">
+            <span class="rr-name"><i class="bi bi-door-open"></i> Garden Room</span>
+            <div><span class="rr-price">$95</span><span class="rr-note">USD/night · 1 king bed</span></div>
+          </div>
+          <div class="room-row">
+            <span class="rr-name"><i class="bi bi-binoculars"></i> Sea View Room</span>
+            <div><span class="rr-price">$130</span><span class="rr-note">USD/night · 1 queen bed</span></div>
+          </div>
+          <div class="room-row">
+            <span class="rr-name"><i class="bi bi-stars"></i> Terrace Suite</span>
+            <div><span class="rr-price">$175</span><span class="rr-note">USD/night · Private balcony</span></div>
+          </div>
+          <div class="room-row">
+            <span class="rr-name"><i class="bi bi-house-heart"></i> Full Cottage</span>
+            <div><span class="rr-price">$280</span><span class="rr-note">USD/night · Up to 4 guests</span></div>
+          </div>
+          <div style="margin-top:1.1rem">
+            <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20check%20availability%20at%20Seagrape%20Retreat" class="btn-wa w-100 justify-content-center"><i class="bi bi-whatsapp"></i> Check Availability on WhatsApp</a>
+          </div>
+          <div style="font-size:.62rem;color:rgba(255,255,255,.28);text-align:center;margin-top:.75rem">Breakfast included · Min. 2-night stay · Instant WhatsApp confirmation</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SAND STRIP ════════════════════════════════════════ -->
+<div class="sand-strip">
+  <div class="container">
+    <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 gap-md-5">
+      <div class="ss-item"><i class="bi bi-sunrise-fill"></i> Breakfast Included Daily</div>
+      <div class="ss-sep d-none d-md-block"></div>
+      <div class="ss-item"><i class="bi bi-water"></i> Ocean View Terrace</div>
+      <div class="ss-sep d-none d-md-block"></div>
+      <div class="ss-item"><i class="bi bi-person-check-fill"></i> Adults Only · Quiet &amp; Private</div>
+      <div class="ss-sep d-none d-md-block"></div>
+      <div class="ss-item"><i class="bi bi-whatsapp"></i> Book in 60 Seconds on WhatsApp</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ABOUT ══════════════════════════════════════════════ -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+
+      <div class="col-lg-5" data-aos="fade-right">
+        <div class="about-img-wrap">
+          <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=600&q=80" alt="Seagrape Retreat garden terrace" class="about-img">
+          <div class="about-badge">
+            <span class="ab-num">5</span>
+            <span class="ab-lbl">Private Rooms<br>&amp; Suites</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-7 about-text" data-aos="fade-left" data-aos-delay="150">
+        <div class="sec-label">Our Story</div>
+        <h2>Built for the guest<br>who wants to <em>feel</em> St. Lucia.</h2>
+        <div class="leaf-div"><i class="bi bi-leaf"></i></div>
+        <p>Seagrape Retreat was built by a St. Lucian family who wanted to share what makes this island extraordinary — not through a hotel lobby, but through a real home above the sea. Every room was designed by hand. Every breakfast is cooked fresh each morning.</p>
+        <p>We take just five rooms at a time because we believe every guest deserves attention, quiet, and space. If you want a poolside resort, this isn't your place. If you want to feel the island the way locals do — this is exactly it.</p>
+        <div class="row g-3 mt-1 mb-3">
+          <div class="col-6">
+            <div class="incl-item"><i class="bi bi-check-circle-fill"></i> Daily Caribbean breakfast</div>
+            <div class="incl-item"><i class="bi bi-check-circle-fill"></i> Fast WiFi throughout</div>
+            <div class="incl-item"><i class="bi bi-check-circle-fill"></i> Free on-site parking</div>
+          </div>
+          <div class="col-6">
+            <div class="incl-item"><i class="bi bi-check-circle-fill"></i> Ocean-view garden terrace</div>
+            <div class="incl-item"><i class="bi bi-check-circle-fill"></i> WhatsApp concierge</div>
+            <div class="incl-item"><i class="bi bi-check-circle-fill"></i> Airport pickup available</div>
+          </div>
+        </div>
+        <div class="owner-sig">— Marie &amp; Cedric Charles, Hosts</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ROOMS ══════════════════════════════════════════════ -->
+<section class="rooms-section" id="rooms">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="sec-label">Accommodation</div>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem)">Choose Your Escape</h2>
+      <div class="leaf-div"><i class="bi bi-house-heart"></i></div>
+      <p style="font-size:.88rem;color:var(--muted);max-width:420px;margin:.5rem auto 0">Every room includes daily breakfast, WiFi, and access to the garden terrace. Minimum 2-night stay.</p>
+    </div>
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="room-card">
+          <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500&q=80" alt="Garden Room" class="room-img">
+          <div class="room-body">
+            <div class="room-type">Standard Room</div>
+            <div class="room-name">Garden Room</div>
+            <div class="room-desc">A calm, private room overlooking the tropical garden. Natural light, cool breezes, and complete quiet.</div>
+            <div class="room-amens">
+              <span class="r-amen"><i class="bi bi-person-fill"></i> 2 guests</span>
+              <span class="r-amen"><i class="bi bi-wifi"></i> WiFi</span>
+              <span class="r-amen"><i class="bi bi-snow2"></i> AC</span>
+              <span class="r-amen"><i class="bi bi-sunrise"></i> Breakfast</span>
+            </div>
+            <div class="room-footer">
+              <div class="room-price">$95<small>/night USD</small></div>
+              <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Garden%20Room%20at%20Seagrape%20Retreat" class="room-book"><i class="bi bi-whatsapp"></i> Book</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="room-card">
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500&q=80" alt="Sea View Room" class="room-img">
+          <div class="room-body">
+            <div class="room-type">Sea View Room</div>
+            <div class="room-name">Sea View Room</div>
+            <div class="room-desc">Wake up to the Caribbean sea through your window. Queen bed, private en-suite, and a small reading nook.</div>
+            <div class="room-amens">
+              <span class="r-amen"><i class="bi bi-person-fill"></i> 2 guests</span>
+              <span class="r-amen"><i class="bi bi-water"></i> Sea view</span>
+              <span class="r-amen"><i class="bi bi-snow2"></i> AC</span>
+              <span class="r-amen"><i class="bi bi-sunrise"></i> Breakfast</span>
+            </div>
+            <div class="room-footer">
+              <div class="room-price">$130<small>/night USD</small></div>
+              <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Sea%20View%20Room%20at%20Seagrape%20Retreat" class="room-book"><i class="bi bi-whatsapp"></i> Book</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="room-card">
+          <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=500&q=80" alt="Terrace Suite" class="room-img">
+          <div class="room-body">
+            <div class="room-type">Suite</div>
+            <div class="room-name">Terrace Suite</div>
+            <div class="room-desc">Our most popular room. Private balcony, king bed, and an uninterrupted view of the horizon at sunset.</div>
+            <div class="room-amens">
+              <span class="r-amen"><i class="bi bi-person-fill"></i> 2 guests</span>
+              <span class="r-amen"><i class="bi bi-flower1"></i> Private terrace</span>
+              <span class="r-amen"><i class="bi bi-snow2"></i> AC</span>
+              <span class="r-amen"><i class="bi bi-sunrise"></i> Breakfast</span>
+            </div>
+            <div class="room-footer">
+              <div class="room-price">$175<small>/night USD</small></div>
+              <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Terrace%20Suite%20at%20Seagrape%20Retreat" class="room-book"><i class="bi bi-whatsapp"></i> Book</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+        <div class="room-card">
+          <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&q=80" alt="Seagrape Cottage" class="room-img">
+          <div class="room-body">
+            <div class="room-type">Full Cottage</div>
+            <div class="room-name">Seagrape Cottage</div>
+            <div class="room-desc">A self-contained cottage with two bedrooms, a kitchenette, and your own private patio steps from the garden.</div>
+            <div class="room-amens">
+              <span class="r-amen"><i class="bi bi-people-fill"></i> Up to 4</span>
+              <span class="r-amen"><i class="bi bi-house"></i> Kitchenette</span>
+              <span class="r-amen"><i class="bi bi-snow2"></i> AC</span>
+              <span class="r-amen"><i class="bi bi-sunrise"></i> Breakfast</span>
+            </div>
+            <div class="room-footer">
+              <div class="room-price">$280<small>/night USD</small></div>
+              <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Seagrape%20Cottage" class="room-book"><i class="bi bi-whatsapp"></i> Book</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="text-center mt-5" data-aos="fade-up">
+      <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20check%20dates%20and%20availability%20at%20Seagrape%20Retreat" class="btn-wa"><i class="bi bi-whatsapp"></i> Check Your Dates on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AMENITIES ═════════════════════════════════════════ -->
+<section class="amen-section" id="amenities">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="sec-label lbl-w">Included in Every Stay</div>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem);color:#fff">The Details That Matter</h2>
+      <div class="leaf-div" style="color:var(--sand)"><i class="bi bi-leaf"></i></div>
+    </div>
+    <div class="row g-3">
+      <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="50">
+        <div class="amen-card">
+          <span class="amen-ico">🍳</span>
+          <div class="amen-name">Daily Breakfast</div>
+          <p class="amen-desc">Fresh Caribbean breakfast each morning — local fruits, eggs, ackee &amp; saltfish</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="100">
+        <div class="amen-card">
+          <span class="amen-ico">📶</span>
+          <div class="amen-name">Fast WiFi</div>
+          <p class="amen-desc">High-speed internet throughout the property — indoors and on the terrace</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="150">
+        <div class="amen-card">
+          <span class="amen-ico">🌅</span>
+          <div class="amen-name">Ocean Terrace</div>
+          <p class="amen-desc">Shared garden terrace with ocean views — ideal for sunrise coffee and sunset drinks</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="200">
+        <div class="amen-card">
+          <span class="amen-ico">🚗</span>
+          <div class="amen-name">Free Parking</div>
+          <p class="amen-desc">Private, secure on-site parking — free for all guests for the duration of your stay</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="250">
+        <div class="amen-card">
+          <span class="amen-ico">❄️</span>
+          <div class="amen-name">Air Conditioning</div>
+          <p class="amen-desc">All rooms are fully air-conditioned — stay cool no matter the time of year</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="300">
+        <div class="amen-card">
+          <span class="amen-ico">💬</span>
+          <div class="amen-name">WhatsApp Concierge</div>
+          <p class="amen-desc">Message your hosts for anything — restaurant tips, tours, airport pickups, and more</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LOCATION ══════════════════════════════════════════ -->
+<section class="loc-section" id="location">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="sec-label">Getting Here</div>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem)">Perfectly Placed</h2>
+      <div class="leaf-div"><i class="bi bi-geo-alt"></i></div>
+      <p style="font-size:.88rem;color:var(--muted);max-width:420px;margin:.5rem auto 0">Close enough to everything. Far enough from the noise.</p>
+    </div>
+    <div class="row g-4">
+
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="loc-card">
+          <h4><i class="bi bi-geo-alt-fill me-2" style="color:var(--terra)"></i>Address &amp; Contact</h4>
+          <div class="lc-row"><i class="bi bi-pin-map-fill"></i><span><strong>Location</strong>Old Victoria Road, Castries Hill, Saint Lucia<br><small style="opacity:.6">Above Castries Harbour — 5 min from city centre</small></span></div>
+          <div class="lc-row"><i class="bi bi-whatsapp"></i><span><strong>Book via WhatsApp</strong>+1 (758) 123-4567 — fastest response, instant confirmation</span></div>
+          <div class="lc-row"><i class="bi bi-envelope-fill"></i><span><strong>Email</strong>stay@seagraperetreat.lc</span></div>
+          <div class="lc-row"><i class="bi bi-airplane-fill"></i><span><strong>Airport Transfers</strong>Hewanorra Int'l (UVF) — approx. 1.5 hrs · George F.L. Charles (SLU) — 10 mins<br><small style="opacity:.6">We arrange airport pickups on request</small></span></div>
+          <div style="margin-top:1.25rem">
+            <a href="https://wa.me/17581234567?text=Hi%2C%20I%20need%20directions%20or%20an%20airport%20pickup%20to%20Seagrape%20Retreat" class="btn-wa w-100 justify-content-center"><i class="bi bi-whatsapp"></i> Get Directions or Arrange Pickup</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="loc-card">
+          <h4><i class="bi bi-map-fill me-2" style="color:var(--terra)"></i>Nearby Attractions</h4>
+          <div class="nearby-item"><span class="ni-name"><i class="bi bi-geo-alt-fill"></i>Castries City Centre</span><span class="ni-dist">5 min drive</span></div>
+          <div class="nearby-item"><span class="ni-name"><i class="bi bi-geo-alt-fill"></i>La Toc Beach</span><span class="ni-dist">8 min drive</span></div>
+          <div class="nearby-item"><span class="ni-name"><i class="bi bi-geo-alt-fill"></i>Rodney Bay Marina</span><span class="ni-dist">20 min drive</span></div>
+          <div class="nearby-item"><span class="ni-name"><i class="bi bi-geo-alt-fill"></i>Marigot Bay</span><span class="ni-dist">25 min drive</span></div>
+          <div class="nearby-item"><span class="ni-name"><i class="bi bi-geo-alt-fill"></i>The Pitons (UNESCO)</span><span class="ni-dist">55 min drive</span></div>
+          <div class="nearby-item"><span class="ni-name"><i class="bi bi-geo-alt-fill"></i>Soufrière Drive-In Volcano</span><span class="ni-dist">60 min drive</span></div>
+          <div class="map-placeholder">🗺️</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY — LOCKED (Grow Feature) ══════════════════ -->
+<section class="gallery-section locked-section" id="gallery">
+  <div class="locked-content">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="sec-label">Photo Gallery</div>
+        <h2 style="font-size:clamp(2rem,4vw,2.8rem)">See Every Corner</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="g-item tall">
+          <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=400&q=70" alt="Terrace view">
+          <div class="g-label">Terrace</div>
+        </div>
+        <div class="g-item">
+          <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&q=70" alt="Garden room">
+          <div class="g-label">Garden Room</div>
+        </div>
+        <div class="g-item">
+          <img src="https://images.unsplash.com/photo-1540541338537-f9b2b86aea4a?w=400&q=70" alt="Ocean view">
+          <div class="g-label">Sea View</div>
+        </div>
+        <div class="g-item">
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&q=70" alt="Suite interior">
+          <div class="g-label">Terrace Suite</div>
+        </div>
+        <div class="g-item">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&q=70" alt="Breakfast">
+          <div class="g-label">Breakfast</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="lock-overlay">
+    <div class="lock-icon"><i class="bi bi-images"></i></div>
+    <div class="lock-badge"><i class="bi bi-stars"></i> Link &amp; Grow Plan Feature</div>
+    <div class="lock-title">Photo Gallery</div>
+    <p class="lock-sub">A curated image gallery showing every room, the terrace, breakfast, and surroundings — the single biggest driver of direct bookings.</p>
+    <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20upgrade%20to%20unlock%20the%20photo%20gallery%20feature" class="btn-wa"><i class="bi bi-whatsapp"></i> Unlock This Feature</a>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS — LOCKED (Grow Feature) ════════════ -->
+<section class="testi-section-g locked-section" id="reviews">
+  <div class="locked-content">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="sec-label">Guest Reviews</div>
+        <h2 style="font-size:clamp(2rem,4vw,2.8rem)">What Guests Say</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="tg-card">
+            <div class="tgq">"</div>
+            <div class="tg-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            <p class="tg-text">Woke up to birdsong and a sea breeze through the curtains. Marie had breakfast on the terrace by 8 AM. This is exactly what St. Lucia should feel like. Absolutely magical.</p>
+            <div class="d-flex align-items-center gap-3"><div class="tg-av">J</div><div><div class="tg-name">Julie &amp; Tom B.</div><div class="tg-loc">London, UK · via Airbnb</div></div><span class="tg-source">Airbnb ★ 5</span></div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="tg-card">
+            <div class="tgq">"</div>
+            <div class="tg-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            <p class="tg-text">We stayed in the Terrace Suite for our anniversary. The view at sunset is something I'll never forget. Hosts organised our entire island itinerary through WhatsApp — incredibly thoughtful.</p>
+            <div class="d-flex align-items-center gap-3"><div class="tg-av">K</div><div><div class="tg-name">Keisha M.</div><div class="tg-loc">Toronto, Canada · via Google</div></div><span class="tg-source">Google ★ 5</span></div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="tg-card">
+            <div class="tgq">"</div>
+            <div class="tg-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            <p class="tg-text">Small, intimate, genuinely Caribbean. No resort crowds, no noise — just five rooms, a wonderful family, and the best saltfish breakfast I've ever had. Already planning my return.</p>
+            <div class="d-flex align-items-center gap-3"><div class="tg-av">R</div><div><div class="tg-name">Robert A.</div><div class="tg-loc">Miami, Florida · via TripAdvisor</div></div><span class="tg-source">TripAdvisor ★ 5</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="lock-overlay">
+    <div class="lock-icon"><i class="bi bi-chat-quote-fill"></i></div>
+    <div class="lock-badge"><i class="bi bi-stars"></i> Grow Plan Feature</div>
+    <div class="lock-title">Guest Testimonials</div>
+    <p class="lock-sub">Real reviews from real guests — the most powerful trust signal for travellers choosing where to stay.</p>
+    <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20upgrade%20to%20unlock%20the%20guest%20testimonials%20feature" class="btn-wa"><i class="bi bi-whatsapp"></i> Unlock This Feature</a>
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA ══════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="container">
+    <div data-aos="fade-up">
+      <div class="sec-label lbl-w" style="justify-content:center">Ready to escape?</div>
+      <h2 style="font-size:clamp(2.2rem,5vw,3.8rem);color:#fff;margin-bottom:.65rem">Your room is waiting.</h2>
+      <div class="leaf-div" style="color:var(--sand);opacity:.5"><i class="bi bi-leaf"></i></div>
+      <p style="font-size:.93rem;color:rgba(255,255,255,.52);max-width:420px;margin:.5rem auto 2rem;line-height:1.78">Message us on WhatsApp to check availability and confirm your booking. We respond fast — usually within the hour.</p>
+      <div class="d-flex flex-wrap gap-3 justify-content-center">
+        <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20book%20a%20stay%20at%20Seagrape%20Retreat" class="btn-wa" style="font-size:.95rem;padding:.85rem 2rem"><i class="bi bi-whatsapp"></i> Book My Stay Now</a>
+        <a href="#rooms" class="btn-outline-w" style="font-size:.95rem;padding:.85rem 2rem"><i class="bi bi-door-open"></i> See All Rooms</a>
+      </div>
+      <p style="font-size:.7rem;color:rgba(255,255,255,.22);margin-top:1.25rem">Breakfast included · Min. 2-night stay · Adults only · Castries, Saint Lucia</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="row g-4 mb-3">
+      <div class="col-lg-5">
+        <div class="f-name"><span>Seagrape</span> Retreat</div>
+        <p class="f-about">A private boutique guest house above the sea in Castries, St. Lucia. Five rooms. Breakfast included. Instant WhatsApp booking.</p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="#" class="soc-btn wa"><i class="bi bi-whatsapp"></i></a>
+          <a href="#" class="soc-btn ig"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="soc-btn fb"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <p class="f-head">Explore</p>
+        <a href="#about" class="f-lnk">Our Story</a>
+        <a href="#rooms" class="f-lnk">Rooms &amp; Suites</a>
+        <a href="#amenities" class="f-lnk">Amenities</a>
+        <a href="#location" class="f-lnk">Location &amp; Directions</a>
+      </div>
+      <div class="col-6 col-lg-3">
+        <p class="f-head">Book Now</p>
+        <a href="https://wa.me/17581234567?text=Garden%20Room%20booking" class="f-lnk"><i class="bi bi-door-open me-1" style="color:var(--sand)"></i>Garden Room — $95</a>
+        <a href="https://wa.me/17581234567?text=Sea%20View%20Room%20booking" class="f-lnk"><i class="bi bi-water me-1" style="color:var(--sand)"></i>Sea View Room — $130</a>
+        <a href="https://wa.me/17581234567?text=Terrace%20Suite%20booking" class="f-lnk"><i class="bi bi-stars me-1" style="color:var(--sand)"></i>Terrace Suite — $175</a>
+        <a href="https://wa.me/17581234567?text=Seagrape%20Cottage%20booking" class="f-lnk"><i class="bi bi-house-heart me-1" style="color:var(--sand)"></i>Full Cottage — $280</a>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 Seagrape Retreat. All rights reserved. · Castries, Saint Lucia</span>
+      <span>Boutique Guest House · Est. 2018</span>
+    </div>
+  </div>
+</footer>
+
+<div class="akra-banner">
+  This website was built by <a href="https://jamalinks758.github.io/AkraLink/" target="_blank">AkraLink</a> — Professional websites for Caribbean small businesses. Starting at $24.99/month.
+</div>
+
+<a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20book%20a%20stay%20at%20Seagrape%20Retreat" class="wa-float" title="Book via WhatsApp" aria-label="Book your stay via WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({duration:700,once:true,offset:60,easing:'ease-out-cubic'});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(!t)return;e.preventDefault();
+    t.scrollIntoView({behavior:'smooth',block:'start'});
+    const m=document.getElementById('navMenu');
+    if(m?.classList.contains('show'))bootstrap.Collapse.getInstance(m)?.hide();
+  });
+});
+const fy=document.querySelector('.f-bottom span');
+if(fy)fy.textContent=fy.textContent.replace('2026',new Date().getFullYear());
+</script>
+</body>
+</html>
