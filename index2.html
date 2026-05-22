@@ -6,7 +6,7 @@
 <title>AkraLink — Launch. Link. Grow.</title>
 <meta name="description" content="Fast, affordable professional websites for Caribbean small businesses. Mobile-first. WhatsApp-ready. Online in 48 hours. Starting at $24.99/month.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://akralink.com/">
+<meta property="og:url" content="https://jamalinks758.github.io/AkraLink/">
 <meta property="og:title" content="AkraLink — Your Business, Online. Instantly.">
 <meta property="og:description" content="Professional websites for Caribbean small businesses. Starting at $24.99/month.">
 <meta name="twitter:card" content="summary_large_image">
@@ -164,24 +164,25 @@ section{padding:5rem 0}
 .hero-title .accent{color:var(--gold)}
 .hero-sub{color:rgba(255,255,255,.58);font-size:.95rem;line-height:1.77;max-width:455px;margin-bottom:1.85rem}
 
-/* Phone mockup */
-.hero-phone-wrap{position:relative;max-width:258px;margin:0 auto}
-.phone-shell{background:#192840;border:2px solid rgba(255,255,255,.1);border-radius:2.4rem;padding:.95rem .8rem 1.4rem;box-shadow:0 40px 90px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.04)}
-.phone-notch{width:60px;height:7px;background:rgba(255,255,255,.09);border-radius:7px;margin:0 auto .8rem}
-.phone-screen{background:#f7f8fa;border-radius:.92rem;padding:.72rem;overflow:hidden}
-.ps-bar{display:flex;align-items:center;gap:.36rem;margin-bottom:.48rem}
-.ps-dot{width:19px;height:19px;border-radius:4px;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:.36rem;font-weight:800;color:#fff}
-.ps-biz{font-size:.42rem;font-weight:700;color:#0D1B2A}
-.ps-img{width:100%;height:58px;border-radius:.42rem;background:linear-gradient(135deg,rgba(37,99,235,.14),rgba(245,176,0,.1));display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:.4rem}
-.ps-title{font-size:.42rem;font-weight:700;color:#0D1B2A;margin-bottom:.14rem;line-height:1.3}
+/* Phone mockup - fixed overlapping issues */
+.hero-phone-wrap{position:relative;max-width:310px;margin:0 auto}
+.phone-shell{background:#192840;border:2px solid rgba(255,255,255,.1);border-radius:2.8rem;padding:1.1rem .95rem 1.7rem;box-shadow:0 40px 90px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.04)}
+.phone-notch{width:60px;height:7px;background:rgba(255,255,255,.09);border-radius:7px;margin:0 auto 1rem}
+.phone-screen{background:#f7f8fa;border-radius:1.1rem;padding:.5rem;overflow:hidden;display:flex;flex-direction:column;gap:.4rem}
+.ps-bar{display:flex;align-items:center;gap:.36rem;margin-bottom:0}
+.ps-dot{width:19px;height:19px;border-radius:4px;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:.36rem;font-weight:800;color:#fff;flex-shrink:0}
+.ps-biz{font-size:.42rem;font-weight:700;color:#0D1B2A;margin-bottom:0!important}
+.ps-img{width:100%;height:auto;min-height:58px;border-radius:.42rem;background:linear-gradient(135deg,rgba(37,99,235,.14),rgba(245,176,0,.1));display:flex;align-items:center;justify-content:center;margin-bottom:0;overflow:hidden}
+.ps-img img{width:100%;height:auto;max-height:65px;object-fit:contain;display:block}
+.ps-title{font-size:.42rem;font-weight:700;color:#0D1B2A;margin-bottom:.14rem;line-height:1.3;margin-top:0!important}
 .ps-price{font-size:.37rem;color:#6B7280;margin-bottom:.36rem}
-.ps-wa{display:flex;align-items:center;justify-content:center;gap:.18rem;background:#25D366;color:#fff;border-radius:.3rem;padding:.25rem;font-size:.37rem;font-weight:700}
-.hero-stat{position:absolute;background:#fff;border-radius:.75rem;padding:.48rem .82rem;box-shadow:0 8px 28px rgba(0,0,0,.18);display:flex;align-items:center;gap:.42rem;white-space:nowrap}
+.ps-wa{display:flex;align-items:center;justify-content:center;gap:.18rem;background:#25D366;color:#fff;border-radius:.3rem;padding:.25rem;font-size:.37rem;font-weight:700;cursor:pointer}
+.hero-stat{position:absolute;background:#fff;border-radius:.75rem;padding:.48rem .82rem;box-shadow:0 8px 28px rgba(0,0,0,.18);display:flex;align-items:center;gap:.42rem;white-space:nowrap;z-index:10}
 .hero-stat-1{bottom:1.4rem;left:-2rem}
 .hero-stat-2{top:1rem;right:-2rem}
 .hs-num{font-size:.88rem;font-weight:800;color:#0D1B2A;line-height:1;display:block}
 .hs-lbl{font-size:.48rem;color:#6B7280;display:block}
-@media(max-width:991px){.hero-stat-1,.hero-stat-2{display:none}.hero-phone-wrap{max-width:210px}}
+@media(max-width:991px){.hero-stat-1,.hero-stat-2{display:none}.hero-phone-wrap{max-width:250px}}
 
 /* ═══════════════════════════════════════════════════════
    STATS BAR
@@ -256,6 +257,8 @@ section{padding:5rem 0}
 .demo-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--rad-lg);overflow:hidden;height:100%;display:flex;flex-direction:column;transition:var(--trans);box-shadow:var(--sh-sm)}
 .demo-card:hover{box-shadow:var(--sh-md);transform:translateY(-5px);border-color:var(--blue)}
 .demo-thumb{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.demo-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center}
+.dt-lbl{position:absolute;bottom:.5rem;left:.6rem;background:rgba(0,0,0,.55);color:#fff;font-size:.58rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:.18rem .55rem;border-radius:2rem;backdrop-filter:blur(4px)}
 .dt-rest  {background:linear-gradient(135deg,#1e1035,#4c2885)}
 .dt-taxi  {background:linear-gradient(135deg,#0D1B2A,#1D4ED8)}
 .dt-build {background:linear-gradient(135deg,#1a1a1a,#374151)}
@@ -433,22 +436,39 @@ footer{background:var(--navy-dp);padding:4rem 0 2rem;color:rgba(255,255,255,.5)}
         <p class="reveal d4" style="font-size:.71rem;color:rgba(255,255,255,.3);margin-top:1.15rem">Not a webpage, but a conversion system &nbsp;·&nbsp; No contracts &nbsp;·&nbsp; Cancel anytime</p>
       </div>
 
-      <div class="col-lg-6 text-center reveal from-right d2">
-        <div class="hero-phone-wrap">
-          <div class="phone-shell">
-            <div class="phone-notch"></div>
-            <div class="phone-screen">
-              <div class="ps-bar"><div class="ps-dot">AL</div><div class="ps-biz">YOUR BUSINESS</div></div>
-              <div class="ps-img">🏪</div>
-              <div class="ps-title">Products &amp; Services<br>View our full menu &amp; prices</div>
-              <div class="ps-price">Starting from $10 · Order via WhatsApp</div>
-              <div class="ps-wa"><i class="bi bi-whatsapp"></i> Order Now on WhatsApp</div>
-            </div>
-          </div>
-          <div class="hero-stat hero-stat-1"><span>⚡</span><div><span class="hs-num">48hrs</span><span class="hs-lbl">Avg. launch time</span></div></div>
-          <div class="hero-stat hero-stat-2"><span>📱</span><div><span class="hs-num">100%</span><span class="hs-lbl">Mobile ready</span></div></div>
+   <div class="col-lg-6 text-center reveal from-right d2">
+  <div class="hero-phone-wrap">
+    <div class="phone-shell">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <div class="ps-bar">
+          <div class="ps-dot">AL</div>
+          <div class="ps-biz">YOUR BUSINESS</div>
         </div>
+        <div class="ps-img">
+          <img src="images/winward-transfers.webp" alt="Winward-Transfers sample preview" loading="lazy">
+        </div>
+        <div class="ps-title">Products &amp; Services<br>View our full menu &amp; prices</div>
+        <div class="ps-price">Starting from $10 · Order via WhatsApp</div>
+        <div class="ps-wa"><i class="bi bi-whatsapp"></i> Order Now on WhatsApp</div>
       </div>
+    </div>
+    <div class="hero-stat hero-stat-1">
+      <span>⚡</span>
+      <div>
+        <span class="hs-num">48hrs</span>
+        <span class="hs-lbl">Avg. launch time</span>
+      </div>
+    </div>
+    <div class="hero-stat hero-stat-2">
+      <span>📱</span>
+      <div>
+        <span class="hs-num">100%</span>
+        <span class="hs-lbl">Mobile ready</span>
+      </div>
+    </div>
+  </div>
+</div>
 
     </div>
   </div>
@@ -605,29 +625,27 @@ Web agencies charge thousands upfront. Website builders like Wix and Squarespace
     <!-- Row 1 -->
     <div class="row g-4 mb-4">
 
-      <!-- 1. Restaurants -->
+      <!-- 1. Restaurant -->
       <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="50">
         <div class="demo-card">
-          <div class="demo-thumb dt-rest"><span class="dt-ico">
-          <img src="images/the-flambeau-table.webp" class="demo-card-img object-fit-cover mx-auto img-fluid" alt="The Flambeau Table — sample restaurant conversion system preview" loading="lazy" width="400" height="225">
-          </span><span class="dt-lbl">Restaurant</span></div>
+          <div class="demo-thumb dt-rest">
+            <img src="images/the-flambeau-table.webp" class="demo-card-img object-fit-cover w-100 h-100" alt="The Flambeau Table — restaurant conversion system" loading="lazy">
+          </div>
           <div class="demo-body">
             <span class="demo-tag">Restaurant</span>
             <h5>Restaurants &amp; Dining</h5>
-            <p>Full menu with categories, photos, and prices. Customers order for dine-in or takeout with one tap to WhatsApp. No more "what's on the menu today?" messages.</p>
+            <p>Full menu with categories, photos, and prices. Customers order dine-in or takeout with one tap to WhatsApp. No more "what's on the menu?" messages.</p>
             <a href="https://jamalinks758.github.io/AkraLink/demo-products/the-flambeau-table.html" class="btn-blue" style="font-size:.72rem;padding:.36rem .88rem"><i class="bi bi-eye"></i> Preview</a>
           </div>
         </div>
       </div>
 
-      <!-- 2. Taxi & Airport Transfer -->
-      
+      <!-- 2. Taxi -->
       <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
         <div class="demo-card">
-          <div class="demo-thumb dt-taxi"><span class="dt-ico">
-             <img src="images/winward-transfers.webp" class="demo-card-img object-fit-cover mx-auto img-fluid" alt="Winward-Transfers— sample transport and taxi conversion system preview" loading="lazy" width="400" height="225">
-   
-          </span><span class="dt-lbl">Taxi & Transfer</span></div>
+          <div class="demo-thumb dt-taxi">
+            <img src="images/winward-transfers.webp" class="demo-card-img object-fit-cover w-100 h-100" alt="Windward Transfers — taxi conversion system" loading="lazy">
+          </div>
           <div class="demo-body">
             <span class="demo-tag">Transport</span>
             <h5>Taxi &amp; Airport Transfers</h5>
@@ -636,34 +654,28 @@ Web agencies charge thousands upfront. Website builders like Wix and Squarespace
           </div>
         </div>
       </div>
-      
 
       <!-- 3. Contractors -->
-      
       <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
         <div class="demo-card">
-          <div class="demo-thumb dt-build"><span class="dt-ico">
-             <img src="images/ironshore-contractors.webp" class="demo-card-img object-fit-cover mx-auto img-fluid" alt="Winward-Transfers— sample transport and taxi conversion system preview" loading="lazy" width="400" height="225">
-   
-          </span><span class="dt-lbl">Contractors</span></div>
+          <div class="demo-thumb dt-build">
+            <img src="images/ironshore-contractors.webp" class="demo-card-img object-fit-cover w-100 h-100" alt="Ironshore Contractors — contractor conversion system" loading="lazy">
+          </div>
           <div class="demo-body">
             <span class="demo-tag">Contractors</span>
             <h5>Contractors &amp; Trades</h5>
-            <p> Services, coverage area, and a work gallery. Customers request a quote on WhatsApp already knowing what you do and what it costs.</p>
+            <p>Services, coverage area, and a work gallery. Customers request a quote on WhatsApp already knowing what you do and what it costs.</p>
             <a href="https://jamalinks758.github.io/AkraLink/demo-products/ironshore-contractors.html" class="btn-blue" style="font-size:.72rem;padding:.36rem .88rem"><i class="bi bi-eye"></i> Preview</a>
           </div>
         </div>
       </div>
-      
 
-      <!-- 4. AirBnB / Guest Houses — COMING SOON -->
-      
+      <!-- 4. Guest House -->
       <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
         <div class="demo-card">
-          <div class="demo-thumb dt-bnb"><span class="dt-ico">
-             <img src="images/seagrape-retreat.webp" class="demo-card-img object-fit-cover mx-auto img-fluid" alt="Winward-Transfers— sample transport and taxi conversion system preview" loading="lazy" width="400" height="225">
-   
-          </span><span class="dt-lbl">Guest House</span></div>
+          <div class="demo-thumb dt-bnb">
+            <img src="images/seagrape-retreat.webp" class="demo-card-img object-fit-cover w-100 h-100" alt="Seagrape Retreat — guest house conversion system" loading="lazy">
+          </div>
           <div class="demo-body">
             <span class="demo-tag">Hospitality</span>
             <h5>AirBnB &amp; Guest Houses</h5>
@@ -672,21 +684,18 @@ Web agencies charge thousands upfront. Website builders like Wix and Squarespace
           </div>
         </div>
       </div>
-      
 
     </div>
 
     <!-- Row 2 -->
-    
     <div class="row g-4 mb-5">
 
-      <!- - 5. Churches - ->
+      <!-- 5. Church -->
       <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="50">
         <div class="demo-card">
-          <div class="demo-thumb dt-church"><span class="dt-ico">
-             <img src="images/harbour-light-church.webp" class="demo-card-img object-fit-cover mx-auto img-fluid" alt="Winward-Transfers— sample transport and taxi conversion system preview" loading="lazy" width="400" height="225">
-   
-          </span><span class="dt-lbl">Church</span></div>
+          <div class="demo-thumb dt-church">
+            <img src="images/harbour-light-church.webp" class="demo-card-img object-fit-cover w-100 h-100" alt="Harbour Light Church — ministry conversion system" loading="lazy">
+          </div>
           <div class="demo-body">
             <span class="demo-tag">Ministry</span>
             <h5>Churches &amp; Ministries</h5>
@@ -696,13 +705,12 @@ Web agencies charge thousands upfront. Website builders like Wix and Squarespace
         </div>
       </div>
 
-      <!-- 6. Food Vendors / Caterers 
+      <!-- 6. Food Vendors / Caterers -->
       <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
         <div class="demo-card">
-          <div class="demo-thumb dt-food"><span class="dt-ico">
-    <img src="images/winward-transfers.webp" class="demo-card-img object-fit-cover mx-auto img-fluid" alt="Winward-Transfers— sample transport and taxi conversion system preview" loading="lazy" width="400" height="225">
-   
-    </span><span class="dt-lbl">Food & Catering</span></div>
+          <div class="demo-thumb dt-food">
+            <img src="images/winward-transfers.webp" class="demo-card-img object-fit-cover w-100 h-100" alt="Food vendor conversion system" loading="lazy">
+          </div>
           <div class="demo-body">
             <span class="demo-tag">Food Vendor</span>
             <h5>Food Vendors &amp; Caterers</h5>
@@ -710,33 +718,37 @@ Web agencies charge thousands upfront. Website builders like Wix and Squarespace
             <a href="https://jamalinks758.github.io/AkraLink/demo-products/" class="btn-blue" style="font-size:.72rem;padding:.36rem .88rem"><i class="bi bi-eye"></i> Preview</a>
           </div>
         </div>
-      </div>-->
+      </div>
 
-      <!--7. Local Service Business 
+      <!-- 7. Salon / Hair Studio -->
       <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
         <div class="demo-card">
-          <div class="demo-thumb dt-svc"><span class="dt-ico">🏪</span><span class="dt-lbl">Local Service</span></div>
+          <div class="demo-thumb dt-svc" style="background:linear-gradient(135deg,#7c3aed,#db2777)">
+            <span class="dt-ico">💇‍♀️</span><span class="dt-lbl">Salon</span>
+          </div>
           <div class="demo-body">
-            <span class="demo-tag">Services</span>
-            <h5>Local Service Business</h5>
-            <p> Service tiers, pricing packages, and testimonials. Customers book appointments on WhatsApp without a single unnecessary back-and-forth.</p>
-            <a href="https://jamalinks758.github.io/AkraLink/demo-products/" class="btn-blue" style="font-size:.72rem;padding:.36rem .88rem"><i class="bi bi-eye"></i> Preview</a>
+            <span class="demo-tag">Beauty</span>
+            <h5>Salons &amp; Hair Studios</h5>
+            <p>Service menu, pricing, and stylist gallery. Customers book appointments on WhatsApp without a single unnecessary back-and-forth.</p>
+            <a href="https://jamalinks758.github.io/AkraLink/demo-products/velour-hair-studio.html" class="btn-blue" style="font-size:.72rem;padding:.36rem .88rem"><i class="bi bi-eye"></i> Preview</a>
           </div>
         </div>
-      </div>-->
+      </div>
 
-      <!-- 8. Auto Services 
+      <!-- 8. Auto Detailing -->
       <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
         <div class="demo-card">
-          <div class="demo-thumb dt-auto"><span class="dt-ico">🚗</span><span class="dt-lbl">Auto Services</span></div>
+          <div class="demo-thumb dt-auto" style="background:linear-gradient(135deg,#0f172a,#1e3a5f)">
+            <span class="dt-ico">🚗</span><span class="dt-lbl">Auto Services</span>
+          </div>
           <div class="demo-body">
             <span class="demo-tag">Automotive</span>
             <h5>Auto Services &amp; Detailing</h5>
             <p>Service packages, before/after gallery, and pricing tiers. Customers book their vehicle directly through WhatsApp.</p>
-            <a href="https://jamalinks758.github.io/AkraLink/demo-products/" class="btn-blue" style="font-size:.72rem;padding:.36rem .88rem"><i class="bi bi-eye"></i> Preview</a>
+            <a href="https://jamalinks758.github.io/AkraLink/demo-products/quickwash.html" class="btn-blue" style="font-size:.72rem;padding:.36rem .88rem"><i class="bi bi-eye"></i> Preview</a>
           </div>
         </div>
-      </div>-->
+      </div>
 
     </div>
    
@@ -816,10 +828,10 @@ Web agencies charge thousands upfront. Website builders like Wix and Squarespace
         <h2 class="display-6 fw-bold mt-2 mb-3">Built by Someone Who Understands This Market</h2>
         <div class="divider" style="margin:0 0 1.4rem"></div>
         <p style="font-size:.93rem;line-height:1.82;color:var(--body-c);margin-bottom:1rem">
-          My name is Jamal, and I built AkraLink right here in Vieux-Fort, St. Lucia. It came to my understanding that many good local businesses lose customers not because their product was bad, but because nobody could find them, understand what they offered, or figure out how to order from them.
+          My name is Jamal, and I built AkraLink right here in St. Lucia. With the understanding that many good local businesses lose customers not because their product was bad, but because nobody could find them, understand what they offered, or figure out how to order from them, I decided to do something about it.
         </p>
         <p style="font-size:.93rem;line-height:1.82;color:var(--body-c);margin-bottom:1.5rem">
-          AkraLink is my answer to that. Not a faceless agency. Not an automated builder. A real person, in your timezone, who builds your conversion system, maintains it monthly, and is available on WhatsApp when you need something changed. Every business I work with gets my full attention, which is exactly why I only take on a limited number of new clients each month.
+          AkraLink is my answer to that. Not a faceless agency. Not an automated builder. A real person, in your timezone, who builds your conversion system, maintains it monthly, and is available on WhatsApp when you need something changed. Every business I work with gets my full attention, which is why I only take on a limited number of new clients each month.
         </p>
         <div class="row g-3 mb-4">
           <div class="col-sm-6">
@@ -867,7 +879,6 @@ Web agencies charge thousands upfront. Website builders like Wix and Squarespace
       </div>
     </div>
 
-    <!-- ROW 1: Launch + Link -->
     <div class="row g-4 justify-content-center mb-4">
 
       <!-- LAUNCH -->
@@ -882,14 +893,17 @@ Web agencies charge thousands upfront. Website builders like Wix and Squarespace
           <div class="p-body">
             <div class="pf"><i class="bi bi-check-circle-fill"></i> 1-page professional website</div>
             <div class="pf"><i class="bi bi-check-circle-fill"></i> Mobile-first responsive design</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Smooth scroll animations</div>
             <div class="pf"><i class="bi bi-check-circle-fill"></i> WhatsApp contact button</div>
             <div class="pf"><i class="bi bi-check-circle-fill"></i> Business hours &amp; contact info</div>
             <div class="pf"><i class="bi bi-check-circle-fill"></i> SSL certificate (free)</div>
             <div class="pf"><i class="bi bi-check-circle-fill"></i> Custom domain connection</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Google Business Profile submission</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Customer enquiry log (Google Sheets)</div>
             <div class="pf"><i class="bi bi-check-circle-fill"></i> 1 content update / month</div>
             <div class="pf no"><i class="bi bi-x-circle-fill"></i> Analytics &amp; tracking</div>
             <div class="pf no"><i class="bi bi-x-circle-fill"></i> WhatsApp pre-filled ordering</div>
-            <div class="pf no"><i class="bi bi-x-circle-fill"></i> PayPal payment button</div>
+            <div class="pf no"><i class="bi bi-x-circle-fill"></i> Filterable product / menu grid</div>
           </div>
           <div class="p-foot">
             <a href="https://wa.me/17587235872?text=I%27m%20interested%20in%20the%20Launch%20plan%20%E2%80%94%20%2424.99%2Fmo" class="btn-wa w-100 justify-content-center"><i class="bi bi-whatsapp"></i> Get Started</a>
@@ -910,12 +924,15 @@ Web agencies charge thousands upfront. Website builders like Wix and Squarespace
           <div class="p-sh">Everything in Launch, plus:</div>
           <div class="p-body">
             <div class="pf"><i class="bi bi-check-circle-fill"></i> 5–6 section conversion page</div>
-            <div class="pf"><i class="bi bi-check-circle-fill"></i> WhatsApp pre-filled order messages</div>
-            <div class="pf"><i class="bi bi-check-circle-fill"></i> PayPal payment button</div>
-            <div class="pf"><i class="bi bi-check-circle-fill"></i> Photo gallery section</div>
-            <div class="pf"><i class="bi bi-check-circle-fill"></i> Social media links integration</div>
             <div class="pf"><i class="bi bi-check-circle-fill"></i> Light / Dark mode toggle</div>
-            <div class="pf"><i class="bi bi-check-circle-fill"></i> Analytics setup (Plausible)</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> WhatsApp pre-filled order messages</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Filterable product / menu grid</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> PayPal payment button</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Photo / work gallery section</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Social media links integration</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Basic on-page SEO</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Google Business Profile setup &amp; optimization</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Plausible Analytics + GA4 setup</div>
             <div class="pf"><i class="bi bi-check-circle-fill"></i> 3 content updates / month</div>
           </div>
           <div class="p-foot">
@@ -935,12 +952,15 @@ Web agencies charge thousands upfront. Website builders like Wix and Squarespace
           <hr class="pd">
           <div class="p-sh">Everything in Link, plus:</div>
           <div class="p-body">
-            <div class="pf"><i class="bi bi-check-circle-fill"></i> 7–8 section page with product grid</div>
-            <div class="pf"><i class="bi bi-check-circle-fill"></i> FAQ &amp; testimonials sections</div>
-            <div class="pf"><i class="bi bi-check-circle-fill"></i> Basic on-page SEO setup</div>
-            <div class="pf"><i class="bi bi-check-circle-fill"></i> Google Business Profile setup</div>
-            <div class="pf"><i class="bi bi-check-circle-fill"></i> 1 monthly WhatsApp promo broadcast written &amp; sent for you</div>
-            <div class="pf"><i class="bi bi-check-circle-fill"></i> 1 monthly promo graphic (social media ready)</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> 7–8 section page</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Custom brand color scheme</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> FAQ accordion &amp; testimonials sections</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> WhatsApp multi-product order builder</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Seasonal promo banner updates</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Full on-page SEO setup</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> GBP setup, optimization &amp; monthly maintenance</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> 1 WhatsApp broadcast written &amp; sent / month</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> 1 social media promo graphic / month</div>
             <div class="pf"><i class="bi bi-check-circle-fill"></i> Monthly performance voice note report</div>
             <div class="pf"><i class="bi bi-check-circle-fill"></i> 5 content updates / month</div>
             <div class="pf"><i class="bi bi-check-circle-fill"></i> Priority response within 24hrs</div>
@@ -959,16 +979,19 @@ Web agencies charge thousands upfront. Website builders like Wix and Squarespace
           <div class="p-tier">Scale</div>
           <div class="p-amt"><sup>$</sup>149<span>/mo</span></div>
           <div class="p-lbl">Monthly subscription · USD</div>
-          <p class="p-desc"><em>For businesses ready to dominate their market.</em><br>Full conversion system plus active monthly marketing — broadcast campaigns, graphics, Google presence, and a direct strategy session with Jamal every month.</p>
+          <p class="p-desc"><em>For businesses ready to dominate their market.</em><br>Full conversion system plus active monthly marketing — broadcast campaigns, graphics, Google presence, and a direct strategy session every month.</p>
           <hr class="pd">
           <div class="p-sh">Everything in Managed, plus:</div>
           <div class="p-body">
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> 8–10 section page</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Facebook Pixel integration</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Full GA4 conversion funnel tracking</div>
             <div class="pf"><i class="bi bi-check-circle-fill"></i> Multi-island Google Business targeting</div>
             <div class="pf"><i class="bi bi-check-circle-fill"></i> 2 WhatsApp broadcast campaigns / month</div>
-            <div class="pf"><i class="bi bi-check-circle-fill"></i> 2 promo graphics / month</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> 2 social media promo graphics / month</div>
             <div class="pf"><i class="bi bi-check-circle-fill"></i> Monthly 20-min WhatsApp strategy call</div>
-            <div class="pf"><i class="bi bi-check-circle-fill"></i> Seasonal campaign planning</div>
-            <div class="pf"><i class="bi bi-check-circle-fill"></i> Competitor visibility check</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Seasonal campaign planning (quarterly)</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Monthly competitor visibility check</div>
             <div class="pf"><i class="bi bi-check-circle-fill"></i> Unlimited content updates</div>
             <div class="pf"><i class="bi bi-check-circle-fill"></i> Same-day priority response</div>
           </div>
@@ -1011,9 +1034,9 @@ Web agencies charge thousands upfront. Website builders like Wix and Squarespace
     </div>
     <div class="row justify-content-center">
       <div class="col-lg-8">
-        <div data-aos="fade-up" data-aos-delay="50"><div class="faq-item"><div class="faq-q">Do I need any technical knowledge to get started?<i class="bi bi-plus fq-ico"></i></div><div class="faq-ans">None at all. Send us your logo, photos, business name, and what you sell. We handle the design, build, and launch. You share your link with customers — that's it.</div></div></div>
+        <div data-aos="fade-up" data-aos-delay="50"><div class="faq-item"><div class="faq-q">Do I need any technical knowledge to get started?<i class="bi bi-plus fq-ico"></i></div><div class="faq-ans">None at all. Send us your logo, photos, business name, and what you sell. We handle the design, build, and launch. You share your link with customers and that's it.</div></div></div>
         <div data-aos="fade-up" data-aos-delay="100"><div class="faq-item"><div class="faq-q">How long does it take to get my website live?<i class="bi bi-plus fq-ico"></i></div><div class="faq-ans">Most sites go live within 48 hours of receiving your content. The faster you send your information, the faster you're online. We keep you updated via WhatsApp throughout.</div></div></div>
-        <div data-aos="fade-up" data-aos-delay="150"><div class="faq-item"><div class="faq-q">Can I cancel my plan at any time?<i class="bi bi-plus fq-ico"></i></div><div class="faq-ans">Yes. No long-term contracts. Cancel anytime with no penalties. Your site stays live until the end of your current billing period. We earn your business every month — not by locking you in.</div></div></div>
+        <div data-aos="fade-up" data-aos-delay="150"><div class="faq-item"><div class="faq-q">Can I cancel my plan at any time?<i class="bi bi-plus fq-ico"></i></div><div class="faq-ans">Yes. No long-term contracts. Cancel anytime with no penalties. Your site stays live until the end of your current billing period. We earn your business every month by not locking you in.</div></div></div>
         <div data-aos="fade-up" data-aos-delay="200"><div class="faq-item"><div class="faq-q">What if I need to update my prices or menu?<i class="bi bi-plus fq-ico"></i></div><div class="faq-ans">
 Message us on WhatsApp with your changes. We update your site within 48 hours. Every plan includes monthly updates so that your conversion system always reflects your real business.</div></div></div>
           <div data-aos="fade-up" data-aos-delay="250"><div class="faq-item"><div class="faq-q">What if I don't have a logo or professional photos?<i class="bi bi-plus fq-ico"></i></div><div class="faq-ans">Most of our clients don't and that's fine. Phone photos work. We'll tell you exactly what to send and make it look professional. You don't need to be ready. You just need to start.</div></div></div>
@@ -1055,8 +1078,8 @@ Saint Lucia's Prime Minister said it publicly in 2024: small businesses are unde
         <p class="f-about">AkraLink helps Caribbean small businesses get online fast with professional, mobile-first websites connected directly to WhatsApp. Affordable. Simple. Effective.</p>
         <div class="d-flex gap-2 mt-3">
           <a href="https://wa.me/17587235872" class="soc-btn wa" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
-          <a href="#" class="soc-btn ig" title="Instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="soc-btn fb" title="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.instagram.com/akra_link?igsh=YXA5cWQ1cGNsNHNu" class="soc-btn ig" title="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.facebook.com/share/1GQYVgFtpe/" class="soc-btn fb" title="Facebook"><i class="bi bi-facebook"></i></a>
         </div>
       </div>
       <div class="col-6 col-lg-2">
