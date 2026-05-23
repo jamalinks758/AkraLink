@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calabash Catering Co. — Caribbean Food &amp; Event Catering · St. Lucia</title>
+<meta name="description" content="Authentic Caribbean catering for events, offices, and everyday meals in St. Lucia. Pre-order on WhatsApp. Minimum orders apply. Delivery available.">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+:root{
+  --leaf:    #1E3A1E;
+  --leaf-lt: #2A4F2A;
+  --card-dk: #1A3218;
+  --spice:   #C4581A;
+  --spice-lt:#D96A28;
+  --amber:   #E8A020;
+  --amber-lt:#F0B030;
+  --cream:   #FAF5EC;
+  --cream-dk:#EFE6D4;
+  --white:   #FFFFFF;
+  --text:    #1C2E1C;
+  --muted:   #6B7D5E;
+  --border-l:rgba(0,0,0,.07);
+  --border-d:rgba(255,255,255,.09);
+  --green:   #25D366;
+  --rad:     .7rem;
+  --rad-lg:  1.25rem;
+  --trans:   all .3s ease;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{overflow-x:hidden;scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);line-height:1.68}
+h1,h2,h3,h4,h5,h6{font-family:'Fraunces',serif;color:var(--text);line-height:1.1}
+section{padding:5.5rem 0}
+.bg-leaf{background:var(--leaf)}
+.bg-white{background:#fff}
+.bg-cream{background:var(--cream)}
+
+/* UTILITIES */
+.sec-label{display:inline-flex;align-items:center;gap:.5rem;font-family:'DM Sans',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--spice);margin-bottom:.85rem}
+.sec-label.lbl-w{color:rgba(232,160,32,.8)}
+.sec-label.lbl-wh{color:rgba(255,255,255,.5)}
+.sec-label::before,.sec-label::after{content:'';display:block;width:20px;height:1px;background:currentColor;opacity:.45}
+.spice-text{color:var(--spice)}
+.amber-text{color:var(--amber)}
+.leaf-div{display:flex;align-items:center;justify-content:center;gap:.65rem;margin:.85rem 0 1.5rem;color:var(--spice);font-size:.9rem}
+.leaf-div::before,.leaf-div::after{content:'';flex:1;max-width:50px;height:1px;background:var(--spice);opacity:.35}
+
+/* BUTTONS */
+.btn-wa{display:inline-flex;align-items:center;gap:.48rem;background:#25D366;color:#fff;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.87rem;padding:.78rem 1.65rem;border-radius:var(--rad);border:none;text-decoration:none;transition:var(--trans);cursor:pointer;white-space:nowrap}
+.btn-wa:hover{background:#1cb857;color:#fff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.32)}
+.btn-spice{display:inline-flex;align-items:center;gap:.48rem;background:var(--spice);color:#fff;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.87rem;padding:.78rem 1.65rem;border-radius:var(--rad);border:none;text-decoration:none;transition:var(--trans);cursor:pointer;white-space:nowrap}
+.btn-spice:hover{background:var(--spice-lt);color:#fff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,88,26,.32)}
+.btn-amber{display:inline-flex;align-items:center;gap:.48rem;background:var(--amber);color:var(--leaf);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.87rem;padding:.78rem 1.65rem;border-radius:var(--rad);border:none;text-decoration:none;transition:var(--trans);cursor:pointer;white-space:nowrap}
+.btn-amber:hover{background:var(--amber-lt);color:var(--leaf);transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,160,32,.32)}
+.btn-outline-w{display:inline-flex;align-items:center;gap:.48rem;background:transparent;color:#fff;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.87rem;padding:.78rem 1.65rem;border-radius:var(--rad);border:2px solid rgba(255,255,255,.24);text-decoration:none;transition:var(--trans);cursor:pointer;white-space:nowrap}
+.btn-outline-w:hover{background:rgba(255,255,255,.09);color:#fff;border-color:rgba(255,255,255,.5)}
+.btn-outline-s{display:inline-flex;align-items:center;gap:.48rem;background:transparent;color:var(--spice);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.87rem;padding:.78rem 1.65rem;border-radius:var(--rad);border:2px solid var(--spice);text-decoration:none;transition:var(--trans);cursor:pointer;white-space:nowrap}
+.btn-outline-s:hover{background:var(--spice);color:#fff}
+
+/* NAVBAR */
+#mainNav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.9rem 0;background:rgba(30,58,30,.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.07);transition:var(--trans)}
+#mainNav.scrolled{padding:.55rem 0;box-shadow:0 4px 32px rgba(0,0,0,.45)}
+.navbar-brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.brand-mark{width:38px;height:38px;border-radius:50%;background:var(--amber);display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0}
+.b-name{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;color:#fff;display:block;line-height:1.1}
+.b-sub{font-size:.43rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.32);display:block;margin-top:.08rem}
+.nav-link{color:rgba(255,255,255,.62)!important;font-size:.83rem;font-weight:500;padding:.42rem .7rem!important;transition:var(--trans)}
+.nav-link:hover{color:#fff!important}
+.nav-cta{background:var(--spice)!important;color:#fff!important;border-radius:var(--rad)!important;padding:.42rem 1.1rem!important;font-weight:700!important;font-size:.81rem!important;display:flex!important;align-items:center!important;gap:.35rem!important}
+.nav-cta:hover{background:var(--spice-lt)!important;transform:translateY(-1px)}
+.navbar-toggler{border:1.5px solid rgba(255,255,255,.2);border-radius:.45rem;padding:.36rem .58rem}
+.navbar-toggler-icon{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")!important}
+
+/* ═══ HERO ═══════════════════════════════════════════════ */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:8.5rem 0 5rem;position:relative;overflow:hidden;
+  background:
+    linear-gradient(165deg,rgba(30,58,30,.88) 0%,rgba(30,58,30,.72) 45%,rgba(196,88,26,.45) 100%),
+    url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1600&q=85') center/cover no-repeat;
+}
+.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.025) 1px,transparent 1px);background-size:24px 24px;pointer-events:none}
+.hero-glow{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(232,160,32,.14) 0%,transparent 70%);bottom:-100px;right:-100px;pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:.45rem;background:rgba(232,160,32,.13);border:1px solid rgba(232,160,32,.28);color:var(--amber);font-size:.67rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .9rem;border-radius:2rem;margin-bottom:1.35rem}
+.hero-title{font-size:clamp(2.8rem,6vw,5rem);font-weight:900;color:#fff;line-height:1.02;margin-bottom:.65rem;letter-spacing:-.015em}
+.hero-title em{color:var(--amber);font-style:italic}
+.hero-tagline{font-family:'Fraunces',serif;font-size:clamp(.9rem,1.8vw,1.2rem);color:rgba(255,255,255,.6);font-style:italic;margin-bottom:1.4rem;max-width:420px;line-height:1.65}
+.hero-desc{font-size:.93rem;color:rgba(255,255,255,.55);max-width:430px;line-height:1.78;margin-bottom:2rem}
+.hero-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.h-tag{display:inline-flex;align-items:center;gap:.35rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.65);font-size:.73rem;font-weight:500;padding:.28rem .72rem;border-radius:2rem}
+.h-tag i{color:var(--amber);font-size:.82rem}
+/* order panel */
+.order-panel{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:var(--rad-lg);padding:1.75rem 1.5rem;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.op-title{font-family:'Fraunces',serif;font-size:1.12rem;font-weight:700;color:#fff;margin-bottom:1.1rem;display:flex;align-items:center;gap:.5rem}
+.op-title i{color:var(--amber)}
+.order-item{display:flex;align-items:center;gap:.85rem;padding:.68rem 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.order-item:last-of-type{border-bottom:none}
+.oi-ico{font-size:1.35rem;flex-shrink:0;width:34px;text-align:center}
+.oi-name{font-size:.84rem;font-weight:600;color:#fff;display:block;line-height:1.2}
+.oi-desc{font-size:.68rem;color:rgba(255,255,255,.42);display:block}
+.oi-price{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;color:var(--amber);margin-left:auto;flex-shrink:0}
+.op-note{font-size:.62rem;color:rgba(255,255,255,.28);text-align:center;margin-top:.85rem}
+
+/* AMBER STRIP */
+.amber-strip{background:var(--amber);padding:1.1rem 0}
+.as-item{display:flex;align-items:center;gap:.55rem;color:var(--leaf);font-size:.82rem;font-weight:700}
+.as-item i{font-size:1.05rem}
+.as-sep{width:1px;background:rgba(30,58,30,.2);min-height:1.6rem;align-self:stretch}
+
+/* ═══ ABOUT / CHEF ═══════════════════════════════════════ */
+.about-section{background:#fff}
+.chef-img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--rad-lg);display:block}
+.chef-badge{position:absolute;bottom:-1.1rem;right:-1.1rem;background:var(--spice);color:#fff;border-radius:var(--rad-lg);padding:1.15rem 1.35rem;box-shadow:0 12px 36px rgba(196,88,26,.38);text-align:center}
+.cb-num{font-family:'Fraunces',serif;font-size:2rem;font-weight:700;line-height:1;display:block;color:#fff}
+.cb-lbl{font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+.about-text h2{font-size:clamp(1.9rem,4vw,2.7rem);margin-bottom:.65rem}
+.about-text p{font-size:.9rem;color:var(--muted);line-height:1.78;margin-bottom:.95rem}
+.chef-sig{font-family:'Fraunces',serif;font-size:1.45rem;font-style:italic;color:var(--spice);margin-top:.85rem}
+.chef-title{font-size:.75rem;color:var(--muted);margin-top:.15rem}
+.incl-row{display:flex;align-items:center;gap:.6rem;font-size:.84rem;color:var(--text);margin-bottom:.42rem}
+.incl-row i{color:var(--spice);font-size:.9rem;flex-shrink:0}
+
+/* ═══ TODAY'S SPECIALS ═══════════════════════════════════ */
+.specials-section{background:var(--cream)}
+.special-card{background:#fff;border:1.5px solid var(--border-l);border-radius:var(--rad-lg);overflow:hidden;transition:var(--trans);box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.special-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.1);border-color:var(--spice)}
+.sc-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .45s ease}
+.special-card:hover .sc-img{transform:scale(1.04)}
+.sc-img-ph{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,var(--leaf),var(--leaf-lt));display:flex;align-items:center;justify-content:center;font-size:3rem}
+.sc-badge{position:absolute;top:.75rem;left:.75rem;font-size:.56rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;padding:.2rem .55rem;border-radius:2rem}
+.sc-body{padding:1.25rem}
+.sc-category{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--spice);margin-bottom:.32rem}
+.sc-name{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:.32rem}
+.sc-desc{font-size:.78rem;color:var(--muted);line-height:1.58;margin-bottom:.85rem}
+.sc-footer{display:flex;align-items:center;justify-content:space-between}
+.sc-price{font-family:'Fraunces',serif;font-size:1.45rem;font-weight:700;color:var(--leaf)}
+.sc-price small{font-size:.7rem;color:var(--muted);font-weight:400;font-family:'DM Sans',sans-serif}
+.sc-order{display:inline-flex;align-items:center;gap:.3rem;background:#25D366;color:#fff;font-size:.72rem;font-weight:700;padding:.38rem .85rem;border-radius:.45rem;text-decoration:none;transition:var(--trans)}
+.sc-order:hover{background:#1cb857;color:#fff;transform:translateY(-1px)}
+
+/* ═══ CATERING PACKAGES ══════════════════════════════════ */
+.packages-section{background:var(--leaf)}
+.pkg-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:var(--rad-lg);padding:2rem 1.65rem;height:100%;position:relative;transition:var(--trans)}
+.pkg-card:hover{background:rgba(255,255,255,.1);border-color:rgba(232,160,32,.3);transform:translateY(-4px)}
+.pkg-card.featured{border-color:var(--amber);box-shadow:0 8px 36px rgba(232,160,32,.2)}
+.pkg-pop{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--amber);color:var(--leaf);font-size:.59rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .9rem;border-radius:2rem;white-space:nowrap}
+.pkg-ico{font-size:2rem;margin-bottom:.85rem;display:block}
+.pkg-name{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:700;color:#fff;margin-bottom:.35rem}
+.pkg-serves{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:rgba(232,160,32,.7);margin-bottom:.75rem}
+.pkg-desc{font-size:.82rem;color:rgba(255,255,255,.52);line-height:1.65;margin-bottom:1.15rem}
+.pkg-feat{display:flex;align-items:flex-start;gap:.45rem;font-size:.79rem;color:rgba(255,255,255,.7);margin-bottom:.4rem;line-height:1.4}
+.pkg-feat i{color:var(--amber);flex-shrink:0;margin-top:.12rem;font-size:.85rem}
+.pkg-price{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;color:var(--amber);margin-top:1.1rem;margin-bottom:.35rem}
+.pkg-price small{font-size:.75rem;font-weight:400;color:rgba(255,255,255,.4);font-family:'DM Sans',sans-serif}
+
+/* ═══ HOW TO ORDER ═══════════════════════════════════════ */
+.order-section{background:var(--cream)}
+.order-step{text-align:center;padding:1.25rem 1rem}
+.os-num{width:52px;height:52px;border-radius:50%;background:var(--spice);color:#fff;font-family:'Fraunces',serif;font-size:1.4rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto .85rem;box-shadow:0 6px 20px rgba(196,88,26,.3)}
+.os-num.amber-step{background:var(--amber);color:var(--leaf);box-shadow:0 6px 20px rgba(232,160,32,.3)}
+.order-step h5{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:.4rem}
+.order-step p{font-size:.82rem;color:var(--muted);line-height:1.65;margin:0;max-width:210px;margin:0 auto}
+
+/* ═══ MINIMUM ORDER & DELIVERY ═══════════════════════════ */
+.info-section{background:#fff}
+.info-card{background:var(--cream);border:1.5px solid var(--border-l);border-radius:var(--rad-lg);padding:1.85rem;height:100%}
+.info-card h4{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;color:var(--text);margin-bottom:1.1rem}
+.info-row{display:flex;gap:.75rem;margin-bottom:.95rem;align-items:flex-start;font-size:.84rem}
+.info-row i{color:var(--spice);font-size:1.05rem;margin-top:.18rem;flex-shrink:0}
+.info-row span{color:var(--text);line-height:1.55}
+.info-row strong{color:var(--leaf);display:block}
+.min-row{display:flex;justify-content:space-between;align-items:center;padding:.52rem 0;border-bottom:1px solid var(--border-l);font-size:.82rem}
+.min-row:last-child{border-bottom:none}
+.mr-type{color:var(--text)}
+.mr-min{color:var(--spice);font-weight:700}
+
+/* ═══ LOCKED SECTIONS ════════════════════════════════════ */
+.locked-section{position:relative;overflow:hidden}
+.locked-content{filter:blur(5px);pointer-events:none;user-select:none;opacity:.5}
+.lock-overlay{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(30,58,30,.8);backdrop-filter:blur(2px);text-align:center;padding:2rem}
+.lock-icon{width:64px;height:64px;border-radius:50%;background:rgba(232,160,32,.12);border:2px solid rgba(232,160,32,.28);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--amber);margin:0 auto 1.1rem}
+.lock-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(232,160,32,.1);border:1px solid rgba(232,160,32,.22);color:var(--amber);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .72rem;border-radius:2rem;margin-bottom:.85rem}
+.lock-title{font-family:'Fraunces',serif;font-size:1.65rem;font-weight:700;color:#fff;margin-bottom:.42rem}
+.lock-sub{font-size:.8rem;color:rgba(255,255,255,.48);margin-bottom:1.35rem;max-width:275px;line-height:1.65}
+
+/* FULL MENU GRID (locked) */
+.menu-section{background:var(--cream);padding:5.5rem 0}
+.menu-tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.m-tab{background:rgba(196,88,26,.08);border:1px solid rgba(196,88,26,.18);color:var(--spice);font-size:.73rem;font-weight:600;padding:.32rem .85rem;border-radius:2rem;cursor:pointer;transition:var(--trans)}
+.m-tab.active{background:var(--spice);border-color:var(--spice);color:#fff}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.95rem}
+.menu-card{background:#fff;border:1.5px solid var(--border-l);border-radius:.85rem;padding:1rem;display:flex;gap:.8rem;align-items:flex-start;transition:var(--trans)}
+.menu-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.08);border-color:var(--spice)}
+.mc-ico{font-size:1.75rem;flex-shrink:0}
+.mc-name{font-family:'Fraunces',serif;font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.15rem}
+.mc-desc{font-size:.72rem;color:var(--muted);line-height:1.5;margin-bottom:.42rem}
+.mc-price{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;color:var(--spice)}
+
+/* TESTIMONIALS (locked) */
+.testi-section-c{background:#fff;padding:5.5rem 0}
+.tc-card{background:var(--cream);border:1.5px solid rgba(196,88,26,.1);border-radius:var(--rad-lg);padding:1.85rem;position:relative}
+.tcq{font-size:2.8rem;line-height:1;color:var(--spice);opacity:.2;position:absolute;top:.7rem;left:1.2rem;font-family:Georgia,serif}
+.tc-text{font-size:.85rem;color:var(--muted);line-height:1.73;margin-bottom:1rem;font-style:italic;padding-top:.85rem}
+.tc-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--spice),var(--amber));color:#fff;font-weight:700;font-size:.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.tc-name{font-weight:600;font-size:.83rem;color:var(--leaf)}
+.tc-loc{font-size:.67rem;color:var(--muted)}
+.tc-stars{color:var(--amber);font-size:.75rem;margin-bottom:.5rem}
+
+/* CTA */
+.cta-section{
+  background:
+    linear-gradient(135deg,rgba(30,58,30,.94) 0%,rgba(30,58,30,.90) 100%),
+    url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80') center/cover no-repeat;
+  padding:6rem 0;position:relative;text-align:center;overflow:hidden;
+}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(232,160,32,.12) 0%,transparent 60%)}
+.cta-section .container{position:relative;z-index:2}
+
+/* FOOTER */
+footer{background:#0F1E0F;padding:3.5rem 0 1.5rem;border-top:1px solid rgba(255,255,255,.06)}
+.f-name{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:.55rem}
+.f-name span{color:var(--amber)}
+.f-about{font-size:.79rem;color:rgba(255,255,255,.38);line-height:1.72;max-width:275px;margin-top:.5rem}
+.f-head{font-size:.67rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:.85rem}
+.f-lnk{display:block;font-size:.79rem;color:rgba(255,255,255,.38);text-decoration:none;margin-bottom:.42rem;transition:var(--trans)}
+.f-lnk:hover{color:var(--amber)}
+.f-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:1.25rem;margin-top:2.25rem;font-size:.7rem;color:rgba(255,255,255,.2);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem;align-items:center}
+.soc-btn{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.42);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.85rem;transition:var(--trans)}
+.soc-btn:hover{transform:translateY(-2px)}
+.soc-btn.wa:hover{background:#25D366;border-color:#25D366;color:#fff}
+.soc-btn.ig:hover{background:#E1306C;border-color:#E1306C;color:#fff}
+.soc-btn.fb:hover{background:#1877F2;border-color:#1877F2;color:#fff}
+
+.wa-float{position:fixed!important;bottom:1.5rem!important;right:1.5rem!important;width:56px!important;height:56px!important;background:#25D366!important;color:#fff!important;border-radius:50%!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:1.6rem!important;box-shadow:0 4px 20px rgba(37,211,102,.45)!important;text-decoration:none!important;z-index:9999!important;transition:var(--trans)!important}
+.wa-float:hover{transform:scale(1.1)!important;box-shadow:0 6px 28px rgba(37,211,102,.6)!important}
+
+.akra-banner{background:rgba(30,58,30,.06);border-top:1px solid rgba(30,58,30,.12);padding:.65rem 0;text-align:center;font-size:.7rem;color:rgba(28,46,28,.48)}
+.akra-banner a{color:var(--spice);text-decoration:none;font-weight:600}
+.akra-banner a:hover{color:var(--spice-lt)}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+.from-right{transform:translateX(18px)}.from-right.visible{transform:none}
+.from-left{transform:translateX(-18px)}.from-left.visible{transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+@media(max-width:767px){
+  .chef-badge{bottom:-.75rem;right:-.5rem;padding:.9rem 1rem}
+  .cb-num{font-size:1.7rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <div class="brand-mark">🫙</div>
+      <div>
+        <span class="b-name">Calabash Catering Co.</span>
+        <span class="b-sub">Caribbean Food &amp; Events · St. Lucia</span>
+      </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-lg-center gap-lg-1 mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#about">Our Story</a></li>
+        <li class="nav-item"><a class="nav-link" href="#specials">Today's Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="#packages">Catering</a></li>
+        <li class="nav-item"><a class="nav-link" href="#order">How to Order</a></li>
+        <li class="nav-item ms-lg-2">
+          <a class="nav-link nav-cta" href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20order%20from%20Calabash%20Catering">
+            <i class="bi bi-whatsapp"></i> Order Now
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ══════════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-glow"></div>
+  <div class="container position-relative" style="z-index:2">
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-6">
+        <div class="hero-badge reveal"><i class="bi bi-fire"></i> Homemade · 100% Caribbean · St. Lucia</div>
+        <h1 class="hero-title reveal d1">Food made<br>with <em>real love.</em></h1>
+        <p class="hero-tagline reveal d2">"Every dish tells the story of where we come from."</p>
+        <p class="hero-desc reveal d2">Calabash Catering Co. serves authentic Caribbean food for everyday meals, corporate lunches, private dinners, and full event catering across St. Lucia. Pre-order on WhatsApp. We deliver.</p>
+        <div class="hero-tags reveal d2">
+          <span class="h-tag"><i class="bi bi-bag-check-fill"></i> Daily Pre-Orders</span>
+          <span class="h-tag"><i class="bi bi-truck"></i> Delivery Available</span>
+          <span class="h-tag"><i class="bi bi-people-fill"></i> Event Catering</span>
+          <span class="h-tag"><i class="bi bi-calendar-check"></i> Advance Booking</span>
+        </div>
+        <div class="d-flex flex-wrap gap-3 reveal d3">
+          <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20order%20from%20Calabash%20Catering" class="btn-wa"><i class="bi bi-whatsapp"></i> Place My Order</a>
+          <a href="#specials" class="btn-outline-w"><i class="bi bi-journal-bookmark"></i> See Today's Menu</a>
+        </div>
+      </div>
+
+      <div class="col-lg-6 reveal from-right d2">
+        <div class="order-panel">
+          <div class="op-title"><i class="bi bi-clock-history"></i> Today's Pre-Order Menu</div>
+
+          <div class="order-item">
+            <span class="oi-ico">🍛</span>
+            <div><span class="oi-name">Stew Chicken &amp; Rice</span><span class="oi-desc">Brown stewed chicken, rice &amp; peas, macaroni pie, provision</span></div>
+            <span class="oi-price">$22 EC</span>
+          </div>
+          <div class="order-item">
+            <span class="oi-ico">🐟</span>
+            <div><span class="oi-name">Fried Fish Plate</span><span class="oi-desc">Seasoned fried snapper, green fig salad, bakes</span></div>
+            <span class="oi-price">$28 EC</span>
+          </div>
+          <div class="order-item">
+            <span class="oi-ico">🫘</span>
+            <div><span class="oi-name">Pelau (Vegetarian)</span><span class="oi-desc">One-pot rice with pigeon peas, coconut milk &amp; herbs</span></div>
+            <span class="oi-price">$18 EC</span>
+          </div>
+          <div class="order-item">
+            <span class="oi-ico">🥩</span>
+            <div><span class="oi-name">Oxtail &amp; Provision</span><span class="oi-desc">Slow-cooked oxtail, dasheen, yam, plantain</span></div>
+            <span class="oi-price">$35 EC</span>
+          </div>
+
+          <div style="margin-top:1.1rem">
+            <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20pre-order%20a%20meal%20from%20Calabash%20Catering" class="btn-wa w-100 justify-content-center"><i class="bi bi-whatsapp"></i> Pre-Order on WhatsApp</a>
+          </div>
+          <div class="op-note">Orders accepted by 10 AM for same-day pickup/delivery · Cash &amp; PayPal accepted</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AMBER STRIP ═══════════════════════════════════════ -->
+<div class="amber-strip">
+  <div class="container">
+    <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 gap-md-5">
+      <div class="as-item"><i class="bi bi-fire"></i> 100% Homemade Daily</div>
+      <div class="as-sep d-none d-md-block"></div>
+      <div class="as-item"><i class="bi bi-truck"></i> Delivery Across Castries</div>
+      <div class="as-sep d-none d-md-block"></div>
+      <div class="as-item"><i class="bi bi-people-fill"></i> Event Catering Island-Wide</div>
+      <div class="as-sep d-none d-md-block"></div>
+      <div class="as-item"><i class="bi bi-whatsapp"></i> Order via WhatsApp</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ABOUT / CHEF ══════════════════════════════════════ -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+
+      <div class="col-lg-5" data-aos="fade-right">
+        <div class="position-relative">
+          <img src="https://images.unsplash.com/photo-1607631568010-a87245c0daf8?w=600&q=80" alt="Chef at Calabash Catering" class="chef-img">
+          <div class="chef-badge">
+            <span class="cb-num">15+</span>
+            <span class="cb-lbl">Years of<br>Caribbean Cooking</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-7 about-text" data-aos="fade-left" data-aos-delay="150">
+        <div class="sec-label">Our Story</div>
+        <h2>Cooked from scratch.<br><em>Every single day.</em></h2>
+        <div class="leaf-div"><i class="bi bi-flower1"></i></div>
+        <p>Calabash Catering Co. was born in a home kitchen in Castries. Chef Nadine Charles grew up watching her grandmother prepare Sunday lunch for the entire neighbourhood — jerk chicken, callaloo soup, stewed saltfish, and enough rice to feed the whole street. That spirit never left her.</p>
+        <p>What started as cooking for friends became a business built on one rule: nothing leaves this kitchen unless it's been cooked fresh that morning. No reheating. No shortcuts. No compromises. Real Caribbean food, made properly, every day.</p>
+        <div class="row g-3 mt-1 mb-3">
+          <div class="col-6">
+            <div class="incl-row"><i class="bi bi-check-circle-fill"></i> Cooked fresh daily</div>
+            <div class="incl-row"><i class="bi bi-check-circle-fill"></i> All local ingredients</div>
+            <div class="incl-row"><i class="bi bi-check-circle-fill"></i> Delivery available</div>
+          </div>
+          <div class="col-6">
+            <div class="incl-row"><i class="bi bi-check-circle-fill"></i> Event &amp; office catering</div>
+            <div class="incl-row"><i class="bi bi-check-circle-fill"></i> WhatsApp pre-orders</div>
+            <div class="incl-row"><i class="bi bi-check-circle-fill"></i> PayPal &amp; cash accepted</div>
+          </div>
+        </div>
+        <div class="chef-sig">— Chef Nadine Charles</div>
+        <div class="chef-title">Founder &amp; Head Chef · Calabash Catering Co.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TODAY'S SPECIALS ══════════════════════════════════ -->
+<section class="specials-section" id="specials">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="sec-label">Fresh Today</div>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem)">Today's Menu</h2>
+      <div class="leaf-div"><i class="bi bi-flower1"></i></div>
+      <p style="font-size:.88rem;color:var(--muted);max-width:440px;margin:.5rem auto 0">Prepared fresh every morning. Message us on WhatsApp to confirm availability and place your order before 10 AM.</p>
+    </div>
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="special-card">
+          <div class="position-relative">
+            <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500&q=80" alt="Stew Chicken plate" class="sc-img">
+            <span class="sc-badge" style="background:var(--spice)">Daily Special</span>
+          </div>
+          <div class="sc-body">
+            <div class="sc-category">Main Course</div>
+            <div class="sc-name">Stew Chicken &amp; Rice</div>
+            <div class="sc-desc">Brown stewed chicken in a deep creole sauce. Rice &amp; peas, macaroni pie, and seasoned provision on the side.</div>
+            <div class="sc-footer">
+              <div class="sc-price">$22 EC<small> · serves 1</small></div>
+              <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20order%20the%20Stew%20Chicken%20plate" class="sc-order"><i class="bi bi-whatsapp"></i> Order</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="special-card">
+          <div class="position-relative">
+            <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=500&q=80" alt="Oxtail and provision" class="sc-img">
+            <span class="sc-badge" style="background:var(--amber);color:var(--leaf)">Most Ordered</span>
+          </div>
+          <div class="sc-body">
+            <div class="sc-category">Main Course</div>
+            <div class="sc-name">Oxtail &amp; Ground Provision</div>
+            <div class="sc-desc">12-hour slow-cooked oxtail with dasheen, yam, eddoe, and ripe plantain. A St. Lucian Sunday in a box.</div>
+            <div class="sc-footer">
+              <div class="sc-price">$35 EC<small> · serves 1</small></div>
+              <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20order%20the%20Oxtail%20and%20Provision" class="sc-order"><i class="bi bi-whatsapp"></i> Order</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="special-card">
+          <div class="position-relative">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&q=80" alt="Vegetarian pelau" class="sc-img">
+            <span class="sc-badge" style="background:#16a34a">Plant-Based</span>
+          </div>
+          <div class="sc-body">
+            <div class="sc-category">Vegetarian</div>
+            <div class="sc-name">Pelau &amp; Callaloo</div>
+            <div class="sc-desc">One-pot rice cooked in coconut milk and pigeon peas, served with steamed callaloo and fried plantain.</div>
+            <div class="sc-footer">
+              <div class="sc-price">$18 EC<small> · serves 1</small></div>
+              <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20order%20the%20Pelau%20and%20Callaloo" class="sc-order"><i class="bi bi-whatsapp"></i> Order</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="text-center mt-5" data-aos="fade-up">
+      <a href="https://wa.me/17581234567?text=Hi%2C%20what%27s%20on%20the%20menu%20today%20at%20Calabash%20Catering%3F" class="btn-spice"><i class="bi bi-whatsapp"></i> Ask What's on Today</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CATERING PACKAGES ══════════════════════════════════ -->
+<section class="packages-section" id="packages">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="sec-label lbl-w">Event Catering</div>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem);color:#fff">Catering for Every Occasion</h2>
+      <div class="leaf-div" style="color:var(--amber)"><i class="bi bi-flower1"></i></div>
+      <p style="font-size:.88rem;color:rgba(255,255,255,.48);max-width:440px;margin:.5rem auto 0">From intimate family gatherings to full corporate events — we bring authentic Caribbean flavour to every table, at any scale.</p>
+    </div>
+    <div class="row g-4">
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="pkg-card">
+          <span class="pkg-ico">🏠</span>
+          <div class="pkg-name">Home &amp; Family Package</div>
+          <div class="pkg-serves">Serves 10–25 people</div>
+          <p class="pkg-desc">Perfect for birthday parties, Sunday gatherings, christenings, and family celebrations. Full Caribbean spread, delivered and set up.</p>
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> Choice of 2 mains + 3 sides</div>
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> Rice, provisions &amp; salads included</div>
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> Delivery &amp; setup included</div>
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> Serving trays &amp; utensils provided</div>
+          <div class="pkg-price">From $600 EC <small>· 48hr advance booking</small></div>
+          <a href="https://wa.me/17581234567?text=Hi%2C%20I%27m%20interested%20in%20the%20Home%20%26%20Family%20catering%20package" class="btn-wa w-100 justify-content-center mt-2"><i class="bi bi-whatsapp"></i> Get a Quote</a>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="pkg-card featured">
+          <div class="pkg-pop">Most Booked</div>
+          <span class="pkg-ico">🏢</span>
+          <div class="pkg-name">Corporate Lunch Package</div>
+          <div class="pkg-serves">Serves 20–60 people</div>
+          <p class="pkg-desc">Staff lunches, meetings, and office events done properly. Individually portioned, labelled, and delivered on time — every time.</p>
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> Individual meal boxes per person</div>
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> Choice of 3 main options</div>
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> Vegetarian option included</div>
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> On-time delivery guaranteed</div>
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> Invoice provided for accounts</div>
+          <div class="pkg-price">From $28 EC <small>· per person · min. 20 people</small></div>
+          <a href="https://wa.me/17581234567?text=Hi%2C%20I%27m%20interested%20in%20the%20Corporate%20Lunch%20catering%20package" class="btn-wa w-100 justify-content-center mt-2"><i class="bi bi-whatsapp"></i> Get a Quote</a>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="pkg-card">
+          <span class="pkg-ico">🎉</span>
+          <div class="pkg-name">Full Event Package</div>
+          <div class="pkg-serves">Serves 50–200+ people</div>
+          <p class="pkg-desc">Weddings, graduations, anniversaries, and large events. Full-service catering with live stations, buffet setup, and service staff.</p>
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> Custom menu design</div>
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> Live cooking stations available</div>
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> Full buffet setup &amp; decoration</div>
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> Service staff included</div>
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> Island-wide coverage</div>
+          <div class="pkg-price">Custom Quote <small>· 7-day advance booking</small></div>
+          <a href="https://wa.me/17581234567?text=Hi%2C%20I%27m%20interested%20in%20the%20Full%20Event%20catering%20package" class="btn-wa w-100 justify-content-center mt-2"><i class="bi bi-whatsapp"></i> Request a Quote</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOW TO ORDER ═══════════════════════════════════════ -->
+<section class="order-section" id="order">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="sec-label">Ordering Is Easy</div>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem)">How to Order</h2>
+      <div class="leaf-div"><i class="bi bi-flower1"></i></div>
+    </div>
+    <div class="row g-0 justify-content-center">
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="order-step">
+          <div class="os-num">1</div>
+          <h5>Message Us</h5>
+          <p>Send a WhatsApp with what you'd like to order and how many people you're feeding.</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="order-step">
+          <div class="os-num amber-step">2</div>
+          <h5>Confirm Your Order</h5>
+          <p>We confirm availability, price, and your preferred time for pickup or delivery.</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="order-step">
+          <div class="os-num">3</div>
+          <h5>We Cook Fresh</h5>
+          <p>Your food is prepared fresh on the day. No frozen meals. No shortcuts. Ever.</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="400">
+        <div class="order-step">
+          <div class="os-num amber-step">4</div>
+          <h5>Pickup or Delivery</h5>
+          <p>Collect from us in Castries, or we deliver to you. Pay by cash or PayPal.</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-4" data-aos="fade-up" data-aos-delay="500">
+      <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20place%20an%20order%20with%20Calabash%20Catering" class="btn-wa"><i class="bi bi-whatsapp"></i> Start My Order</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MINIMUM ORDERS & DELIVERY INFO ═══════════════════ -->
+<section class="info-section" id="info">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="sec-label">Good to Know</div>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem)">Ordering Information</h2>
+      <div class="leaf-div"><i class="bi bi-flower1"></i></div>
+    </div>
+    <div class="row g-4">
+
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="info-card">
+          <h4><i class="bi bi-cart-fill me-2" style="color:var(--spice)"></i>Minimum Orders</h4>
+          <div class="min-row"><span class="mr-type">Single daily meal plate</span><span class="mr-min">No minimum</span></div>
+          <div class="min-row"><span class="mr-type">Meal delivery (Castries area)</span><span class="mr-min">Min. $50 EC</span></div>
+          <div class="min-row"><span class="mr-type">Home &amp; family catering</span><span class="mr-min">Min. 10 people</span></div>
+          <div class="min-row"><span class="mr-type">Corporate lunch boxes</span><span class="mr-min">Min. 20 people</span></div>
+          <div class="min-row"><span class="mr-type">Full event catering</span><span class="mr-min">Min. 50 people</span></div>
+          <div style="margin-top:1rem;padding:.85rem;background:rgba(196,88,26,.06);border:1px solid rgba(196,88,26,.14);border-radius:var(--rad);font-size:.78rem;color:var(--text)">
+            <i class="bi bi-info-circle-fill me-2" style="color:var(--spice)"></i>For event catering, a 50% deposit is required to confirm your booking. Balance due on delivery.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="info-card">
+          <h4><i class="bi bi-clock-fill me-2" style="color:var(--spice)"></i>Hours &amp; Ordering Deadlines</h4>
+          <div class="info-row"><i class="bi bi-calendar-check-fill"></i><span><strong>Daily Meals (Mon–Sat)</strong>Order by 10 AM for same-day pickup or delivery between 12 PM – 2 PM</span></div>
+          <div class="info-row"><i class="bi bi-people-fill"></i><span><strong>Family &amp; Corporate Events</strong>Minimum 48 hours advance booking required for all event catering</span></div>
+          <div class="info-row"><i class="bi bi-calendar-event-fill"></i><span><strong>Weddings &amp; Large Events</strong>Minimum 7 days advance booking · Menu consultation required</span></div>
+          <div class="info-row"><i class="bi bi-geo-alt-fill"></i><span><strong>Delivery Zone</strong>Castries and surrounding areas — Gros Islet, Rodney Bay, Choc Bay. Longer distances by arrangement.</span></div>
+          <div class="info-row"><i class="bi bi-credit-card-fill"></i><span><strong>Payment</strong>Cash on delivery · PayPal · Bank transfer (event catering only)</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FULL MENU GRID — LOCKED (Link & Grow Feature) ═════ -->
+<section class="menu-section locked-section" id="menu">
+  <div class="locked-content">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="sec-label">Full Menu</div>
+        <h2 style="font-size:clamp(2rem,4vw,2.8rem)">Everything We Cook</h2>
+      </div>
+      <div class="menu-tabs">
+        <span class="m-tab active">Mains</span>
+        <span class="m-tab">Sides &amp; Salads</span>
+        <span class="m-tab">Soups</span>
+        <span class="m-tab">Snacks &amp; Bakes</span>
+        <span class="m-tab">Drinks</span>
+      </div>
+      <div class="menu-grid">
+        <div class="menu-card"><span class="mc-ico">🍛</span><div><div class="mc-name">Jerk Chicken Plate</div><div class="mc-desc">Coal-pit jerk chicken with rice &amp; peas</div><div class="mc-price">$26 EC</div></div></div>
+        <div class="menu-card"><span class="mc-ico">🐟</span><div><div class="mc-name">Fried Red Snapper</div><div class="mc-desc">Whole seasoned fried snapper with bakes</div><div class="mc-price">$30 EC</div></div></div>
+        <div class="menu-card"><span class="mc-ico">🦐</span><div><div class="mc-name">Creole Shrimp</div><div class="mc-desc">Local shrimp in a fire-roasted pepper sauce</div><div class="mc-price">$32 EC</div></div></div>
+        <div class="menu-card"><span class="mc-ico">🫘</span><div><div class="mc-name">Saltfish &amp; Ackee</div><div class="mc-desc">Traditional saltfish sautéed with ackee &amp; peppers</div><div class="mc-price">$22 EC</div></div></div>
+        <div class="menu-card"><span class="mc-ico">🥘</span><div><div class="mc-name">Lambi Stew</div><div class="mc-desc">Conch in coconut and thyme gravy</div><div class="mc-price">$38 EC</div></div></div>
+        <div class="menu-card"><span class="mc-ico">🐖</span><div><div class="mc-name">Pigtail &amp; Beans</div><div class="mc-desc">Slow-simmered pigtail with red beans</div><div class="mc-price">$25 EC</div></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="lock-overlay">
+    <div class="lock-icon"><i class="bi bi-journal-bookmark-fill"></i></div>
+    <div class="lock-badge"><i class="bi bi-stars"></i> Link &amp; Grow Plan Feature</div>
+    <div class="lock-title">Full Filterable Menu</div>
+    <p class="lock-sub">A complete, category-organised menu customers can browse by type — so they already know what they want before they message you.</p>
+    <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20upgrade%20to%20unlock%20the%20full%20menu%20feature" class="btn-wa"><i class="bi bi-whatsapp"></i> Unlock This Feature</a>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS — LOCKED (Grow Feature) ════════════ -->
+<section class="testi-section-c locked-section" id="reviews">
+  <div class="locked-content">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="sec-label">What Clients Say</div>
+        <h2 style="font-size:clamp(2rem,4vw,2.8rem)">Real Orders. Real Feedback.</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="tc-card">
+            <div class="tcq">"</div>
+            <div class="tc-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            <p class="tc-text">Ordered oxtail plates for our entire office — 22 people. Every single person asked who catered. The food was hot, fresh, and tasted like it came from somebody's grandmother. That's the highest compliment I can give.</p>
+            <div class="d-flex align-items-center gap-3"><div class="tc-av">P</div><div><div class="tc-name">Patricia M.</div><div class="tc-loc">Office Manager · Castries</div></div></div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="tc-card">
+            <div class="tcq">"</div>
+            <div class="tc-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            <p class="tc-text">Calabash catered my daughter's graduation. 75 guests, full buffet. Everything was perfect — the jerk chicken, the rice, the desserts. People are still talking about it three months later. Will book again without hesitation.</p>
+            <div class="d-flex align-items-center gap-3"><div class="tc-av">C</div><div><div class="tc-name">Claudette J.</div><div class="tc-loc">Gros Islet, St. Lucia</div></div></div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="tc-card">
+            <div class="tcq">"</div>
+            <div class="tc-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            <p class="tc-text">I order my lunch from Calabash every Tuesday and Friday. It's the only food I've found in Castries that tastes exactly like home cooking. Nadine's stew chicken is unmatched. The WhatsApp ordering is so easy too.</p>
+            <div class="d-flex align-items-center gap-3"><div class="tc-av">R</div><div><div class="tc-name">Rosie T.</div><div class="tc-loc">Regular Customer · Castries</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="lock-overlay">
+    <div class="lock-icon"><i class="bi bi-chat-heart-fill"></i></div>
+    <div class="lock-badge"><i class="bi bi-stars"></i> Grow Plan Feature</div>
+    <div class="lock-title">Customer Testimonials</div>
+    <p class="lock-sub">Real feedback from real customers — the most powerful reason a new client picks you over the next caterer.</p>
+    <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20upgrade%20to%20unlock%20the%20testimonials%20feature" class="btn-wa"><i class="bi bi-whatsapp"></i> Unlock This Feature</a>
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA ══════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="container">
+    <div data-aos="fade-up">
+      <div class="sec-label lbl-wh" style="justify-content:center">Hungry?</div>
+      <h2 style="font-family:'Fraunces',serif;font-size:clamp(2.2rem,5vw,3.8rem);color:#fff;margin-bottom:.65rem">One message. Fresh food. Done.</h2>
+      <div class="leaf-div" style="color:rgba(232,160,32,.5)"><i class="bi bi-flower1"></i></div>
+      <p style="font-size:.93rem;color:rgba(255,255,255,.5);max-width:420px;margin:.5rem auto 2rem;line-height:1.78">Daily meals, event catering, or a corporate lunch for 50 — send us a WhatsApp and we'll handle the rest. Fresh. Always.</p>
+      <div class="d-flex flex-wrap gap-3 justify-content-center">
+        <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20order%20from%20Calabash%20Catering%20Co." class="btn-wa" style="font-size:.95rem;padding:.85rem 2rem"><i class="bi bi-whatsapp"></i> Place My Order Now</a>
+        <a href="#packages" class="btn-outline-w" style="font-size:.95rem;padding:.85rem 2rem"><i class="bi bi-calendar-event"></i> Enquire About Catering</a>
+      </div>
+      <p style="font-size:.7rem;color:rgba(255,255,255,.22);margin-top:1.25rem">Daily meals Mon–Sat · Event catering island-wide · Castries, Saint Lucia</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="row g-4 mb-3">
+      <div class="col-lg-5">
+        <div class="f-name">🫙 Calabash <span>Catering Co.</span></div>
+        <p class="f-about">Authentic Caribbean food for daily meals and events across St. Lucia. Cooked fresh every day by Chef Nadine Charles since 2009.</p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="#" class="soc-btn wa"><i class="bi bi-whatsapp"></i></a>
+          <a href="#" class="soc-btn ig"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="soc-btn fb"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <p class="f-head">Menu</p>
+        <a href="#specials" class="f-lnk">Today's Specials</a>
+        <a href="#packages" class="f-lnk">Catering Packages</a>
+        <a href="#order" class="f-lnk">How to Order</a>
+        <a href="#info" class="f-lnk">Ordering Info</a>
+      </div>
+      <div class="col-6 col-lg-3">
+        <p class="f-head">Order Now</p>
+        <a href="https://wa.me/17581234567?text=Daily%20meal%20order" class="f-lnk"><i class="bi bi-bag me-1" style="color:var(--amber)"></i>Daily Meal Order</a>
+        <a href="https://wa.me/17581234567?text=Family%20catering%20quote" class="f-lnk"><i class="bi bi-house me-1" style="color:var(--amber)"></i>Family Catering</a>
+        <a href="https://wa.me/17581234567?text=Corporate%20lunch%20quote" class="f-lnk"><i class="bi bi-building me-1" style="color:var(--amber)"></i>Corporate Lunch</a>
+        <a href="https://wa.me/17581234567?text=Event%20catering%20quote" class="f-lnk"><i class="bi bi-calendar-event me-1" style="color:var(--amber)"></i>Event Catering</a>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 Calabash Catering Co. All rights reserved. · Castries, Saint Lucia</span>
+      <span>Cooked Fresh Daily · Est. 2009</span>
+    </div>
+  </div>
+</footer>
+
+<div class="akra-banner">
+  This website was built by <a href="https://jamalinks758.github.io/AkraLink/" target="_blank">AkraLink</a> — Professional websites for Caribbean small businesses. Starting at $24.99/month.
+</div>
+
+<a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20order%20from%20Calabash%20Catering%20Co." class="wa-float" title="Order via WhatsApp" aria-label="Place your order via WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({duration:700,once:true,offset:60,easing:'ease-out-cubic'});
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(!t)return;e.preventDefault();
+    t.scrollIntoView({behavior:'smooth',block:'start'});
+    const m=document.getElementById('navMenu');
+    if(m?.classList.contains('show'))bootstrap.Collapse.getInstance(m)?.hide();
+  });
+});
+const fy=document.querySelector('.f-bottom span');
+if(fy)fy.textContent=fy.textContent.replace('2026',new Date().getFullYear());
+</script>
+</body>
+</html>
