@@ -1,0 +1,2396 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<!-- ═══════════════════════════════════════════════════════════
+     ✏️  EDIT ZONE — SEO / META
+     Change: title, description, keywords, phone, og:title
+═══════════════════════════════════════════════════════════ -->
+<title>CCTV HD World | Security Camera & Solar Installation — Saint Lucia</title>
+<meta name="description" content="Professional CCTV, alarm systems, solar solutions & Wi-Fi installation for homes, businesses, farms and construction sites across Saint Lucia. Call (758) 518-2828.">
+<meta name="keywords" content="CCTV installation Saint Lucia, security camera Saint Lucia, alarm system Saint Lucia, solar solutions Saint Lucia, home security camera, business CCTV, farm security, CCTV HD World">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="CCTV HD World | Security & Solar Installation Saint Lucia">
+<meta property="og:description" content="Professional CCTV, alarms, solar & Wi-Fi solutions. Island-wide. Homes, businesses, farms & construction sites. Get a free quote on WhatsApp.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0d1b2e">
+<!-- ═══════════════════════════════════════════════════════════ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+
+<style>
+/* ============================================================
+   DESIGN SYSTEM — CCTV HD WORLD
+   Palette: Steel Navy · Electric Teal · Amber Gold · White
+   ✏️  EDIT: CSS variables below to retheme the entire site
+   ============================================================ */
+:root {
+  --navy:        #0d1b2e;
+  --navy-mid:    #152540;
+  --navy-card:   #1a2f4a;
+  --teal:        #00c2d1;
+  --teal-dim:    #009baa;
+  --amber:       #f59e0b;
+  --amber-dim:   #d97706;
+  --orange-logo: #f97316;
+  --white:       #ffffff;
+  --off-white:   #e8f4f8;
+  --text-muted:  #94b8cc;
+  --border:      rgba(0,194,209,0.15);
+  --glow:        rgba(0,194,209,0.25);
+  --shadow:      0 20px 60px rgba(0,0,0,0.5);
+  --radius:      12px;
+  --wa-green:    #25D366;
+
+  /* ✏️  EDIT: Business phone numbers */
+  --phone-primary:   "+17585182828";
+  --phone-secondary: "+17587259946";
+}
+
+[data-theme="light"] {
+  --bg-page:    #f0f6fa;
+  --bg-hero:    #0d1b2e;
+  --bg-section: #ffffff;
+  --bg-card:    #ffffff;
+  --bg-card2:   #eaf4f8;
+  --text-main:  #0d1b2e;
+  --text-body:  #2e4a60;
+  --text-muted: #5a7a90;
+  --border:     rgba(13,27,46,0.1);
+  --section-alt:#e8f4f8;
+}
+
+[data-theme="dark"] {
+  --bg-page:    #070e18;
+  --bg-hero:    #050c15;
+  --bg-section: #0d1b2e;
+  --bg-card:    #1a2f4a;
+  --bg-card2:   #152540;
+  --text-main:  #ffffff;
+  --text-body:  #c8dde8;
+  --text-muted: #94b8cc;
+  --border:     rgba(0,194,209,0.15);
+  --section-alt:#0a1525;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  font-display: swap;
+  background: var(--bg-page);
+  color: var(--text-main);
+  overflow-x: hidden;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ── SCAN-LINE OVERLAY ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,194,209,0.012) 2px,
+    rgba(0,194,209,0.012) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ── NAVBAR ── */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 0 24px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(7,14,24,0.90);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(0,194,209,0.2);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+/* ✏️  EDIT: Replace logo path with actual logo file */
+.nav-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--teal);
+  object-fit: cover;
+  filter: drop-shadow(0 0 8px rgba(0,194,209,0.5));
+  background: var(--navy-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-logo-placeholder {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--teal);
+  background: linear-gradient(135deg, #0d1b2e, #1a2f4a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 8px rgba(0,194,209,0.5));
+  flex-shrink: 0;
+}
+
+.nav-logo-placeholder i {
+  font-size: 18px;
+  color: var(--teal);
+}
+
+.nav-name {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+}
+
+/* ✏️  EDIT: Brand name split — span gets teal colour */
+.nav-name span { color: var(--teal); }
+.nav-sub {
+  font-family: 'Outfit', sans-serif;
+  font-size: 9px;
+  color: var(--amber);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.nav-right { display: flex; align-items: center; gap: 16px; }
+
+.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-links a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--teal); }
+@media(max-width:640px){ .nav-links { display:none; } }
+
+/* ── THEME TOGGLE ── */
+.theme-toggle {
+  width: 50px; height: 26px;
+  background: rgba(0,194,209,0.2);
+  border: 1px solid rgba(0,194,209,0.4);
+  border-radius: 20px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s;
+  flex-shrink: 0;
+}
+.theme-toggle::after {
+  content: '☀️';
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  transition: left 0.3s, background 0.3s;
+}
+[data-theme="dark"] .theme-toggle::after {
+  content: '🌙';
+  left: 26px;
+  background: var(--amber);
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  /* ✏️  EDIT: Replace with a real hero image path */
+  background: url('images/cctv-hero-installation.webp') center/cover no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 70px;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(13,27,46,0.93) 0%,
+    rgba(13,27,46,0.78) 55%,
+    rgba(13,27,46,0.55) 100%
+  );
+  z-index: 1;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,194,209,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,194,209,0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  z-index: 1;
+}
+
+/* HUD camera corners */
+.hud-corner { position: absolute; width: 60px; height: 60px; opacity: 0.4; }
+.hud-corner--tl { top: 15%; left: 10%; border-top: 2px solid var(--teal); border-left: 2px solid var(--teal); }
+.hud-corner--tr { top: 15%; right: 10%; border-top: 2px solid var(--teal); border-right: 2px solid var(--teal); }
+.hud-corner--bl { bottom: 20%; left: 10%; border-bottom: 2px solid var(--teal); border-left: 2px solid var(--teal); }
+.hud-corner--br { bottom: 20%; right: 10%; border-bottom: 2px solid var(--teal); border-right: 2px solid var(--teal); }
+
+@keyframes pulse-dot {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+.rec-dot {
+  position: absolute;
+  top: 18%; right: 11%;
+  width: 10px; height: 10px;
+  background: #ef4444;
+  border-radius: 50%;
+  animation: pulse-dot 1.5s ease-in-out infinite;
+  box-shadow: 0 0 10px #ef4444;
+  z-index: 2;
+}
+.rec-label {
+  position: absolute;
+  top: 18%; right: 13%;
+  color: #ef4444;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  opacity: 0.8;
+  z-index: 2;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: auto;
+  padding: 60px 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+@media(max-width:768px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0,194,209,0.12);
+  border: 1px solid rgba(0,194,209,0.35);
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--teal);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.hero-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* ✏️  EDIT: Hero headline sizing */
+.hero h1 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(36px, 5vw, 62px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+.hero h1 .accent { color: var(--teal); }
+.hero h1 .amber-accent { color: var(--amber); }
+
+.hero-sub {
+  font-size: 17px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+  margin-bottom: 36px;
+  max-width: 480px;
+}
+@media(max-width:768px) { .hero-sub { margin: 0 auto 36px; } }
+
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+@media(max-width:768px) { .hero-actions { justify-content: center; } }
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--wa-green), #1da851);
+  color: white;
+  padding: 16px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37,211,102,0.5); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: white;
+  padding: 16px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  border: 1px solid rgba(255,255,255,0.25);
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-secondary:hover { border-color: var(--teal); background: rgba(0,194,209,0.08); }
+
+/* Hero right: camera monitor mockup */
+.hero-visual { position: relative; }
+
+.monitor-frame {
+  background: linear-gradient(145deg, #1a2f4a, #0d1b2e);
+  border: 2px solid rgba(0,194,209,0.3);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 40px rgba(0,194,209,0.1);
+  position: relative;
+}
+
+.monitor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0,194,209,0.15);
+}
+
+.monitor-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 12px;
+  color: var(--teal);
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+
+.monitor-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  color: #4ade80;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.status-dot {
+  width: 6px; height: 6px;
+  background: #4ade80;
+  border-radius: 50%;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.cam-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.cam-feed {
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 16/10;
+  background: #060f1c;
+}
+.cam-feed.large { grid-column: span 2; aspect-ratio: 16/7; }
+
+.cam-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(0,194,209,0.04) 0%, transparent 50%);
+}
+
+.cam-label {
+  position: absolute;
+  bottom: 6px; left: 8px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 9px;
+  color: rgba(0,194,209,0.9);
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  background: rgba(0,0,0,0.5);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+.cam-timestamp {
+  position: absolute;
+  top: 6px; right: 8px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 8px;
+  color: rgba(255,255,255,0.5);
+  background: rgba(0,0,0,0.4);
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+@keyframes scanline {
+  0% { top: -4px; }
+  100% { top: 100%; }
+}
+.cam-scan {
+  position: absolute;
+  left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0,194,209,0.4), transparent);
+  animation: scanline 3s linear infinite;
+}
+
+/* ── TRUST TICKER ── */
+.ticker-bar {
+  background: var(--navy);
+  border-top: 1px solid rgba(0,194,209,0.2);
+  border-bottom: 1px solid rgba(0,194,209,0.2);
+  overflow: hidden;
+  padding: 12px 0;
+  white-space: nowrap;
+}
+.ticker-inner {
+  display: inline-flex;
+  gap: 0;
+  animation: ticker 26s linear infinite;
+}
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 40px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.ticker-item::after { content: '◆'; color: var(--teal); font-size: 8px; }
+
+/* ── SECTIONS ── */
+.section { padding: 90px 24px; }
+.section-alt { background: var(--section-alt); }
+.container { max-width: 1100px; margin: auto; }
+
+.section-tag {
+  display: inline-block;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 12px;
+}
+.section-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.section-title .accent { color: var(--teal); }
+.section-title .amber { color: var(--amber); }
+
+.section-body {
+  font-size: 16px;
+  color: var(--text-body);
+  line-height: 1.65;
+  max-width: 600px;
+  margin-bottom: 48px;
+}
+
+.teal-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,194,209,0.3), transparent);
+}
+
+/* ── WHY US ── */
+.whyus-section {
+  position: relative;
+  overflow: hidden;
+}
+.whyus-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,194,209,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,194,209,0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+/* ── STATS ROW ── */
+.trust-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-bottom: 64px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+@media(max-width:640px) { .trust-stats-row { grid-template-columns: repeat(2,1fr); } }
+
+.trust-stat-new {
+  padding: 36px 24px;
+  text-align: center;
+  background: var(--bg-card);
+  transition: background 0.3s;
+  position: relative;
+}
+.trust-stat-new:not(:last-child) { border-right: 1px solid var(--border); }
+@media(max-width:640px) {
+  .trust-stat-new:nth-child(2) { border-right: none; }
+  .trust-stat-new:nth-child(1),
+  .trust-stat-new:nth-child(2) { border-bottom: 1px solid var(--border); }
+}
+.trust-stat-new:hover { background: var(--bg-card2); }
+
+.trust-stat-new .stat-num {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 700;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--teal), var(--amber));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+  display: block;
+}
+.trust-stat-new .stat-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+.trust-stat-new .stat-icon { display: block; font-size: 28px; margin-bottom: 8px; }
+
+/* ── REASON CARDS ── */
+.reason-strip {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+@media(max-width:640px) { .reason-strip { grid-template-columns: 1fr; } }
+
+.reason-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 28px 28px 84px;
+  overflow: hidden;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+.reason-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0,194,209,0.4);
+  box-shadow: 0 16px 48px rgba(0,194,209,0.08);
+}
+.reason-card .reason-num {
+  position: absolute;
+  top: 50%; right: 20px;
+  transform: translateY(-50%);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 88px;
+  font-weight: 700;
+  color: var(--teal);
+  opacity: 0.05;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.reason-card .reason-icon-wrap {
+  position: absolute;
+  left: 24px; top: 50%;
+  transform: translateY(-50%);
+  width: 46px; height: 46px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(0,194,209,0.15), rgba(0,194,209,0.05));
+  border: 1px solid rgba(0,194,209,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reason-card .reason-icon-wrap svg { width: 22px; height: 22px; fill: var(--teal); }
+.reason-card h4 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 18px; font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 5px; letter-spacing: 0.3px;
+}
+.reason-card p { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; }
+
+/* ── SERVICES ── */
+.services-intro-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: flex-end;
+  margin-bottom: 48px;
+}
+@media(max-width:640px) { .services-intro-row { grid-template-columns: 1fr; } }
+
+.services-mosaic {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  gap: 20px;
+}
+@media(max-width:640px) { .services-mosaic { grid-template-columns: 1fr; } }
+
+.svc-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 36px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), border-color 0.3s, box-shadow 0.3s;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.svc-card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 18px;
+  z-index: 0;
+}
+.svc-card-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(255,255,255,0.88);
+  border-radius: 18px;
+}
+[data-theme="dark"] .svc-card-bg::after { background: rgba(13,27,46,0.88); }
+.svc-card > *:not(.svc-card-bg) { position: relative; z-index: 1; }
+
+.svc-card.featured {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding: 0;
+}
+@media(max-width:640px) {
+  .svc-card.featured { grid-column: span 1; display: flex; flex-direction: column; }
+}
+
+.svc-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0,194,209,0.35);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,194,209,0.08);
+}
+.svc-card::after {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: 18px;
+  background: radial-gradient(circle at 50% 0%, rgba(0,194,209,0.06) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+  z-index: 0;
+}
+.svc-card:hover::after { opacity: 1; }
+
+.svc-icon-wrap {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.svc-icon-wrap svg { width: 28px; height: 28px; }
+
+.svc-icon-wrap.teal-bg {
+  background: linear-gradient(135deg, rgba(0,194,209,0.15), rgba(0,194,209,0.06));
+  border: 1px solid rgba(0,194,209,0.25);
+}
+.svc-icon-wrap.amber-bg {
+  background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(245,158,11,0.06));
+  border: 1px solid rgba(245,158,11,0.25);
+}
+.svc-icon-wrap.orange-bg {
+  background: linear-gradient(135deg, rgba(249,115,22,0.15), rgba(249,115,22,0.06));
+  border: 1px solid rgba(249,115,22,0.25);
+}
+.svc-icon-wrap.green-bg {
+  background: linear-gradient(135deg, rgba(37,211,102,0.15), rgba(37,211,102,0.06));
+  border: 1px solid rgba(37,211,102,0.25);
+}
+
+.svc-card h3 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 22px; font-weight: 700;
+  color: var(--text-main); letter-spacing: 0.3px;
+}
+.svc-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; flex: 1; }
+
+.svc-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px; font-weight: 700;
+  color: var(--teal);
+  letter-spacing: 2px; text-transform: uppercase;
+  margin-top: auto;
+}
+.svc-pill::before {
+  content: '';
+  width: 20px; height: 1px;
+  background: var(--teal);
+  display: inline-block;
+}
+
+.svc-featured-left {
+  padding: 36px 32px;
+  display: flex; flex-direction: column; gap: 14px;
+  border-right: 1px solid var(--border);
+}
+.svc-featured-right {
+  padding: 36px 32px;
+  display: flex; flex-direction: column; justify-content: center;
+  background: linear-gradient(135deg, rgba(0,194,209,0.04), transparent);
+  gap: 12px;
+}
+.svc-feature-list {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.svc-feature-list li {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13.5px; color: var(--text-body);
+}
+.svc-feature-list li::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+  flex-shrink: 0;
+}
+.svc-deco {
+  position: absolute;
+  bottom: -10px; right: -10px;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── SOLAR HIGHLIGHT SECTION ── */
+.product-section {
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+.product-section::before {
+  content: '';
+  position: absolute;
+  right: -100px; top: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.product-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+@media(max-width:768px) { .product-inner { grid-template-columns: 1fr; } }
+
+.product-badge-price {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(245,158,11,0.15);
+  border: 1px solid rgba(245,158,11,0.4);
+  border-radius: 6px;
+  padding: 8px 16px;
+  color: var(--amber);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+}
+
+.feature-list {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 12px;
+  margin-bottom: 32px;
+}
+.feature-list li {
+  display: flex; gap: 12px; align-items: center;
+  font-size: 15px;
+  color: rgba(255,255,255,0.8);
+}
+.feature-list li::before {
+  content: '✓';
+  width: 22px; height: 22px;
+  background: rgba(0,194,209,0.15);
+  border: 1px solid var(--teal);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px;
+  color: var(--teal);
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+/* Solar panel SVG mockup */
+.solar-visual { position: relative; display: flex; justify-content: center; }
+.solar-mockup {
+  width: 260px;
+  background: linear-gradient(145deg, #1a2f4a, #0d1b2e);
+  border: 2px solid rgba(245,158,11,0.3);
+  border-radius: 20px;
+  padding: 24px 20px;
+  text-align: center;
+  box-shadow: 0 0 60px rgba(245,158,11,0.15);
+}
+.solar-panel-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 6px;
+  margin-bottom: 20px;
+}
+.solar-cell {
+  height: 38px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #1e3a5f, #0d2035);
+  border: 1px solid rgba(245,158,11,0.2);
+  position: relative;
+  overflow: hidden;
+}
+.solar-cell::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(245,158,11,0.08) 0%, transparent 100%);
+}
+.solar-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 11px;
+  color: var(--amber);
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.solar-model {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+  color: white;
+  font-weight: 700;
+}
+.solar-status {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  color: rgba(245,158,11,0.7);
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 1px;
+}
+.solar-dot {
+  width: 7px; height: 7px;
+  background: var(--amber);
+  border-radius: 50%;
+  animation: pulse-dot 2s ease-in-out infinite;
+  box-shadow: 0 0 6px var(--amber);
+}
+
+/* ── CAROUSEL / WORK GALLERY ── */
+.carousel-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.carousel-slide {
+  min-width: 100%;
+  height: 540px;
+  position: relative;
+  overflow: hidden;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media(max-width:768px) { .carousel-slide { height: 380px; } }
+@media(max-width:480px) { .carousel-slide { height: 280px; } }
+
+.slide-placeholder {
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: 'Rajdhani', sans-serif;
+  color: rgba(0,194,209,0.3);
+  letter-spacing: 2px;
+  font-size: 13px;
+  text-transform: uppercase;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(0,194,209,0.04) 0%, transparent 50%),
+    linear-gradient(180deg, #0d1b2e, #070e18);
+  position: relative;
+}
+.slide-placeholder picture,
+.slide-placeholder img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+.slide-info {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 20px 24px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.75));
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  z-index: 2;
+}
+.slide-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 18px; font-weight: 700;
+  color: white; letter-spacing: 1px;
+}
+.slide-tag {
+  font-size: 11px; color: var(--teal);
+  letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  width: 44px; height: 44px;
+  background: rgba(13,27,46,0.85);
+  border: 1px solid rgba(0,194,209,0.3);
+  border-radius: 50%;
+  color: white; font-size: 18px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 10;
+  transition: background 0.2s, border-color 0.2s;
+  padding: 0;
+}
+.carousel-btn:hover { background: rgba(0,194,209,0.2); border-color: var(--teal); }
+.carousel-btn--prev { left: 12px; }
+.carousel-btn--next { right: 12px; }
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+}
+.carousel-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(0,194,209,0.2);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  border: 1px solid rgba(0,194,209,0.3);
+  padding: 0;
+}
+.carousel-dot.active { background: var(--teal); transform: scale(1.3); }
+
+/* ── HOW IT WORKS / QUOTE SECTION ── */
+.quote-section {
+  background: linear-gradient(135deg, #0d1b2e, #152540);
+  position: relative;
+  overflow: hidden;
+}
+.quote-section::after {
+  content: '🔒';
+  position: absolute;
+  right: 5%; top: 50%;
+  transform: translateY(-50%);
+  font-size: 200px;
+  opacity: 0.04;
+  pointer-events: none;
+}
+.quote-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+@media(max-width:768px) { .quote-inner { grid-template-columns: 1fr; } }
+
+.quote-steps { display: flex; flex-direction: column; gap: 16px; }
+.quote-step { display: flex; gap: 16px; align-items: flex-start; }
+.step-num {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(0,194,209,0.12);
+  border: 1px solid rgba(0,194,209,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px; font-weight: 700;
+  color: var(--teal);
+  flex-shrink: 0;
+}
+.step-text h4 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px; font-weight: 700;
+  color: white; margin-bottom: 3px;
+}
+.step-text p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+/* WA chat bubble */
+.wa-chat {
+  background: #0b1e12;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(37,211,102,0.2);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.wa-chat-header {
+  background: #1f2d23;
+  padding: 14px 18px;
+  display: flex; align-items: center; gap: 12px;
+  border-bottom: 1px solid rgba(37,211,102,0.15);
+}
+.wa-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25D366, #1da851);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.wa-name { font-family: 'Rajdhani', sans-serif; font-size: 15px; font-weight: 700; color: white; }
+.wa-status { font-size: 11px; color: #25D366; }
+
+.wa-messages {
+  padding: 16px;
+  display: flex; flex-direction: column; gap: 10px;
+  background: #0d1a10;
+  min-height: 200px;
+}
+.wa-bubble {
+  max-width: 85%;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 13px; line-height: 1.5;
+}
+.wa-bubble.received {
+  background: #1f2d23;
+  color: rgba(255,255,255,0.85);
+  border-bottom-left-radius: 4px;
+  align-self: flex-start;
+}
+.wa-bubble.sent {
+  background: #005c4b;
+  color: rgba(255,255,255,0.9);
+  border-bottom-right-radius: 4px;
+  align-self: flex-end;
+}
+.wa-time { font-size: 10px; color: rgba(255,255,255,0.4); text-align: right; margin-top: 3px; }
+.wa-cta-row { padding: 14px 16px; background: #1f2d23; }
+.wa-cta-btn {
+  display: block; text-align: center;
+  background: linear-gradient(135deg, var(--wa-green), #1da851);
+  color: white;
+  padding: 13px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700; font-size: 15px;
+  transition: opacity 0.2s;
+}
+.wa-cta-btn:hover { opacity: 0.9; }
+
+/* ── COVERAGE ── */
+.coverage-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+.coverage-chip {
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-size: 14px;
+  color: var(--text-body);
+  font-weight: 500;
+  transition: border-color 0.2s, color 0.2s;
+  display: flex; align-items: center; gap: 6px;
+}
+.coverage-chip::before { content: '📍'; font-size: 12px; }
+.coverage-chip:hover { border-color: var(--teal); color: var(--teal); }
+
+/* ── FINAL CTA ── */
+.final-cta {
+  background: linear-gradient(135deg, #050c15 0%, #0d1b2e 50%, #152540 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.final-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(0,194,209,0.1) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 100%, rgba(245,158,11,0.05) 0%, transparent 60%);
+}
+.final-cta-inner { position: relative; z-index: 2; }
+.final-cta h2 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(30px, 5vw, 56px);
+  font-weight: 700; color: white; margin-bottom: 16px;
+}
+.final-cta p {
+  font-size: 17px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 40px;
+  max-width: 520px;
+  margin-left: auto; margin-right: auto;
+}
+.cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn-teal {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--teal);
+  color: var(--navy);
+  padding: 16px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700; font-size: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-teal:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,194,209,0.4); }
+
+/* ── FOOTER ── */
+.footer {
+  background: #040a12;
+  border-top: 1px solid rgba(0,194,209,0.12);
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 48px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 70px 24px 56px;
+}
+@media(max-width:900px) { .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; } }
+@media(max-width:560px) { .footer-top { grid-template-columns: 1fr; } }
+
+.footer-brand-col .brand-wrap {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+}
+.footer-brand-col .brand-name {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 22px; font-weight: 700;
+  color: white; line-height: 1.1;
+}
+.footer-brand-col .brand-name span { color: var(--teal); }
+.footer-brand-col .brand-tagline {
+  font-size: 10px; color: var(--amber);
+  letter-spacing: 3px; text-transform: uppercase; font-weight: 600;
+}
+.footer-brand-col p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.42);
+  line-height: 1.75; max-width: 280px; margin-bottom: 28px;
+}
+
+.footer-socials { display: flex; gap: 10px; }
+.social-btn {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
+  transition: background 0.25s, border-color 0.25s, transform 0.2s;
+  text-decoration: none; flex-shrink: 0;
+}
+.social-btn:hover { transform: translateY(-3px); }
+.social-btn.wa:hover  { background: rgba(37,211,102,0.15); border-color: rgba(37,211,102,0.4); }
+.social-btn.ig:hover  { background: rgba(225,48,108,0.12); border-color: rgba(225,48,108,0.35); }
+.social-btn.tt:hover  { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.3); }
+.social-btn.pp:hover  { background: rgba(0,112,186,0.12); border-color: rgba(0,112,186,0.35); }
+.social-btn svg { width: 18px; height: 18px; }
+
+.footer-col h5 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0,194,209,0.15);
+}
+.footer-col ul {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.footer-col ul li a {
+  color: rgba(255,255,255,0.45);
+  text-decoration: none; font-size: 14px;
+  transition: color 0.2s, padding-left 0.2s;
+  display: inline-block;
+}
+.footer-col ul li a:hover { color: var(--teal); padding-left: 4px; }
+
+.footer-contact-item {
+  display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px;
+}
+.footer-contact-item .fc-icon {
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  background: rgba(0,194,209,0.08);
+  border: 1px solid rgba(0,194,209,0.15);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px;
+}
+.footer-contact-item .fc-icon svg { width: 15px; height: 15px; fill: var(--teal); }
+.footer-contact-item .fc-label {
+  font-size: 10px; color: rgba(255,255,255,0.25);
+  letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 3px;
+}
+.footer-contact-item .fc-value {
+  font-size: 13.5px; color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  transition: color 0.2s;
+  display: block; word-break: break-word;
+}
+.footer-contact-item .fc-value:hover { color: var(--teal); }
+
+.footer-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(0,194,209,0.15), transparent); }
+.footer-bottom {
+  max-width: 1100px; margin: auto;
+  padding: 20px 24px 80px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px;
+}
+.footer-legal { font-size: 12px; color: rgba(255,255,255,0.22); line-height: 1.6; }
+.footer-bottom-badge {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11px; color: rgba(255,255,255,0.2);
+  font-family: 'Rajdhani', sans-serif; letter-spacing: 1px;
+}
+.footer-bottom-badge a { color: rgba(0,194,209,0.55); text-decoration: none; font-weight: 700; }
+.footer-bottom-badge a:hover { color: var(--teal); }
+
+/* ── WHATSAPP FAB ── */
+.wa-fab {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  z-index: 998;
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: var(--wa-green);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.wa-fab:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37,211,102,0.65); }
+.wa-fab svg { width: 32px; height: 32px; fill: white; }
+.wa-fab-pulse {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(37,211,102,0.5);
+  animation: fab-pulse 2.5s ease-out infinite;
+}
+@keyframes fab-pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* ── ENTRANCE ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { opacity: 0; animation: fadeUp 0.7s ease forwards; }
+.fade-up-1 { animation-delay: 0.1s; }
+.fade-up-2 { animation-delay: 0.25s; }
+.fade-up-3 { animation-delay: 0.4s; }
+.fade-up-4 { animation-delay: 0.55s; }
+
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════════════════
+     NAVBAR
+     ✏️  EDIT: nav-name, nav-sub, logo img src
+═══════════════════════════════════════════ -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <a href="#" class="nav-brand" aria-label="CCTV HD World Home">
+    <!-- ✏️  EDIT: Replace with actual logo. If no logo file, keep the icon placeholder below -->
+    <div class="nav-logo-placeholder" aria-hidden="true">
+      <i class="fa-solid fa-camera-cctv"></i>
+    </div>
+    <!-- Alt: <img src="images/cctv-hd-world-logo.webp" alt="CCTV HD World Logo" width="44" height="44" loading="lazy" class="nav-logo" onerror="this.style.display='none'"> -->
+    <div>
+      <!-- ✏️  EDIT: Brand name — the <span> becomes teal -->
+      <div class="nav-name">CCTV HD <span>WORLD</span></div>
+      <!-- ✏️  EDIT: Tagline below brand name -->
+      <div class="nav-sub">Security · Solar · Wi-Fi</div>
+    </div>
+  </a>
+
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#coverage">Coverage</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode"></button>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════
+     HERO SECTION
+     ✏️  EDIT: hero badge, h1, hero-sub text, CTA hrefs (WhatsApp number + message)
+     ✏️  EDIT: hero background-image in .hero CSS above
+═══════════════════════════════════════════ -->
+<section class="hero" aria-label="Hero — CCTV HD World">
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+
+  <!-- HUD camera corners decoration -->
+  <div class="hud-corner hud-corner--tl" aria-hidden="true"></div>
+  <div class="hud-corner hud-corner--tr" aria-hidden="true"></div>
+  <div class="hud-corner hud-corner--bl" aria-hidden="true"></div>
+  <div class="hud-corner hud-corner--br" aria-hidden="true"></div>
+  <div class="rec-dot" aria-hidden="true"></div>
+  <!-- ✏️  EDIT: REC label -->
+  <div class="rec-label" aria-hidden="true">REC</div>
+
+  <div class="hero-inner">
+    <!-- Left: Copy -->
+    <div>
+      <!-- ✏️  EDIT: Hero badge text -->
+      <div class="hero-badge fade-up fade-up-1" aria-label="Live security coverage">Live Coverage — Island-Wide</div>
+
+      <!-- ✏️  EDIT: Main headline -->
+      <h1 class="fade-up fade-up-2">
+        Your Property.<br>
+        <span class="accent">Protected.</span><br>
+        <span class="amber-accent">24/7.</span>
+      </h1>
+
+      <!-- ✏️  EDIT: Hero sub-headline -->
+      <p class="hero-sub fade-up fade-up-3">
+        CCTV HD World installs professional-grade security cameras, alarm systems, solar solutions and Wi-Fi networks for homes, businesses, farms and construction sites across Saint Lucia.
+      </p>
+
+      <div class="hero-actions fade-up fade-up-4">
+        <!-- ✏️  EDIT: WhatsApp CTA — update number + message text (URL-encoded) -->
+        <a class="btn-primary"
+           href="https://wa.me/17585182828?text=Hi%20CCTV%20HD%20World%2C%20I%27d%20like%20a%20free%20quote%20for%20a%20security%20system."
+           target="_blank" rel="noopener"
+           aria-label="Get a free security quote on WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Get Free Quote
+        </a>
+
+        <!-- ✏️  EDIT: Secondary CTA anchor -->
+        <a class="btn-secondary" href="#services" aria-label="View all services">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>
+          </svg>
+          View Services
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: Camera Monitor Mockup -->
+    <div class="hero-visual" aria-hidden="true">
+      <div class="monitor-frame">
+        <div class="monitor-header">
+          <!-- ✏️  EDIT: Monitor title text -->
+          <span class="monitor-title">CCTV HD WORLD — LIVE FEED</span>
+          <div class="monitor-status">
+            <div class="status-dot"></div>
+            ALL SYSTEMS ONLINE
+          </div>
+        </div>
+        <div class="cam-grid">
+          <!-- Large main cam feed -->
+          <div class="cam-feed large">
+            <div class="cam-overlay"></div>
+            <div class="cam-scan"></div>
+            <!-- ✏️  EDIT: Replace with real installation photo -->
+            <svg style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.08;" width="80" height="80" viewBox="0 0 24 24" fill="var(--teal)"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span class="cam-label">CAM 01 — FRONT GATE</span>
+            <span class="cam-timestamp" id="ts1">00:00:00</span>
+          </div>
+          <!-- Small feeds -->
+          <div class="cam-feed">
+            <div class="cam-overlay"></div>
+            <div class="cam-scan" style="animation-delay:1s;"></div>
+            <svg style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.08;" width="40" height="40" viewBox="0 0 24 24" fill="var(--teal)"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span class="cam-label">CAM 02 — REAR</span>
+            <span class="cam-timestamp" id="ts2">00:00:00</span>
+          </div>
+          <div class="cam-feed">
+            <div class="cam-overlay"></div>
+            <div class="cam-scan" style="animation-delay:2s;"></div>
+            <svg style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.08;" width="40" height="40" viewBox="0 0 24 24" fill="var(--amber)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+            <span class="cam-label">CAM 03 — SOLAR</span>
+            <span class="cam-timestamp" id="ts3">00:00:00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     TRUST TICKER
+     ✏️  EDIT: ticker-item text — each item repeats twice for seamless loop
+═══════════════════════════════════════════ -->
+<div class="ticker-bar" aria-hidden="true">
+  <div class="ticker-inner">
+    <span class="ticker-item">HD & 4K CCTV Cameras</span>
+    <span class="ticker-item">Alarm Systems</span>
+    <span class="ticker-item">Off-Grid Solar</span>
+    <span class="ticker-item">Wi-Fi Extenders</span>
+    <span class="ticker-item">Farm Installations</span>
+    <span class="ticker-item">Commercial Security</span>
+    <span class="ticker-item">Home Security</span>
+    <span class="ticker-item">Remote Monitoring</span>
+    <span class="ticker-item">Night Vision Systems</span>
+    <span class="ticker-item">Construction Site Security</span>
+    <!-- Duplicate for seamless infinite scroll -->
+    <span class="ticker-item">HD & 4K CCTV Cameras</span>
+    <span class="ticker-item">Alarm Systems</span>
+    <span class="ticker-item">Off-Grid Solar</span>
+    <span class="ticker-item">Wi-Fi Extenders</span>
+    <span class="ticker-item">Farm Installations</span>
+    <span class="ticker-item">Commercial Security</span>
+    <span class="ticker-item">Home Security</span>
+    <span class="ticker-item">Remote Monitoring</span>
+    <span class="ticker-item">Night Vision Systems</span>
+    <span class="ticker-item">Construction Site Security</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     WHY US / ABOUT
+     ✏️  EDIT: stat numbers, stat labels, reason card headings & descriptions
+═══════════════════════════════════════════ -->
+<section class="section whyus-section section-alt" id="about">
+  <div class="container">
+
+    <div style="text-align:center;margin-bottom:56px;" class="reveal">
+      <div class="section-tag">Why CCTV HD World</div>
+      <!-- ✏️  EDIT: Section headline -->
+      <h2 class="section-title">Security You Can <span class="accent">Actually See</span></h2>
+      <p class="section-body" style="margin:12px auto 0;">
+        We've protected homes, businesses, farms and construction sites across Saint Lucia with professional-grade systems that actually work — and you can monitor them from anywhere in the world.
+      </p>
+    </div>
+
+    <!-- ✏️  EDIT: Stats — update numbers to match real track record -->
+    <div class="trust-stats-row reveal">
+      <div class="trust-stat-new">
+        <span class="stat-icon" aria-hidden="true">📹</span>
+        <span class="stat-num">500+</span>
+        <div class="stat-label">Cameras Installed</div>
+      </div>
+      <div class="trust-stat-new">
+        <span class="stat-icon" aria-hidden="true">🏠</span>
+        <span class="stat-num">200+</span>
+        <div class="stat-label">Properties Secured</div>
+      </div>
+      <div class="trust-stat-new">
+        <span class="stat-icon" aria-hidden="true">🌞</span>
+        <span class="stat-num">50+</span>
+        <div class="stat-label">Solar Systems</div>
+      </div>
+      <div class="trust-stat-new">
+        <span class="stat-icon" aria-hidden="true">🛡️</span>
+        <span class="stat-num">100%</span>
+        <div class="stat-label">Island Coverage</div>
+      </div>
+    </div>
+
+    <!-- ✏️  EDIT: Reason cards — 4 key selling points -->
+    <div class="reason-strip">
+
+      <div class="reason-card reveal">
+        <div class="reason-num" aria-hidden="true">01</div>
+        <div class="reason-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+        </div>
+        <!-- ✏️  EDIT: Card 1 heading + description -->
+        <h4>Professional HD & 4K Installs</h4>
+        <p>Crystal-clear footage day and night. Clean cable management, proper mounting — every system is built to last and look built-in.</p>
+      </div>
+
+      <div class="reason-card reveal">
+        <div class="reason-num" aria-hidden="true">02</div>
+        <div class="reason-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14zm-1-6h-3V8h-2v5H8l4 4 4-4z"/></svg>
+        </div>
+        <!-- ✏️  EDIT: Card 2 -->
+        <h4>Monitor Anywhere, Anytime</h4>
+        <p>View your cameras live from your phone from anywhere in the world. Real-time alerts, motion detection, 24/7 remote access.</p>
+      </div>
+
+      <div class="reason-card reveal">
+        <div class="reason-num" aria-hidden="true">03</div>
+        <div class="reason-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+        </div>
+        <!-- ✏️  EDIT: Card 3 -->
+        <h4>Every Property Type Covered</h4>
+        <p>Homes, businesses, farms, construction sites. We've secured them all — with the right system spec'd for each environment.</p>
+      </div>
+
+      <div class="reason-card reveal">
+        <div class="reason-num" aria-hidden="true">04</div>
+        <div class="reason-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+        <!-- ✏️  EDIT: Card 4 -->
+        <h4>Island-Wide Service</h4>
+        <p>Saint Lucia, everywhere. No job is too far. We come to you — survey, install, configure and handover, done properly.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="teal-rule"></div>
+
+
+<!-- ═══════════════════════════════════════════
+     SERVICES
+     ✏️  EDIT: service card headings, descriptions, svc-pill labels
+     ✏️  EDIT: svc-feature-list items on featured card
+     ✏️  EDIT: svc-card-bg background-image paths
+     ✏️  EDIT: WA quote button href (number + message)
+═══════════════════════════════════════════ -->
+<section class="section" id="services">
+  <div class="container">
+
+    <div class="services-intro-row reveal">
+      <div>
+        <div class="section-tag">What We Do</div>
+        <h2 class="section-title">Our Core <span class="accent">Services</span></h2>
+        <!-- ✏️  EDIT: Services intro body text -->
+        <p class="section-body" style="margin-bottom:0;">
+          From single-camera home installs to full commercial security systems, off-grid solar, and Wi-Fi networks — we handle everything from site survey to final handover.
+        </p>
+      </div>
+      <div style="flex-shrink:0;">
+        <!-- ✏️  EDIT: CTA button href -->
+        <a class="btn-primary"
+           href="https://wa.me/17585182828?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20services."
+           target="_blank" rel="noopener"
+           aria-label="Ask about services on WhatsApp"
+           style="white-space:nowrap;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Get Free Quote
+        </a>
+      </div>
+    </div>
+
+    <div class="services-mosaic">
+
+      <!-- ✏️  EDIT: FEATURED card — primary service -->
+      <!-- ✏️  EDIT: svc-card-bg background-image → real photo of CCTV installation -->
+      <div class="svc-card featured reveal">
+        <div class="svc-card-bg" style="background-image:url('images/cctv-commercial-install.webp');" role="presentation"></div>
+        <div class="svc-featured-left">
+          <div class="svc-icon-wrap teal-bg" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="#00c2d1"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+          </div>
+          <!-- ✏️  EDIT: Featured service name -->
+          <h3>CCTV & Security Systems</h3>
+          <!-- ✏️  EDIT: Featured service description -->
+          <p>Full HD to 4K resolution cameras for homes, businesses, farms and construction sites. Night vision, AI motion detection, remote viewing from your phone. Alarm systems and video doorbells included.</p>
+          <span class="svc-pill">Most Popular</span>
+        </div>
+        <div class="svc-featured-right">
+          <p style="font-family:'Rajdhani',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:4px;">What's included</p>
+          <!-- ✏️  EDIT: Feature list items -->
+          <ul class="svc-feature-list">
+            <li>HD & 4K Camera Installation</li>
+            <li>Night Vision — 24/7 Coverage</li>
+            <li>Alarm System Setup & Testing</li>
+            <li>Remote Phone Access Configured</li>
+            <li>Video Doorbell Systems</li>
+            <li>AI Motion Detection & Alerts</li>
+            <li>Farm & Construction Site Systems</li>
+          </ul>
+        </div>
+        <div class="svc-deco" aria-hidden="true">
+          <svg width="160" height="160" viewBox="0 0 24 24" fill="var(--teal)"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+        </div>
+      </div>
+
+      <!-- ✏️  EDIT: Service card 2 — Solar -->
+      <!-- ✏️  EDIT: svc-card-bg background-image → real solar install photo -->
+      <div class="svc-card reveal">
+        <div class="svc-card-bg" style="background-image:url('images/solar-home-install.webp');" role="presentation"></div>
+        <div class="svc-icon-wrap amber-bg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="#f59e0b">
+            <path d="M12 7a5 5 0 110 10A5 5 0 0112 7zm0-5a1 1 0 011 1v2a1 1 0 11-2 0V3a1 1 0 011-1zm0 17a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1zm10-10a1 1 0 010 2h-2a1 1 0 010-2h2zM5 12a1 1 0 010 2H3a1 1 0 010-2h2zm13.07-7.07a1 1 0 010 1.41l-1.41 1.41a1 1 0 11-1.41-1.41l1.41-1.41a1 1 0 011.41 0zM7.76 16.24a1 1 0 010 1.41L6.34 19.07a1 1 0 01-1.41-1.41l1.41-1.41a1 1 0 011.42-.01zm9.9 1.41a1 1 0 01-1.41 0l-1.41-1.41a1 1 0 011.41-1.41l1.41 1.41a1 1 0 010 1.41zM7.76 7.76a1 1 0 01-1.41 0L4.93 6.34a1 1 0 011.41-1.41l1.41 1.41a1 1 0 010 1.42z"/>
+          </svg>
+        </div>
+        <!-- ✏️  EDIT: Card 2 -->
+        <h3>Off-Grid Solar Solutions</h3>
+        <p>New home solar systems for full independence from the grid. Complete setup including panels, inverter, batteries and wiring — clean energy, long-term savings.</p>
+        <span class="svc-pill">New Installation Service</span>
+        <div class="svc-deco" aria-hidden="true">
+          <svg width="130" height="130" viewBox="0 0 24 24" fill="var(--amber)"><path d="M12 7a5 5 0 110 10A5 5 0 0112 7z"/></svg>
+        </div>
+      </div>
+
+      <!-- ✏️  EDIT: Service card 3 — Wi-Fi & Networking -->
+      <!-- ✏️  EDIT: svc-card-bg background-image → real Wi-Fi/networking photo -->
+      <div class="svc-card reveal">
+        <div class="svc-card-bg" style="background-image:url('images/wifi-networking-setup.webp');" role="presentation"></div>
+        <div class="svc-icon-wrap orange-bg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="#f97316">
+            <path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/>
+          </svg>
+        </div>
+        <!-- ✏️  EDIT: Card 3 -->
+        <h3>Wi-Fi & Networking</h3>
+        <p>Wi-Fi extenders, signal boosters and structured networking for homes, yards and commercial properties. Strong reliable signal, everywhere on your property.</p>
+        <span class="svc-pill">Full Property Coverage</span>
+        <div class="svc-deco" aria-hidden="true">
+          <svg width="130" height="130" viewBox="0 0 24 24" fill="var(--orange-logo)"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+        </div>
+      </div>
+
+      <!-- ✏️  EDIT: Service card 4 — Tools & Accessories -->
+      <div class="svc-card reveal">
+        <div class="svc-card-bg" style="background-image:url('images/tools-for-sale.webp');" role="presentation"></div>
+        <div class="svc-icon-wrap green-bg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="#25D366">
+            <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+          </svg>
+        </div>
+        <!-- ✏️  EDIT: Card 4 -->
+        <h3>Tools & Equipment</h3>
+        <p>Quality tools and security accessories available for sale. Whether you're a professional or a DIY home improver — we stock what you need.</p>
+        <span class="svc-pill">Available Now</span>
+        <div class="svc-deco" aria-hidden="true">
+          <svg width="130" height="130" viewBox="0 0 24 24" fill="#25D366"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="teal-rule"></div>
+
+
+<!-- ═══════════════════════════════════════════
+     FEATURED PRODUCT — SOLAR HIGHLIGHT
+     ✏️  EDIT: headline, badge price, feature list, WA href
+     ✏️  EDIT: swap this section to any featured service/product
+═══════════════════════════════════════════ -->
+<section class="section product-section" aria-labelledby="solar-heading">
+  <div class="container">
+    <div class="product-inner">
+      <div class="reveal">
+        <div class="section-tag">Featured Solution</div>
+        <!-- ✏️  EDIT: Product headline -->
+        <h2 class="section-title" id="solar-heading" style="color:white;">New Home <span style="color:var(--amber);">Off-Grid</span> Solar</h2>
+        <!-- ✏️  EDIT: Price badge text — remove if no fixed price or update accordingly -->
+        <div class="product-badge-price">
+          ☀️ Free Consultation & Quote
+        </div>
+        <!-- ✏️  EDIT: Feature list — update to match exact solar package -->
+        <ul class="feature-list">
+          <li>Solar Panel Installation (Roof & Ground Mount)</li>
+          <li>Inverter & Battery Bank Setup</li>
+          <li>Fully Off-Grid or Hybrid Options</li>
+          <li>Professional Cable Management</li>
+          <li>System Monitoring App Configured</li>
+          <li>Long-Term Energy Independence</li>
+          <li>Farm & Commercial Solar Available</li>
+        </ul>
+        <!-- ✏️  EDIT: WhatsApp href -->
+        <a class="btn-primary"
+           href="https://wa.me/17585182828?text=Hi%20CCTV%20HD%20World%2C%20I%27m%20interested%20in%20the%20off-grid%20solar%20solution.%20Can%20I%20get%20a%20quote%3F"
+           target="_blank" rel="noopener"
+           aria-label="Enquire about solar installation on WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Enquire on WhatsApp
+        </a>
+      </div>
+
+      <!-- Solar panel visual mockup (CSS-only, no images needed) -->
+      <div class="reveal solar-visual" aria-hidden="true">
+        <div class="solar-mockup">
+          <div class="solar-label">OFF-GRID SOLAR SYSTEM</div>
+          <div class="solar-panel-grid">
+            <div class="solar-cell"></div>
+            <div class="solar-cell"></div>
+            <div class="solar-cell"></div>
+            <div class="solar-cell"></div>
+            <div class="solar-cell"></div>
+            <div class="solar-cell"></div>
+            <div class="solar-cell"></div>
+            <div class="solar-cell"></div>
+            <div class="solar-cell"></div>
+          </div>
+          <div class="solar-model">Complete Home Package</div>
+          <div class="solar-status">
+            <div class="solar-dot"></div>
+            CHARGING · OPTIMAL OUTPUT
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="teal-rule"></div>
+
+
+<!-- ═══════════════════════════════════════════
+     WORK GALLERY / CAROUSEL
+     ✏️  EDIT: Replace each .slide-placeholder with real installation photos:
+       <div class="slide-placeholder">
+         <img src="images/your-photo.webp" alt="Descriptive alt text" width="1200" height="540" loading="lazy" onerror="this.style.display='none'">
+         <div class="slide-info">
+           <div class="slide-title">Job Title Here</div>
+           <div class="slide-tag">Category</div>
+         </div>
+       </div>
+     ✏️  EDIT: Add/remove carousel slides as needed (update dot count in HTML + JS total)
+═══════════════════════════════════════════ -->
+<section class="section section-alt" id="gallery" aria-labelledby="gallery-heading">
+  <div class="container">
+
+    <div class="reveal" style="margin-bottom:36px;">
+      <div class="section-tag">Our Work</div>
+      <h2 class="section-title" id="gallery-heading">Real Installs. <span class="accent">Real Results.</span></h2>
+      <p class="section-body">
+        Every photo below is a real job — homes, businesses, farms and construction sites we've secured across Saint Lucia. Add your installation photos here.
+      </p>
+    </div>
+
+    <div class="carousel-wrap reveal" role="region" aria-label="Installation gallery">
+      <div class="carousel-track" id="carouselTrack">
+
+        <!-- ✏️  EDIT: Slide 1 — replace with real photo -->
+        <div class="carousel-slide">
+          <div class="slide-placeholder" aria-label="CCTV home installation">
+            <!-- Add: <img src="images/home-install-1.webp" alt="CCTV installation on home exterior, Saint Lucia" width="1200" height="540" loading="lazy" onerror="this.style.display='none'"> -->
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="rgba(0,194,209,0.15)" aria-hidden="true"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            <span>Home Installation Photo</span>
+            <div class="slide-info">
+              <!-- ✏️  EDIT: Slide 1 title and tag -->
+              <div class="slide-title">Residential CCTV — Home Installation</div>
+              <div class="slide-tag">Home Security</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ✏️  EDIT: Slide 2 -->
+        <div class="carousel-slide">
+          <div class="slide-placeholder" aria-label="Commercial CCTV installation">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="rgba(0,194,209,0.15)" aria-hidden="true"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Commercial Installation Photo</span>
+            <div class="slide-info">
+              <!-- ✏️  EDIT: Slide 2 -->
+              <div class="slide-title">Commercial Security System</div>
+              <div class="slide-tag">Business Security</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ✏️  EDIT: Slide 3 -->
+        <div class="carousel-slide">
+          <div class="slide-placeholder" aria-label="Farm security installation">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="rgba(245,158,11,0.15)" aria-hidden="true"><path d="M12 7a5 5 0 110 10A5 5 0 0112 7z"/></svg>
+            <span>Farm Installation Photo</span>
+            <div class="slide-info">
+              <!-- ✏️  EDIT: Slide 3 -->
+              <div class="slide-title">Farm Security & Solar</div>
+              <div class="slide-tag">Farm Installation</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ✏️  EDIT: Slide 4 -->
+        <div class="carousel-slide">
+          <div class="slide-placeholder" aria-label="Construction site CCTV">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="rgba(0,194,209,0.15)" aria-hidden="true"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+            <span>Construction Site Photo</span>
+            <div class="slide-info">
+              <!-- ✏️  EDIT: Slide 4 -->
+              <div class="slide-title">Construction Site Security</div>
+              <div class="slide-tag">Site Security</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /carousel-track -->
+
+      <!-- Nav buttons -->
+      <button class="carousel-btn carousel-btn--prev" id="prevBtn" aria-label="Previous installation photo">&#8249;</button>
+      <button class="carousel-btn carousel-btn--next" id="nextBtn" aria-label="Next installation photo">&#8250;</button>
+
+      <!-- Dots — ✏️  EDIT: Match count to number of slides above -->
+      <div class="carousel-dots" role="tablist" aria-label="Gallery navigation">
+        <button class="carousel-dot active" data-index="0" role="tab" aria-label="Slide 1" aria-selected="true"></button>
+        <button class="carousel-dot" data-index="1" role="tab" aria-label="Slide 2" aria-selected="false"></button>
+        <button class="carousel-dot" data-index="2" role="tab" aria-label="Slide 3" aria-selected="false"></button>
+        <button class="carousel-dot" data-index="3" role="tab" aria-label="Slide 4" aria-selected="false"></button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="teal-rule"></div>
+
+
+<!-- ═══════════════════════════════════════════
+     HOW TO GET A QUOTE (WhatsApp Steps + Chat Mockup)
+     ✏️  EDIT: step headings, descriptions, WA chat bubble messages
+     ✏️  EDIT: WA CTA button href
+═══════════════════════════════════════════ -->
+<section class="section quote-section" aria-labelledby="quote-heading">
+  <div class="container">
+    <div class="quote-inner">
+
+      <!-- Left: Steps -->
+      <div class="reveal">
+        <div class="section-tag">Simple Process</div>
+        <!-- ✏️  EDIT: Section heading -->
+        <h2 class="section-title" id="quote-heading" style="color:white;">Get a Quote in <span class="accent">3 Easy Steps</span></h2>
+
+        <div class="quote-steps">
+          <!-- ✏️  EDIT: Steps -->
+          <div class="quote-step">
+            <div class="step-num" aria-hidden="true">1</div>
+            <div class="step-text">
+              <h4>Message Us on WhatsApp</h4>
+              <p>Tell us your property type — home, business, farm, or construction site. Describe what you need or just say "I need a quote."</p>
+            </div>
+          </div>
+          <div class="quote-step">
+            <div class="step-num" aria-hidden="true">2</div>
+            <div class="step-text">
+              <h4>We Survey Your Property</h4>
+              <p>We come to you, assess your site, and recommend the right system — cameras, solar, Wi-Fi or all three.</p>
+            </div>
+          </div>
+          <div class="quote-step">
+            <div class="step-num" aria-hidden="true">3</div>
+            <div class="step-text">
+              <h4>We Install. You're Protected.</h4>
+              <p>Professional installation, full system handover, and you're set up with remote access from day one.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: WA Chat Mockup -->
+      <div class="reveal" aria-hidden="true">
+        <div class="wa-chat">
+          <div class="wa-chat-header">
+            <div class="wa-avatar">📹</div>
+            <div>
+              <!-- ✏️  EDIT: WA chat name + status -->
+              <div class="wa-name">CCTV HD World</div>
+              <div class="wa-status">● Online</div>
+            </div>
+          </div>
+          <div class="wa-messages">
+            <!-- ✏️  EDIT: Chat bubble script — incoming then outgoing -->
+            <div class="wa-bubble received">
+              Hi! 👋 Welcome to CCTV HD World. How can we help you today?
+              <div class="wa-time">Now</div>
+            </div>
+            <div class="wa-bubble sent">
+              I need a CCTV system for my business. How much does it cost?
+              <div class="wa-time">Now</div>
+            </div>
+            <div class="wa-bubble received">
+              Great! We'll set up a free site visit and give you a full quote based on your property. What area are you in?
+              <div class="wa-time">Now</div>
+            </div>
+          </div>
+          <div class="wa-cta-row">
+            <!-- ✏️  EDIT: WA CTA button -->
+            <a class="wa-cta-btn"
+               href="https://wa.me/17585182828?text=Hi%20CCTV%20HD%20World%2C%20I%27d%20like%20a%20free%20quote%20for%20my%20property."
+               target="_blank" rel="noopener"
+               aria-label="Start WhatsApp conversation with CCTV HD World">
+              💬 Start Conversation
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="teal-rule"></div>
+
+
+<!-- ═══════════════════════════════════════════
+     COVERAGE
+     ✏️  EDIT: coverage-chip items — add/remove service areas
+═══════════════════════════════════════════ -->
+<section class="section" id="coverage" aria-labelledby="coverage-heading">
+  <div class="container">
+
+    <div class="reveal" style="margin-bottom:36px;">
+      <div class="section-tag">Service Areas</div>
+      <h2 class="section-title" id="coverage-heading">We Cover All of <span class="accent">Saint Lucia</span></h2>
+      <p class="section-body">
+        Wherever you are on the island, we come to you. No job is too far. Homes, businesses, farms, and construction sites island-wide.
+      </p>
+    </div>
+
+    <!-- ✏️  EDIT: Coverage chips — list your service areas -->
+    <div class="coverage-grid reveal">
+      <div class="coverage-chip">Castries</div>
+      <div class="coverage-chip">Gros Islet</div>
+      <div class="coverage-chip">Rodney Bay</div>
+      <div class="coverage-chip">Choc</div>
+      <div class="coverage-chip">Bois d'Orange</div>
+      <div class="coverage-chip">Babonneau</div>
+      <div class="coverage-chip">Vieux Fort</div>
+      <div class="coverage-chip">Micoud</div>
+      <div class="coverage-chip">Dennery</div>
+      <div class="coverage-chip">Soufrière</div>
+      <div class="coverage-chip">Canaries</div>
+      <div class="coverage-chip">Choiseul</div>
+      <div class="coverage-chip">Laborie</div>
+      <div class="coverage-chip">Anse La Raye</div>
+      <div class="coverage-chip">Marchand</div>
+      <!-- ✏️  EDIT: Add more areas as needed -->
+    </div>
+
+  </div>
+</section>
+
+<div class="teal-rule"></div>
+
+
+<!-- ═══════════════════════════════════════════
+     FINAL CTA
+     ✏️  EDIT: headline, subtext, CTA button hrefs + text
+═══════════════════════════════════════════ -->
+<section class="section final-cta" aria-labelledby="cta-heading">
+  <div class="final-cta-inner">
+    <!-- ✏️  EDIT: Final CTA headline -->
+    <h2 id="cta-heading" class="reveal">Ready to <span style="color:var(--teal);">Secure</span> Your Property?</h2>
+    <!-- ✏️  EDIT: CTA subtext -->
+    <p class="reveal">Get a free quote today. We come to you, assess your site, and give you a professional recommendation — no obligation.</p>
+    <div class="cta-actions reveal">
+      <!-- ✏️  EDIT: Primary CTA -->
+      <a class="btn-primary"
+         href="https://wa.me/17585182828?text=Hi%20CCTV%20HD%20World%2C%20I%27d%20like%20a%20free%20quote%20for%20my%20property."
+         target="_blank" rel="noopener"
+         aria-label="Get a free quote on WhatsApp">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Free Quote on WhatsApp
+      </a>
+      <!-- ✏️  EDIT: Secondary CTA — phone call link -->
+      <a class="btn-teal" href="tel:+17585182828" aria-label="Call CCTV HD World">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        <!-- ✏️  EDIT: Phone number display text -->
+        Call (758) 518-2828
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+     ✏️  EDIT: brand name, tagline, about blurb, social links, nav links, contact details
+     ✏️  EDIT: Update all href="tel:" and href="mailto:" and social @handles
+     ✏️  EDIT: footer-legal copyright year and name
+═══════════════════════════════════════════ -->
+<footer class="footer" id="contact" role="contentinfo">
+
+  <div class="footer-top">
+
+    <!-- Brand Column -->
+    <div class="footer-brand-col">
+      <div class="brand-wrap">
+        <div class="nav-logo-placeholder" aria-hidden="true">
+          <i class="fa-solid fa-camera-cctv" style="font-size:16px;color:var(--teal);"></i>
+        </div>
+        <div>
+          <!-- ✏️  EDIT: Footer brand name -->
+          <div class="brand-name">CCTV HD <span>WORLD</span></div>
+          <!-- ✏️  EDIT: Footer tagline -->
+          <div class="brand-tagline">See Everything. Fear Nothing.</div>
+        </div>
+      </div>
+      <!-- ✏️  EDIT: Footer about blurb -->
+      <p>Professional security camera, alarm, solar and Wi-Fi installation for homes, businesses, farms and construction sites across Saint Lucia. Island-wide coverage.</p>
+
+      <!-- Social links -->
+      <div class="footer-socials">
+        <!-- ✏️  EDIT: WhatsApp link -->
+        <a class="social-btn wa" href="https://wa.me/17585182828" target="_blank" rel="noopener" aria-label="Contact CCTV HD World on WhatsApp">
+          <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+        <!-- ✏️  EDIT: Instagram link -->
+        <a class="social-btn ig" href="https://www.instagram.com/cctvhdworld" target="_blank" rel="noopener" aria-label="Follow CCTV HD World on Instagram">
+          <svg viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <!-- ✏️  EDIT: TikTok link -->
+        <a class="social-btn tt" href="https://www.tiktok.com/@cctvhdworld" target="_blank" rel="noopener" aria-label="Follow CCTV HD World on TikTok">
+          <svg viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.21 8.21 0 004.79 1.53V6.77a4.85 4.85 0 01-1.02-.08z"/></svg>
+        </a>
+        <!-- ✏️  EDIT: PayPal link -->
+        <a class="social-btn pp" href="https://paypal.me/cctvhdworld" target="_blank" rel="noopener" aria-label="Pay CCTV HD World via PayPal">
+          <svg viewBox="0 0 24 24" fill="white"><path d="M7.076 21.337H2.47a.641.641 0 01-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42c-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106-.001.005H2.47a.641.641 0 01-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287l.062-.18z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <!-- ✏️  EDIT: Footer nav links -->
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#coverage">Coverage</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Services Quick List -->
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <!-- ✏️  EDIT: Footer service links -->
+        <li><a href="#services">CCTV Installation</a></li>
+        <li><a href="#services">Alarm Systems</a></li>
+        <li><a href="#services">Off-Grid Solar</a></li>
+        <li><a href="#services">Wi-Fi & Networking</a></li>
+        <li><a href="#services">Farm Installations</a></li>
+        <li><a href="#services">Tools for Sale</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Details -->
+    <div class="footer-col" id="contact">
+      <h5>Contact Us</h5>
+
+      <!-- ✏️  EDIT: Phone 1 -->
+      <div class="footer-contact-item">
+        <div class="fc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        </div>
+        <div>
+          <div class="fc-label">Phone 1</div>
+          <a class="fc-value" href="tel:+17585182828">(758) 518-2828</a>
+        </div>
+      </div>
+
+      <!-- ✏️  EDIT: Phone 2 -->
+      <div class="footer-contact-item">
+        <div class="fc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        </div>
+        <div>
+          <div class="fc-label">Phone 2</div>
+          <a class="fc-value" href="tel:+17587259946">(758) 725-9946</a>
+        </div>
+      </div>
+
+      <!-- ✏️  EDIT: PayPal payment link -->
+      <div class="footer-contact-item">
+        <div class="fc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M7.076 21.337H2.47a.641.641 0 01-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106z"/></svg>
+        </div>
+        <div>
+          <div class="fc-label">Payment</div>
+          <a class="fc-value" href="https://paypal.me/cctvhdworld" target="_blank" rel="noopener">paypal.me/cctvhdworld</a>
+        </div>
+      </div>
+
+      <!-- ✏️  EDIT: Instagram -->
+      <div class="footer-contact-item">
+        <div class="fc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </div>
+        <div>
+          <div class="fc-label">Instagram</div>
+          <a class="fc-value" href="https://www.instagram.com/cctvhdworld" target="_blank" rel="noopener">@cctvhdworld</a>
+        </div>
+      </div>
+
+      <!-- ✏️  EDIT: Location -->
+      <div class="footer-contact-item">
+        <div class="fc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+        <div>
+          <div class="fc-label">Location</div>
+          <!-- ✏️  EDIT: Business location -->
+          <span class="fc-value">Saint Lucia, W.I.<br>Island-Wide Service</span>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /footer-top -->
+
+  <div class="footer-divider"></div>
+
+  <div class="footer-bottom">
+    <!-- ✏️  EDIT: Copyright year and business name -->
+    <p class="footer-legal">
+      © 2026 CCTV HD World. All rights reserved.<br>
+      Professional Security, Solar & Wi-Fi Installation — Saint Lucia, W.I.
+    </p>
+    <!-- ✏️  EDIT: Builder credit — update if switching between AkraLink and JamaLinks -->
+    <div class="footer-bottom-badge">
+      Built with ✦ by <a href="https://jamalinks758.github.io/AkraLink/" target="_blank" rel="noopener">AkraLink</a> — Your Link to Your World
+    </div>
+  </div>
+
+</footer>
+
+
+<!-- ═══════════════════════════════════════════
+     WHATSAPP FAB (Floating Action Button)
+     ✏️  EDIT: href — update WhatsApp number and pre-filled message
+═══════════════════════════════════════════ -->
+<a class="wa-fab"
+   href="https://wa.me/17585182828?text=Hi%20CCTV%20HD%20World%2C%20I%27d%20like%20a%20free%20quote%20for%20my%20property."
+   target="_blank" rel="noopener"
+   aria-label="Chat with CCTV HD World on WhatsApp">
+  <div class="wa-fab-pulse" aria-hidden="true"></div>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+     ✏️  NOTE: No business content here — only UI behaviour
+     ✏️  EDIT: Carousel total (var total) if you add/remove slides
+═══════════════════════════════════════════ -->
+<script>
+// ── THEME: Time-of-day auto-detect + manual toggle ──
+const themeToggle = document.getElementById('themeToggle');
+const html = document.documentElement;
+
+function applyAutoTheme() {
+  const hour = new Date().getHours();
+  // 6am–6pm = light, 6pm–6am = dark
+  html.setAttribute('data-theme', (hour >= 6 && hour < 18) ? 'light' : 'dark');
+}
+
+applyAutoTheme(); // Apply on load
+
+themeToggle.addEventListener('click', () => {
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+});
+
+// ── CAROUSEL ──
+const track = document.getElementById('carouselTrack');
+const dots = document.querySelectorAll('.carousel-dot');
+let current = 0;
+// ✏️  EDIT: Update this number if you add or remove slides
+const total = track.children.length;
+
+function goTo(index) {
+  current = (index + total) % total;
+  track.style.transform = `translateX(-${current * 100}%)`;
+  dots.forEach((d, i) => {
+    d.classList.toggle('active', i === current);
+    d.setAttribute('aria-selected', i === current ? 'true' : 'false');
+  });
+}
+
+document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
+document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
+dots.forEach(dot => dot.addEventListener('click', () => goTo(+dot.dataset.index)));
+
+// Auto-advance every 4.5 seconds
+let autoSlide = setInterval(() => goTo(current + 1), 4500);
+track.parentElement.addEventListener('mouseenter', () => clearInterval(autoSlide));
+track.parentElement.addEventListener('mouseleave', () => {
+  autoSlide = setInterval(() => goTo(current + 1), 4500);
+});
+
+// Touch/swipe support
+let touchStartX = 0;
+track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+track.addEventListener('touchend', e => {
+  const diff = touchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 50) goTo(diff > 0 ? current + 1 : current - 1);
+});
+
+// ── SCROLL REVEAL ──
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      entry.target.style.transitionDelay = (i % 4) * 0.08 + 's';
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => revealObserver.observe(el));
+
+// ── LIVE TIMESTAMP (camera HUD) ──
+function updateTimestamps() {
+  const now = new Date();
+  const t = now.toTimeString().slice(0,8);
+  ['ts1','ts2','ts3'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = t;
+  });
+}
+setInterval(updateTimestamps, 1000);
+updateTimestamps();
+
+// ── STABLE VIEWPORT (prevent mobile chrome resize jank) ──
+document.documentElement.style.scrollbarGutter = 'stable';
+</script>
+
+
+<!-- ── Schema.org Structured Data ──
+     ✏️  EDIT: name, telephone, email (add when available), url, address, services
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "CCTV HD World",
+  "description": "Professional CCTV, alarm systems, off-grid solar and Wi-Fi installation for homes, businesses, farms and construction sites across Saint Lucia.",
+  "telephone": ["+17585182828", "+17587259946"],
+  "url": "https://www.instagram.com/cctvhdworld",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Castries",
+    "addressRegion": "Saint Lucia",
+    "addressCountry": "LC"
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": "Saint Lucia"
+  },
+  "sameAs": [
+    "https://www.instagram.com/cctvhdworld",
+    "https://www.tiktok.com/@cctvhdworld"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Security & Solar Installation Services",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "CCTV Camera Installation"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Alarm System Installation"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Off-Grid Solar System Installation"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Wi-Fi Extender & Networking"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Farm Security Systems"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Commercial Security Systems"}}
+    ]
+  }
+}
+</script>
+
+</body>
+</html>
