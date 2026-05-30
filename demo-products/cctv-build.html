@@ -227,13 +227,21 @@ body::before {
 /* ── HERO ── */
 .hero {
   min-height: 100vh;
-  /* ✏️  EDIT: Replace with a real hero image path */
-  background: url('images/cctv-hero-installation.webp') center/cover no-repeat;
   position: relative;
   display: flex;
   align-items: center;
   overflow: hidden;
   padding-top: 70px;
+}
+
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
 }
 
 .hero-overlay {
@@ -1428,6 +1436,19 @@ body::before {
      ✏️  EDIT: hero background-image in .hero CSS above
 ═══════════════════════════════════════════ -->
 <section class="hero" aria-label="Hero — CCTV HD World">
+<picture>
+  <source srcset="images/cctv-hero-installation.webp" type="image/webp">
+  <img
+    src="images/cctv-hero-installation.jpg"
+    alt="Professional CCTV camera installation on a building exterior in Saint Lucia"
+    width="1920"
+    height="1080"
+    loading="eager"
+    fetchpriority="high"
+    class="hero-bg-img"
+    onerror="this.style.display='none'">
+</picture>
+     
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-grid" aria-hidden="true"></div>
 
