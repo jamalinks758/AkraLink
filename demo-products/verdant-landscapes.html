@@ -1,0 +1,2575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Verdant Landscapes — Professional landscaping, garden design, and maintenance services. Request a free quote on WhatsApp in seconds.">
+  <meta property="og:title" content="Verdant Landscapes | Landscaping & Garden Services">
+  <meta property="og:description" content="Professional landscaping and garden services. Service packages, project gallery, and instant WhatsApp quotes.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jamalinks758.github.io/AkraLink/demo-products/verdant-landscapes.html">
+  <title>Verdant Landscapes | Landscaping & Garden Services</title>
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Font Awesome deferred -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+  <style>
+    /* =============================================
+       DESIGN TOKENS
+    ============================================= */
+    :root {
+      --forest:      #1A2416;
+      --forest-2:    #243020;
+      --forest-3:    #2F3D2A;
+      --green:       #4A7C52;
+      --green-light: #6BA575;
+      --green-pale:  #C2D9C6;
+      --moss:        #3D5C3F;
+      --earth:       #6B4F2E;
+      --earth-pale:  #C4A882;
+      --stone:       #F2EDE6;
+      --stone-2:     #E8E1D8;
+      --stone-3:     #D4CAC0;
+      --warm-white:  #FAF8F4;
+      --ink:         #1A1A17;
+      --ink-2:       #2C2C28;
+      --mist:        #7A7A72;
+      --white:       #FFFFFF;
+      --wa-green:    #25D366;
+      --wa-dark:     #128C7E;
+
+      --font-display: 'Bebas Neue', Impact, sans-serif;
+      --font-serif:   'Playfair Display', Georgia, serif;
+      --font-body:    'DM Sans', sans-serif;
+
+      --r-sm: 6px;
+      --r-md: 14px;
+      --r-lg: 22px;
+
+      --sh-soft: 0 6px 28px rgba(26,36,22,0.12);
+      --sh-med:  0 14px 48px rgba(26,36,22,0.18);
+      --sh-dark: 0 20px 64px rgba(26,36,22,0.28);
+    }
+
+    [data-theme="dark"] {
+      --stone:      #1A2416;
+      --stone-2:    #1E2B1A;
+      --stone-3:    #2F3D2A;
+      --warm-white: #151C12;
+      --ink:        #F2EDE6;
+      --ink-2:      #E8E1D8;
+      --mist:       #8A8A80;
+      --white:      #1E2B1A;
+      --sh-soft: 0 6px 28px rgba(0,0,0,0.3);
+      --sh-med:  0 14px 48px rgba(0,0,0,0.4);
+    }
+
+    /* =============================================
+       BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      background: var(--warm-white);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* =============================================
+       FLOATING WHATSAPP
+    ============================================= */
+    .wa-float {
+      position: fixed;
+      bottom: 26px;
+      right: 20px;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .wa-float-pill {
+      background: var(--forest);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      padding: .38rem .9rem;
+      border-radius: 30px;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateX(6px);
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+    }
+
+    .wa-float:hover .wa-float-pill { opacity: 1; transform: translateX(0); }
+
+    .wa-float-btn {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: var(--wa-green);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      animation: waPulse 2.8s ease-in-out infinite;
+      transition: transform 0.2s;
+    }
+
+    .wa-float-btn:hover { transform: scale(1.07); }
+    .wa-float-btn i { font-size: 1.55rem; color: #fff; }
+
+    @keyframes waPulse {
+      0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+      50% { box-shadow: 0 4px 32px rgba(37,211,102,0.65), 0 0 0 8px rgba(37,211,102,0.1); }
+    }
+
+    /* =============================================
+       DEMO BADGE
+    ============================================= */
+    .demo-badge {
+      position: fixed;
+      bottom: 26px;
+      left: 16px;
+      z-index: 9997;
+      background: var(--forest);
+      color: var(--green-pale);
+      font-family: var(--font-body);
+      font-size: .62rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: .3rem .78rem;
+      border-radius: 30px;
+      border: 1px solid rgba(74,124,82,0.3);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .demo-dot {
+      width: 5px; height: 5px;
+      background: var(--green-light);
+      border-radius: 50%;
+    }
+
+    /* =============================================
+       NAVBAR
+    ============================================= */
+    .navbar-vl {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: rgba(26,36,22,0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: .9rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(74,124,82,0.2);
+    }
+
+    .nav-logo-vl {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--green);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-text-main {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .nav-logo-text-sub {
+      font-family: var(--font-body);
+      font-size: .58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green-pale);
+      opacity: 0.7;
+    }
+
+    .nav-right-vl {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+    }
+
+    .nav-links-vl {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+      list-style: none;
+      margin: 0; padding: 0;
+    }
+
+    .nav-links-vl a {
+      font-size: .75rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-links-vl a:hover { color: var(--green-pale); }
+
+    .nav-divider-vl {
+      width: 1px;
+      height: 18px;
+      background: rgba(74,124,82,0.3);
+      flex-shrink: 0;
+    }
+
+    /* Theme toggle — dark navbar version */
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(74,124,82,0.15);
+      border: 1px solid rgba(74,124,82,0.3);
+      border-radius: 30px;
+      padding: .3rem .72rem;
+      cursor: pointer;
+      font-size: .7rem;
+      font-family: var(--font-body);
+      font-weight: 400;
+      color: rgba(255,255,255,0.5);
+      transition: border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle:hover { border-color: var(--green-light); color: var(--green-pale); }
+    .theme-toggle i { font-size: .76rem; }
+
+    .nav-quote-btn {
+      font-family: var(--font-body);
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: .52rem 1.25rem;
+      border-radius: var(--r-sm);
+      background: var(--green);
+      color: #fff !important;
+      transition: background 0.2s !important;
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-quote-btn:hover { background: var(--green-light) !important; }
+
+    @media (max-width: 768px) {
+      .nav-links-vl { display: none; }
+      .nav-divider-vl { display: none; }
+      .navbar-vl { padding: .8rem 1.1rem; }
+    }
+
+    /* =============================================
+       HERO — Full bleed dark with overlay
+    ============================================= */
+    .hero-vl {
+      position: relative;
+      min-height: 96vh;
+      background: var(--forest);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 70% 50%, rgba(74,124,82,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(107,165,117,0.1) 0%, transparent 50%),
+        linear-gradient(135deg, #1A2416 0%, #243020 60%, #1A2416 100%);
+    }
+
+    /* Organic leaf pattern overlay */
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(
+          60deg,
+          transparent,
+          transparent 80px,
+          rgba(74,124,82,0.04) 80px,
+          rgba(74,124,82,0.04) 81px
+        ),
+        repeating-linear-gradient(
+          -60deg,
+          transparent,
+          transparent 80px,
+          rgba(74,124,82,0.03) 80px,
+          rgba(74,124,82,0.03) 81px
+        );
+      pointer-events: none;
+    }
+
+    .hero-img-fill {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.35;
+      mix-blend-mode: luminosity;
+    }
+
+    .hero-content-vl {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow-vl {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(74,124,82,0.2);
+      border: 1px solid rgba(74,124,82,0.4);
+      color: var(--green-pale);
+      font-family: var(--font-body);
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: .32rem 1rem;
+      border-radius: 30px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-eyebrow-vl span {
+      width: 6px; height: 6px;
+      background: var(--green-light);
+      border-radius: 50%;
+    }
+
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 10vw, 8.5rem);
+      line-height: 0.92;
+      letter-spacing: 0.02em;
+      color: #fff;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-h1 .accent-line {
+      display: block;
+      color: var(--green-light);
+      font-style: normal;
+    }
+
+    .hero-para-vl {
+      font-family: var(--font-body);
+      font-size: .98rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.58);
+      line-height: 1.8;
+      max-width: 420px;
+      margin-bottom: 2.4rem;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-quote-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--wa-green);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: .85rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: .88rem 1.8rem;
+      border-radius: var(--r-sm);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.3);
+    }
+
+    .btn-quote-primary:hover {
+      background: var(--wa-dark);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .btn-gallery {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.7);
+      font-family: var(--font-body);
+      font-size: .82rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      padding: .88rem 1.6rem;
+      border-radius: var(--r-sm);
+      transition: all 0.2s;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .btn-gallery:hover {
+      border-color: var(--green-pale);
+      color: var(--green-pale);
+    }
+
+    /* Hero stats row */
+    .hero-stats-vl {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(74,124,82,0.25);
+    }
+
+    .hs-num {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .hs-label {
+      font-family: var(--font-body);
+      font-size: .65rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+      margin-top: 4px;
+    }
+
+    /* Hero right — stacked project cards */
+    .hero-cards-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 2rem 0;
+    }
+
+    @media (max-width: 991px) {
+      .hero-cards-col { display: none; }
+    }
+
+    .hero-proj-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(74,124,82,0.25);
+      border-radius: var(--r-md);
+      padding: 1rem 1.3rem;
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: background 0.2s;
+    }
+
+    .hero-proj-card:hover { background: rgba(74,124,82,0.15); }
+
+    .hpc-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .hpc-name {
+      font-family: var(--font-body);
+      font-size: .88rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .hpc-type {
+      font-family: var(--font-body);
+      font-size: .7rem;
+      font-weight: 300;
+      color: var(--green-pale);
+      opacity: 0.7;
+      margin-top: 2px;
+    }
+
+    .hpc-badge {
+      margin-left: auto;
+      font-family: var(--font-body);
+      font-size: .62rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: .2rem .6rem;
+      border-radius: 20px;
+      background: rgba(74,124,82,0.3);
+      color: var(--green-pale);
+      white-space: nowrap;
+    }
+
+    /* =============================================
+       SECTION UTILITY
+    ============================================= */
+    .sec { padding: 6rem 0; }
+    .sec-sm { padding: 4rem 0; }
+
+    .sec-tag {
+      font-family: var(--font-body);
+      font-size: .63rem;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: .7rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sec-tag::before {
+      content: '';
+      width: 20px;
+      height: 2px;
+      background: var(--green);
+      display: block;
+    }
+
+    .sec-h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.85rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.18;
+      color: var(--ink);
+      margin-bottom: .8rem;
+    }
+
+    .sec-h2 em {
+      font-style: italic;
+      font-weight: 500;
+      color: var(--green);
+    }
+
+    [data-theme="dark"] .sec-h2 { color: var(--stone); }
+
+    .sec-para {
+      font-family: var(--font-body);
+      font-size: .92rem;
+      font-weight: 300;
+      color: var(--mist);
+      line-height: 1.8;
+      max-width: 500px;
+    }
+
+    .dash {
+      width: 36px;
+      height: 3px;
+      background: var(--green);
+      border-radius: 2px;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .stone-bg  { background: var(--stone); }
+    .stone2-bg { background: var(--stone-2); }
+    [data-theme="dark"] .stone-bg  { background: var(--stone); }
+    [data-theme="dark"] .stone2-bg { background: var(--stone-2); }
+
+    /* =============================================
+       TRUST BAR
+    ============================================= */
+    .trust-bar {
+      background: var(--forest-2);
+      padding: 1.6rem 0;
+      overflow: hidden;
+    }
+
+    .trust-marquee {
+      display: flex;
+      gap: 4rem;
+      animation: marquee 25s linear infinite;
+      white-space: nowrap;
+    }
+
+    .trust-marquee span {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-body);
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+      flex-shrink: 0;
+    }
+
+    .trust-marquee span i {
+      color: var(--green-light);
+      font-size: .85rem;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* =============================================
+       SERVICE PACKAGES
+    ============================================= */
+    .service-card {
+      background: var(--white);
+      border-radius: var(--r-md);
+      border: 1px solid var(--stone-2);
+      overflow: hidden;
+      transition: box-shadow 0.3s, transform 0.2s;
+      height: 100%;
+      position: relative;
+    }
+
+    [data-theme="dark"] .service-card {
+      background: var(--stone-2);
+      border-color: var(--stone-3);
+    }
+
+    .service-card:hover {
+      box-shadow: var(--sh-med);
+      transform: translateY(-4px);
+    }
+
+    .service-card.featured {
+      border-color: var(--green);
+      box-shadow: 0 0 0 2px rgba(74,124,82,0.2);
+    }
+
+    .sc-top {
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sc-visual-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4.5rem;
+      transition: transform 0.5s;
+    }
+
+    .service-card:hover .sc-visual-inner { transform: scale(1.06); }
+
+    .sc-v1 { background: linear-gradient(145deg, #C2D9C6, #A8C8AD); }
+    .sc-v2 { background: linear-gradient(145deg, #D4CAC0, #C4B8A8); }
+    .sc-v3 { background: linear-gradient(145deg, #B8C8B0, #A0B898); }
+    .sc-v4 { background: linear-gradient(145deg, #C8C0B0, #B8AE9C); }
+
+    .sc-featured-tag {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--green);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: .24rem .68rem;
+      border-radius: 20px;
+    }
+
+    .sc-body {
+      padding: 1.5rem 1.6rem 1.8rem;
+    }
+
+    .sc-category {
+      font-family: var(--font-body);
+      font-size: .62rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 5px;
+    }
+
+    .sc-name {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: .5rem;
+    }
+
+    [data-theme="dark"] .sc-name { color: var(--stone); }
+
+    .sc-desc {
+      font-family: var(--font-body);
+      font-size: .82rem;
+      font-weight: 300;
+      color: var(--mist);
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+
+    .sc-includes {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 1.2rem;
+    }
+
+    .sc-includes li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-size: .8rem;
+      font-weight: 300;
+      color: var(--mist);
+      line-height: 1.45;
+    }
+
+    .sc-includes li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+
+    .sc-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-top: 1rem;
+      border-top: 1px solid var(--stone-2);
+    }
+
+    [data-theme="dark"] .sc-footer { border-color: var(--stone-3); }
+
+    .sc-price {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    [data-theme="dark"] .sc-price { color: var(--stone); }
+
+    .sc-price-note {
+      font-family: var(--font-body);
+      font-size: .65rem;
+      font-weight: 300;
+      color: var(--mist);
+      display: block;
+    }
+
+    .btn-quote-sm {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--wa-green);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: .72rem;
+      font-weight: 600;
+      padding: .46rem .95rem;
+      border-radius: var(--r-sm);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+
+    .btn-quote-sm:hover {
+      background: var(--wa-dark);
+      color: #fff;
+      transform: scale(1.03);
+    }
+
+    /* =============================================
+       PROJECT GALLERY
+    ============================================= */
+    .gallery-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 2rem;
+    }
+
+    .gf-tab {
+      font-family: var(--font-body);
+      font-size: .73rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: .4rem 1.1rem;
+      border-radius: 30px;
+      border: 1.5px solid var(--stone-2);
+      color: var(--mist);
+      cursor: pointer;
+      transition: all 0.2s;
+      background: transparent;
+    }
+
+    [data-theme="dark"] .gf-tab { border-color: var(--stone-3); }
+
+    .gf-tab:hover,
+    .gf-tab.active {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      gap: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
+
+    /* First card spans 2 rows */
+    .gallery-item-tall {
+      grid-row: span 2;
+    }
+
+    .gallery-card {
+      border-radius: var(--r-md);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      background: var(--stone-2);
+    }
+
+    .gc-img {
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      transition: transform 0.5s;
+      position: relative;
+    }
+
+    .gallery-item-tall .gc-img { height: 460px; }
+
+    @media (max-width: 768px) {
+      .gallery-item-tall .gc-img { height: 300px; }
+      .gallery-item-tall { grid-row: span 1; }
+    }
+
+    .gallery-card:hover .gc-img { transform: scale(1.04); }
+
+    .gc-v1 { background: linear-gradient(145deg, #1A4A1E, #2D6E35); }
+    .gc-v2 { background: linear-gradient(145deg, #3D5C3F, #5A7E5E); }
+    .gc-v3 { background: linear-gradient(145deg, #2A4A2E, #3E6645); }
+    .gc-v4 { background: linear-gradient(145deg, #1E3A22, #32583A); }
+    .gc-v5 { background: linear-gradient(145deg, #4A5A3A, #6A7E52); }
+    .gc-v6 { background: linear-gradient(145deg, #3A5030, #527040); }
+
+    .gc-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(26,36,22,0.8) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.2rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-card:hover .gc-overlay { opacity: 1; }
+
+    .gc-title {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .gc-type {
+      font-family: var(--font-body);
+      font-size: .7rem;
+      font-weight: 300;
+      color: var(--green-pale);
+    }
+
+    .gc-wa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--wa-green);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: .7rem;
+      font-weight: 600;
+      padding: .38rem .85rem;
+      border-radius: var(--r-sm);
+      margin-top: .6rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      width: fit-content;
+    }
+
+    .gc-wa-btn:hover { background: var(--wa-dark); color: #fff; }
+
+    /* Always-visible info bar below image */
+    .gc-info {
+      padding: .75rem 1rem;
+      background: var(--white);
+      border: 1px solid var(--stone-2);
+      border-top: none;
+      border-radius: 0 0 var(--r-md) var(--r-md);
+    }
+
+    [data-theme="dark"] .gc-info {
+      background: var(--stone-2);
+      border-color: var(--stone-3);
+    }
+
+    .gc-info-name {
+      font-family: var(--font-serif);
+      font-size: .92rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    [data-theme="dark"] .gc-info-name { color: var(--stone); }
+
+    .gc-info-tag {
+      font-family: var(--font-body);
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+    }
+
+    /* =============================================
+       PROCESS
+    ============================================= */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      position: relative;
+    }
+
+    @media (max-width: 768px) {
+      .process-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .process-grid { grid-template-columns: 1fr; }
+    }
+
+    .process-grid::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 12.5%;
+      right: 12.5%;
+      height: 1px;
+      background: var(--stone-2);
+      z-index: 0;
+    }
+
+    [data-theme="dark"] .process-grid::before { background: var(--stone-3); }
+
+    @media (max-width: 768px) {
+      .process-grid::before { display: none; }
+    }
+
+    .process-step-vl {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ps-circle {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--warm-white);
+      border: 2px solid var(--stone-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.1rem;
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: var(--green);
+      transition: all 0.25s;
+    }
+
+    [data-theme="dark"] .ps-circle {
+      background: var(--stone-2);
+      border-color: var(--stone-3);
+    }
+
+    .process-step-vl:hover .ps-circle {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff;
+    }
+
+    .ps-title {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: .4rem;
+    }
+
+    [data-theme="dark"] .ps-title { color: var(--stone); }
+
+    .ps-desc {
+      font-family: var(--font-body);
+      font-size: .8rem;
+      font-weight: 300;
+      color: var(--mist);
+      line-height: 1.65;
+    }
+
+    /* =============================================
+       ABOUT / TRUST STRIP
+    ============================================= */
+    .trust-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .trust-pillars { grid-template-columns: 1fr; gap: 1rem; }
+    }
+
+    .pillar-card {
+      background: var(--forest-2);
+      border-radius: var(--r-md);
+      padding: 2rem 1.8rem;
+      border: 1px solid rgba(74,124,82,0.2);
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .pillar-card:hover {
+      border-color: var(--green);
+      background: var(--forest-3);
+    }
+
+    .pillar-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .pillar-title {
+      font-family: var(--font-serif);
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: .4rem;
+    }
+
+    .pillar-desc {
+      font-family: var(--font-body);
+      font-size: .82rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+    }
+
+    /* =============================================
+       PREMIUM BLUR (Before/After + Testimonials + SEO)
+    ============================================= */
+    .premium-wrap {
+      position: relative;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+
+    .blur-layer {
+      filter: blur(6px);
+      user-select: none;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    .unlock-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(242,237,230,0.78);
+      backdrop-filter: blur(2px);
+      z-index: 10;
+    }
+
+    [data-theme="dark"] .unlock-overlay {
+      background: rgba(26,36,22,0.82);
+    }
+
+    .unlock-box {
+      background: var(--white);
+      border-radius: var(--r-md);
+      border: 1px solid var(--stone-2);
+      box-shadow: var(--sh-dark);
+      padding: 2rem 2.5rem;
+      text-align: center;
+      max-width: 350px;
+      width: 90%;
+    }
+
+    [data-theme="dark"] .unlock-box {
+      background: var(--forest-2);
+      border-color: rgba(74,124,82,0.3);
+    }
+
+    .unlock-icon-wrap {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--stone);
+      border: 1px solid var(--stone-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.1rem;
+      color: var(--green);
+    }
+
+    [data-theme="dark"] .unlock-icon-wrap {
+      background: var(--forest-3);
+      border-color: rgba(74,124,82,0.3);
+    }
+
+    .unlock-plan-pill {
+      display: inline-block;
+      border: 1px solid var(--stone-3);
+      color: var(--mist);
+      font-family: var(--font-body);
+      font-size: .6rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: .22rem .75rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+
+    [data-theme="dark"] .unlock-plan-pill {
+      border-color: rgba(74,124,82,0.3);
+      color: var(--green-pale);
+    }
+
+    .unlock-box h5 {
+      font-family: var(--font-serif);
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: .45rem;
+    }
+
+    [data-theme="dark"] .unlock-box h5 { color: var(--stone); }
+
+    .unlock-box p {
+      font-family: var(--font-body);
+      font-size: .82rem;
+      font-weight: 300;
+      color: var(--mist);
+      line-height: 1.65;
+      margin-bottom: 1.3rem;
+    }
+
+    /* =============================================
+       TESTIMONIALS (mock for blur)
+    ============================================= */
+    .review-card {
+      background: var(--white);
+      border-radius: var(--r-md);
+      padding: 1.8rem;
+      border: 1px solid var(--stone-2);
+      height: 100%;
+    }
+
+    [data-theme="dark"] .review-card {
+      background: var(--stone-2);
+      border-color: var(--stone-3);
+    }
+
+    .rc-stars { color: var(--earth-pale); font-size: .82rem; margin-bottom: .6rem; letter-spacing: 1px; }
+
+    .rc-text {
+      font-family: var(--font-serif);
+      font-size: .98rem;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.7;
+      margin-bottom: 1.1rem;
+    }
+
+    [data-theme="dark"] .rc-text { color: var(--stone); }
+
+    .rc-author {
+      font-family: var(--font-body);
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    [data-theme="dark"] .rc-author { color: var(--stone); }
+
+    .rc-loc {
+      font-family: var(--font-body);
+      font-size: .7rem;
+      font-weight: 300;
+      color: var(--mist);
+    }
+
+    /* =============================================
+       COVERAGE AREA (Service map strip)
+    ============================================= */
+    .coverage-strip {
+      background: var(--forest);
+      border-radius: var(--r-lg);
+      padding: 3rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 768px) {
+      .coverage-strip { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    }
+
+    .coverage-left h3 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: .3rem;
+    }
+
+    .coverage-left p {
+      font-family: var(--font-body);
+      font-size: .83rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .coverage-areas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .area-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(74,124,82,0.2);
+      border: 1px solid rgba(74,124,82,0.35);
+      color: var(--green-pale);
+      font-family: var(--font-body);
+      font-size: .72rem;
+      font-weight: 500;
+      padding: .3rem .8rem;
+      border-radius: 20px;
+    }
+
+    .area-chip i { font-size: .7rem; color: var(--green-light); }
+
+    /* =============================================
+       FINAL CTA
+    ============================================= */
+    .cta-vl {
+      background: linear-gradient(135deg, var(--forest) 0%, var(--forest-3) 60%, #1A2416 100%);
+      border-radius: var(--r-lg);
+      padding: 5rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-vl::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 80% 20%, rgba(74,124,82,0.2) 0%, transparent 55%),
+        radial-gradient(ellipse at 20% 80%, rgba(107,165,117,0.12) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .cta-vl-inner { position: relative; z-index: 1; }
+
+    .cta-vl-tag {
+      font-family: var(--font-body);
+      font-size: .63rem;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 1.1rem;
+    }
+
+    .cta-vl-h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      line-height: 0.96;
+      letter-spacing: 0.02em;
+      color: #fff;
+      margin-bottom: 1.2rem;
+    }
+
+    .cta-vl-h2 .gr { color: var(--green-light); }
+
+    .cta-vl-para {
+      font-family: var(--font-body);
+      font-size: .92rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      max-width: 420px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.8;
+    }
+
+    .btn-cta-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--wa-green);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: .9rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 1rem 2.2rem;
+      border-radius: var(--r-sm);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.3);
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+
+    .btn-cta-wa:hover {
+      background: var(--wa-dark);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(37,211,102,0.45);
+    }
+
+    .cta-note {
+      font-family: var(--font-body);
+      font-size: .72rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.28);
+      margin-top: 1.2rem;
+      letter-spacing: 0.06em;
+    }
+
+    /* =============================================
+       FOOTER — always dark, hardcoded
+    ============================================= */
+    .footer-vl {
+      background: #1A2416;
+      padding: 4rem 0 2rem;
+    }
+
+    .footer-vl .fl-name {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      letter-spacing: 0.05em;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .footer-vl .fl-sub {
+      font-family: var(--font-body);
+      font-size: .58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+      margin-top: 3px;
+    }
+
+    .footer-vl .fl-about {
+      font-family: var(--font-body);
+      font-size: .83rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.42);
+      line-height: 1.8;
+      max-width: 280px;
+      margin-top: 1rem;
+    }
+
+    .footer-vl .fl-h {
+      font-family: var(--font-body);
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-vl .fl-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .7rem;
+    }
+
+    .footer-vl .fl-links a {
+      font-family: var(--font-body);
+      font-size: .83rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.42);
+      transition: color 0.2s;
+    }
+
+    .footer-vl .fl-links a:hover { color: var(--green-pale); }
+
+    .footer-vl .fl-wa-box {
+      background: rgba(37,211,102,0.07);
+      border: 1px solid rgba(37,211,102,0.18);
+      border-radius: var(--r-md);
+      padding: 1.3rem;
+    }
+
+    .footer-vl .fl-wa-box p {
+      font-family: var(--font-body);
+      font-size: .8rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.42);
+      line-height: 1.6;
+      margin-bottom: .9rem;
+    }
+
+    .footer-vl .fl-wa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--wa-green);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: .78rem;
+      font-weight: 600;
+      padding: .52rem 1.1rem;
+      border-radius: var(--r-sm);
+      transition: background 0.2s;
+    }
+
+    .footer-vl .fl-wa-btn:hover { background: var(--wa-dark); color: #fff; }
+
+    .footer-vl .fl-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin-top: 2.8rem;
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: .75rem;
+    }
+
+    .footer-vl .fl-bottom p {
+      font-family: var(--font-body);
+      font-size: .72rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.22);
+    }
+
+    .footer-vl .fl-bottom a {
+      font-family: var(--font-body);
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--green-light);
+      transition: color 0.2s;
+    }
+
+    .footer-vl .fl-bottom a:hover { color: var(--green-pale); }
+
+    /* =============================================
+       ANIMATIONS
+    ============================================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: .1s; }
+    .reveal-d2 { transition-delay: .2s; }
+    .reveal-d3 { transition-delay: .3s; }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 576px) {
+      .sec { padding: 4rem 0; }
+      .cta-vl { padding: 3rem 1.4rem; }
+      .coverage-strip { padding: 1.8rem 1.2rem; }
+      .hero-stats-vl { gap: 1.5rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= FLOATING WA ======= -->
+  <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20request%20a%20free%20quote%20from%20Verdant%20Landscapes%20%F0%9F%8C%BF"
+     class="wa-float"
+     aria-label="Request a free quote on WhatsApp"
+     target="_blank" rel="noopener noreferrer">
+    <span class="wa-float-pill">Request Free Quote</span>
+    <button class="wa-float-btn" aria-label="Open WhatsApp chat">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </button>
+  </a>
+
+  <!-- ======= DEMO BADGE ======= -->
+  <div class="demo-badge" role="note" aria-label="AkraLink demo page">
+    <span class="demo-dot" aria-hidden="true"></span>
+    AkraLink Demo
+  </div>
+
+  <!-- ======= NAVBAR ======= -->
+  <nav class="navbar-vl" role="navigation" aria-label="Main navigation">
+    <div class="nav-logo-vl">
+      <div class="nav-logo-icon" aria-hidden="true">🌿</div>
+      <div>
+        <div class="nav-logo-text-main">Verdant</div>
+        <div class="nav-logo-text-sub">Landscapes</div>
+      </div>
+    </div>
+    <div class="nav-right-vl">
+      <ul class="nav-links-vl" role="list">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light or dark mode">
+        <i class="bi bi-moon-fill" id="themeIcon" aria-hidden="true"></i>
+        <span id="themeLabel">Dark</span>
+      </button>
+      <div class="nav-divider-vl" aria-hidden="true"></div>
+      <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20request%20a%20free%20quote%20from%20Verdant%20Landscapes."
+         class="nav-quote-btn"
+         aria-label="Request a free quote on WhatsApp"
+         target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i> Free Quote
+      </a>
+    </div>
+  </nav>
+
+  <!-- ======= HERO ======= -->
+  <section class="hero-vl" role="banner" aria-label="Verdant Landscapes hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-pattern" aria-hidden="true"></div>
+
+    <img
+      src="../images/verdant-landscapes.webp"
+      alt="Verdant Landscapes — beautifully maintained garden and lawn"
+      class="hero-img-fill"
+      width="1440" height="900"
+      loading="eager"
+      onerror="this.style.display='none'">
+
+    <div class="container py-5" style="position:relative;z-index:2;">
+      <div class="row align-items-center g-5">
+
+        <!-- Left -->
+        <div class="col-lg-7">
+          <div class="hero-content-vl">
+            <div class="hero-eyebrow-vl">
+              <span aria-hidden="true"></span>
+              Landscaping &amp; Garden Services
+            </div>
+            <h1 class="hero-h1">
+              We Build<br>
+              <span class="accent-line">Outdoor</span>
+              Spaces
+            </h1>
+            <p class="hero-para-vl">
+              Professional landscaping, garden design, and maintenance services 
+              for residential and commercial properties. Request your free quote 
+              on WhatsApp — we respond within the hour.
+            </p>
+            <div class="hero-cta-group">
+              <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20request%20a%20free%20landscaping%20quote%20from%20Verdant%20Landscapes."
+                 class="btn-quote-primary"
+                 aria-label="Request a free quote on WhatsApp"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                Request Free Quote
+              </a>
+              <a href="#gallery" class="btn-gallery" aria-label="View our project gallery">
+                <i class="bi bi-grid-3x3-gap" aria-hidden="true"></i>
+                View Our Work
+              </a>
+            </div>
+            <div class="hero-stats-vl" role="list" aria-label="Company highlights">
+              <div role="listitem">
+                <div class="hs-num">200+</div>
+                <div class="hs-label">Projects Done</div>
+              </div>
+              <div role="listitem">
+                <div class="hs-num">8yr</div>
+                <div class="hs-label">Experience</div>
+              </div>
+              <div role="listitem">
+                <div class="hs-num">48hr</div>
+                <div class="hs-label">Quote Turnaround</div>
+              </div>
+              <div role="listitem">
+                <div class="hs-num">100%</div>
+                <div class="hs-label">Satisfaction</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right — Floating project cards -->
+        <div class="col-lg-5">
+          <div class="hero-cards-col" role="complementary" aria-label="Recent projects">
+            <div class="hero-proj-card">
+              <div class="hpc-icon" aria-hidden="true">🏡</div>
+              <div>
+                <div class="hpc-name">Hillcrest Residence</div>
+                <div class="hpc-type">Full garden redesign</div>
+              </div>
+              <span class="hpc-badge">Completed</span>
+            </div>
+            <div class="hero-proj-card">
+              <div class="hpc-icon" aria-hidden="true">✂️</div>
+              <div>
+                <div class="hpc-name">Bougainvillea Estate</div>
+                <div class="hpc-type">Monthly maintenance</div>
+              </div>
+              <span class="hpc-badge">Ongoing</span>
+            </div>
+            <div class="hero-proj-card">
+              <div class="hpc-icon" aria-hidden="true">🪨</div>
+              <div>
+                <div class="hpc-name">Sunset Commercial Park</div>
+                <div class="hpc-type">Hardscape + planting</div>
+              </div>
+              <span class="hpc-badge">Completed</span>
+            </div>
+            <div class="hero-proj-card">
+              <div class="hpc-icon" aria-hidden="true">💧</div>
+              <div>
+                <div class="hpc-name">Oceanview Terrace</div>
+                <div class="hpc-type">Irrigation system install</div>
+              </div>
+              <span class="hpc-badge">Active</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= TRUST MARQUEE ======= -->
+  <div class="trust-bar" aria-hidden="true">
+    <div class="trust-marquee">
+      <span><i class="bi bi-patch-check-fill"></i> Fully Licensed &amp; Insured</span>
+      <span><i class="bi bi-clock-fill"></i> Free Quotes Within 48 Hours</span>
+      <span><i class="bi bi-whatsapp"></i> Book Instantly on WhatsApp</span>
+      <span><i class="bi bi-star-fill"></i> 5-Star Rated Service</span>
+      <span><i class="bi bi-tools"></i> Residential &amp; Commercial</span>
+      <span><i class="bi bi-patch-check-fill"></i> Fully Licensed &amp; Insured</span>
+      <span><i class="bi bi-clock-fill"></i> Free Quotes Within 48 Hours</span>
+      <span><i class="bi bi-whatsapp"></i> Book Instantly on WhatsApp</span>
+      <span><i class="bi bi-star-fill"></i> 5-Star Rated Service</span>
+      <span><i class="bi bi-tools"></i> Residential &amp; Commercial</span>
+    </div>
+  </div>
+
+  <!-- ======= SERVICE PACKAGES ======= -->
+  <section class="sec stone-bg" id="services" aria-label="Service packages">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-6">
+          <div class="sec-tag">What We Do</div>
+          <h2 class="sec-h2">Services &amp; <em>Packages</em></h2>
+          <div class="dash" aria-hidden="true"></div>
+          <p class="sec-para">
+            From a single maintenance visit to a full garden transformation — 
+            every service is priced clearly. No hidden fees. 
+            Request your quote on WhatsApp and we'll confirm within 48 hours.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+
+        <!-- Service 1 -->
+        <div class="col-sm-6 col-lg-3 reveal">
+          <div class="service-card">
+            <div class="sc-top">
+              <div class="sc-visual-inner sc-v1" aria-hidden="true">✂️</div>
+            </div>
+            <div class="sc-body">
+              <div class="sc-category">Maintenance</div>
+              <h3 class="sc-name">Lawn &amp; Garden Upkeep</h3>
+              <p class="sc-desc">Regular maintenance to keep your property looking sharp year-round.</p>
+              <ul class="sc-includes" aria-label="Service includes">
+                <li>Lawn mowing &amp; edging</li>
+                <li>Hedge trimming &amp; shaping</li>
+                <li>Weeding &amp; bed maintenance</li>
+                <li>Debris removal &amp; cleanup</li>
+              </ul>
+              <div class="sc-footer">
+                <div>
+                  <span class="sc-price">From $80</span>
+                  <span class="sc-price-note">per visit</span>
+                </div>
+                <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20Lawn%20%26%20Garden%20Upkeep%20from%20Verdant%20Landscapes."
+                   class="btn-quote-sm"
+                   aria-label="Request quote for lawn and garden upkeep"
+                   target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 2 — Featured -->
+        <div class="col-sm-6 col-lg-3 reveal reveal-d1">
+          <div class="service-card featured">
+            <div class="sc-top">
+              <div class="sc-visual-inner sc-v2" aria-hidden="true">🌳</div>
+              <span class="sc-featured-tag">Most Popular</span>
+            </div>
+            <div class="sc-body">
+              <div class="sc-category">Design</div>
+              <h3 class="sc-name">Garden Design &amp; Planting</h3>
+              <p class="sc-desc">A custom garden plan built around your space, style, and budget.</p>
+              <ul class="sc-includes" aria-label="Service includes">
+                <li>On-site consultation &amp; assessment</li>
+                <li>Custom planting plan</li>
+                <li>Plant sourcing &amp; installation</li>
+                <li>Soil preparation &amp; mulching</li>
+                <li>Aftercare guidance</li>
+              </ul>
+              <div class="sc-footer">
+                <div>
+                  <span class="sc-price">From $350</span>
+                  <span class="sc-price-note">project-based</span>
+                </div>
+                <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20Garden%20Design%20%26%20Planting%20from%20Verdant%20Landscapes."
+                   class="btn-quote-sm"
+                   aria-label="Request garden design quote"
+                   target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="col-sm-6 col-lg-3 reveal reveal-d2">
+          <div class="service-card">
+            <div class="sc-top">
+              <div class="sc-visual-inner sc-v3" aria-hidden="true">🪨</div>
+            </div>
+            <div class="sc-body">
+              <div class="sc-category">Hardscape</div>
+              <h3 class="sc-name">Patios, Paths &amp; Edging</h3>
+              <p class="sc-desc">Structural outdoor features that define and elevate your space.</p>
+              <ul class="sc-includes" aria-label="Service includes">
+                <li>Patio &amp; walkway installation</li>
+                <li>Stone &amp; paver laying</li>
+                <li>Retaining walls &amp; borders</li>
+                <li>Site levelling &amp; prep</li>
+              </ul>
+              <div class="sc-footer">
+                <div>
+                  <span class="sc-price">From $500</span>
+                  <span class="sc-price-note">project-based</span>
+                </div>
+                <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20Patios%2C%20Paths%20%26%20Edging%20from%20Verdant%20Landscapes."
+                   class="btn-quote-sm"
+                   aria-label="Request hardscape quote"
+                   target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="col-sm-6 col-lg-3 reveal reveal-d3">
+          <div class="service-card">
+            <div class="sc-top">
+              <div class="sc-visual-inner sc-v4" aria-hidden="true">💧</div>
+            </div>
+            <div class="sc-body">
+              <div class="sc-category">Irrigation</div>
+              <h3 class="sc-name">Irrigation &amp; Drainage</h3>
+              <p class="sc-desc">Smart watering systems that protect your investment and cut water bills.</p>
+              <ul class="sc-includes" aria-label="Service includes">
+                <li>Drip &amp; sprinkler system install</li>
+                <li>Timer &amp; zone programming</li>
+                <li>Drainage channel installation</li>
+                <li>System servicing &amp; repair</li>
+              </ul>
+              <div class="sc-footer">
+                <div>
+                  <span class="sc-price">From $280</span>
+                  <span class="sc-price-note">project-based</span>
+                </div>
+                <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20Irrigation%20%26%20Drainage%20from%20Verdant%20Landscapes."
+                   class="btn-quote-sm"
+                   aria-label="Request irrigation quote"
+                   target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /row -->
+    </div>
+  </section>
+
+  <!-- ======= PROJECT GALLERY ======= -->
+  <section class="sec stone2-bg" id="gallery" aria-label="Project gallery">
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col-lg-6">
+          <div class="sec-tag">Our Work</div>
+          <h2 class="sec-h2">Projects That <em>Speak for Themselves</em></h2>
+          <div class="dash" aria-hidden="true"></div>
+          <p class="sec-para">
+            Every project photographed at completion. Browse by type — or see something you like 
+            and request a similar quote directly on WhatsApp.
+          </p>
+        </div>
+      </div>
+
+      <!-- Filter tabs -->
+      <div class="gallery-filter" role="tablist" aria-label="Filter projects by type">
+        <button class="gf-tab active" role="tab" aria-selected="true" onclick="filterGallery('all',this)">All Projects</button>
+        <button class="gf-tab" role="tab" aria-selected="false" onclick="filterGallery('design',this)">Design</button>
+        <button class="gf-tab" role="tab" aria-selected="false" onclick="filterGallery('maintenance',this)">Maintenance</button>
+        <button class="gf-tab" role="tab" aria-selected="false" onclick="filterGallery('hardscape',this)">Hardscape</button>
+        <button class="gf-tab" role="tab" aria-selected="false" onclick="filterGallery('commercial',this)">Commercial</button>
+      </div>
+
+      <div class="gallery-grid reveal" id="galleryGrid">
+
+        <!-- Item 1 — Tall -->
+        <div class="gallery-card gallery-item-tall" data-cat="design" role="article" aria-label="Hillcrest Garden Transformation">
+          <div class="gc-img gc-v1">
+            <span aria-hidden="true">🌳</span>
+            <div class="gc-overlay">
+              <div class="gc-title">Hillcrest Garden Transformation</div>
+              <div class="gc-type">Full Redesign · Residential</div>
+              <a href="https://wa.me/17587235872?text=I%20saw%20the%20Hillcrest%20Garden%20project%20and%20I%27d%20love%20a%20similar%20quote."
+                 class="gc-wa-btn"
+                 aria-label="Request similar project quote"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote Like This
+              </a>
+            </div>
+          </div>
+          <div class="gc-info">
+            <div class="gc-info-name">Hillcrest Garden Transformation</div>
+            <div class="gc-info-tag">Full Redesign · Residential</div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="gallery-card" data-cat="hardscape" role="article" aria-label="Stone Patio & Pathway">
+          <div class="gc-img gc-v2">
+            <span aria-hidden="true">🪨</span>
+            <div class="gc-overlay">
+              <div class="gc-title">Stone Patio &amp; Pathway</div>
+              <div class="gc-type">Hardscape · Residential</div>
+              <a href="https://wa.me/17587235872?text=I%20saw%20the%20Stone%20Patio%20project%20and%20I%27d%20love%20a%20similar%20quote."
+                 class="gc-wa-btn"
+                 aria-label="Request similar project quote"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote Like This
+              </a>
+            </div>
+          </div>
+          <div class="gc-info">
+            <div class="gc-info-name">Stone Patio &amp; Pathway</div>
+            <div class="gc-info-tag">Hardscape · Residential</div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="gallery-card" data-cat="commercial" role="article" aria-label="Sunset Business Park">
+          <div class="gc-img gc-v3">
+            <span aria-hidden="true">🏢</span>
+            <div class="gc-overlay">
+              <div class="gc-title">Sunset Business Park</div>
+              <div class="gc-type">Grounds Maintenance · Commercial</div>
+              <a href="https://wa.me/17587235872?text=I%27d%20like%20a%20commercial%20landscaping%20quote%20from%20Verdant%20Landscapes."
+                 class="gc-wa-btn"
+                 aria-label="Request commercial quote"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote Like This
+              </a>
+            </div>
+          </div>
+          <div class="gc-info">
+            <div class="gc-info-name">Sunset Business Park</div>
+            <div class="gc-info-tag">Grounds Maintenance · Commercial</div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="gallery-card" data-cat="design" role="article" aria-label="Tropical Courtyard Planting">
+          <div class="gc-img gc-v4">
+            <span aria-hidden="true">🌺</span>
+            <div class="gc-overlay">
+              <div class="gc-title">Tropical Courtyard Planting</div>
+              <div class="gc-type">Planting Design · Residential</div>
+              <a href="https://wa.me/17587235872?text=I%20saw%20the%20Tropical%20Courtyard%20project%20and%20I%27d%20love%20a%20similar%20quote."
+                 class="gc-wa-btn"
+                 aria-label="Request similar project quote"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote Like This
+              </a>
+            </div>
+          </div>
+          <div class="gc-info">
+            <div class="gc-info-name">Tropical Courtyard Planting</div>
+            <div class="gc-info-tag">Planting Design · Residential</div>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="gallery-card" data-cat="maintenance" role="article" aria-label="Bougainvillea Estate Upkeep">
+          <div class="gc-img gc-v5">
+            <span aria-hidden="true">✂️</span>
+            <div class="gc-overlay">
+              <div class="gc-title">Bougainvillea Estate Upkeep</div>
+              <div class="gc-type">Monthly Maintenance · Residential</div>
+              <a href="https://wa.me/17587235872?text=I%27d%20like%20a%20quote%20for%20regular%20garden%20maintenance%20from%20Verdant%20Landscapes."
+                 class="gc-wa-btn"
+                 aria-label="Request maintenance quote"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote Like This
+              </a>
+            </div>
+          </div>
+          <div class="gc-info">
+            <div class="gc-info-name">Bougainvillea Estate Upkeep</div>
+            <div class="gc-info-tag">Monthly Maintenance · Residential</div>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="gallery-card" data-cat="hardscape commercial" role="article" aria-label="Retaining Wall & Terrace">
+          <div class="gc-img gc-v6">
+            <span aria-hidden="true">🏗️</span>
+            <div class="gc-overlay">
+              <div class="gc-title">Retaining Wall &amp; Terrace</div>
+              <div class="gc-type">Hardscape · Commercial</div>
+              <a href="https://wa.me/17587235872?text=I%20saw%20the%20Retaining%20Wall%20project%20and%20I%27d%20like%20a%20similar%20quote."
+                 class="gc-wa-btn"
+                 aria-label="Request hardscape quote"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote Like This
+              </a>
+            </div>
+          </div>
+          <div class="gc-info">
+            <div class="gc-info-name">Retaining Wall &amp; Terrace</div>
+            <div class="gc-info-tag">Hardscape · Commercial</div>
+          </div>
+        </div>
+
+      </div><!-- /gallery-grid -->
+    </div>
+  </section>
+
+  <!-- ======= HOW IT WORKS ======= -->
+  <section class="sec stone-bg" id="process" aria-label="How the quoting process works">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-6">
+          <div class="sec-tag" style="justify-content:center">How It Works</div>
+          <h2 class="sec-h2" style="text-align:center">From WhatsApp to <em>Done</em></h2>
+          <div class="dash" aria-hidden="true" style="margin:1rem auto 1.5rem"></div>
+          <p class="sec-para" style="margin:0 auto;text-align:center">
+            No phone tag. No email chains. From first message to scheduled work in four simple steps.
+          </p>
+        </div>
+      </div>
+
+      <div class="process-grid reveal">
+        <div class="process-step-vl">
+          <div class="ps-circle" aria-hidden="true">01</div>
+          <h3 class="ps-title">Message Us</h3>
+          <p class="ps-desc">Send a WhatsApp message describing your garden or outdoor space. Photos always help — even a quick phone snap.</p>
+        </div>
+        <div class="process-step-vl">
+          <div class="ps-circle" aria-hidden="true">02</div>
+          <h3 class="ps-title">We Assess</h3>
+          <p class="ps-desc">We review your request and, if needed, schedule a brief on-site visit. Free with no commitment required.</p>
+        </div>
+        <div class="process-step-vl">
+          <div class="ps-circle" aria-hidden="true">03</div>
+          <h3 class="ps-title">You Get a Quote</h3>
+          <p class="ps-desc">A clear, itemised quote delivered within 48 hours. No hidden fees. You decide if you want to proceed.</p>
+        </div>
+        <div class="process-step-vl">
+          <div class="ps-circle" aria-hidden="true">04</div>
+          <h3 class="ps-title">We Get to Work</h3>
+          <p class="ps-desc">Our crew arrives on schedule. You're updated throughout. We leave your property cleaner than we found it.</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-5 pt-2 reveal">
+        <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20a%20free%20landscaping%20quote%20from%20Verdant%20Landscapes."
+           class="btn-quote-primary"
+           aria-label="Request a free quote on WhatsApp"
+           target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+          Start With a Free Quote
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= BEFORE / AFTER (BLURRED — LINK) ======= -->
+  <section class="sec stone2-bg" aria-label="Before and after project results">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-6">
+          <div class="sec-tag">Results</div>
+          <h2 class="sec-h2">Before &amp; After — <em>The Transformation</em></h2>
+          <div class="dash" aria-hidden="true"></div>
+          <p class="sec-para">Real properties. Real results. Side-by-side comparisons from completed projects.</p>
+        </div>
+      </div>
+
+      <div class="premium-wrap" aria-label="Before and after gallery - requires Link plan">
+        <div class="blur-layer">
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div style="border-radius:var(--r-md);overflow:hidden;border:1px solid var(--stone-2);">
+                <div style="display:grid;grid-template-columns:1fr 1fr;height:220px;">
+                  <div style="background:#C4C0B8;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;">
+                    <span aria-hidden="true">🌫️</span>
+                    <span style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.8);font-family:var(--font-body);font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .5rem;border-radius:10px;white-space:nowrap;color:var(--ink)">Before</span>
+                  </div>
+                  <div style="background:#6BA575;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;">
+                    <span aria-hidden="true">🌳</span>
+                    <span style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.8);font-family:var(--font-body);font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .5rem;border-radius:10px;white-space:nowrap;color:var(--ink)">After</span>
+                  </div>
+                </div>
+                <div style="padding:.8rem 1rem;background:var(--white);border-top:1px solid var(--stone-2);">
+                  <div style="font-family:var(--font-serif);font-size:.9rem;font-weight:700;color:var(--ink)">Overgrown to Ordered</div>
+                  <div style="font-family:var(--font-body);font-size:.7rem;color:var(--mist)">Garden Redesign · 2 days</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div style="border-radius:var(--r-md);overflow:hidden;border:1px solid var(--stone-2);">
+                <div style="display:grid;grid-template-columns:1fr 1fr;height:220px;">
+                  <div style="background:#B8B0A4;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;">
+                    <span aria-hidden="true">🏚️</span>
+                    <span style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.8);font-family:var(--font-body);font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .5rem;border-radius:10px;white-space:nowrap;color:var(--ink)">Before</span>
+                  </div>
+                  <div style="background:#4A7C52;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;">
+                    <span aria-hidden="true">🏡</span>
+                    <span style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.8);font-family:var(--font-body);font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .5rem;border-radius:10px;white-space:nowrap;color:var(--ink)">After</span>
+                  </div>
+                </div>
+                <div style="padding:.8rem 1rem;background:var(--white);border-top:1px solid var(--stone-2);">
+                  <div style="font-family:var(--font-serif);font-size:.9rem;font-weight:700;color:var(--ink)">Bare Yard to Front Garden</div>
+                  <div style="font-family:var(--font-body);font-size:.7rem;color:var(--mist)">Full Planting Install · 3 days</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div style="border-radius:var(--r-md);overflow:hidden;border:1px solid var(--stone-2);">
+                <div style="display:grid;grid-template-columns:1fr 1fr;height:220px;">
+                  <div style="background:#C0B8B0;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;">
+                    <span aria-hidden="true">⬜</span>
+                    <span style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.8);font-family:var(--font-body);font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .5rem;border-radius:10px;white-space:nowrap;color:var(--ink)">Before</span>
+                  </div>
+                  <div style="background:#3D5C3F;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;">
+                    <span aria-hidden="true">🪨</span>
+                    <span style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.8);font-family:var(--font-body);font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .5rem;border-radius:10px;white-space:nowrap;color:var(--ink)">After</span>
+                  </div>
+                </div>
+                <div style="padding:.8rem 1rem;background:var(--white);border-top:1px solid var(--stone-2);">
+                  <div style="font-family:var(--font-serif);font-size:.9rem;font-weight:700;color:var(--ink)">Concrete to Feature Patio</div>
+                  <div style="font-family:var(--font-body);font-size:.7rem;color:var(--mist)">Hardscape Project · 4 days</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="unlock-overlay">
+          <div class="unlock-box">
+            <div class="unlock-icon-wrap" aria-hidden="true">
+              <i class="bi bi-images" aria-hidden="true"></i>
+            </div>
+            <span class="unlock-plan-pill">Link Plan · $49.99/mo</span>
+            <h5>Before &amp; After Gallery</h5>
+            <p>
+              Side-by-side project transformation photos are one of the highest-converting 
+              trust signals in landscaping. This feature is included in the Link plan.
+            </p>
+            <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20upgrade%20to%20the%20Link%20plan%20for%20the%20before%20%26%20after%20gallery."
+               class="btn-quote-sm"
+               style="margin:0 auto;display:inline-flex;"
+               aria-label="Upgrade to Link plan"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Upgrade to Link Plan
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= TESTIMONIALS (BLURRED — MANAGED) ======= -->
+  <section class="sec stone-bg" aria-label="Client reviews">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-5">
+          <div class="sec-tag">Reviews</div>
+          <h2 class="sec-h2">Clients Who Trust <em>Our Work</em></h2>
+          <div class="dash" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="premium-wrap" aria-label="Client testimonials - requires Managed plan">
+        <div class="blur-layer">
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="review-card">
+                <div class="rc-stars" aria-hidden="true">★★★★★</div>
+                <p class="rc-text">"Verdant transformed our completely overgrown backyard in two days. The team was professional, clean, and the result exceeded everything we imagined."</p>
+                <div class="rc-author">Marcus T.</div>
+                <div class="rc-loc">Gros Islet, St. Lucia</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="review-card">
+                <div class="rc-stars" aria-hidden="true">★★★★★</div>
+                <p class="rc-text">"I sent a WhatsApp at 8pm and had a confirmed quote by 9am the next morning. Scheduled, done, and spotless. This is how service should work."</p>
+                <div class="rc-author">Samantha B.</div>
+                <div class="rc-loc">Rodney Bay, St. Lucia</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="review-card">
+                <div class="rc-stars" aria-hidden="true">★★★★★</div>
+                <p class="rc-text">"Monthly maintenance contract for our commercial property. Always on time, always immaculate. Our clients comment on the grounds every single week."</p>
+                <div class="rc-author">DeLeon Properties</div>
+                <div class="rc-loc">Castries, St. Lucia</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="unlock-overlay">
+          <div class="unlock-box">
+            <div class="unlock-icon-wrap" aria-hidden="true">
+              <i class="bi bi-star" aria-hidden="true"></i>
+            </div>
+            <span class="unlock-plan-pill">Managed Plan · $89.99/mo</span>
+            <h5>Client Reviews</h5>
+            <p>
+              Verified testimonials build the trust that converts a browsing visitor 
+              into a confirmed quote request. Included in the Managed plan.
+            </p>
+            <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20upgrade%20to%20the%20Managed%20plan%20for%20testimonials."
+               class="btn-quote-sm"
+               style="margin:0 auto;display:inline-flex;"
+               aria-label="Upgrade to Managed plan"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Upgrade to Managed Plan
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= ABOUT / TRUST PILLARS ======= -->
+  <section class="sec" id="about" style="background:var(--warm-white);" aria-label="About Verdant Landscapes">
+    <div class="container">
+      <div class="row align-items-center g-5 mb-5">
+        <div class="col-lg-6 reveal">
+          <div class="sec-tag">Who We Are</div>
+          <h2 class="sec-h2">Built on the Ground.<br><em>Grown by Results.</em></h2>
+          <div class="dash" aria-hidden="true"></div>
+          <p style="font-family:var(--font-body);font-size:.92rem;font-weight:300;color:var(--mist);line-height:1.85;margin-bottom:1rem;">
+            Verdant Landscapes was built on a simple belief: that every outdoor space — 
+            no matter how neglected or how small — has potential. 
+            We've spent 8 years turning that belief into 200+ completed projects 
+            across residential properties and commercial sites.
+          </p>
+          <p style="font-family:var(--font-body);font-size:.92rem;font-weight:300;color:var(--mist);line-height:1.85;">
+            Our crew arrives on time, communicates clearly, and leaves every site 
+            cleaner than we found it. That's not a policy. It's just how we work.
+          </p>
+        </div>
+        <div class="col-lg-6 reveal">
+          <div style="background:linear-gradient(145deg,var(--green-pale),var(--earth-pale));border-radius:var(--r-lg);height:380px;display:flex;align-items:center;justify-content:center;" aria-label="Verdant Landscapes team illustration">
+            <span style="font-size:10rem;opacity:.45;" aria-hidden="true">🌿</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="trust-pillars reveal">
+        <div class="pillar-card">
+          <span class="pillar-icon" aria-hidden="true">🛡️</span>
+          <div class="pillar-title">Fully Licensed &amp; Insured</div>
+          <p class="pillar-desc">All work is carried out by licensed professionals. Full liability coverage on every job — residential and commercial.</p>
+        </div>
+        <div class="pillar-card">
+          <span class="pillar-icon" aria-hidden="true">📋</span>
+          <div class="pillar-title">Transparent Quoting</div>
+          <p class="pillar-desc">Every quote is itemised. You know exactly what you're paying for before a single tool is lifted. No surprises.</p>
+        </div>
+        <div class="pillar-card">
+          <span class="pillar-icon" aria-hidden="true">🔄</span>
+          <div class="pillar-title">Satisfaction Guaranteed</div>
+          <p class="pillar-desc">Not happy with the result? We come back and we fix it. Our reputation is more important than any single job.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= COVERAGE AREA ======= -->
+  <section class="sec-sm stone2-bg" aria-label="Service coverage area">
+    <div class="container">
+      <div class="coverage-strip reveal">
+        <div class="coverage-left">
+          <h3>We Service Your Area</h3>
+          <p>Residential &amp; commercial clients across these locations</p>
+        </div>
+        <div class="coverage-areas" role="list" aria-label="Service areas">
+          <span class="area-chip" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Castries</span>
+          <span class="area-chip" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Gros Islet</span>
+          <span class="area-chip" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Rodney Bay</span>
+          <span class="area-chip" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Soufrière</span>
+          <span class="area-chip" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Vieux-Fort</span>
+          <span class="area-chip" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Micoud</span>
+        </div>
+        <a href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20in%20%5Byour%20area%5D%20and%20I%27d%20like%20a%20landscaping%20quote%20from%20Verdant%20Landscapes."
+           class="btn-quote-primary"
+           style="white-space:nowrap;"
+           aria-label="Request quote for your area"
+           target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote My Area
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= GOOGLE / SEO (BLURRED — MANAGED) ======= -->
+  <section class="sec stone-bg" aria-label="Google visibility features">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-6">
+          <div class="sec-tag">Get Found</div>
+          <h2 class="sec-h2">Show Up When <em>Customers Search</em></h2>
+          <div class="dash" aria-hidden="true"></div>
+          <p class="sec-para">
+            When someone searches "landscaping near me" or "garden maintenance" in your area, 
+            your business needs to appear — not just hope someone finds you on Instagram.
+          </p>
+        </div>
+      </div>
+
+      <div class="premium-wrap" aria-label="Google SEO features - requires Managed plan">
+        <div class="blur-layer">
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div style="background:var(--white);border-radius:var(--r-md);padding:1.8rem;border:1px solid var(--stone-2);">
+                <div style="width:46px;height:46px;border-radius:10px;background:#4285F4;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.9rem;font-family:var(--font-body);margin-bottom:1rem;" aria-hidden="true">G</div>
+                <div style="font-family:var(--font-serif);font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:.3rem;">Google Business Profile</div>
+                <div style="font-family:var(--font-body);font-size:.72rem;color:var(--mist);margin-bottom:1rem;">Setup &amp; Verification</div>
+                <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;">
+                  <li style="font-family:var(--font-body);font-size:.8rem;font-weight:300;color:var(--mist);display:flex;align-items:center;gap:8px;"><span style="width:5px;height:5px;border-radius:50%;background:var(--green);flex-shrink:0;display:inline-block;"></span>Appear in Google Maps for landscaping searches</li>
+                  <li style="font-family:var(--font-body);font-size:.8rem;font-weight:300;color:var(--mist);display:flex;align-items:center;gap:8px;"><span style="width:5px;height:5px;border-radius:50%;background:var(--green);flex-shrink:0;display:inline-block;"></span>Verified business listing with photos</li>
+                  <li style="font-family:var(--font-body);font-size:.8rem;font-weight:300;color:var(--mist);display:flex;align-items:center;gap:8px;"><span style="width:5px;height:5px;border-radius:50%;background:var(--green);flex-shrink:0;display:inline-block;"></span>Collect &amp; display Google reviews</li>
+                  <li style="font-family:var(--font-body);font-size:.8rem;font-weight:300;color:var(--mist);display:flex;align-items:center;gap:8px;"><span style="width:5px;height:5px;border-radius:50%;background:var(--green);flex-shrink:0;display:inline-block;"></span>Show service hours and coverage area</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div style="background:var(--white);border-radius:var(--r-md);padding:1.8rem;border:1px solid var(--stone-2);">
+                <div style="width:46px;height:46px;border-radius:10px;background:var(--green);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;margin-bottom:1rem;" aria-hidden="true"><i class="bi bi-graph-up-arrow"></i></div>
+                <div style="font-family:var(--font-serif);font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:.3rem;">Local SEO Setup</div>
+                <div style="font-family:var(--font-body);font-size:.72rem;color:var(--mist);margin-bottom:1rem;">On-page optimisation</div>
+                <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;">
+                  <li style="font-family:var(--font-body);font-size:.8rem;font-weight:300;color:var(--mist);display:flex;align-items:center;gap:8px;"><span style="width:5px;height:5px;border-radius:50%;background:var(--green);flex-shrink:0;display:inline-block;"></span>Local keyword targeting for your service area</li>
+                  <li style="font-family:var(--font-body);font-size:.8rem;font-weight:300;color:var(--mist);display:flex;align-items:center;gap:8px;"><span style="width:5px;height:5px;border-radius:50%;background:var(--green);flex-shrink:0;display:inline-block;"></span>Meta titles &amp; descriptions written for you</li>
+                  <li style="font-family:var(--font-body);font-size:.8rem;font-weight:300;color:var(--mist);display:flex;align-items:center;gap:8px;"><span style="width:5px;height:5px;border-radius:50%;background:var(--green);flex-shrink:0;display:inline-block;"></span>Schema markup for local business</li>
+                  <li style="font-family:var(--font-body);font-size:.8rem;font-weight:300;color:var(--mist);display:flex;align-items:center;gap:8px;"><span style="width:5px;height:5px;border-radius:50%;background:var(--green);flex-shrink:0;display:inline-block;"></span>Monthly performance reporting</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="unlock-overlay">
+          <div class="unlock-box">
+            <div class="unlock-icon-wrap" aria-hidden="true">
+              <i class="bi bi-search" aria-hidden="true"></i>
+            </div>
+            <span class="unlock-plan-pill">Managed Plan · $89.99/mo</span>
+            <h5>Google Visibility</h5>
+            <p>
+              Stop losing jobs to competitors who rank above you on Google. 
+              SEO setup and Google Business Profile are included in the Managed plan.
+            </p>
+            <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20upgrade%20to%20the%20Managed%20plan%20for%20Google%20SEO."
+               class="btn-quote-sm"
+               style="margin:0 auto;display:inline-flex;"
+               aria-label="Upgrade to Managed plan for Google SEO"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Upgrade to Managed Plan
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= FINAL CTA ======= -->
+  <section class="sec" style="background:var(--warm-white);" aria-label="Request a free quote">
+    <div class="container">
+      <div class="cta-vl reveal">
+        <div class="cta-vl-inner">
+          <div class="cta-vl-tag">Ready to Start?</div>
+          <h2 class="cta-vl-h2">
+            Get a Free<br>
+            <span class="gr">Quote Today.</span>
+          </h2>
+          <p class="cta-vl-para">
+            Tell us about your property on WhatsApp. Photos welcome. 
+            We quote within 48 hours — no obligation, no pressure, no phone tag.
+          </p>
+          <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20a%20free%20landscaping%20quote%20from%20Verdant%20Landscapes.%20Here%27s%20a%20bit%20about%20my%20property%3A"
+             class="btn-cta-wa"
+             aria-label="Request free landscaping quote on WhatsApp"
+             target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            Request Your Free Quote
+          </a>
+          <p class="cta-note">
+            <i class="bi bi-shield-check me-1" aria-hidden="true"></i>
+            Free quote · No commitment · Responds within the hour
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= FOOTER ======= -->
+  <footer class="footer-vl" role="contentinfo">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <div class="fl-name">Verdant</div>
+          <div class="fl-sub">Landscapes &amp; Garden Services</div>
+          <p class="fl-about">
+            Professional landscaping, garden design, and maintenance services 
+            for residential and commercial properties. Free quotes on WhatsApp.
+          </p>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <div class="fl-h">Services</div>
+          <ul class="fl-links" role="list">
+            <li><a href="#services">Lawn &amp; Upkeep</a></li>
+            <li><a href="#services">Garden Design</a></li>
+            <li><a href="#services">Patios &amp; Paths</a></li>
+            <li><a href="#services">Irrigation</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <div class="fl-h">Company</div>
+          <ul class="fl-links" role="list">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#process">How It Works</a></li>
+            <li><a href="https://wa.me/17587235872" target="_blank" rel="noopener noreferrer">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <div class="fl-h">Get a Free Quote</div>
+          <div class="fl-wa-box">
+            <p>Send us your property details on WhatsApp — photos welcome. We respond fast and quote within 48 hours.</p>
+            <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20a%20free%20quote%20from%20Verdant%20Landscapes."
+               class="fl-wa-btn"
+               aria-label="Request free quote on WhatsApp"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              WhatsApp Free Quote
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="fl-bottom">
+        <p>© 2025 Verdant Landscapes. All rights reserved.</p>
+        <p>Built by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener noreferrer">JAMALINKS</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // ===== THEME =====
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon   = document.getElementById('themeIcon');
+    const themeLabel  = document.getElementById('themeLabel');
+    const html        = document.documentElement;
+
+    function applyTheme(dark) {
+      if (dark) {
+        html.setAttribute('data-theme', 'dark');
+        themeIcon.className = 'bi bi-sun-fill';
+        themeLabel.textContent = 'Light';
+      } else {
+        html.removeAttribute('data-theme');
+        themeIcon.className = 'bi bi-moon-fill';
+        themeLabel.textContent = 'Dark';
+      }
+    }
+
+    const hour = new Date().getHours();
+    let isDark = hour >= 18 || hour < 6;
+    applyTheme(isDark);
+
+    themeToggle.addEventListener('click', () => {
+      isDark = !isDark;
+      applyTheme(isDark);
+    });
+
+    // ===== GALLERY FILTER =====
+    function filterGallery(cat, btn) {
+      document.querySelectorAll('.gf-tab').forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      document.querySelectorAll('.gallery-card').forEach(card => {
+        const cats = card.dataset.cat || '';
+        card.style.display = (cat === 'all' || cats.includes(cat)) ? '' : 'none';
+      });
+    }
+
+    // ===== SCROLL REVEAL =====
+    const revealEls = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    revealEls.forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
