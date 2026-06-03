@@ -1,0 +1,2390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Serenova Spa & Aesthetics — Premium facial treatments, body therapies, and aesthetic services. Book your appointment instantly on WhatsApp.">
+  <meta property="og:title" content="Serenova Spa & Aesthetics | Premium Treatments">
+  <meta property="og:description" content="Luxury spa and aesthetic treatments. Book your session instantly on WhatsApp.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jamalinks758.github.io/AkraLink/demo-products/serenova-spa.html">
+  <title>Serenova | Spa & Aesthetics</title>
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Font Awesome (deferred) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+  <style>
+    /* =============================================
+       CSS VARIABLES
+    ============================================= */
+    :root {
+      --stone:      #F5F0EB;
+      --stone-2:    #EDE6DC;
+      --stone-3:    #DDD3C4;
+      --sage:       #8A9E8C;
+      --sage-deep:  #5E7860;
+      --sage-pale:  #CDD9CE;
+      --warm-white: #FDFAF7;
+      --ink:        #1C1C1A;
+      --ink-2:      #2E2E2B;
+      --ink-3:      #4A4A46;
+      --mist:       #7A7A74;
+      --blush:      #D4A89A;
+      --blush-pale: #F0DDD8;
+      --gold:       #B89A6A;
+      --gold-pale:  #E8DCC8;
+      --white:      #FFFFFF;
+      --wa-green:   #25D366;
+      --wa-dark:    #128C7E;
+
+      --font-serif:  'Libre Baskerville', Georgia, serif;
+      --font-display:'Cormorant', Georgia, serif;
+      --font-body:   'Jost', sans-serif;
+
+      --radius-sm: 6px;
+      --radius-md: 14px;
+      --radius-lg: 24px;
+
+      --shadow-soft: 0 8px 32px rgba(28,28,26,0.07);
+      --shadow-med:  0 16px 52px rgba(28,28,26,0.11);
+    }
+
+    [data-theme="dark"] {
+      --stone:      #1C1C1A;
+      --stone-2:    #252522;
+      --stone-3:    #2E2E2B;
+      --warm-white: #1C1C1A;
+      --ink:        #F5F0EB;
+      --ink-2:      #EDE6DC;
+      --ink-3:      #DDD3C4;
+      --mist:       #9A9A94;
+      --white:      #252522;
+      --shadow-soft: 0 8px 32px rgba(0,0,0,0.25);
+      --shadow-med:  0 16px 52px rgba(0,0,0,0.35);
+    }
+
+    /* =============================================
+       BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 300;
+      background: var(--warm-white);
+      color: var(--ink);
+      transition: background 0.4s, color 0.4s;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-serif);
+      font-display: swap;
+    }
+
+    img { max-width: 100%; display: block; font-display: swap; }
+    a { text-decoration: none; color: inherit; }
+
+    /* =============================================
+       FLOATING WHATSAPP
+    ============================================= */
+    .wa-float {
+      position: fixed;
+      bottom: 28px;
+      right: 22px;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .wa-float-pill {
+      background: var(--ink);
+      color: var(--stone);
+      font-family: var(--font-body);
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: .4rem .9rem;
+      border-radius: 30px;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateX(6px);
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+    }
+
+    .wa-float:hover .wa-float-pill { opacity: 1; transform: translateX(0); }
+
+    .wa-float-btn {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--wa-green);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      animation: waPulse 3s ease-in-out infinite;
+      transition: transform 0.2s;
+    }
+
+    .wa-float-btn:hover { transform: scale(1.07); }
+    .wa-float-btn i { font-size: 1.5rem; color: #fff; }
+
+    @keyframes waPulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+      50% { box-shadow: 0 4px 30px rgba(37,211,102,0.65), 0 0 0 7px rgba(37,211,102,0.1); }
+    }
+
+    /* =============================================
+       DEMO BADGE
+    ============================================= */
+    .demo-badge {
+      position: fixed;
+      bottom: 28px;
+      left: 18px;
+      z-index: 9997;
+      background: var(--ink);
+      color: var(--mist);
+      font-family: var(--font-body);
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: .32rem .8rem;
+      border-radius: 30px;
+      border: 1px solid rgba(138,158,140,0.2);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .demo-dot {
+      width: 5px;
+      height: 5px;
+      background: var(--sage);
+      border-radius: 50%;
+    }
+
+    /* =============================================
+       THEME TOGGLE
+    ============================================= */
+    .theme-toggle {
+      position: fixed;
+      top: 18px;
+      right: 16px;
+      z-index: 9998;
+      background: var(--stone-2);
+      border: 1px solid var(--stone-3);
+      border-radius: 30px;
+      padding: .3rem .7rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      font-size: .73rem;
+      font-family: var(--font-body);
+      color: var(--mist);
+      transition: all 0.2s;
+    }
+
+    .theme-toggle:hover { border-color: var(--sage); color: var(--sage); }
+    .theme-toggle i { font-size: .8rem; }
+
+    /* =============================================
+       NAVBAR
+    ============================================= */
+    .navbar-sv {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      padding: 1.1rem 2rem;
+      background: rgba(253,250,247,0.94);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--stone-2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.3s;
+    }
+
+    [data-theme="dark"] .navbar-sv {
+      background: rgba(28,28,26,0.94);
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .nav-logo-name {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+    }
+
+    .nav-logo-sub {
+      font-family: var(--font-body);
+      font-size: .58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--mist);
+      margin-top: 1px;
+    }
+
+    .nav-links-sv {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links-sv a {
+      font-size: .77rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mist);
+      transition: color 0.2s;
+    }
+
+    .nav-links-sv a:hover { color: var(--ink); }
+
+    .nav-book-btn {
+      font-family: var(--font-body);
+      font-size: .73rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: .55rem 1.4rem;
+      border-radius: 3px;
+      background: var(--ink);
+      color: var(--stone) !important;
+      transition: background 0.2s, color 0.2s !important;
+    }
+
+    .nav-book-btn:hover {
+      background: var(--sage-deep) !important;
+      color: var(--white) !important;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links-sv { display: none; }
+      .navbar-sv { padding: .85rem 1.2rem; }
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    .hero-sv {
+      min-height: 96vh;
+      background: var(--stone);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .hero-sv {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(3rem, 8vw, 7rem) clamp(2rem, 5vw, 5rem);
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--sage-deep);
+      margin-bottom: 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: var(--sage-deep);
+      display: block;
+    }
+
+    .hero-h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-h1 em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--sage-deep);
+    }
+
+    .hero-para {
+      font-family: var(--font-body);
+      font-size: .95rem;
+      font-weight: 300;
+      color: var(--mist);
+      line-height: 1.8;
+      max-width: 380px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-book-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--ink);
+      color: var(--stone);
+      font-family: var(--font-body);
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: .85rem 1.8rem;
+      border-radius: 3px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .btn-book-primary:hover {
+      background: var(--sage-deep);
+      color: var(--white);
+    }
+
+    .btn-view-treatments {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--stone-3);
+      color: var(--mist);
+      font-family: var(--font-body);
+      font-size: .78rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: .85rem 1.6rem;
+      border-radius: 3px;
+      transition: all 0.2s;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .btn-view-treatments:hover {
+      border-color: var(--ink);
+      color: var(--ink);
+    }
+
+    .hero-credentials {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 3.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--stone-3);
+    }
+
+    .hero-cred-num {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .hero-cred-label {
+      font-family: var(--font-body);
+      font-size: .65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mist);
+      margin-top: 4px;
+    }
+
+    /* Hero Right - Visual */
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .hero-right { height: 60vw; min-height: 280px; }
+    }
+
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-img-fallback {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(160deg, var(--sage-pale) 0%, var(--blush-pale) 50%, var(--gold-pale) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-fallback-art {
+      text-align: center;
+    }
+
+    .hero-fallback-art .symbol {
+      font-size: 6rem;
+      opacity: 0.55;
+      display: block;
+      margin-bottom: .5rem;
+    }
+
+    /* Floating card on hero image */
+    .hero-float-card {
+      position: absolute;
+      bottom: 32px;
+      left: -24px;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 1.2rem 1.5rem;
+      box-shadow: var(--shadow-med);
+      min-width: 230px;
+      border: 1px solid var(--stone-2);
+    }
+
+    [data-theme="dark"] .hero-float-card {
+      background: var(--stone-2);
+    }
+
+    .hfc-rating {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: .6rem;
+    }
+
+    .hfc-stars { color: var(--gold); font-size: .85rem; letter-spacing: 1px; }
+
+    .hfc-text {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.4;
+      margin-bottom: .4rem;
+    }
+
+    .hfc-author {
+      font-family: var(--font-body);
+      font-size: .68rem;
+      letter-spacing: 0.08em;
+      color: var(--mist);
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 992px) {
+      .hero-float-card { display: none; }
+    }
+
+    /* =============================================
+       SECTION UTILITY
+    ============================================= */
+    .sec { padding: 6rem 0; }
+    .sec-sm { padding: 4rem 0; }
+
+    .sec-label {
+      font-family: var(--font-body);
+      font-size: .63rem;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--sage-deep);
+      margin-bottom: .9rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sec-label::before {
+      content: '';
+      width: 22px;
+      height: 1px;
+      background: var(--sage-deep);
+    }
+
+    .sec-h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: .8rem;
+    }
+
+    .sec-h2 em {
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .sec-para {
+      font-family: var(--font-body);
+      font-size: .92rem;
+      font-weight: 300;
+      color: var(--mist);
+      line-height: 1.8;
+      max-width: 500px;
+    }
+
+    .thin-rule {
+      width: 40px;
+      height: 1px;
+      background: var(--stone-3);
+      margin: 1.4rem 0;
+    }
+
+    /* =============================================
+       PHILOSOPHY STRIP
+    ============================================= */
+    .philosophy-strip {
+      background: var(--ink);
+      padding: 2.8rem 0;
+      overflow: hidden;
+    }
+
+    .philosophy-marquee {
+      display: flex;
+      gap: 4rem;
+      animation: marquee 22s linear infinite;
+      white-space: nowrap;
+    }
+
+    .philosophy-marquee span {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: rgba(245,240,235,0.45);
+      display: inline-flex;
+      align-items: center;
+      gap: 2rem;
+      flex-shrink: 0;
+    }
+
+    .philosophy-marquee span::after {
+      content: '·';
+      color: var(--sage);
+      font-style: normal;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* =============================================
+       TREATMENTS GRID
+    ============================================= */
+    .treatment-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--stone-2);
+      transition: box-shadow 0.35s, transform 0.25s;
+      height: 100%;
+    }
+
+    [data-theme="dark"] .treatment-card {
+      background: var(--stone-2);
+      border-color: var(--stone-3);
+    }
+
+    .treatment-card:hover {
+      box-shadow: var(--shadow-med);
+      transform: translateY(-4px);
+    }
+
+    .tc-visual {
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tc-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .treatment-card:hover .tc-visual img { transform: scale(1.04); }
+
+    /* Illustrated fallbacks */
+    .tc-vis-facial   { background: linear-gradient(145deg, #E8E0D5, #D4C9BA); }
+    .tc-vis-body     { background: linear-gradient(145deg, #D5DFD8, #C2D0C5); }
+    .tc-vis-sculpt   { background: linear-gradient(145deg, #DDD5D0, #CCC0BA); }
+    .tc-vis-lash     { background: linear-gradient(145deg, #E0D5DC, #D0C2CB); }
+    .tc-vis-massage  { background: linear-gradient(145deg, #D8D4C8, #C8C3B4); }
+    .tc-vis-micro    { background: linear-gradient(145deg, #D5DCE0, #C2CCD5); }
+
+    .tc-visual-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.8rem;
+      opacity: 0.55;
+    }
+
+    .tc-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      font-family: var(--font-body);
+      font-size: .6rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: .25rem .72rem;
+      border-radius: 20px;
+    }
+
+    .tc-tag-signature { background: var(--ink); color: var(--stone); }
+    .tc-tag-popular   { background: var(--sage); color: var(--white); }
+    .tc-tag-new       { background: var(--blush); color: var(--white); }
+
+    .tc-duration {
+      position: absolute;
+      bottom: 14px;
+      right: 14px;
+      background: rgba(253,250,247,0.88);
+      backdrop-filter: blur(8px);
+      font-family: var(--font-body);
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      padding: .25rem .65rem;
+      border-radius: 20px;
+    }
+
+    [data-theme="dark"] .tc-duration {
+      background: rgba(37,37,34,0.88);
+      color: var(--stone);
+    }
+
+    .tc-body {
+      padding: 1.4rem 1.5rem 1.6rem;
+    }
+
+    .tc-cat {
+      font-family: var(--font-body);
+      font-size: .6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage-deep);
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    .tc-name {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+
+    .tc-desc {
+      font-family: var(--font-body);
+      font-size: .82rem;
+      font-weight: 300;
+      color: var(--mist);
+      line-height: 1.65;
+      margin-bottom: 1.1rem;
+    }
+
+    .tc-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .tc-price {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .tc-price-sub {
+      font-family: var(--font-body);
+      font-size: .65rem;
+      color: var(--mist);
+      font-weight: 300;
+      display: block;
+      letter-spacing: 0.06em;
+    }
+
+    .btn-book-sm {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--wa-green);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: .48rem 1rem;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+
+    .btn-book-sm:hover {
+      background: var(--wa-dark);
+      color: #fff;
+      transform: scale(1.03);
+    }
+
+    /* =============================================
+       PROCESS / HOW IT WORKS
+    ============================================= */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      position: relative;
+    }
+
+    @media (max-width: 768px) {
+      .process-steps { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 26px;
+      left: 16.5%;
+      right: 16.5%;
+      height: 1px;
+      background: var(--stone-3);
+      z-index: 0;
+    }
+
+    @media (max-width: 768px) {
+      .process-steps::before { display: none; }
+    }
+
+    .process-step {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ps-num {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 1px solid var(--stone-3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.2rem;
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--sage-deep);
+      transition: all 0.2s;
+    }
+
+    [data-theme="dark"] .ps-num { background: var(--stone-2); }
+
+    .process-step:hover .ps-num {
+      background: var(--sage-deep);
+      border-color: var(--sage-deep);
+      color: var(--white);
+    }
+
+    .ps-title {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: .5rem;
+    }
+
+    .ps-desc {
+      font-family: var(--font-body);
+      font-size: .83rem;
+      font-weight: 300;
+      color: var(--mist);
+      line-height: 1.7;
+    }
+
+    /* =============================================
+       BEFORE / AFTER (BLURRED — PREMIUM)
+    ============================================= */
+    .before-after-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .before-after-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .before-after-grid { grid-template-columns: 1fr; }
+    }
+
+    .ba-card {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .ba-img-wrap {
+      height: 280px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .ba-half {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      font-size: 3rem;
+    }
+
+    .ba-before { background: var(--stone-3); }
+    .ba-after  { background: var(--sage-pale); }
+
+    .ba-label {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-body);
+      font-size: .58rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: rgba(253,250,247,0.85);
+      padding: .18rem .55rem;
+      border-radius: 12px;
+      white-space: nowrap;
+    }
+
+    .ba-divider {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: var(--white);
+      z-index: 2;
+    }
+
+    .ba-info {
+      background: var(--white);
+      padding: .9rem 1rem;
+      border: 1px solid var(--stone-2);
+      border-top: none;
+      border-radius: 0 0 var(--radius-md) var(--radius-md);
+    }
+
+    [data-theme="dark"] .ba-info {
+      background: var(--stone-2);
+      border-color: var(--stone-3);
+    }
+
+    .ba-treatment {
+      font-family: var(--font-serif);
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .ba-sessions {
+      font-family: var(--font-body);
+      font-size: .72rem;
+      color: var(--mist);
+      margin-top: 2px;
+    }
+
+    /* Premium blur overlay */
+    .premium-section {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .blur-layer {
+      filter: blur(7px);
+      user-select: none;
+      pointer-events: none;
+      opacity: 0.55;
+    }
+
+    .unlock-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(245,240,235,0.75);
+      backdrop-filter: blur(3px);
+      z-index: 10;
+    }
+
+    [data-theme="dark"] .unlock-overlay {
+      background: rgba(28,28,26,0.75);
+    }
+
+    .unlock-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--stone-2);
+      box-shadow: var(--shadow-med);
+      padding: 2.2rem 2.8rem;
+      text-align: center;
+      max-width: 340px;
+      width: 90%;
+    }
+
+    [data-theme="dark"] .unlock-card {
+      background: var(--stone-2);
+      border-color: var(--stone-3);
+    }
+
+    .unlock-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--stone);
+      border: 1px solid var(--stone-3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.1rem;
+      color: var(--mist);
+    }
+
+    .unlock-plan-tag {
+      display: inline-block;
+      border: 1px solid var(--stone-3);
+      color: var(--mist);
+      font-family: var(--font-body);
+      font-size: .6rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: .22rem .75rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+
+    .unlock-card h5 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: .5rem;
+    }
+
+    .unlock-card p {
+      font-family: var(--font-body);
+      font-size: .82rem;
+      font-weight: 300;
+      color: var(--mist);
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
+    }
+
+    /* =============================================
+       TESTIMONIALS (BLURRED — MANAGED)
+    ============================================= */
+    .testimonial-sv {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      border: 1px solid var(--stone-2);
+      height: 100%;
+    }
+
+    [data-theme="dark"] .testimonial-sv {
+      background: var(--stone-2);
+      border-color: var(--stone-3);
+    }
+
+    .ts-quote-mark {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-style: italic;
+      color: var(--sage-pale);
+      line-height: 1;
+      margin-bottom: .3rem;
+    }
+
+    .ts-text {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--ink-3);
+      line-height: 1.75;
+      margin-bottom: 1.4rem;
+    }
+
+    .ts-author-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .ts-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--sage-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--sage-deep);
+      flex-shrink: 0;
+    }
+
+    .ts-name {
+      font-family: var(--font-body);
+      font-size: .83rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .ts-loc {
+      font-family: var(--font-body);
+      font-size: .68rem;
+      font-weight: 300;
+      color: var(--mist);
+    }
+
+    .ts-stars {
+      color: var(--gold);
+      font-size: .75rem;
+      letter-spacing: 1px;
+      margin-bottom: .7rem;
+    }
+
+    /* =============================================
+       FEATURED HIGHLIGHT STRIP
+    ============================================= */
+    .highlight-strip {
+      background: var(--stone-2);
+      border-radius: var(--radius-lg);
+      padding: 3.5rem;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .highlight-strip {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 2.5rem 1.8rem;
+        gap: 2rem;
+      }
+
+      .hs-divider { display: none; }
+    }
+
+    [data-theme="dark"] .highlight-strip { background: var(--stone-2); }
+
+    .hs-item { text-align: center; }
+
+    .hs-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 1px solid var(--stone-3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.2rem;
+      color: var(--sage-deep);
+    }
+
+    [data-theme="dark"] .hs-icon { background: var(--stone-3); }
+
+    .hs-title {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .hs-sub {
+      font-family: var(--font-body);
+      font-size: .78rem;
+      font-weight: 300;
+      color: var(--mist);
+      line-height: 1.55;
+    }
+
+    .hs-divider {
+      width: 1px;
+      height: 60px;
+      background: var(--stone-3);
+      flex-shrink: 0;
+    }
+
+    /* =============================================
+       GOOGLE BUSINESS / SEO (BLURRED — MANAGED)
+    ============================================= */
+    .feature-card-sv {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 1.8rem;
+      border: 1px solid var(--stone-2);
+      height: 100%;
+    }
+
+    [data-theme="dark"] .feature-card-sv {
+      background: var(--stone-2);
+      border-color: var(--stone-3);
+    }
+
+    .fc-icon-wrap {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.1rem;
+      font-size: 1.1rem;
+      color: var(--white);
+    }
+
+    .fc-title {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: .4rem;
+    }
+
+    .fc-sub {
+      font-family: var(--font-body);
+      font-size: .72rem;
+      font-weight: 300;
+      color: var(--mist);
+      margin-bottom: 1rem;
+    }
+
+    .fc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .fc-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-size: .8rem;
+      font-weight: 300;
+      color: var(--mist);
+    }
+
+    .fc-list li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--sage);
+      flex-shrink: 0;
+    }
+
+    /* =============================================
+       CTA SECTION
+    ============================================= */
+    .cta-sv {
+      background: var(--ink);
+      border-radius: var(--radius-lg);
+      padding: 5rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-sv::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: -10%;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(138,158,140,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .cta-sv::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      right: -5%;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(184,154,106,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .cta-sv-inner { position: relative; z-index: 1; }
+
+    .cta-sv-eyebrow {
+      font-family: var(--font-body);
+      font-size: .63rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1.2rem;
+    }
+
+    .cta-sv-h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      color: var(--stone);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .cta-sv-h2 em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--sage-pale);
+    }
+
+    .cta-sv-para {
+      font-family: var(--font-body);
+      font-size: .92rem;
+      font-weight: 300;
+      color: rgba(245,240,235,0.55);
+      max-width: 420px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.8;
+    }
+
+    .btn-book-wa-lg {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--wa-green);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: .85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 1rem 2.2rem;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.28);
+    }
+
+    .btn-book-wa-lg:hover {
+      background: var(--wa-dark);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(37,211,102,0.4);
+    }
+
+    .cta-sv-note {
+      font-family: var(--font-body);
+      font-size: .72rem;
+      font-weight: 300;
+      color: rgba(245,240,235,0.3);
+      margin-top: 1.2rem;
+      letter-spacing: 0.06em;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    .footer-sv {
+      background: var(--ink-2);
+      padding: 4rem 0 2rem;
+    }
+
+    .footer-sv .footer-logo-name {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--stone);
+      letter-spacing: 0.06em;
+      margin-bottom: 2px;
+    }
+
+    .footer-sv .footer-logo-sub {
+      font-family: var(--font-body);
+      font-size: .58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(245,240,235,0.3);
+    }
+
+    .footer-sv .footer-about {
+      font-family: var(--font-body);
+      font-size: .82rem;
+      font-weight: 300;
+      color: rgba(245,240,235,0.4);
+      line-height: 1.8;
+      max-width: 280px;
+      margin-top: .9rem;
+    }
+
+    .footer-sv .footer-h {
+      font-family: var(--font-body);
+      font-size: .6rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-sv .footer-links-sv {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .7rem;
+    }
+
+    .footer-sv .footer-links-sv a {
+      font-family: var(--font-body);
+      font-size: .83rem;
+      font-weight: 300;
+      color: rgba(245,240,235,0.4);
+      transition: color 0.2s;
+    }
+
+    .footer-sv .footer-links-sv a:hover { color: var(--stone); }
+
+    .footer-sv .footer-wa-box {
+      background: rgba(37,211,102,0.06);
+      border: 1px solid rgba(37,211,102,0.15);
+      border-radius: var(--radius-md);
+      padding: 1.3rem;
+    }
+
+    .footer-sv .footer-wa-box p {
+      font-family: var(--font-body);
+      font-size: .8rem;
+      font-weight: 300;
+      color: rgba(245,240,235,0.4);
+      margin-bottom: .9rem;
+      line-height: 1.6;
+    }
+
+    .footer-sv .fwa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--wa-green);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: .78rem;
+      font-weight: 500;
+      padding: .52rem 1.1rem;
+      border-radius: var(--radius-sm);
+      transition: background 0.2s;
+    }
+
+    .footer-sv .fwa-btn:hover { background: var(--wa-dark); color: #fff; }
+
+    .footer-sv .footer-bottom-sv {
+      border-top: 1px solid rgba(245,240,235,0.06);
+      margin-top: 2.8rem;
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: .75rem;
+    }
+
+    .footer-sv .footer-bottom-sv p,
+    .footer-sv .footer-bottom-sv a {
+      font-family: var(--font-body);
+      font-size: .72rem;
+      font-weight: 300;
+      color: rgba(245,240,235,0.22);
+    }
+
+    .footer-sv .footer-bottom-sv a {
+      color: var(--sage);
+      font-weight: 500;
+    }
+
+    .footer-sv .footer-bottom-sv a:hover { color: var(--sage-pale); }
+
+    /* =============================================
+       ANIMATIONS
+    ============================================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+    .reveal-delay-4 { transition-delay: .4s; }
+
+    /* =============================================
+       MISC
+    ============================================= */
+    .stone-bg { background: var(--stone); }
+    .stone2-bg { background: var(--stone-2); }
+
+    @media (max-width: 576px) {
+      .sec { padding: 4rem 0; }
+      .cta-sv { padding: 3.5rem 1.5rem; }
+      .highlight-strip { padding: 2rem 1.4rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ FLOATING WA ============ -->
+  <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20book%20an%20appointment%20at%20Serenova%20Spa%20%26%20Aesthetics."
+     class="wa-float"
+     aria-label="Book an appointment on WhatsApp"
+     target="_blank" rel="noopener noreferrer">
+    <span class="wa-float-pill">Book on WhatsApp</span>
+    <button class="wa-float-btn" aria-label="Open WhatsApp booking">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </button>
+  </a>
+
+  <!-- ============ DEMO BADGE ============ -->
+  <div class="demo-badge" role="note" aria-label="AkraLink demo">
+    <span class="demo-dot" aria-hidden="true"></span>
+    AkraLink Demo
+  </div>
+
+  <!-- ============ THEME TOGGLE ============ -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle light or dark mode">
+    <i class="bi bi-moon-fill" id="themeIcon" aria-hidden="true"></i>
+    <span id="themeLabel">Dark</span>
+  </button>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar-sv" role="navigation" aria-label="Main navigation">
+    <div class="nav-logo">
+      <span class="nav-logo-name">Serenova</span>
+      <span class="nav-logo-sub">Spa &amp; Aesthetics</span>
+    </div>
+    <ul class="nav-links-sv" role="list">
+      <li><a href="#treatments">Treatments</a></li>
+      <li><a href="#process">How It Works</a></li>
+      <li><a href="#about">About</a></li>
+      <li>
+        <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20book%20an%20appointment%20at%20Serenova."
+           class="nav-book-btn"
+           aria-label="Book an appointment"
+           target="_blank" rel="noopener noreferrer">
+          Book Now
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero-sv" role="banner" aria-label="Serenova Spa hero">
+
+    <div class="hero-left">
+      <div class="hero-eyebrow">Luxury Aesthetics &amp; Wellness</div>
+      <h1 class="hero-h1">
+        Where Skin<br>
+        Finds Its<br>
+        <em>Stillness.</em>
+      </h1>
+      <p class="hero-para">
+        Premium facial treatments, body therapies, and aesthetic services 
+        delivered in a tranquil setting. Every session is personalised 
+        to your skin and your pace.
+      </p>
+      <div class="hero-actions">
+        <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20book%20an%20appointment%20at%20Serenova%20Spa."
+           class="btn-book-primary"
+           aria-label="Book your appointment on WhatsApp"
+           target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+          Book Your Appointment
+        </a>
+        <a href="#treatments" class="btn-view-treatments" aria-label="View all treatments">
+          View Treatments
+        </a>
+      </div>
+      <div class="hero-credentials" role="list" aria-label="Key spa credentials">
+        <div role="listitem">
+          <div class="hero-cred-num">12+</div>
+          <div class="hero-cred-label">Treatments</div>
+        </div>
+        <div role="listitem">
+          <div class="hero-cred-num">5★</div>
+          <div class="hero-cred-label">Rated</div>
+        </div>
+        <div role="listitem">
+          <div class="hero-cred-num">100%</div>
+          <div class="hero-cred-label">Personalised</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-img-fallback" aria-label="Serene spa treatment room">
+        <div class="hero-fallback-art">
+          <span class="symbol" aria-hidden="true">🌿</span>
+        </div>
+      </div>
+      <img 
+        src="../images/serenova-spa.webp"
+        alt="Serenova Spa — luxurious treatment room with warm lighting and botanicals"
+        class="hero-img"
+        width="800" height="900"
+        loading="eager"
+        style="position:absolute;inset:0;"
+        onerror="this.style.display='none'">
+
+      <!-- Float card -->
+      <div class="hero-float-card" role="complementary" aria-label="Client review">
+        <div class="hfc-rating">
+          <span class="hfc-stars" aria-label="5 star rating">★★★★★</span>
+        </div>
+        <p class="hfc-text">"Genuinely the most peaceful hour of my month."</p>
+        <p class="hfc-author">— Nadine R., Castries</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ============ PHILOSOPHY MARQUEE ============ -->
+  <div class="philosophy-strip" aria-hidden="true">
+    <div class="philosophy-marquee">
+      <span>Restore</span>
+      <span>Renew</span>
+      <span>Radiate</span>
+      <span>Personalised Care</span>
+      <span>Premium Ingredients</span>
+      <span>Book on WhatsApp</span>
+      <span>Restore</span>
+      <span>Renew</span>
+      <span>Radiate</span>
+      <span>Personalised Care</span>
+      <span>Premium Ingredients</span>
+      <span>Book on WhatsApp</span>
+    </div>
+  </div>
+
+  <!-- ============ HIGHLIGHT STRIP ============ -->
+  <section class="sec-sm stone-bg" aria-label="Key service features">
+    <div class="container">
+      <div class="highlight-strip reveal">
+        <div class="hs-item">
+          <div class="hs-icon" aria-hidden="true"><i class="bi bi-clock" aria-hidden="true"></i></div>
+          <div class="hs-title">Instant Booking</div>
+          <div class="hs-sub">Book in seconds on WhatsApp.<br>No phone tag, no waiting.</div>
+        </div>
+        <div class="hs-divider" aria-hidden="true"></div>
+        <div class="hs-item">
+          <div class="hs-icon" aria-hidden="true"><i class="bi bi-person-check" aria-hidden="true"></i></div>
+          <div class="hs-title">Expert Therapists</div>
+          <div class="hs-sub">Certified aestheticians with<br>years of specialised training.</div>
+        </div>
+        <div class="hs-divider" aria-hidden="true"></div>
+        <div class="hs-item">
+          <div class="hs-icon" aria-hidden="true"><i class="bi bi-droplet-half" aria-hidden="true"></i></div>
+          <div class="hs-title">Premium Products</div>
+          <div class="hs-sub">Curated clinical-grade formulas<br>for every skin type.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TREATMENTS ============ -->
+  <section class="sec stone2-bg" id="treatments" aria-label="Treatment menu">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-6">
+          <div class="sec-label">Treatment Menu</div>
+          <h2 class="sec-h2">Every Treatment,<br><em>Purposefully Curated</em></h2>
+          <div class="thin-rule" aria-hidden="true"></div>
+          <p class="sec-para">
+            From deep-tissue facials to advanced aesthetic procedures — 
+            each treatment is designed around your skin's unique needs, 
+            not a standard script.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+
+        <!-- Treatment 1 -->
+        <div class="col-sm-6 col-lg-4 reveal">
+          <div class="treatment-card">
+            <div class="tc-visual tc-vis-facial">
+              <div class="tc-visual-inner" aria-hidden="true">✨</div>
+              <span class="tc-tag tc-tag-signature">Signature</span>
+              <span class="tc-duration">60 min</span>
+            </div>
+            <div class="tc-body">
+              <div class="tc-cat">Facial</div>
+              <h3 class="tc-name">The Serenova Signature Facial</h3>
+              <p class="tc-desc">
+                Our flagship treatment. Deep cleanse, exfoliation, custom masque, 
+                and hydration therapy tailored to your skin profile.
+              </p>
+              <div class="tc-footer">
+                <div>
+                  <span class="tc-price">$120</span>
+                  <span class="tc-price-sub">per session</span>
+                </div>
+                <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Serenova%20Signature%20Facial%20%E2%80%94%20please%20let%20me%20know%20available%20times."
+                   class="btn-book-sm"
+                   aria-label="Book Signature Facial on WhatsApp"
+                   target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Book
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Treatment 2 -->
+        <div class="col-sm-6 col-lg-4 reveal reveal-delay-1">
+          <div class="treatment-card">
+            <div class="tc-visual tc-vis-micro">
+              <div class="tc-visual-inner" aria-hidden="true">💎</div>
+              <span class="tc-tag tc-tag-popular">Popular</span>
+              <span class="tc-duration">45 min</span>
+            </div>
+            <div class="tc-body">
+              <div class="tc-cat">Facial</div>
+              <h3 class="tc-name">Microdermabrasion Resurface</h3>
+              <p class="tc-desc">
+                Crystal resurfacing to remove dead skin cells, reduce fine lines, 
+                and restore natural luminosity. Immediate visible results.
+              </p>
+              <div class="tc-footer">
+                <div>
+                  <span class="tc-price">$95</span>
+                  <span class="tc-price-sub">per session</span>
+                </div>
+                <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Microdermabrasion%20Resurface%20treatment."
+                   class="btn-book-sm"
+                   aria-label="Book Microdermabrasion on WhatsApp"
+                   target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Book
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Treatment 3 -->
+        <div class="col-sm-6 col-lg-4 reveal reveal-delay-2">
+          <div class="treatment-card">
+            <div class="tc-visual tc-vis-body">
+              <div class="tc-visual-inner" aria-hidden="true">🌿</div>
+              <span class="tc-tag tc-tag-popular">Popular</span>
+              <span class="tc-duration">75 min</span>
+            </div>
+            <div class="tc-body">
+              <div class="tc-cat">Body</div>
+              <h3 class="tc-name">Botanical Body Wrap</h3>
+              <p class="tc-desc">
+                Full-body exfoliation followed by a warm botanical wrap 
+                to detoxify, hydrate, and deeply nourish from head to toe.
+              </p>
+              <div class="tc-footer">
+                <div>
+                  <span class="tc-price">$145</span>
+                  <span class="tc-price-sub">per session</span>
+                </div>
+                <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Botanical%20Body%20Wrap%20treatment."
+                   class="btn-book-sm"
+                   aria-label="Book Botanical Body Wrap on WhatsApp"
+                   target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Book
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Treatment 4 -->
+        <div class="col-sm-6 col-lg-4 reveal">
+          <div class="treatment-card">
+            <div class="tc-visual tc-vis-sculpt">
+              <div class="tc-visual-inner" aria-hidden="true">🫧</div>
+              <span class="tc-tag tc-tag-new">New</span>
+              <span class="tc-duration">50 min</span>
+            </div>
+            <div class="tc-body">
+              <div class="tc-cat">Sculpting</div>
+              <h3 class="tc-name">Lymphatic Facial Sculpt</h3>
+              <p class="tc-desc">
+                Advanced gua sha and lymphatic drainage massage to define 
+                facial contours, reduce puffiness, and promote circulation.
+              </p>
+              <div class="tc-footer">
+                <div>
+                  <span class="tc-price">$110</span>
+                  <span class="tc-price-sub">per session</span>
+                </div>
+                <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Lymphatic%20Facial%20Sculpt."
+                   class="btn-book-sm"
+                   aria-label="Book Lymphatic Facial Sculpt on WhatsApp"
+                   target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Book
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Treatment 5 -->
+        <div class="col-sm-6 col-lg-4 reveal reveal-delay-1">
+          <div class="treatment-card">
+            <div class="tc-visual tc-vis-lash">
+              <div class="tc-visual-inner" aria-hidden="true">👁</div>
+              <span class="tc-duration">30 min</span>
+            </div>
+            <div class="tc-body">
+              <div class="tc-cat">Eyes &amp; Brows</div>
+              <h3 class="tc-name">Lash Lift &amp; Tint</h3>
+              <p class="tc-desc">
+                Lift, curl, and define your natural lashes. A tint adds 
+                depth and darkness that lasts up to 8 weeks — no mascara needed.
+              </p>
+              <div class="tc-footer">
+                <div>
+                  <span class="tc-price">$75</span>
+                  <span class="tc-price-sub">per session</span>
+                </div>
+                <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Lash%20Lift%20%26%20Tint%20treatment."
+                   class="btn-book-sm"
+                   aria-label="Book Lash Lift and Tint on WhatsApp"
+                   target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Book
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Treatment 6 -->
+        <div class="col-sm-6 col-lg-4 reveal reveal-delay-2">
+          <div class="treatment-card">
+            <div class="tc-visual tc-vis-massage">
+              <div class="tc-visual-inner" aria-hidden="true">🌸</div>
+              <span class="tc-tag tc-tag-signature">Signature</span>
+              <span class="tc-duration">90 min</span>
+            </div>
+            <div class="tc-body">
+              <div class="tc-cat">Massage</div>
+              <h3 class="tc-name">Warm Stone Fusion Massage</h3>
+              <p class="tc-desc">
+                Swedish technique with heated volcanic stones to release 
+                deep muscle tension, improve circulation, and induce profound calm.
+              </p>
+              <div class="tc-footer">
+                <div>
+                  <span class="tc-price">$175</span>
+                  <span class="tc-price-sub">per session</span>
+                </div>
+                <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Warm%20Stone%20Fusion%20Massage."
+                   class="btn-book-sm"
+                   aria-label="Book Warm Stone Fusion Massage on WhatsApp"
+                   target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Book
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /row -->
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="sec" id="process" aria-label="How booking works">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-6">
+          <div class="sec-label" style="justify-content:center">How It Works</div>
+          <h2 class="sec-h2" style="text-align:center">Three Steps to<br><em>Your Treatment</em></h2>
+          <div class="thin-rule" aria-hidden="true" style="margin:1.4rem auto"></div>
+          <p class="sec-para" style="margin:0 auto;text-align:center">
+            No complicated forms. No waiting on hold. 
+            From choosing your treatment to arriving for your session — it's this simple.
+          </p>
+        </div>
+      </div>
+
+      <div class="process-steps reveal">
+        <div class="process-step">
+          <div class="ps-num" aria-hidden="true">01</div>
+          <h3 class="ps-title">Choose Your Treatment</h3>
+          <p class="ps-desc">
+            Browse the treatment menu above. Find what speaks to your skin 
+            and your goals — or ask us for a personalised recommendation.
+          </p>
+        </div>
+        <div class="process-step">
+          <div class="ps-num" aria-hidden="true">02</div>
+          <h3 class="ps-title">Book on WhatsApp</h3>
+          <p class="ps-desc">
+            Tap any <em>Book</em> button. Tell us your preferred day and time. 
+            We confirm your appointment directly — no phone tag, ever.
+          </p>
+        </div>
+        <div class="process-step">
+          <div class="ps-num" aria-hidden="true">03</div>
+          <h3 class="ps-title">Arrive &amp; Restore</h3>
+          <p class="ps-desc">
+            Walk in, leave the world outside. Your therapist will consult 
+            briefly and personalise your session from the first minute.
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center mt-5 pt-3 reveal">
+        <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20book%20an%20appointment%20at%20Serenova%20Spa."
+           class="btn-book-primary"
+           aria-label="Book your appointment on WhatsApp"
+           target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+          Book Your Appointment
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BEFORE / AFTER (BLURRED — LINK) ============ -->
+  <section class="sec stone-bg" aria-label="Before and after results section">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-6">
+          <div class="sec-label">Results</div>
+          <h2 class="sec-h2">Before &amp; After —<br><em>Real Skin, Real Change</em></h2>
+          <div class="thin-rule" aria-hidden="true"></div>
+          <p class="sec-para">
+            Verified results from real clients across our facial and body treatment range.
+          </p>
+        </div>
+      </div>
+
+      <div class="premium-section" aria-label="Before and after results - requires Link plan">
+        <div class="blur-layer">
+          <div class="before-after-grid">
+            <div class="ba-card">
+              <div class="ba-img-wrap">
+                <div class="ba-half ba-before">
+                  <span aria-hidden="true" style="font-size:2.5rem;opacity:.4">😞</span>
+                  <span class="ba-label">Before</span>
+                </div>
+                <div class="ba-divider" aria-hidden="true"></div>
+                <div class="ba-half ba-after">
+                  <span aria-hidden="true" style="font-size:2.5rem;opacity:.5">✨</span>
+                  <span class="ba-label">After</span>
+                </div>
+              </div>
+              <div class="ba-info">
+                <div class="ba-treatment">Signature Facial</div>
+                <div class="ba-sessions">After 3 sessions · 6 weeks</div>
+              </div>
+            </div>
+
+            <div class="ba-card">
+              <div class="ba-img-wrap">
+                <div class="ba-half ba-before">
+                  <span aria-hidden="true" style="font-size:2.5rem;opacity:.4">🌫️</span>
+                  <span class="ba-label">Before</span>
+                </div>
+                <div class="ba-divider" aria-hidden="true"></div>
+                <div class="ba-half ba-after">
+                  <span aria-hidden="true" style="font-size:2.5rem;opacity:.5">💎</span>
+                  <span class="ba-label">After</span>
+                </div>
+              </div>
+              <div class="ba-info">
+                <div class="ba-treatment">Microdermabrasion</div>
+                <div class="ba-sessions">After 2 sessions · 4 weeks</div>
+              </div>
+            </div>
+
+            <div class="ba-card">
+              <div class="ba-img-wrap">
+                <div class="ba-half ba-before">
+                  <span aria-hidden="true" style="font-size:2.5rem;opacity:.4">🌥️</span>
+                  <span class="ba-label">Before</span>
+                </div>
+                <div class="ba-divider" aria-hidden="true"></div>
+                <div class="ba-half ba-after">
+                  <span aria-hidden="true" style="font-size:2.5rem;opacity:.5">🌟</span>
+                  <span class="ba-label">After</span>
+                </div>
+              </div>
+              <div class="ba-info">
+                <div class="ba-treatment">Lymphatic Sculpt</div>
+                <div class="ba-sessions">Single session · Immediate</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="unlock-overlay">
+          <div class="unlock-card">
+            <div class="unlock-icon" aria-hidden="true">
+              <i class="bi bi-image" aria-hidden="true"></i>
+            </div>
+            <span class="unlock-plan-tag">Link Plan · $49.99/mo</span>
+            <h5>Before &amp; After Gallery</h5>
+            <p>
+              Display verified client results with before/after photo comparisons. 
+              This feature is included in the Link plan and above — 
+              one of the most powerful trust-builders for aesthetic businesses.
+            </p>
+            <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20upgrade%20to%20the%20Link%20plan%20for%20the%20before%20and%20after%20gallery."
+               class="btn-book-sm"
+               style="margin: 0 auto;display:inline-flex;"
+               aria-label="Upgrade to Link plan on WhatsApp"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Upgrade to Link Plan
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS (BLURRED — MANAGED) ============ -->
+  <section class="sec stone2-bg" aria-label="Client testimonials">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-5">
+          <div class="sec-label">Client Stories</div>
+          <h2 class="sec-h2"><em>Heard From</em><br>Those Who've Rested Here</h2>
+          <div class="thin-rule" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="premium-section" aria-label="Client testimonials - requires Managed plan">
+        <div class="blur-layer">
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="testimonial-sv">
+                <div class="ts-stars" aria-hidden="true">★★★★★</div>
+                <div class="ts-quote-mark" aria-hidden="true">"</div>
+                <p class="ts-text">The Signature Facial completely transformed my skin routine. I leave every single time feeling like a new person.</p>
+                <div class="ts-author-row">
+                  <div class="ts-avatar" aria-hidden="true">M</div>
+                  <div>
+                    <div class="ts-name">Michelle A.</div>
+                    <div class="ts-loc">Rodney Bay, St. Lucia</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="testimonial-sv">
+                <div class="ts-stars" aria-hidden="true">★★★★★</div>
+                <div class="ts-quote-mark" aria-hidden="true">"</div>
+                <p class="ts-text">I booked on WhatsApp at 9pm and had a confirmed appointment by 9:05. No other spa makes it this easy.</p>
+                <div class="ts-author-row">
+                  <div class="ts-avatar" aria-hidden="true">J</div>
+                  <div>
+                    <div class="ts-name">Joanna K.</div>
+                    <div class="ts-loc">Bridgetown, Barbados</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="testimonial-sv">
+                <div class="ts-stars" aria-hidden="true">★★★★★</div>
+                <div class="ts-quote-mark" aria-hidden="true">"</div>
+                <p class="ts-text">The Warm Stone Massage is unlike anything I've experienced. Genuinely the most peaceful hour of my month.</p>
+                <div class="ts-author-row">
+                  <div class="ts-avatar" aria-hidden="true">S</div>
+                  <div>
+                    <div class="ts-name">Samira L.</div>
+                    <div class="ts-loc">Port of Spain, Trinidad</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="unlock-overlay">
+          <div class="unlock-card">
+            <div class="unlock-icon" aria-hidden="true">
+              <i class="bi bi-star" aria-hidden="true"></i>
+            </div>
+            <span class="unlock-plan-tag">Managed Plan · $89.99/mo</span>
+            <h5>Client Testimonials</h5>
+            <p>
+              Verified reviews build trust before a prospect ever books. 
+              Testimonial sections are included in the Managed plan — 
+              along with monthly promo graphics and SEO setup.
+            </p>
+            <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20upgrade%20to%20the%20Managed%20plan%20for%20testimonials%20and%20SEO."
+               class="btn-book-sm"
+               style="margin:0 auto;display:inline-flex;"
+               aria-label="Upgrade to Managed plan on WhatsApp"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Upgrade to Managed Plan
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GOOGLE BUSINESS / SEO (BLURRED — MANAGED) ============ -->
+  <section class="sec stone-bg" aria-label="Google visibility features section">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-6">
+          <div class="sec-label">Online Visibility</div>
+          <h2 class="sec-h2">Be Found on Google<br><em>Not Just Instagram</em></h2>
+          <div class="thin-rule" aria-hidden="true"></div>
+          <p class="sec-para">
+            When someone searches "spa near me" or "facial treatment" in your area, 
+            your business needs to appear — not just your Instagram page.
+          </p>
+        </div>
+      </div>
+
+      <div class="premium-section" aria-label="Google SEO features - requires Managed plan">
+        <div class="blur-layer">
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="feature-card-sv">
+                <div class="fc-icon-wrap" style="background:#4285F4">
+                  <span style="font-weight:800;font-size:.9rem;font-family:var(--font-body)">G</span>
+                </div>
+                <div class="fc-title">Google Business Profile</div>
+                <div class="fc-sub">Setup &amp; Verification included</div>
+                <ul class="fc-list">
+                  <li>Appear in Google Maps results</li>
+                  <li>Show treatment hours &amp; location</li>
+                  <li>Collect verified Google reviews</li>
+                  <li>Feature photos directly on Google</li>
+                  <li>Verified business badge</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="feature-card-sv">
+                <div class="fc-icon-wrap" style="background:var(--sage-deep)">
+                  <i class="bi bi-graph-up-arrow" aria-hidden="true"></i>
+                </div>
+                <div class="fc-title">On-Page SEO Setup</div>
+                <div class="fc-sub">Basic optimisation for local search</div>
+                <ul class="fc-list">
+                  <li>Meta titles &amp; descriptions written for you</li>
+                  <li>Local keyword targeting</li>
+                  <li>Structured schema markup</li>
+                  <li>Image alt text optimisation</li>
+                  <li>Monthly analytics reporting</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="unlock-overlay">
+          <div class="unlock-card">
+            <div class="unlock-icon" aria-hidden="true">
+              <i class="bi bi-search" aria-hidden="true"></i>
+            </div>
+            <span class="unlock-plan-tag">Managed Plan · $89.99/mo</span>
+            <h5>Google Visibility</h5>
+            <p>
+              Google Business Profile setup and on-page SEO are included in the 
+              Managed plan. Stop losing clients to spas that are easier to find on Google.
+            </p>
+            <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20upgrade%20to%20the%20Managed%20plan%20for%20Google%20SEO%20and%20GBP."
+               class="btn-book-sm"
+               style="margin:0 auto;display:inline-flex;"
+               aria-label="Upgrade to Managed plan for Google SEO"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Upgrade to Managed Plan
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="sec stone2-bg" id="about" aria-label="About Serenova Spa">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5 reveal">
+          <div style="background:linear-gradient(145deg,var(--sage-pale),var(--blush-pale));border-radius:var(--radius-lg);height:420px;display:flex;align-items:center;justify-content:center;" aria-label="Serenova Spa treatment room illustration">
+            <span style="font-size:10rem;opacity:.45;" aria-hidden="true">🌿</span>
+          </div>
+        </div>
+        <div class="col-lg-7 reveal">
+          <div class="sec-label">Our Philosophy</div>
+          <h2 class="sec-h2">A Space for You<br><em>to Simply Arrive.</em></h2>
+          <div class="thin-rule" aria-hidden="true"></div>
+          <p style="font-family:var(--font-body);font-size:.92rem;font-weight:300;color:var(--mist);line-height:1.85;margin-bottom:1.1rem;">
+            Serenova was built on a single principle: that skin care should feel like self-care, 
+            not a clinical errand. Every detail — the light, the scent, the pace of your session — 
+            is designed to help you exhale from the first minute.
+          </p>
+          <p style="font-family:var(--font-body);font-size:.92rem;font-weight:300;color:var(--mist);line-height:1.85;margin-bottom:2rem;">
+            Our therapists are trained not just in technique, but in listening. 
+            Because the best treatment is always the one your skin actually needs — 
+            not a preset menu item.
+          </p>
+          <div class="row g-3">
+            <div class="col-6">
+              <div style="display:flex;align-items:center;gap:9px;">
+                <div style="width:5px;height:5px;border-radius:50%;background:var(--sage);flex-shrink:0;" aria-hidden="true"></div>
+                <span style="font-family:var(--font-body);font-size:.83rem;font-weight:300;color:var(--ink)">Certified aestheticians</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div style="display:flex;align-items:center;gap:9px;">
+                <div style="width:5px;height:5px;border-radius:50%;background:var(--sage);flex-shrink:0;" aria-hidden="true"></div>
+                <span style="font-family:var(--font-body);font-size:.83rem;font-weight:300;color:var(--ink)">Clinical-grade products only</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div style="display:flex;align-items:center;gap:9px;">
+                <div style="width:5px;height:5px;border-radius:50%;background:var(--sage);flex-shrink:0;" aria-hidden="true"></div>
+                <span style="font-family:var(--font-body);font-size:.83rem;font-weight:300;color:var(--ink)">Personalised every session</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div style="display:flex;align-items:center;gap:9px;">
+                <div style="width:5px;height:5px;border-radius:50%;background:var(--sage);flex-shrink:0;" aria-hidden="true"></div>
+                <span style="font-family:var(--font-body);font-size:.83rem;font-weight:300;color:var(--ink)">Instant WhatsApp booking</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="sec" aria-label="Book your appointment">
+    <div class="container">
+      <div class="cta-sv reveal">
+        <div class="cta-sv-inner">
+          <div class="cta-sv-eyebrow">Ready When You Are</div>
+          <h2 class="cta-sv-h2">
+            Your Skin Deserves<br>
+            <em>One Hour of Stillness.</em>
+          </h2>
+          <p class="cta-sv-para">
+            Choose your treatment above and book directly on WhatsApp. 
+            No account. No complicated forms. Confirmed in minutes.
+          </p>
+          <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20book%20an%20appointment%20at%20Serenova%20Spa%20%26%20Aesthetics.%20Can%20you%20please%20share%20available%20times%3F"
+             class="btn-book-wa-lg"
+             aria-label="Book your appointment at Serenova on WhatsApp"
+             target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            Book Your Appointment
+          </a>
+          <p class="cta-sv-note">
+            <i class="bi bi-shield-check me-1" aria-hidden="true"></i>
+            Fast response &nbsp;·&nbsp; Personalised service &nbsp;·&nbsp; No phone tag
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer-sv" role="contentinfo">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <div class="footer-logo-name">Serenova</div>
+          <div class="footer-logo-sub">Spa &amp; Aesthetics</div>
+          <p class="footer-about">
+            Premium facial, body, and aesthetic treatments in a tranquil setting. 
+            Every session personalised to your skin.
+          </p>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <div class="footer-h">Treatments</div>
+          <ul class="footer-links-sv" role="list">
+            <li><a href="#treatments">Facials</a></li>
+            <li><a href="#treatments">Body Therapies</a></li>
+            <li><a href="#treatments">Sculpting</a></li>
+            <li><a href="#treatments">Eyes &amp; Brows</a></li>
+            <li><a href="#treatments">Massage</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <div class="footer-h">Info</div>
+          <ul class="footer-links-sv" role="list">
+            <li><a href="#about">Our Philosophy</a></li>
+            <li><a href="#process">How to Book</a></li>
+            <li><a href="https://wa.me/17587235872" target="_blank" rel="noopener noreferrer">Pricing</a></li>
+            <li><a href="https://wa.me/17587235872" target="_blank" rel="noopener noreferrer">Gift Vouchers</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <div class="footer-h">Bookings &amp; Enquiries</div>
+          <div class="footer-wa-box">
+            <p>
+              The fastest way to book or ask a question — message us directly on WhatsApp. 
+              We typically respond within the hour.
+            </p>
+            <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20Serenova%20Spa."
+               class="fwa-btn"
+               aria-label="Contact Serenova on WhatsApp"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              Message Us on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-sv">
+        <p>© 2025 Serenova Spa &amp; Aesthetics. All rights reserved.</p>
+        <p>Built by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener noreferrer">JAMALINKS</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // ============ THEME — AUTO + MANUAL ============
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon   = document.getElementById('themeIcon');
+    const themeLabel  = document.getElementById('themeLabel');
+    const html        = document.documentElement;
+
+    function applyTheme(dark) {
+      if (dark) {
+        html.setAttribute('data-theme', 'dark');
+        themeIcon.className = 'bi bi-sun-fill';
+        themeLabel.textContent = 'Light';
+      } else {
+        html.removeAttribute('data-theme');
+        themeIcon.className = 'bi bi-moon-fill';
+        themeLabel.textContent = 'Dark';
+      }
+    }
+
+    const hour = new Date().getHours();
+    let isDark = (hour >= 18 || hour < 6);
+    applyTheme(isDark);
+
+    themeToggle.addEventListener('click', () => {
+      isDark = !isDark;
+      applyTheme(isDark);
+    });
+
+    // ============ SCROLL REVEAL ============
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    revealEls.forEach(el => revealObs.observe(el));
+  </script>
+
+</body>
+</html>
