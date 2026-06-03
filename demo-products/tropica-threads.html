@@ -1,0 +1,2348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tropica Threads — Caribbean-inspired fashion boutique. Shop women's and men's collections, resort wear, and accessories. Order direct on WhatsApp.">
+  <meta property="og:title" content="Tropica Threads | Caribbean Fashion Boutique">
+  <meta property="og:description" content="Vibrant Caribbean-inspired fashion. Shop collections and order directly on WhatsApp.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jamalinks758.github.io/AkraLink/demo-products/tropica-threads.html">
+  <title>Tropica Threads | Caribbean Fashion Boutique</title>
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Font Awesome (deferred) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+  <style>
+    /* =============================================
+       CSS VARIABLES & THEMING
+    ============================================= */
+    :root {
+      --primary: #C9583A;        /* terracotta */
+      --primary-dark: #A3412A;
+      --accent: #E8B86D;         /* warm gold */
+      --accent-light: #F7DFB0;
+      --dark: #1A1410;
+      --dark-2: #2C2015;
+      --mid: #5C4033;
+      --light-bg: #FAF6F0;
+      --light-2: #F2EBE0;
+      --text-body: #3D2B1F;
+      --text-muted: #7A6055;
+      --white: #FFFFFF;
+      --wa-green: #25D366;
+      --wa-dark: #128C7E;
+      --blur-overlay: rgba(250,246,240,0.85);
+
+      /* Typography */
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --light-bg: #1A1410;
+      --light-2: #2C2015;
+      --text-body: #EDE0D4;
+      --text-muted: #A08070;
+      --white: #1A1410;
+      --blur-overlay: rgba(26,20,16,0.9);
+    }
+
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--light-bg);
+      color: var(--text-body);
+      font-display: swap;
+      transition: background 0.3s, color 0.3s;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: var(--font-display);
+      font-display: swap;
+    }
+
+    img {
+      font-display: swap;
+      max-width: 100%;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* =============================================
+       FLOATING WHATSAPP BUTTON
+    ============================================= */
+    .wa-float {
+      position: fixed;
+      bottom: 24px;
+      right: 20px;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .wa-float-label {
+      background: var(--dark);
+      color: #fff;
+      font-size: .78rem;
+      font-family: var(--font-body);
+      padding: .35rem .75rem;
+      border-radius: 20px;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateX(8px);
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+    }
+
+    .wa-float:hover .wa-float-label {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .wa-float-btn {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: var(--wa-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+      animation: waPulse 2.5s ease-in-out infinite;
+      transition: transform 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .wa-float-btn:hover { transform: scale(1.08); }
+    .wa-float-btn i { font-size: 1.6rem; color: #fff; }
+
+    @keyframes waPulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.45); }
+      50% { box-shadow: 0 4px 35px rgba(37,211,102,0.75), 0 0 0 8px rgba(37,211,102,0.12); }
+    }
+
+    /* =============================================
+       DARK/LIGHT TOGGLE
+    ============================================= */
+    .theme-toggle {
+      position: fixed;
+      top: 18px;
+      right: 16px;
+      z-index: 9998;
+      background: var(--light-2);
+      border: 1.5px solid var(--accent-light);
+      border-radius: 50px;
+      padding: .3rem .65rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      font-size: .78rem;
+      font-family: var(--font-body);
+      color: var(--text-body);
+      transition: all 0.2s;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .theme-toggle:hover { border-color: var(--accent); }
+    .theme-toggle i { font-size: .85rem; color: var(--primary); }
+
+    /* =============================================
+       NAVBAR
+    ============================================= */
+    .navbar-tt {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      padding: 0.85rem 1.5rem;
+      background: rgba(250,246,240,0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(201,88,58,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.3s;
+    }
+
+    [data-theme="dark"] .navbar-tt {
+      background: rgba(26,20,16,0.92);
+    }
+
+    .navbar-brand-tt {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--dark);
+      line-height: 1;
+    }
+
+    [data-theme="dark"] .brand-name { color: var(--accent-light); }
+
+    .brand-tagline {
+      font-family: var(--font-body);
+      font-size: .65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .nav-links-tt {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links-tt a {
+      font-size: .82rem;
+      font-family: var(--font-body);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .nav-links-tt a:hover { color: var(--primary); }
+
+    .nav-cta {
+      background: var(--primary);
+      color: #fff !important;
+      padding: .42rem 1rem !important;
+      border-radius: 6px;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--primary-dark) !important; }
+
+    @media (max-width: 768px) {
+      .nav-links-tt { display: none; }
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    .hero-section {
+      min-height: 92vh;
+      background: linear-gradient(135deg, #1A1410 0%, #2C2015 50%, #3D2418 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 80%, rgba(201,88,58,0.25) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(232,184,109,0.18) 0%, transparent 45%),
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 30px,
+          rgba(255,255,255,0.012) 30px,
+          rgba(255,255,255,0.012) 31px
+        );
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,88,58,0.15);
+      border: 1px solid rgba(201,88,58,0.35);
+      color: var(--accent);
+      font-size: .72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: .35rem 1rem;
+      border-radius: 30px;
+      margin-bottom: 1.5rem;
+      font-family: var(--font-body);
+    }
+
+    .hero-eyebrow span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: inline-block;
+      animation: blink 1.8s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .hero-title {
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 700;
+      color: #FAF6F0;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-family: var(--font-body);
+      font-size: clamp(.95rem, 2vw, 1.1rem);
+      color: rgba(250,246,240,0.65);
+      max-width: 420px;
+      line-height: 1.7;
+      margin-top: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-wa-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--wa-green);
+      color: #fff;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: .9rem;
+      padding: .78rem 1.6rem;
+      border-radius: 8px;
+      transition: background 0.2s, transform 0.15s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-wa-hero:hover {
+      background: var(--wa-dark);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1.5px solid rgba(250,246,240,0.3);
+      color: rgba(250,246,240,0.8);
+      font-family: var(--font-body);
+      font-size: .9rem;
+      padding: .78rem 1.4rem;
+      border-radius: 8px;
+      transition: all 0.2s;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .btn-outline-hero:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(250,246,240,0.1);
+    }
+
+    .hero-stat-num {
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-family: var(--font-body);
+      font-size: .72rem;
+      color: rgba(250,246,240,0.45);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-img-wrap {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    }
+
+    .hero-main-img {
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+      border-radius: 16px;
+      display: block;
+    }
+
+    .hero-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(26,20,16,0.6) 100%);
+      border-radius: 16px;
+    }
+
+    .hero-float-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 20px;
+      right: 20px;
+      background: rgba(26,20,16,0.82);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(232,184,109,0.25);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .hero-float-badge-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+
+    .hero-float-badge-text {
+      font-family: var(--font-body);
+    }
+
+    .hero-float-badge-text strong {
+      display: block;
+      color: #FAF6F0;
+      font-size: .88rem;
+      font-weight: 600;
+    }
+
+    .hero-float-badge-text span {
+      color: rgba(250,246,240,0.5);
+      font-size: .73rem;
+    }
+
+    /* =============================================
+       SECTION HEADERS
+    ============================================= */
+    .section-eyebrow {
+      font-family: var(--font-body);
+      font-size: .7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: .6rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.9rem, 4vw, 2.9rem);
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.15;
+    }
+
+    [data-theme="dark"] .section-title { color: var(--accent-light); }
+
+    .section-sub {
+      font-family: var(--font-body);
+      font-size: .95rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* =============================================
+       TICKER / ANNOUNCEMENT BAR
+    ============================================= */
+    .ticker-bar {
+      background: var(--primary);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      padding: .5rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-inner {
+      display: inline-flex;
+      gap: 4rem;
+      animation: tickerScroll 20s linear infinite;
+    }
+
+    .ticker-inner span {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    @keyframes tickerScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* =============================================
+       CATEGORIES / FEATURED SECTION
+    ============================================= */
+    .section-pad { padding: 5rem 0; }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: .85rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .cat-card {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s;
+      background: var(--light-2);
+    }
+
+    .cat-card:hover { transform: translateY(-4px); }
+
+    .cat-img-wrap {
+      height: 240px;
+      background: var(--light-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .cat-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .cat-card:hover .cat-img-wrap img { transform: scale(1.05); }
+
+    /* Illustrated fallback patterns for categories */
+    .cat-bg-1 { background: linear-gradient(135deg, #E8B86D20, #C9583A15); }
+    .cat-bg-2 { background: linear-gradient(135deg, #C9583A20, #5C403315); }
+    .cat-bg-3 { background: linear-gradient(135deg, #3D2B1F15, #E8B86D20); }
+
+    .cat-illustration {
+      font-size: 4.5rem;
+      opacity: 0.6;
+    }
+
+    .cat-info {
+      padding: 1rem 1.2rem;
+    }
+
+    .cat-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-body);
+      margin-bottom: 2px;
+    }
+
+    .cat-count {
+      font-size: .78rem;
+      color: var(--text-muted);
+      font-family: var(--font-body);
+    }
+
+    .cat-arrow {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 34px;
+      height: 34px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .9rem;
+      color: var(--primary);
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.2s;
+    }
+
+    .cat-card:hover .cat-arrow {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* =============================================
+       PRODUCT GRID
+    ============================================= */
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 2rem;
+    }
+
+    .filter-tab {
+      font-family: var(--font-body);
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: .4rem 1rem;
+      border-radius: 30px;
+      border: 1.5px solid var(--light-2);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      background: transparent;
+    }
+
+    .filter-tab:hover,
+    .filter-tab.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 992px) {
+      .products-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .products-grid { grid-template-columns: repeat(2, 1fr); gap: .9rem; }
+    }
+
+    @media (max-width: 400px) {
+      .products-grid { grid-template-columns: 1fr; }
+    }
+
+    .product-card {
+      background: var(--white);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(201,88,58,0.08);
+      transition: box-shadow 0.3s, transform 0.2s;
+      position: relative;
+    }
+
+    [data-theme="dark"] .product-card {
+      background: var(--dark-2);
+      border-color: rgba(232,184,109,0.1);
+    }
+
+    .product-card:hover {
+      box-shadow: 0 12px 40px rgba(201,88,58,0.15);
+      transform: translateY(-3px);
+    }
+
+    .product-img-wrap {
+      position: relative;
+      height: 230px;
+      background: var(--light-2);
+      overflow: hidden;
+    }
+
+    [data-theme="dark"] .product-img-wrap { background: #231a13; }
+
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .product-card:hover .product-img-wrap img { transform: scale(1.06); }
+
+    /* Illustrated product placeholders */
+    .prod-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+    }
+
+    .prod-ph-1 { background: linear-gradient(135deg, #F7E8D8, #EED5B8); }
+    .prod-ph-2 { background: linear-gradient(135deg, #D8EAF7, #B8D5EE); }
+    .prod-ph-3 { background: linear-gradient(135deg, #F7D8E8, #EEB8D5); }
+    .prod-ph-4 { background: linear-gradient(135deg, #D8F7E8, #B8EED5); }
+    .prod-ph-5 { background: linear-gradient(135deg, #F7F0D8, #EEE4B8); }
+    .prod-ph-6 { background: linear-gradient(135deg, #E8D8F7, #D5B8EE); }
+    .prod-ph-7 { background: linear-gradient(135deg, #F7E0D0, #F0C8A8); }
+    .prod-ph-8 { background: linear-gradient(135deg, #D0F0E8, #A8E8D8); }
+
+    .product-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-family: var(--font-body);
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: .22rem .65rem;
+      border-radius: 20px;
+    }
+
+    .badge-new { background: var(--primary); color: #fff; }
+    .badge-popular { background: var(--accent); color: var(--dark); }
+    .badge-sale { background: #2a6f3c; color: #fff; }
+
+    .product-wishlist {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 32px;
+      height: 32px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .85rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+    }
+
+    .product-wishlist:hover { color: var(--primary); }
+
+    .product-info {
+      padding: 1rem 1.1rem 1.2rem;
+    }
+
+    .product-category-label {
+      font-size: .65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-family: var(--font-body);
+      margin-bottom: 4px;
+    }
+
+    .product-name {
+      font-family: var(--font-display);
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--text-body);
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+
+    .product-sizes {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .size-chip {
+      font-family: var(--font-body);
+      font-size: .62rem;
+      font-weight: 600;
+      width: 28px;
+      height: 24px;
+      border-radius: 5px;
+      border: 1px solid var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+    }
+
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 8px;
+    }
+
+    .product-price {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .product-price-old {
+      font-family: var(--font-body);
+      font-size: .78rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      margin-left: 5px;
+    }
+
+    .btn-order-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--wa-green);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: .75rem;
+      font-weight: 600;
+      padding: .42rem .9rem;
+      border-radius: 7px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+
+    .btn-order-wa:hover {
+      background: var(--wa-dark);
+      color: #fff;
+      transform: scale(1.03);
+    }
+
+    /* =============================================
+       BLUR / LOCKED PREMIUM SECTION
+    ============================================= */
+    .premium-blur-section {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .blur-content {
+      filter: blur(5px);
+      user-select: none;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    .blur-overlay-card {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--blur-overlay);
+      backdrop-filter: blur(2px);
+      z-index: 10;
+    }
+
+    .blur-message-box {
+      text-align: center;
+      padding: 2rem 2.5rem;
+      background: var(--white);
+      border-radius: 14px;
+      border: 1px solid rgba(201,88,58,0.15);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+      max-width: 360px;
+      width: 90%;
+    }
+
+    [data-theme="dark"] .blur-message-box {
+      background: var(--dark-2);
+    }
+
+    .blur-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.4rem;
+      color: #fff;
+    }
+
+    .blur-message-box h5 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--text-body);
+      margin-bottom: .5rem;
+    }
+
+    .blur-message-box p {
+      font-family: var(--font-body);
+      font-size: .83rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+    }
+
+    .plan-badge-inline {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: .25rem .65rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+
+    /* =============================================
+       PROMO BANNER
+    ============================================= */
+    .promo-banner {
+      background: linear-gradient(135deg, var(--dark) 0%, #3D2415 100%);
+      border-radius: 20px;
+      padding: 3rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .promo-banner::before {
+      content: '';
+      position: absolute;
+      top: -60%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,184,109,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .promo-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(232,184,109,0.15);
+      border: 1px solid rgba(232,184,109,0.3);
+      color: var(--accent);
+      font-size: .7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: .3rem .85rem;
+      border-radius: 30px;
+      margin-bottom: 1rem;
+      font-family: var(--font-body);
+    }
+
+    .promo-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: #FAF6F0;
+      line-height: 1.2;
+      margin-bottom: .9rem;
+    }
+
+    .promo-title em { font-style: italic; color: var(--accent); }
+
+    .promo-sub {
+      font-family: var(--font-body);
+      color: rgba(250,246,240,0.6);
+      font-size: .92rem;
+      line-height: 1.6;
+      max-width: 380px;
+      margin-bottom: 1.8rem;
+    }
+
+    /* =============================================
+       TESTIMONIALS (BLUR — PREMIUM FEATURE)
+    ============================================= */
+    .testimonial-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 1.8rem;
+      border: 1px solid rgba(201,88,58,0.08);
+      position: relative;
+    }
+
+    [data-theme="dark"] .testimonial-card {
+      background: var(--dark-2);
+    }
+
+    .testimonial-quote {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: .5rem;
+      font-style: italic;
+    }
+
+    .testimonial-text {
+      font-family: var(--font-body);
+      font-size: .9rem;
+      color: var(--text-body);
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .testimonial-name {
+      font-family: var(--font-body);
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--text-body);
+    }
+
+    .testimonial-loc {
+      font-size: .72rem;
+      color: var(--text-muted);
+    }
+
+    .stars {
+      color: var(--accent);
+      font-size: .8rem;
+      margin-bottom: .4rem;
+    }
+
+    /* =============================================
+       CONTACT / ORDERING CTA SECTION
+    ============================================= */
+    .cta-section {
+      background: var(--light-2);
+      border-radius: 20px;
+      padding: 3.5rem 2.5rem;
+      text-align: center;
+    }
+
+    [data-theme="dark"] .cta-section {
+      background: var(--dark-2);
+    }
+
+    .cta-wa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--wa-green);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      padding: .9rem 2rem;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.3);
+    }
+
+    .cta-wa-btn:hover {
+      background: var(--wa-dark);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(37,211,102,0.4);
+    }
+
+    .cta-wa-btn i { font-size: 1.25rem; }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    .footer-main {
+      background: var(--dark);
+      color: rgba(250,246,240,0.7);
+      padding: 3.5rem 0 2rem;
+    }
+
+    .footer-logo-area .brand-name { color: var(--accent-light); }
+    .footer-logo-area .brand-tagline { color: rgba(250,246,240,0.35); }
+
+    .footer-desc {
+      font-family: var(--font-body);
+      font-size: .85rem;
+      color: rgba(250,246,240,0.45);
+      line-height: 1.7;
+      max-width: 280px;
+      margin-top: .85rem;
+    }
+
+    .footer-heading {
+      font-family: var(--font-body);
+      font-size: .7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 1.1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .65rem;
+    }
+
+    .footer-links a {
+      font-family: var(--font-body);
+      font-size: .85rem;
+      color: rgba(250,246,240,0.5);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    .footer-wa-block {
+      background: rgba(37,211,102,0.08);
+      border: 1px solid rgba(37,211,102,0.2);
+      border-radius: 12px;
+      padding: 1.2rem;
+    }
+
+    .footer-wa-block p {
+      font-family: var(--font-body);
+      font-size: .82rem;
+      color: rgba(250,246,240,0.55);
+      margin-bottom: .8rem;
+      line-height: 1.5;
+    }
+
+    .footer-wa-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--wa-green);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: .82rem;
+      font-weight: 600;
+      padding: .5rem 1.1rem;
+      border-radius: 7px;
+      transition: background 0.2s;
+    }
+
+    .footer-wa-link:hover { background: var(--wa-dark); color: #fff; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(250,246,240,0.07);
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: .75rem;
+    }
+
+    .footer-bottom p {
+      font-family: var(--font-body);
+      font-size: .75rem;
+      color: rgba(250,246,240,0.3);
+    }
+
+    .footer-built-by {
+      font-family: var(--font-body);
+      font-size: .75rem;
+      color: rgba(250,246,240,0.3);
+    }
+
+    .footer-built-by a {
+      color: var(--accent);
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .footer-built-by a:hover { color: var(--accent-light); }
+
+    /* =============================================
+       AKRALINK WATERMARK BADGE (Demo)
+    ============================================= */
+    .akralink-demo-badge {
+      position: fixed;
+      bottom: 24px;
+      left: 16px;
+      z-index: 9997;
+      background: var(--dark);
+      color: rgba(250,246,240,0.7);
+      font-family: var(--font-body);
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: .35rem .8rem;
+      border-radius: 30px;
+      border: 1px solid rgba(232,184,109,0.2);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .akralink-demo-badge span {
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* =============================================
+       ANIMATIONS
+    ============================================= */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-up-delay-1 { transition-delay: 0.1s; }
+    .fade-up-delay-2 { transition-delay: 0.2s; }
+    .fade-up-delay-3 { transition-delay: 0.3s; }
+    .fade-up-delay-4 { transition-delay: 0.4s; }
+
+    /* =============================================
+       UTILITIES
+    ============================================= */
+    .divider-accent {
+      width: 48px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 2px;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .text-primary-tt { color: var(--primary) !important; }
+    .text-accent-tt { color: var(--accent) !important; }
+    .bg-light-tt { background: var(--light-bg); }
+
+    .section-bg-alt { background: var(--light-2); }
+    [data-theme="dark"] .section-bg-alt { background: var(--dark-2); }
+
+    .rounded-xl { border-radius: 16px; }
+
+    /* =============================================
+       PAYPAL SECTION (Premium Blur)
+    ============================================= */
+    .paypal-mock {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 1.5rem;
+      border: 1px solid rgba(0,0,0,0.07);
+    }
+
+    [data-theme="dark"] .paypal-mock { background: var(--dark-2); border-color: rgba(255,255,255,0.08); }
+
+    .paypal-mock .pp-btn {
+      background: #003087;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: .65rem 1.4rem;
+      font-size: .9rem;
+      font-weight: 700;
+      width: 100%;
+      cursor: pointer;
+      font-family: var(--font-body);
+    }
+
+    /* Responsive helpers */
+    @media (max-width: 576px) {
+      .hero-stats { gap: 1.2rem; }
+      .promo-banner { padding: 2rem 1.4rem; }
+      .cta-section { padding: 2.5rem 1.4rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- =========================================
+       FLOATING WHATSAPP
+  ========================================= -->
+  <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20order%20from%20Tropica%20Threads%20%F0%9F%9B%8D%EF%B8%8F" 
+     class="wa-float" 
+     aria-label="Order on WhatsApp"
+     target="_blank" rel="noopener noreferrer">
+    <span class="wa-float-label">Order on WhatsApp</span>
+    <button class="wa-float-btn" aria-label="Open WhatsApp chat">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </button>
+  </a>
+
+  <!-- =========================================
+       DEMO BADGE
+  ========================================= -->
+  <div class="akralink-demo-badge" role="note" aria-label="AkraLink demo page">
+    <span aria-hidden="true"></span>
+    AkraLink Demo
+  </div>
+
+  <!-- =========================================
+       THEME TOGGLE
+  ========================================= -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle light or dark mode">
+    <i class="bi bi-moon-fill" id="themeIcon" aria-hidden="true"></i>
+    <span id="themeLabel">Dark</span>
+  </button>
+
+  <!-- =========================================
+       TICKER BAR
+  ========================================= -->
+  <div class="ticker-bar" role="marquee" aria-label="Promotions and announcements">
+    <div class="ticker-inner">
+      <span><i class="bi bi-star-fill" aria-hidden="true"></i> New Arrivals — Summer Collection Now Live</span>
+      <span><i class="bi bi-tag-fill" aria-hidden="true"></i> Free shipping on orders over $150 USD</span>
+      <span><i class="bi bi-whatsapp" aria-hidden="true"></i> Order instantly on WhatsApp — no account needed</span>
+      <span><i class="bi bi-star-fill" aria-hidden="true"></i> New Arrivals — Summer Collection Now Live</span>
+      <span><i class="bi bi-tag-fill" aria-hidden="true"></i> Free shipping on orders over $150 USD</span>
+      <span><i class="bi bi-whatsapp" aria-hidden="true"></i> Order instantly on WhatsApp — no account needed</span>
+    </div>
+  </div>
+
+  <!-- =========================================
+       NAVBAR
+  ========================================= -->
+  <nav class="navbar-tt" role="navigation" aria-label="Main navigation">
+    <div class="navbar-brand-tt">
+      <div class="brand-mark" aria-hidden="true">TT</div>
+      <div>
+        <div class="brand-name">Tropica Threads</div>
+        <div class="brand-tagline">Caribbean Fashion Boutique</div>
+      </div>
+    </div>
+    <ul class="nav-links-tt" role="list">
+      <li><a href="#collections">Collections</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#about">Our Story</a></li>
+      <li>
+        <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20order%20from%20Tropica%20Threads" 
+           class="nav-cta" 
+           aria-label="Order on WhatsApp"
+           target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-whatsapp me-1" aria-hidden="true"></i> Order Now
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- =========================================
+       HERO
+  ========================================= -->
+  <section class="hero-section" role="banner" aria-label="Tropica Threads hero section">
+    <div class="hero-pattern" aria-hidden="true"></div>
+    <div class="container py-5">
+      <div class="row align-items-center g-5">
+
+        <div class="col-lg-6">
+          <div class="hero-content">
+            <div class="hero-eyebrow">
+              <span aria-hidden="true"></span>
+              New Season · Summer 2025
+            </div>
+            <h1 class="hero-title">
+              Wear the<br>
+              <em>Caribbean.</em><br>
+              Own the Room.
+            </h1>
+            <p class="hero-sub">
+              Vibrant Caribbean fashion crafted for women who move with confidence. 
+              Resort wear, everyday essentials, and statement pieces — all 
+              available directly on WhatsApp.
+            </p>
+            <div class="hero-cta-group">
+              <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20browse%20the%20Tropica%20Threads%20Summer%20Collection%20%F0%9F%9B%8D%EF%B8%8F"
+                 class="btn-wa-hero"
+                 aria-label="Shop the summer collection on WhatsApp"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                Shop the Collection
+              </a>
+              <a href="#shop" class="btn-outline-hero" aria-label="Browse all products">
+                <i class="bi bi-grid" aria-hidden="true"></i>
+                Browse All
+              </a>
+            </div>
+            <div class="hero-stats" role="list" aria-label="Quick stats">
+              <div role="listitem">
+                <div class="hero-stat-num">200+</div>
+                <div class="hero-stat-label">Styles</div>
+              </div>
+              <div role="listitem">
+                <div class="hero-stat-num">XS–3XL</div>
+                <div class="hero-stat-label">Size Range</div>
+              </div>
+              <div role="listitem">
+                <div class="hero-stat-num">48hr</div>
+                <div class="hero-stat-label">Island Delivery</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="hero-visual fade-up fade-up-delay-2">
+            <div class="hero-img-wrap">
+              <img 
+                src="../images/tropica-threads.webp"
+                alt="Tropica Threads — Caribbean fashion boutique summer collection"
+                class="hero-main-img"
+                width="600" height="560"
+                loading="eager"
+                onerror="this.parentElement.style.background='linear-gradient(135deg,#C9583A,#E8B86D)';this.style.display='none'">
+              <div class="hero-img-overlay" aria-hidden="true"></div>
+              <div class="hero-float-badge">
+                <div class="hero-float-badge-icon" aria-hidden="true">🛍️</div>
+                <div class="hero-float-badge-text">
+                  <strong>Summer Collection Drop</strong>
+                  <span>New styles added every week · WhatsApp to order</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       COLLECTIONS (CATEGORIES)
+  ========================================= -->
+  <section class="section-pad" id="collections" aria-label="Shop collections">
+    <div class="container">
+      <div class="row align-items-end mb-4 g-3">
+        <div class="col-md-7">
+          <div class="section-eyebrow">Shop by Category</div>
+          <h2 class="section-title">Collections Built for<br>the Caribbean Life</h2>
+          <div class="divider-accent" aria-hidden="true"></div>
+        </div>
+        <div class="col-md-5 text-md-end">
+          <p class="section-sub" style="max-width:100%">
+            From beach days to evening events — every look you need, all in one place.
+          </p>
+        </div>
+      </div>
+
+      <div class="category-grid fade-up">
+        <!-- Category 1 -->
+        <div class="cat-card" role="article" aria-label="Resort Wear collection">
+          <div class="cat-img-wrap cat-bg-1">
+            <div class="cat-illustration" aria-hidden="true">🌴</div>
+          </div>
+          <div class="cat-info">
+            <h3 class="cat-name">Resort Wear</h3>
+            <p class="cat-count">42 styles available</p>
+          </div>
+          <div class="cat-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></div>
+        </div>
+
+        <!-- Category 2 -->
+        <div class="cat-card" role="article" aria-label="Everyday Essentials collection">
+          <div class="cat-img-wrap cat-bg-2">
+            <div class="cat-illustration" aria-hidden="true">👗</div>
+          </div>
+          <div class="cat-info">
+            <h3 class="cat-name">Everyday Essentials</h3>
+            <p class="cat-count">67 styles available</p>
+          </div>
+          <div class="cat-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></div>
+        </div>
+
+        <!-- Category 3 -->
+        <div class="cat-card" role="article" aria-label="Accessories collection">
+          <div class="cat-img-wrap cat-bg-3">
+            <div class="cat-illustration" aria-hidden="true">👜</div>
+          </div>
+          <div class="cat-info">
+            <h3 class="cat-name">Accessories</h3>
+            <p class="cat-count">29 items available</p>
+          </div>
+          <div class="cat-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       PRODUCT GRID — MAIN SHOP
+  ========================================= -->
+  <section class="section-pad section-bg-alt" id="shop" aria-label="Product catalogue">
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col-12">
+          <div class="section-eyebrow">The Shop</div>
+          <h2 class="section-title">Browse & Order Instantly</h2>
+          <div class="divider-accent" aria-hidden="true"></div>
+          <p class="section-sub">
+            See something you like? Tap <em>Order on WhatsApp</em> — tell us your size, 
+            and we confirm your order in minutes.
+          </p>
+        </div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs" role="tablist" aria-label="Filter products by category">
+        <button class="filter-tab active" role="tab" aria-selected="true" onclick="filterProducts('all', this)">All</button>
+        <button class="filter-tab" role="tab" aria-selected="false" onclick="filterProducts('resort', this)">Resort Wear</button>
+        <button class="filter-tab" role="tab" aria-selected="false" onclick="filterProducts('everyday', this)">Everyday</button>
+        <button class="filter-tab" role="tab" aria-selected="false" onclick="filterProducts('accessories', this)">Accessories</button>
+        <button class="filter-tab" role="tab" aria-selected="false" onclick="filterProducts('sale', this)">On Sale</button>
+      </div>
+
+      <!-- Products -->
+      <div class="products-grid fade-up" id="productsGrid">
+
+        <!-- Product 1 -->
+        <div class="product-card" data-category="resort" role="article" aria-label="Sunset Wrap Dress">
+          <div class="product-img-wrap">
+            <div class="prod-placeholder prod-ph-1" aria-hidden="true">🌅</div>
+            <span class="product-badge badge-popular">Popular</span>
+            <button class="product-wishlist" aria-label="Save Sunset Wrap Dress to wishlist">
+              <i class="bi bi-heart" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <div class="product-category-label">Resort Wear</div>
+            <h3 class="product-name">Sunset Wrap Dress</h3>
+            <div class="product-sizes" aria-label="Available sizes">
+              <span class="size-chip">XS</span>
+              <span class="size-chip">S</span>
+              <span class="size-chip">M</span>
+              <span class="size-chip">L</span>
+              <span class="size-chip">XL</span>
+            </div>
+            <div class="product-footer">
+              <div>
+                <span class="product-price">$85 USD</span>
+              </div>
+              <a href="https://wa.me/17587235872?text=Hi%21%20I%27d%20like%20to%20order%20the%20Sunset%20Wrap%20Dress%20%E2%80%94%20please%20let%20me%20know%20availability."
+                 class="btn-order-wa"
+                 aria-label="Order Sunset Wrap Dress on WhatsApp"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Order
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card" data-category="everyday" role="article" aria-label="Mango Street Set">
+          <div class="product-img-wrap">
+            <div class="prod-placeholder prod-ph-2" aria-hidden="true">🥭</div>
+            <span class="product-badge badge-new">New</span>
+            <button class="product-wishlist" aria-label="Save Mango Street Set to wishlist">
+              <i class="bi bi-heart" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <div class="product-category-label">Everyday Essentials</div>
+            <h3 class="product-name">Mango Street Set</h3>
+            <div class="product-sizes" aria-label="Available sizes">
+              <span class="size-chip">S</span>
+              <span class="size-chip">M</span>
+              <span class="size-chip">L</span>
+              <span class="size-chip">2XL</span>
+            </div>
+            <div class="product-footer">
+              <div>
+                <span class="product-price">$62 USD</span>
+              </div>
+              <a href="https://wa.me/17587235872?text=Hi%21%20I%27d%20like%20to%20order%20the%20Mango%20Street%20Set%20%E2%80%94%20please%20confirm%20availability."
+                 class="btn-order-wa"
+                 aria-label="Order Mango Street Set on WhatsApp"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Order
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card" data-category="resort" role="article" aria-label="Palm Print Co-ord Set">
+          <div class="product-img-wrap">
+            <div class="prod-placeholder prod-ph-3" aria-hidden="true">🌿</div>
+            <button class="product-wishlist" aria-label="Save Palm Print Co-ord Set to wishlist">
+              <i class="bi bi-heart" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <div class="product-category-label">Resort Wear</div>
+            <h3 class="product-name">Palm Print Co-ord Set</h3>
+            <div class="product-sizes" aria-label="Available sizes">
+              <span class="size-chip">XS</span>
+              <span class="size-chip">S</span>
+              <span class="size-chip">M</span>
+              <span class="size-chip">L</span>
+            </div>
+            <div class="product-footer">
+              <div>
+                <span class="product-price">$98 USD</span>
+              </div>
+              <a href="https://wa.me/17587235872?text=Hi%21%20I%27d%20like%20to%20order%20the%20Palm%20Print%20Co-ord%20Set."
+                 class="btn-order-wa"
+                 aria-label="Order Palm Print Co-ord Set on WhatsApp"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Order
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card" data-category="accessories" role="article" aria-label="Woven Rattan Tote">
+          <div class="product-img-wrap">
+            <div class="prod-placeholder prod-ph-4" aria-hidden="true">👜</div>
+            <span class="product-badge badge-popular">Popular</span>
+            <button class="product-wishlist" aria-label="Save Woven Rattan Tote to wishlist">
+              <i class="bi bi-heart" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <div class="product-category-label">Accessories</div>
+            <h3 class="product-name">Woven Rattan Tote</h3>
+            <div class="product-footer">
+              <div>
+                <span class="product-price">$44 USD</span>
+              </div>
+              <a href="https://wa.me/17587235872?text=Hi%21%20I%27d%20like%20to%20order%20the%20Woven%20Rattan%20Tote."
+                 class="btn-order-wa"
+                 aria-label="Order Woven Rattan Tote on WhatsApp"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Order
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card" data-category="everyday sale" role="article" aria-label="Hibiscus Linen Blouse">
+          <div class="product-img-wrap">
+            <div class="prod-placeholder prod-ph-5" aria-hidden="true">🌺</div>
+            <span class="product-badge badge-sale">Sale</span>
+            <button class="product-wishlist" aria-label="Save Hibiscus Linen Blouse to wishlist">
+              <i class="bi bi-heart" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <div class="product-category-label">Everyday Essentials</div>
+            <h3 class="product-name">Hibiscus Linen Blouse</h3>
+            <div class="product-sizes" aria-label="Available sizes">
+              <span class="size-chip">XS</span>
+              <span class="size-chip">S</span>
+              <span class="size-chip">M</span>
+              <span class="size-chip">L</span>
+              <span class="size-chip">XL</span>
+              <span class="size-chip">2XL</span>
+            </div>
+            <div class="product-footer">
+              <div>
+                <span class="product-price">$38 USD</span>
+                <span class="product-price-old">$55</span>
+              </div>
+              <a href="https://wa.me/17587235872?text=Hi%21%20I%27d%20like%20to%20order%20the%20Hibiscus%20Linen%20Blouse%20%28on%20sale%29."
+                 class="btn-order-wa"
+                 aria-label="Order Hibiscus Linen Blouse on WhatsApp"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Order
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card" data-category="resort" role="article" aria-label="Tropicana Maxi Dress">
+          <div class="product-img-wrap">
+            <div class="prod-placeholder prod-ph-6" aria-hidden="true">✨</div>
+            <span class="product-badge badge-new">New</span>
+            <button class="product-wishlist" aria-label="Save Tropicana Maxi Dress to wishlist">
+              <i class="bi bi-heart" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <div class="product-category-label">Resort Wear</div>
+            <h3 class="product-name">Tropicana Maxi Dress</h3>
+            <div class="product-sizes" aria-label="Available sizes">
+              <span class="size-chip">S</span>
+              <span class="size-chip">M</span>
+              <span class="size-chip">L</span>
+              <span class="size-chip">XL</span>
+            </div>
+            <div class="product-footer">
+              <div>
+                <span class="product-price">$110 USD</span>
+              </div>
+              <a href="https://wa.me/17587235872?text=Hi%21%20I%27d%20like%20to%20order%20the%20Tropicana%20Maxi%20Dress."
+                 class="btn-order-wa"
+                 aria-label="Order Tropicana Maxi Dress on WhatsApp"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Order
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="product-card" data-category="accessories" role="article" aria-label="Shell Beaded Necklace">
+          <div class="product-img-wrap">
+            <div class="prod-placeholder prod-ph-7" aria-hidden="true">🐚</div>
+            <button class="product-wishlist" aria-label="Save Shell Beaded Necklace to wishlist">
+              <i class="bi bi-heart" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <div class="product-category-label">Accessories</div>
+            <h3 class="product-name">Shell Beaded Necklace</h3>
+            <div class="product-footer">
+              <div>
+                <span class="product-price">$22 USD</span>
+              </div>
+              <a href="https://wa.me/17587235872?text=Hi%21%20I%27d%20like%20to%20order%20the%20Shell%20Beaded%20Necklace."
+                 class="btn-order-wa"
+                 aria-label="Order Shell Beaded Necklace on WhatsApp"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Order
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="product-card" data-category="everyday sale" role="article" aria-label="Breeze Crop Top Set">
+          <div class="product-img-wrap">
+            <div class="prod-placeholder prod-ph-8" aria-hidden="true">💚</div>
+            <span class="product-badge badge-sale">Sale</span>
+            <button class="product-wishlist" aria-label="Save Breeze Crop Top Set to wishlist">
+              <i class="bi bi-heart" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <div class="product-category-label">Everyday Essentials</div>
+            <h3 class="product-name">Breeze Crop Top Set</h3>
+            <div class="product-sizes" aria-label="Available sizes">
+              <span class="size-chip">XS</span>
+              <span class="size-chip">S</span>
+              <span class="size-chip">M</span>
+              <span class="size-chip">L</span>
+              <span class="size-chip">XL</span>
+              <span class="size-chip">3XL</span>
+            </div>
+            <div class="product-footer">
+              <div>
+                <span class="product-price">$49 USD</span>
+                <span class="product-price-old">$70</span>
+              </div>
+              <a href="https://wa.me/17587235872?text=Hi%21%20I%27d%20like%20to%20order%20the%20Breeze%20Crop%20Top%20Set%20%28on%20sale%29."
+                 class="btn-order-wa"
+                 aria-label="Order Breeze Crop Top Set on WhatsApp"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Order
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /products-grid -->
+    </div>
+  </section>
+
+  <!-- =========================================
+       PROMO BANNER
+  ========================================= -->
+  <section class="section-pad bg-light-tt" aria-label="Summer promotion">
+    <div class="container">
+      <div class="promo-banner fade-up">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-8">
+            <div class="promo-tag">
+              <i class="bi bi-lightning-charge-fill" aria-hidden="true"></i>
+              Summer Sale — Ends Sunday
+            </div>
+            <h2 class="promo-title">
+              Up to <em>40% Off</em> Selected<br>Summer Styles.
+            </h2>
+            <p class="promo-sub">
+              Our biggest seasonal sale is on now. Resort wear, co-ords, accessories — 
+              limited sizes. Order on WhatsApp before your size sells out.
+            </p>
+            <a href="https://wa.me/17587235872?text=Hi%21%20I%27d%20like%20to%20see%20the%20sale%20items%20from%20Tropica%20Threads%20%F0%9F%9B%8D%EF%B8%8F"
+               class="btn-wa-hero"
+               aria-label="Shop the summer sale on WhatsApp"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              Shop the Sale on WhatsApp
+            </a>
+          </div>
+          <div class="col-lg-4 text-center">
+            <div style="font-size: 7rem; opacity: 0.8;" aria-hidden="true">🛍️</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       PAYPAL PAYMENTS (BLURRED — LINK TIER)
+  ========================================= -->
+  <section class="section-pad section-bg-alt" aria-label="Payment options section">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="section-eyebrow">Payments</div>
+          <h2 class="section-title">Secure Checkout Options</h2>
+          <div class="divider-accent" aria-hidden="true"></div>
+          <p class="section-sub">
+            Pay directly through WhatsApp or use PayPal for fast, secure international checkout.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4 align-items-stretch">
+        <!-- WhatsApp payment - always visible -->
+        <div class="col-md-6">
+          <div class="paypal-mock h-100" style="border: 2px solid rgba(37,211,102,0.3);">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div style="width:44px;height:44px;background:var(--wa-green);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.3rem;" aria-hidden="true">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              </div>
+              <div>
+                <h4 style="font-family:var(--font-display);font-size:1.1rem;margin:0;color:var(--text-body)">Order via WhatsApp</h4>
+                <p style="font-size:.75rem;color:var(--text-muted);margin:0;font-family:var(--font-body)">Available on all plans</p>
+              </div>
+            </div>
+            <p style="font-family:var(--font-body);font-size:.85rem;color:var(--text-muted);line-height:1.65;margin-bottom:1.2rem;">
+              Tap the button, tell us your item and size. We confirm stock and send payment details directly. Fast, simple, no account needed.
+            </p>
+            <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20place%20an%20order%20with%20Tropica%20Threads"
+               class="cta-wa-btn" 
+               style="font-size:.85rem;padding:.65rem 1.3rem;"
+               aria-label="Order now on WhatsApp"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Order on WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- PayPal - blurred / Link tier -->
+        <div class="col-md-6">
+          <div class="premium-blur-section h-100" aria-label="PayPal checkout - requires Link plan">
+            <div class="blur-content paypal-mock h-100" aria-hidden="true">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <div style="width:44px;height:44px;background:#003087;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;font-weight:800;font-family:var(--font-body)">PP</div>
+                <div>
+                  <div style="font-family:var(--font-display);font-size:1.1rem;color:var(--text-body);">PayPal Checkout</div>
+                  <div style="font-size:.75rem;color:var(--text-muted);font-family:var(--font-body)">Secure international payments</div>
+                </div>
+              </div>
+              <p style="font-family:var(--font-body);font-size:.85rem;color:var(--text-muted);line-height:1.65;margin-bottom:1.2rem;">
+                Accept PayPal payments from anywhere in the world. Customers checkout securely without leaving the page.
+              </p>
+              <button class="pp-btn" aria-hidden="true">Pay with PayPal</button>
+            </div>
+            <div class="blur-overlay-card">
+              <div class="blur-message-box">
+                <div class="blur-icon" aria-hidden="true"><i class="bi bi-lock-fill" aria-hidden="true"></i></div>
+                <div class="plan-badge-inline">Link Plan · $49.99/mo</div>
+                <h5>PayPal Checkout</h5>
+                <p>PayPal integration for secure international payments is included in the Link plan and above. Upgrade to accept payments globally.</p>
+                <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20upgrade%20to%20the%20Link%20plan%20for%20PayPal%20checkout"
+                   class="btn-order-wa" 
+                   style="font-size:.82rem;"
+                   aria-label="Upgrade to Link plan for PayPal checkout"
+                   target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Upgrade to Link Plan
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       TESTIMONIALS (BLURRED — MANAGED TIER)
+  ========================================= -->
+  <section class="section-pad" aria-label="Customer testimonials section">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="section-eyebrow">Reviews</div>
+          <h2 class="section-title">What Customers Are Saying</h2>
+          <div class="divider-accent" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="premium-blur-section" aria-label="Customer reviews - requires Managed plan">
+        <div class="blur-content" aria-hidden="true">
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="testimonial-card">
+                <div class="stars" aria-hidden="true">★★★★★</div>
+                <div class="testimonial-quote" aria-hidden="true">"</div>
+                <p class="testimonial-text">Ordered the Sunset Wrap Dress and it arrived exactly as described. The quality is incredible and the WhatsApp ordering was so easy!</p>
+                <div class="testimonial-author">
+                  <div class="testimonial-avatar" style="background:linear-gradient(135deg,var(--primary),var(--accent))" aria-hidden="true">K</div>
+                  <div>
+                    <div class="testimonial-name">Kezia M.</div>
+                    <div class="testimonial-loc">Bridgetown, Barbados</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="testimonial-card">
+                <div class="stars" aria-hidden="true">★★★★★</div>
+                <div class="testimonial-quote" aria-hidden="true">"</div>
+                <p class="testimonial-text">Love every piece from the Palm Collection. Sizes run true and the packaging is beautiful. Will definitely be ordering again!</p>
+                <div class="testimonial-author">
+                  <div class="testimonial-avatar" style="background:linear-gradient(135deg,var(--mid),var(--primary))" aria-hidden="true">S</div>
+                  <div>
+                    <div class="testimonial-name">Sandra T.</div>
+                    <div class="testimonial-loc">Port of Spain, Trinidad</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="testimonial-card">
+                <div class="stars" aria-hidden="true">★★★★★</div>
+                <div class="testimonial-quote" aria-hidden="true">"</div>
+                <p class="testimonial-text">Ordering on WhatsApp is the best. No complicated checkout. Just message, confirm size, and done. My rattan tote is stunning!</p>
+                <div class="testimonial-author">
+                  <div class="testimonial-avatar" style="background:linear-gradient(135deg,var(--accent),var(--primary))" aria-hidden="true">D</div>
+                  <div>
+                    <div class="testimonial-name">Danielle R.</div>
+                    <div class="testimonial-loc">Castries, St. Lucia</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="blur-overlay-card">
+          <div class="blur-message-box">
+            <div class="blur-icon" aria-hidden="true"><i class="bi bi-star-fill" aria-hidden="true"></i></div>
+            <div class="plan-badge-inline">Managed Plan · $89.99/mo</div>
+            <h5>Customer Testimonials</h5>
+            <p>Display verified customer reviews and build instant trust. Testimonials sections are included in the Managed plan and above.</p>
+            <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20upgrade%20to%20the%20Managed%20plan%20for%20testimonials"
+               class="btn-order-wa"
+               style="font-size:.82rem;"
+               aria-label="Upgrade to Managed plan for testimonials"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Upgrade to Managed Plan
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       SEO / GOOGLE BUSINESS (BLURRED — MANAGED)
+  ========================================= -->
+  <section class="section-pad section-bg-alt" aria-label="SEO and Google Business Profile section">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="section-eyebrow">Visibility</div>
+          <h2 class="section-title">Be Found on Google Too</h2>
+          <div class="divider-accent" aria-hidden="true"></div>
+          <p class="section-sub">Get discovered by customers searching on Google — not just Instagram.</p>
+        </div>
+      </div>
+
+      <div class="premium-blur-section" aria-label="SEO and Google Business - requires Managed plan">
+        <div class="blur-content" aria-hidden="true">
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div style="background:var(--white);border-radius:14px;padding:2rem;border:1px solid rgba(0,0,0,0.07);">
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem;">
+                  <div style="width:44px;height:44px;background:#4285F4;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-family:var(--font-body);font-size:.9rem;" aria-hidden="true">G</div>
+                  <div>
+                    <div style="font-family:var(--font-display);font-size:1.05rem;color:var(--text-body)">Google Business Profile</div>
+                    <div style="font-size:.72rem;color:var(--text-muted);font-family:var(--font-body)">Setup + Verification</div>
+                  </div>
+                </div>
+                <ul style="font-family:var(--font-body);font-size:.84rem;color:var(--text-muted);line-height:2;padding-left:1.2rem;">
+                  <li>Appear in Google Maps searches</li>
+                  <li>Show business hours & location</li>
+                  <li>Collect Google reviews</li>
+                  <li>Verified business listing</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div style="background:var(--white);border-radius:14px;padding:2rem;border:1px solid rgba(0,0,0,0.07);">
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem;">
+                  <div style="width:44px;height:44px;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;" aria-hidden="true">
+                    <i class="bi bi-graph-up-arrow" aria-hidden="true"></i>
+                  </div>
+                  <div>
+                    <div style="font-family:var(--font-display);font-size:1.05rem;color:var(--text-body)">On-Page SEO Setup</div>
+                    <div style="font-size:.72rem;color:var(--text-muted);font-family:var(--font-body)">Basic optimization included</div>
+                  </div>
+                </div>
+                <ul style="font-family:var(--font-body);font-size:.84rem;color:var(--text-muted);line-height:2;padding-left:1.2rem;">
+                  <li>Meta titles & descriptions</li>
+                  <li>Keyword targeting for your area</li>
+                  <li>Structured data markup</li>
+                  <li>Image alt text optimization</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="blur-overlay-card">
+          <div class="blur-message-box">
+            <div class="blur-icon" aria-hidden="true"><i class="bi bi-google" aria-hidden="true"></i></div>
+            <div class="plan-badge-inline">Managed Plan · $89.99/mo</div>
+            <h5>Google Visibility</h5>
+            <p>SEO setup and Google Business Profile are included in the Managed plan. Get found on Google Maps and search, not just social media.</p>
+            <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20upgrade%20to%20the%20Managed%20plan%20for%20Google%20SEO"
+               class="btn-order-wa"
+               style="font-size:.82rem;"
+               aria-label="Upgrade to Managed plan for Google SEO"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Upgrade to Managed Plan
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       ABOUT / OUR STORY
+  ========================================= -->
+  <section class="section-pad" id="about" aria-label="About Tropica Threads">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5">
+          <div style="border-radius:20px;overflow:hidden;background:linear-gradient(135deg,#C9583A20,#E8B86D20);height:380px;display:flex;align-items:center;justify-content:center;" aria-label="Tropica Threads boutique illustration">
+            <span style="font-size:9rem;" aria-hidden="true">🌺</span>
+          </div>
+        </div>
+        <div class="col-lg-7 fade-up">
+          <div class="section-eyebrow">Our Story</div>
+          <h2 class="section-title">Rooted in the Caribbean.<br>Worn by the World.</h2>
+          <div class="divider-accent" aria-hidden="true"></div>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--text-muted);line-height:1.8;margin-bottom:1.2rem;">
+            Tropica Threads started as a love letter to Caribbean identity — the colours, the textures, 
+            the effortless confidence of island women who dress for themselves. We design and curate pieces 
+            that celebrate that energy.
+          </p>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--text-muted);line-height:1.8;margin-bottom:2rem;">
+            Every piece is selected for quality, true-to-size fit, and that unmistakable tropical spirit.  
+            We ship across the Caribbean and internationally. Ordering is simple — just WhatsApp us.
+          </p>
+          <div class="row g-3">
+            <div class="col-6">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <i class="bi bi-check-circle-fill text-primary-tt" aria-hidden="true"></i>
+                <span style="font-family:var(--font-body);font-size:.88rem;color:var(--text-body)">True-to-size fits</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <i class="bi bi-check-circle-fill text-primary-tt" aria-hidden="true"></i>
+                <span style="font-family:var(--font-body);font-size:.88rem;color:var(--text-body)">Island & international shipping</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <i class="bi bi-check-circle-fill text-primary-tt" aria-hidden="true"></i>
+                <span style="font-family:var(--font-body);font-size:.88rem;color:var(--text-body)">Caribbean-inspired designs</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <i class="bi bi-check-circle-fill text-primary-tt" aria-hidden="true"></i>
+                <span style="font-family:var(--font-body);font-size:.88rem;color:var(--text-body)">XS to 3XL sizing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       CTA — ORDER NOW
+  ========================================= -->
+  <section class="section-pad" aria-label="Call to action — order now">
+    <div class="container">
+      <div class="cta-section fade-up">
+        <div style="font-size:3.5rem;margin-bottom:1rem;" aria-hidden="true">🛍️</div>
+        <div class="section-eyebrow" style="text-align:center">Ready to Shop?</div>
+        <h2 class="section-title" style="text-align:center;margin-bottom:.75rem">
+          Order Your Style in Minutes
+        </h2>
+        <p style="font-family:var(--font-body);font-size:.95rem;color:var(--text-muted);text-align:center;max-width:460px;margin:0 auto 2rem;line-height:1.7;">
+          No account. No complicated checkout. Just tap below, tell us what you want and your size — 
+          we confirm your order fast.
+        </p>
+        <a href="https://wa.me/17587235872?text=Hi%21%20I%27d%20like%20to%20place%20an%20order%20with%20Tropica%20Threads%20%F0%9F%9B%8D%EF%B8%8F"
+           class="cta-wa-btn"
+           aria-label="Place an order on WhatsApp"
+           target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+          Order on WhatsApp Now
+        </a>
+        <p style="font-family:var(--font-body);font-size:.75rem;color:var(--text-muted);margin-top:1.2rem;">
+          <i class="bi bi-shield-check me-1" aria-hidden="true"></i>
+          Fast response · Secure payments · Real people
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       FOOTER
+  ========================================= -->
+  <footer class="footer-main" role="contentinfo">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <div class="footer-logo-area navbar-brand-tt">
+            <div class="brand-mark" aria-hidden="true">TT</div>
+            <div>
+              <div class="brand-name">Tropica Threads</div>
+              <div class="brand-tagline">Caribbean Fashion Boutique</div>
+            </div>
+          </div>
+          <p class="footer-desc">
+            Caribbean-inspired fashion for women who dress with intention. 
+            Vibrant. Bold. Built for island life and beyond.
+          </p>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <div class="footer-heading">Shop</div>
+          <ul class="footer-links" role="list">
+            <li><a href="#shop">All Products</a></li>
+            <li><a href="#collections">Resort Wear</a></li>
+            <li><a href="#collections">Everyday</a></li>
+            <li><a href="#collections">Accessories</a></li>
+            <li><a href="#shop">Sale Items</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <div class="footer-heading">Info</div>
+          <ul class="footer-links" role="list">
+            <li><a href="#about">Our Story</a></li>
+            <li><a href="https://wa.me/17587235872" target="_blank" rel="noopener noreferrer">Sizing Guide</a></li>
+            <li><a href="https://wa.me/17587235872" target="_blank" rel="noopener noreferrer">Shipping</a></li>
+            <li><a href="https://wa.me/17587235872" target="_blank" rel="noopener noreferrer">Returns</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <div class="footer-heading">Contact & Orders</div>
+          <div class="footer-wa-block">
+            <p>Quickest way to order or ask a question — WhatsApp us directly. We typically respond within a few hours.</p>
+            <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20chat%20with%20Tropica%20Threads"
+               class="footer-wa-link"
+               aria-label="Contact Tropica Threads on WhatsApp"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              Message Us on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Tropica Threads. All rights reserved.</p>
+        <p class="footer-built-by">
+          Built by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener noreferrer">JAMALINKS</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // =============================================
+    // THEME — Auto-detect + Manual Toggle
+    // =============================================
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const themeLabel = document.getElementById('themeLabel');
+    const html = document.documentElement;
+
+    function applyTheme(dark) {
+      if (dark) {
+        html.setAttribute('data-theme', 'dark');
+        themeIcon.className = 'bi bi-sun-fill';
+        themeLabel.textContent = 'Light';
+      } else {
+        html.removeAttribute('data-theme');
+        themeIcon.className = 'bi bi-moon-fill';
+        themeLabel.textContent = 'Dark';
+      }
+    }
+
+    // Auto-detect: 6pm–6am = dark
+    const hour = new Date().getHours();
+    let isDark = hour >= 18 || hour < 6;
+    applyTheme(isDark);
+
+    themeToggle.addEventListener('click', function() {
+      isDark = !isDark;
+      applyTheme(isDark);
+    });
+
+    // =============================================
+    // PRODUCT FILTER TABS
+    // =============================================
+    function filterProducts(category, btn) {
+      // Update active tab
+      document.querySelectorAll('.filter-tab').forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      // Filter cards
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        const cats = card.dataset.category || '';
+        if (category === 'all' || cats.includes(category)) {
+          card.style.display = '';
+          card.style.animation = 'fadeIn 0.3s ease';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // =============================================
+    // SCROLL REVEAL ANIMATIONS
+    // =============================================
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    fadeEls.forEach(el => observer.observe(el));
+
+    // =============================================
+    // WISHLIST HEARTS (visual toggle)
+    // =============================================
+    document.querySelectorAll('.product-wishlist').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const icon = this.querySelector('i');
+        const isLiked = icon.classList.contains('bi-heart-fill');
+        icon.className = isLiked ? 'bi bi-heart' : 'bi bi-heart-fill';
+        this.style.color = isLiked ? '' : 'var(--primary)';
+        this.setAttribute('aria-pressed', isLiked ? 'false' : 'true');
+      });
+    });
+  </script>
+</body>
+</html>
