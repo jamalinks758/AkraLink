@@ -183,29 +183,28 @@
     }
 
     /* =============================================
-       THEME TOGGLE
+       THEME TOGGLE — lives inside navbar now
     ============================================= */
     .theme-toggle {
-      position: fixed;
-      top: 18px;
-      right: 16px;
-      z-index: 9998;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       background: var(--stone-2);
       border: 1px solid var(--stone-3);
       border-radius: 30px;
-      padding: .3rem .7rem;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      padding: .32rem .75rem;
       cursor: pointer;
-      font-size: .73rem;
+      font-size: .72rem;
       font-family: var(--font-body);
+      font-weight: 400;
       color: var(--mist);
-      transition: all 0.2s;
+      transition: border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
-    .theme-toggle:hover { border-color: var(--sage); color: var(--sage); }
-    .theme-toggle i { font-size: .8rem; }
+    .theme-toggle:hover { border-color: var(--sage); color: var(--sage-deep); }
+    .theme-toggle i { font-size: .78rem; line-height: 1; }
 
     /* =============================================
        NAVBAR
@@ -252,45 +251,64 @@
       margin-top: 1px;
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+    }
+
     .nav-links-sv {
       display: flex;
       align-items: center;
-      gap: 2rem;
+      gap: 1.8rem;
       list-style: none;
+      margin: 0;
+      padding: 0;
     }
 
     .nav-links-sv a {
-      font-size: .77rem;
+      font-size: .75rem;
       font-weight: 400;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--mist);
       transition: color 0.2s;
+      white-space: nowrap;
     }
 
     .nav-links-sv a:hover { color: var(--ink); }
 
+    .nav-divider {
+      width: 1px;
+      height: 18px;
+      background: var(--stone-3);
+      flex-shrink: 0;
+    }
+
     .nav-book-btn {
       font-family: var(--font-body);
-      font-size: .73rem;
+      font-size: .72rem;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: .55rem 1.4rem;
+      padding: .52rem 1.3rem;
       border-radius: 3px;
       background: var(--ink);
       color: var(--stone) !important;
       transition: background 0.2s, color 0.2s !important;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .nav-book-btn:hover {
       background: var(--sage-deep) !important;
-      color: var(--white) !important;
+      color: #fff !important;
     }
 
     @media (max-width: 768px) {
       .nav-links-sv { display: none; }
-      .navbar-sv { padding: .85rem 1.2rem; }
+      .nav-divider  { display: none; }
+      .navbar-sv    { padding: .85rem 1.2rem; }
     }
 
     /* =============================================
@@ -447,11 +465,10 @@
     /* Hero Right - Visual */
     .hero-right {
       position: relative;
-      overflow: hidden;
     }
 
     @media (max-width: 768px) {
-      .hero-right { height: 60vw; min-height: 280px; }
+      .hero-right { height: 60vw; min-height: 280px; overflow: hidden; }
     }
 
     .hero-img {
@@ -463,10 +480,15 @@
     .hero-img-fallback {
       width: 100%;
       height: 100%;
+      min-height: 92vh;
       background: linear-gradient(160deg, var(--sage-pale) 0%, var(--blush-pale) 50%, var(--gold-pale) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+      .hero-img-fallback { min-height: 280px; }
     }
 
     .hero-fallback-art {
@@ -484,13 +506,14 @@
     .hero-float-card {
       position: absolute;
       bottom: 32px;
-      left: -24px;
+      left: 24px;
+      right: 24px;
       background: var(--white);
       border-radius: var(--radius-md);
       padding: 1.2rem 1.5rem;
-      box-shadow: var(--shadow-med);
-      min-width: 230px;
-      border: 1px solid var(--stone-2);
+      box-shadow: 0 20px 60px rgba(28,28,26,0.22);
+      z-index: 10;
+      border: 1px solid rgba(221,211,196,0.5);
     }
 
     [data-theme="dark"] .hero-float-card {
@@ -1373,10 +1396,10 @@
     }
 
     /* =============================================
-       FOOTER
+       FOOTER — always dark background, always light text
     ============================================= */
     .footer-sv {
-      background: var(--ink-2);
+      background: #2E2E2B;   /* hardcoded dark — never changes with theme */
       padding: 4rem 0 2rem;
     }
 
@@ -1384,7 +1407,7 @@
       font-family: var(--font-serif);
       font-size: 1.4rem;
       font-weight: 700;
-      color: var(--stone);
+      color: #F5F0EB;
       letter-spacing: 0.06em;
       margin-bottom: 2px;
     }
@@ -1394,14 +1417,14 @@
       font-size: .58rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: rgba(245,240,235,0.3);
+      color: rgba(245,240,235,0.38);
     }
 
     .footer-sv .footer-about {
       font-family: var(--font-body);
       font-size: .82rem;
       font-weight: 300;
-      color: rgba(245,240,235,0.4);
+      color: rgba(245,240,235,0.52);
       line-height: 1.8;
       max-width: 280px;
       margin-top: .9rem;
@@ -1413,7 +1436,7 @@
       font-weight: 600;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--sage);
+      color: #8A9E8C;   /* sage — hardcoded */
       margin-bottom: 1.2rem;
     }
 
@@ -1428,15 +1451,15 @@
       font-family: var(--font-body);
       font-size: .83rem;
       font-weight: 300;
-      color: rgba(245,240,235,0.4);
+      color: rgba(245,240,235,0.5);
       transition: color 0.2s;
     }
 
-    .footer-sv .footer-links-sv a:hover { color: var(--stone); }
+    .footer-sv .footer-links-sv a:hover { color: #F5F0EB; }
 
     .footer-sv .footer-wa-box {
       background: rgba(37,211,102,0.06);
-      border: 1px solid rgba(37,211,102,0.15);
+      border: 1px solid rgba(37,211,102,0.18);
       border-radius: var(--radius-md);
       padding: 1.3rem;
     }
@@ -1445,7 +1468,7 @@
       font-family: var(--font-body);
       font-size: .8rem;
       font-weight: 300;
-      color: rgba(245,240,235,0.4);
+      color: rgba(245,240,235,0.52);
       margin-bottom: .9rem;
       line-height: 1.6;
     }
@@ -1467,7 +1490,7 @@
     .footer-sv .fwa-btn:hover { background: var(--wa-dark); color: #fff; }
 
     .footer-sv .footer-bottom-sv {
-      border-top: 1px solid rgba(245,240,235,0.06);
+      border-top: 1px solid rgba(245,240,235,0.08);
       margin-top: 2.8rem;
       padding-top: 1.5rem;
       display: flex;
@@ -1477,20 +1500,21 @@
       gap: .75rem;
     }
 
-    .footer-sv .footer-bottom-sv p,
-    .footer-sv .footer-bottom-sv a {
+    .footer-sv .footer-bottom-sv p {
       font-family: var(--font-body);
       font-size: .72rem;
       font-weight: 300;
-      color: rgba(245,240,235,0.22);
+      color: rgba(245,240,235,0.28);
     }
 
     .footer-sv .footer-bottom-sv a {
-      color: var(--sage);
+      font-family: var(--font-body);
+      font-size: .72rem;
       font-weight: 500;
+      color: #8A9E8C;
     }
 
-    .footer-sv .footer-bottom-sv a:hover { color: var(--sage-pale); }
+    .footer-sv .footer-bottom-sv a:hover { color: #CDD9CE; }
 
     /* =============================================
        ANIMATIONS
@@ -1541,31 +1565,30 @@
     AkraLink Demo
   </div>
 
-  <!-- ============ THEME TOGGLE ============ -->
-  <button class="theme-toggle" id="themeToggle" aria-label="Toggle light or dark mode">
-    <i class="bi bi-moon-fill" id="themeIcon" aria-hidden="true"></i>
-    <span id="themeLabel">Dark</span>
-  </button>
-
   <!-- ============ NAVBAR ============ -->
   <nav class="navbar-sv" role="navigation" aria-label="Main navigation">
     <div class="nav-logo">
       <span class="nav-logo-name">Serenova</span>
       <span class="nav-logo-sub">Spa &amp; Aesthetics</span>
     </div>
-    <ul class="nav-links-sv" role="list">
-      <li><a href="#treatments">Treatments</a></li>
-      <li><a href="#process">How It Works</a></li>
-      <li><a href="#about">About</a></li>
-      <li>
-        <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20book%20an%20appointment%20at%20Serenova."
-           class="nav-book-btn"
-           aria-label="Book an appointment"
-           target="_blank" rel="noopener noreferrer">
-          Book Now
-        </a>
-      </li>
-    </ul>
+    <div class="nav-right">
+      <ul class="nav-links-sv" role="list">
+        <li><a href="#treatments">Treatments</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light or dark mode">
+        <i class="bi bi-moon-fill" id="themeIcon" aria-hidden="true"></i>
+        <span id="themeLabel">Dark</span>
+      </button>
+      <div class="nav-divider" aria-hidden="true"></div>
+      <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20book%20an%20appointment%20at%20Serenova."
+         class="nav-book-btn"
+         aria-label="Book an appointment"
+         target="_blank" rel="noopener noreferrer">
+        Book Now
+      </a>
+    </div>
   </nav>
 
   <!-- ============ HERO ============ -->
@@ -1618,7 +1641,7 @@
         </div>
       </div>
       <img 
-        src="../images/serenova-spa.webp"
+        src="../images/serenova-spa-hero.webp"
         alt="Serenova Spa — luxurious treatment room with warm lighting and botanicals"
         class="hero-img"
         width="800" height="900"
