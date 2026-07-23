@@ -259,34 +259,31 @@
 
     .nav-links-vl a:hover { color: var(--green-pale); }
 
-    .nav-divider-vl {
-      width: 1px;
-      height: 18px;
-      background: rgba(74,124,82,0.3);
-      flex-shrink: 0;
-    }
-
-    /* Theme toggle — dark navbar version */
-    .theme-toggle {
-      display: inline-flex;
+    /* Floating theme toggle — stacked above the WhatsApp float button */
+    .theme-toggle-float {
+      position: fixed;
+      bottom: 98px;
+      right: 20px;
+      z-index: 9998;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--forest);
+      border: 1px solid rgba(74,124,82,0.4);
+      color: #fff;
+      display: flex;
       align-items: center;
-      gap: 6px;
-      background: rgba(74,124,82,0.15);
-      border: 1px solid rgba(74,124,82,0.3);
-      border-radius: 30px;
-      padding: .3rem .72rem;
+      justify-content: center;
       cursor: pointer;
-      font-size: .7rem;
-      font-family: var(--font-body);
-      font-weight: 400;
-      color: rgba(255,255,255,0.5);
-      transition: border-color 0.2s, color 0.2s;
-      white-space: nowrap;
-      flex-shrink: 0;
+      font-size: 1.05rem;
+      box-shadow: var(--sh-soft);
+      transition: transform 0.2s, border-color 0.2s;
     }
 
-    .theme-toggle:hover { border-color: var(--green-light); color: var(--green-pale); }
-    .theme-toggle i { font-size: .76rem; }
+    .theme-toggle-float:hover {
+      transform: scale(1.07);
+      border-color: var(--green-light);
+    }
 
     .nav-quote-btn {
       font-family: var(--font-body);
@@ -388,10 +385,14 @@
 
     @media (max-width: 768px) {
       .nav-links-vl { display: none; }
-      .nav-divider-vl { display: none; }
-      .navbar-vl { padding: .8rem 1.1rem; }
-      .theme-toggle span { display: none; }
+      .navbar-vl { padding: .7rem .9rem; }
+      .nav-right-vl { gap: .6rem; }
       .nav-hamburger { display: flex; }
+      .nav-quote-btn {
+        padding: .42rem .7rem;
+        font-size: .62rem;
+        gap: 4px;
+      }
     }
 
     /* =============================================
@@ -691,7 +692,7 @@
       color: var(--green);
     }
 
-    [data-theme="dark"] .sec-h2 { color: var(--stone); }
+    [data-theme="dark"] .sec-h2 { color: var(--ink); }
 
     .sec-para {
       font-family: var(--font-body);
@@ -844,7 +845,7 @@
       margin-bottom: .5rem;
     }
 
-    [data-theme="dark"] .sc-name { color: var(--stone); }
+    [data-theme="dark"] .sc-name { color: var(--ink); }
 
     .sc-desc {
       font-family: var(--font-body);
@@ -902,7 +903,7 @@
       color: var(--ink);
     }
 
-    [data-theme="dark"] .sc-price { color: var(--stone); }
+    [data-theme="dark"] .sc-price { color: var(--ink); }
 
     .sc-price-note {
       font-family: var(--font-body);
@@ -1099,7 +1100,7 @@
       color: var(--ink);
     }
 
-    [data-theme="dark"] .gc-info-name { color: var(--stone); }
+    [data-theme="dark"] .gc-info-name { color: var(--ink); }
 
     .gc-info-tag {
       font-family: var(--font-body);
@@ -1186,7 +1187,7 @@
       margin-bottom: .4rem;
     }
 
-    [data-theme="dark"] .ps-title { color: var(--stone); }
+    [data-theme="dark"] .ps-title { color: var(--ink); }
 
     .ps-desc {
       font-family: var(--font-body);
@@ -1288,7 +1289,7 @@
       margin-bottom: .45rem;
     }
 
-    [data-theme="dark"] .editable-placeholder h5 { color: var(--stone); }
+    [data-theme="dark"] .editable-placeholder h5 { color: var(--ink); }
 
     .editable-placeholder p {
       font-family: var(--font-body);
@@ -1328,7 +1329,7 @@
       margin-bottom: 1.1rem;
     }
 
-    [data-theme="dark"] .rc-text { color: var(--stone); }
+    [data-theme="dark"] .rc-text { color: var(--ink); }
 
     .rc-author {
       font-family: var(--font-body);
@@ -1337,7 +1338,7 @@
       color: var(--ink);
     }
 
-    [data-theme="dark"] .rc-author { color: var(--stone); }
+    [data-theme="dark"] .rc-author { color: var(--ink); }
 
     .rc-loc {
       font-family: var(--font-body);
@@ -1642,6 +1643,11 @@
 
 <body>
 
+  <!-- ======= FLOATING THEME TOGGLE ======= -->
+  <button class="theme-toggle-float" id="themeToggle" aria-label="Toggle light or dark mode" title="Toggle light or dark mode">
+    <i class="bi bi-moon-fill" id="themeIcon" aria-hidden="true"></i>
+  </button>
+
   <!-- ======= FLOATING WA ======= -->
   <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20request%20a%20free%20quote%20from%20Verdant%20Landscapes%20%F0%9F%8C%BF"
      class="wa-float"
@@ -1675,11 +1681,6 @@
         <li><a href="#process">How It Works</a></li>
         <li><a href="#about">About</a></li>
       </ul>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light or dark mode">
-        <i class="bi bi-moon-fill" id="themeIcon" aria-hidden="true"></i>
-        <span id="themeLabel">Dark</span>
-      </button>
-      <div class="nav-divider-vl" aria-hidden="true"></div>
       <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20request%20a%20free%20quote%20from%20Verdant%20Landscapes."
          class="nav-quote-btn"
          aria-label="Request a free quote on WhatsApp"
@@ -2451,18 +2452,17 @@
     // ===== THEME =====
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon   = document.getElementById('themeIcon');
-    const themeLabel  = document.getElementById('themeLabel');
     const html        = document.documentElement;
 
     function applyTheme(dark) {
       if (dark) {
         html.setAttribute('data-theme', 'dark');
         themeIcon.className = 'bi bi-sun-fill';
-        themeLabel.textContent = 'Light';
+        themeToggle.setAttribute('title', 'Switch to light mode');
       } else {
         html.removeAttribute('data-theme');
         themeIcon.className = 'bi bi-moon-fill';
-        themeLabel.textContent = 'Dark';
+        themeToggle.setAttribute('title', 'Switch to dark mode');
       }
     }
 
