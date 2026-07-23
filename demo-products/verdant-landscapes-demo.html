@@ -8,6 +8,12 @@
   <meta property="og:description" content="Professional landscaping and garden services. Service packages, project gallery, and instant WhatsApp quotes.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jamalinks758.github.io/AkraLink/demo-products/verdant-landscapes.html">
+  <meta property="og:image" content="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-gallery-hillcrest-garden.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Verdant Landscapes | Landscaping & Garden Services">
+  <meta name="twitter:description" content="Professional landscaping and garden services. Service packages, project gallery, and instant WhatsApp quotes.">
+  <meta name="twitter:image" content="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-gallery-hillcrest-garden.webp">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%234A7C52'/%3E%3Cpath d='M50 78 V38 M50 38 C35 38 25 28 25 15 C40 15 50 25 50 38 C50 25 60 15 75 15 C75 28 65 38 50 38Z' fill='none' stroke='white' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
   <title>Verdant Landscapes | Landscaping & Garden Services</title>
 
   <!-- Bootstrap 5.3 -->
@@ -253,34 +259,31 @@
 
     .nav-links-vl a:hover { color: var(--green-pale); }
 
-    .nav-divider-vl {
-      width: 1px;
-      height: 18px;
-      background: rgba(74,124,82,0.3);
-      flex-shrink: 0;
-    }
-
-    /* Theme toggle — dark navbar version */
-    .theme-toggle {
-      display: inline-flex;
+    /* Floating theme toggle — stacked above the WhatsApp float button */
+    .theme-toggle-float {
+      position: fixed;
+      bottom: 98px;
+      right: 20px;
+      z-index: 9998;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--forest);
+      border: 1px solid rgba(74,124,82,0.4);
+      color: #fff;
+      display: flex;
       align-items: center;
-      gap: 6px;
-      background: rgba(74,124,82,0.15);
-      border: 1px solid rgba(74,124,82,0.3);
-      border-radius: 30px;
-      padding: .3rem .72rem;
+      justify-content: center;
       cursor: pointer;
-      font-size: .7rem;
-      font-family: var(--font-body);
-      font-weight: 400;
-      color: rgba(255,255,255,0.5);
-      transition: border-color 0.2s, color 0.2s;
-      white-space: nowrap;
-      flex-shrink: 0;
+      font-size: 1.05rem;
+      box-shadow: var(--sh-soft);
+      transition: transform 0.2s, border-color 0.2s;
     }
 
-    .theme-toggle:hover { border-color: var(--green-light); color: var(--green-pale); }
-    .theme-toggle i { font-size: .76rem; }
+    .theme-toggle-float:hover {
+      transform: scale(1.07);
+      border-color: var(--green-light);
+    }
 
     .nav-quote-btn {
       font-family: var(--font-body);
@@ -302,10 +305,94 @@
 
     .nav-quote-btn:hover { background: var(--green-light) !important; }
 
+    /* Mobile hamburger */
+    .nav-hamburger {
+      display: none;
+      width: 38px;
+      height: 38px;
+      border-radius: var(--r-sm);
+      background: rgba(74,124,82,0.15);
+      border: 1px solid rgba(74,124,82,0.3);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #fff;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .mobile-nav-drawer {
+      position: fixed;
+      inset: 0 0 0 auto;
+      width: min(78vw, 320px);
+      height: 100vh;
+      background: var(--forest);
+      border-left: 1px solid rgba(74,124,82,0.25);
+      z-index: 1100;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      padding: 1.6rem;
+      gap: 1.6rem;
+    }
+
+    .mobile-nav-drawer.open { transform: translateX(0); }
+
+    .mobile-nav-close {
+      align-self: flex-end;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(74,124,82,0.15);
+      border: 1px solid rgba(74,124,82,0.3);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .mobile-nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+
+    .mobile-nav-links a {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .mobile-nav-links a:hover { color: var(--green-light); }
+
+    .mobile-nav-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1050;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .mobile-nav-backdrop.open { opacity: 1; pointer-events: auto; }
+
     @media (max-width: 768px) {
       .nav-links-vl { display: none; }
-      .nav-divider-vl { display: none; }
-      .navbar-vl { padding: .8rem 1.1rem; }
+      .navbar-vl { padding: .7rem .9rem; }
+      .nav-right-vl { gap: .6rem; }
+      .nav-hamburger { display: flex; }
+      .nav-quote-btn {
+        padding: .42rem .7rem;
+        font-size: .62rem;
+        gap: 4px;
+      }
     }
 
     /* =============================================
@@ -605,7 +692,7 @@
       color: var(--green);
     }
 
-    [data-theme="dark"] .sec-h2 { color: var(--stone); }
+    [data-theme="dark"] .sec-h2 { color: var(--ink); }
 
     .sec-para {
       font-family: var(--font-body);
@@ -758,7 +845,7 @@
       margin-bottom: .5rem;
     }
 
-    [data-theme="dark"] .sc-name { color: var(--stone); }
+    [data-theme="dark"] .sc-name { color: var(--ink); }
 
     .sc-desc {
       font-family: var(--font-body);
@@ -816,7 +903,7 @@
       color: var(--ink);
     }
 
-    [data-theme="dark"] .sc-price { color: var(--stone); }
+    [data-theme="dark"] .sc-price { color: var(--ink); }
 
     .sc-price-note {
       font-family: var(--font-body);
@@ -1013,7 +1100,7 @@
       color: var(--ink);
     }
 
-    [data-theme="dark"] .gc-info-name { color: var(--stone); }
+    [data-theme="dark"] .gc-info-name { color: var(--ink); }
 
     .gc-info-tag {
       font-family: var(--font-body);
@@ -1100,7 +1187,7 @@
       margin-bottom: .4rem;
     }
 
-    [data-theme="dark"] .ps-title { color: var(--stone); }
+    [data-theme="dark"] .ps-title { color: var(--ink); }
 
     .ps-desc {
       font-family: var(--font-body);
@@ -1140,6 +1227,7 @@
       font-size: 2.2rem;
       margin-bottom: 1rem;
       display: block;
+      color: var(--green-light);
     }
 
     .pillar-title {
@@ -1201,7 +1289,7 @@
       margin-bottom: .45rem;
     }
 
-    [data-theme="dark"] .editable-placeholder h5 { color: var(--stone); }
+    [data-theme="dark"] .editable-placeholder h5 { color: var(--ink); }
 
     .editable-placeholder p {
       font-family: var(--font-body);
@@ -1241,7 +1329,7 @@
       margin-bottom: 1.1rem;
     }
 
-    [data-theme="dark"] .rc-text { color: var(--stone); }
+    [data-theme="dark"] .rc-text { color: var(--ink); }
 
     .rc-author {
       font-family: var(--font-body);
@@ -1250,7 +1338,7 @@
       color: var(--ink);
     }
 
-    [data-theme="dark"] .rc-author { color: var(--stone); }
+    [data-theme="dark"] .rc-author { color: var(--ink); }
 
     .rc-loc {
       font-family: var(--font-body);
@@ -1318,7 +1406,9 @@
        FINAL CTA
     ============================================= */
     .cta-vl {
-      background: linear-gradient(135deg, var(--forest) 0%, var(--forest-3) 60%, #1A2416 100%);
+      background:
+        linear-gradient(135deg, rgba(26,36,22,0.92) 0%, rgba(47,61,42,0.88) 60%, rgba(26,36,22,0.95) 100%),
+        url('https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-bg-texture.webp') center/cover no-repeat;
       border-radius: var(--r-lg);
       padding: 5rem 3rem;
       text-align: center;
@@ -1553,6 +1643,11 @@
 
 <body>
 
+  <!-- ======= FLOATING THEME TOGGLE ======= -->
+  <button class="theme-toggle-float" id="themeToggle" aria-label="Toggle light or dark mode" title="Toggle light or dark mode">
+    <i class="bi bi-moon-fill" id="themeIcon" aria-hidden="true"></i>
+  </button>
+
   <!-- ======= FLOATING WA ======= -->
   <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20request%20a%20free%20quote%20from%20Verdant%20Landscapes%20%F0%9F%8C%BF"
      class="wa-float"
@@ -1573,7 +1668,7 @@
   <!-- ======= NAVBAR ======= -->
   <nav class="navbar-vl" role="navigation" aria-label="Main navigation">
     <div class="nav-logo-vl">
-      <div class="nav-logo-icon" aria-hidden="true">🌿</div>
+      <div class="nav-logo-icon" aria-hidden="true"><i class="bi bi-tree-fill"></i></div>
       <div>
         <div class="nav-logo-text-main">Verdant</div>
         <div class="nav-logo-text-sub">Landscapes</div>
@@ -1586,25 +1681,45 @@
         <li><a href="#process">How It Works</a></li>
         <li><a href="#about">About</a></li>
       </ul>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light or dark mode">
-        <i class="bi bi-moon-fill" id="themeIcon" aria-hidden="true"></i>
-        <span id="themeLabel">Dark</span>
-      </button>
-      <div class="nav-divider-vl" aria-hidden="true"></div>
       <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20request%20a%20free%20quote%20from%20Verdant%20Landscapes."
          class="nav-quote-btn"
          aria-label="Request a free quote on WhatsApp"
          target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp" aria-hidden="true"></i> Free Quote
       </a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNavDrawer">
+        <i class="bi bi-list" aria-hidden="true"></i>
+      </button>
     </div>
   </nav>
+
+  <!-- ======= MOBILE NAV DRAWER ======= -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <div class="mobile-nav-drawer" id="mobileNavDrawer" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+      <i class="bi bi-x-lg" aria-hidden="true"></i>
+    </button>
+    <ul class="mobile-nav-links" role="list">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#process">How It Works</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20request%20a%20free%20quote%20from%20Verdant%20Landscapes."
+       class="nav-quote-btn"
+       style="justify-content:center;"
+       aria-label="Request a free quote on WhatsApp"
+       target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i> Free Quote
+    </a>
+  </div>
 
   <!-- ======= HERO ======= -->
   <section class="hero-vl" role="banner" aria-label="Verdant Landscapes hero">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-pattern" aria-hidden="true"></div>
 
+ 
     <img
       src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-landscapes-hero.webp"
       alt="Verdant Landscapes — beautifully maintained garden and lawn"
@@ -1670,7 +1785,7 @@
         <div class="col-lg-5">
           <div class="hero-cards-col" role="complementary" aria-label="Recent projects">
             <div class="hero-proj-card">
-              <div class="hpc-icon" aria-hidden="true">🏡</div>
+              <div class="hpc-icon" aria-hidden="true"><i class="bi bi-house-heart-fill"></i></div>
               <div>
                 <div class="hpc-name">Hillcrest Residence</div>
                 <div class="hpc-type">Full garden redesign</div>
@@ -1678,7 +1793,7 @@
               <span class="hpc-badge">Completed</span>
             </div>
             <div class="hero-proj-card">
-              <div class="hpc-icon" aria-hidden="true">✂️</div>
+              <div class="hpc-icon" aria-hidden="true"><i class="bi bi-flower2"></i></div>
               <div>
                 <div class="hpc-name">Bougainvillea Estate</div>
                 <div class="hpc-type">Monthly maintenance</div>
@@ -1686,7 +1801,7 @@
               <span class="hpc-badge">Ongoing</span>
             </div>
             <div class="hero-proj-card">
-              <div class="hpc-icon" aria-hidden="true">🪨</div>
+              <div class="hpc-icon" aria-hidden="true"><i class="bi bi-building"></i></div>
               <div>
                 <div class="hpc-name">Sunset Commercial Park</div>
                 <div class="hpc-type">Hardscape + planting</div>
@@ -1694,7 +1809,7 @@
               <span class="hpc-badge">Completed</span>
             </div>
             <div class="hero-proj-card">
-              <div class="hpc-icon" aria-hidden="true">💧</div>
+              <div class="hpc-icon" aria-hidden="true"><i class="bi bi-droplet-fill"></i></div>
               <div>
                 <div class="hpc-name">Oceanview Terrace</div>
                 <div class="hpc-type">Irrigation system install</div>
@@ -1746,7 +1861,7 @@
         <div class="col-sm-6 col-lg-3 reveal">
           <div class="service-card">
             <div class="sc-top">
-              <img src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-service-lawn-upkeep.webp" alt="Freshly mowed lawn with trimmed hedges" class="sc-visual-inner sc-v1">
+              <img src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-service-lawn-upkeep.webp" loading="lazy" decoding="async" alt="Freshly mowed lawn with trimmed hedges" class="sc-visual-inner sc-v1">
               
             </div>
             <div class="sc-body">
@@ -1779,7 +1894,7 @@
         <div class="col-sm-6 col-lg-3 reveal reveal-d1">
           <div class="service-card featured">
             <div class="sc-top">
-              <img src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-service-garden-design.webp" alt="Newly designed tropical garden bed" class="sc-visual-inner sc-v2">
+              <img src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-service-garden-design.webp" loading="lazy" decoding="async" alt="Newly designed tropical garden bed" class="sc-visual-inner sc-v2">
               <span class="sc-featured-tag">Most Popular</span>
             </div>
             <div class="sc-body">
@@ -1813,7 +1928,7 @@
         <div class="col-sm-6 col-lg-3 reveal reveal-d2">
           <div class="service-card">
             <div class="sc-top">
-              <img src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-service-hardscape-patio.webp" alt="Stone paver patio and walkway" class="sc-visual-inner sc-v3">
+              <img src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-service-hardscape-patio.webp" loading="lazy" decoding="async" alt="Stone paver patio and walkway" class="sc-visual-inner sc-v3">
             </div>
             <div class="sc-body">
               <div class="sc-category">Hardscape</div>
@@ -1845,7 +1960,7 @@
         <div class="col-sm-6 col-lg-3 reveal reveal-d3">
           <div class="service-card">
             <div class="sc-top">
-              <img src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-service-irrigation.webp" alt="Drip irrigation line in a garden bed" class="sc-visual-inner sc-v4">
+              <img src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-service-irrigation.webp" loading="lazy" decoding="async" alt="Drip irrigation line in a garden bed" class="sc-visual-inner sc-v4">
             </div>
             <div class="sc-body">
               <div class="sc-category">Irrigation</div>
@@ -1906,7 +2021,7 @@
         <!-- Item 1 — Tall -->
         <div class="gallery-card gallery-item-tall" data-cat="design" role="article" aria-label="Hillcrest Garden Transformation">
           <div class="gc-img gc-v1">
-            <img src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-gallery-hillcrest-garden.webp" alt="Hillcrest Garden Transformation" class="gc-photo">
+            <img src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-gallery-hillcrest-garden.webp" loading="lazy" decoding="async" alt="Hillcrest Garden Transformation" class="gc-photo">
             <div class="gc-overlay">
               <div class="gc-title">Hillcrest Garden Transformation</div>
               <div class="gc-type">Full Redesign · Residential</div>
@@ -1927,7 +2042,7 @@
         <!-- Item 2 -->
         <div class="gallery-card" data-cat="hardscape" role="article" aria-label="Stone Patio & Pathway">
           <div class="gc-img gc-v2">
-            <img src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-gallery-stone-patio.webp" alt="Stone Patio & Pathway" class="gc-photo">
+            <img src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-gallery-stone-patio.webp" loading="lazy" decoding="async" alt="Stone Patio & Pathway" class="gc-photo">
             <div class="gc-overlay">
               <div class="gc-title">Stone Patio &amp; Pathway</div>
               <div class="gc-type">Hardscape · Residential</div>
@@ -1948,7 +2063,7 @@
         <!-- Item 3 -->
         <div class="gallery-card" data-cat="commercial" role="article" aria-label="Sunset Business Park">
           <div class="gc-img gc-v3">
-            <img src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-gallery-business-park.webp" alt="Sunset Business Park commercial grounds" class="gc-photo">
+            <img src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-gallery-business-park.webp" loading="lazy" decoding="async" alt="Sunset Business Park commercial grounds" class="gc-photo">
             <div class="gc-overlay">
               <div class="gc-title">Sunset Business Park</div>
               <div class="gc-type">Grounds Maintenance · Commercial</div>
@@ -1969,7 +2084,7 @@
         <!-- Item 4 -->
         <div class="gallery-card" data-cat="design" role="article" aria-label="Tropical Courtyard Planting">
           <div class="gc-img gc-v4">
-            <img src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-gallery-tropical-courtyard.webp" alt="Tropical Courtyard Planting" class="gc-photo">
+            <img src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-gallery-tropical-courtyard.webp" loading="lazy" decoding="async" alt="Tropical Courtyard Planting" class="gc-photo">
             <div class="gc-overlay">
               <div class="gc-title">Tropical Courtyard Planting</div>
               <div class="gc-type">Planting Design · Residential</div>
@@ -1990,7 +2105,7 @@
         <!-- Item 5 -->
         <div class="gallery-card" data-cat="maintenance" role="article" aria-label="Bougainvillea Estate Upkeep">
           <div class="gc-img gc-v5">
-            <img src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-gallery-bougainvillea-estate.webp" alt="Bougainvillea Estate Upkeep" class="gc-photo">
+            <img src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-gallery-bougainvillea-estate.webp" loading="lazy" decoding="async" alt="Bougainvillea Estate Upkeep" class="gc-photo">
             <div class="gc-overlay">
               <div class="gc-title">Bougainvillea Estate Upkeep</div>
               <div class="gc-type">Monthly Maintenance · Residential</div>
@@ -2011,7 +2126,7 @@
         <!-- Item 6 -->
         <div class="gallery-card" data-cat="hardscape commercial" role="article" aria-label="Retaining Wall & Terrace">
           <div class="gc-img gc-v6">
-            <img src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-gallery-retaining-wall.webp" alt="Retaining Wall & Terrace" class="gc-photo">
+            <img src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-gallery-retaining-wall.webp" loading="lazy" decoding="async" alt="Retaining Wall & Terrace" class="gc-photo">
             <div class="gc-overlay">
               <div class="gc-title">Retaining Wall &amp; Terrace</div>
               <div class="gc-type">Hardscape · Commercial</div>
@@ -2146,24 +2261,24 @@
         </div>
         <div class="col-lg-6 reveal">
           <div style="border-radius:var(--r-lg);height:380px;overflow:hidden;">
-            <img src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-about-craftsmanship.webp" alt="Verdant Landscapes craftsmanship — tools and hands-on care" style="width:100%;height:100%;object-fit:cover;">
+            <img src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Verdant%20Landscapes/verdant-about-craftsmanship.webp" loading="lazy" decoding="async" alt="Verdant Landscapes craftsmanship — tools and hands-on care" style="width:100%;height:100%;object-fit:cover;">
           </div>
         </div>
       </div>
 
       <div class="trust-pillars reveal">
         <div class="pillar-card">
-          <span class="pillar-icon" aria-hidden="true">🛡️</span>
+          <span class="pillar-icon" aria-hidden="true"><i class="bi bi-shield-fill-check"></i></span>
           <div class="pillar-title">Fully Licensed &amp; Insured</div>
           <p class="pillar-desc">All work is carried out by licensed professionals. Full liability coverage on every job — residential and commercial.</p>
         </div>
         <div class="pillar-card">
-          <span class="pillar-icon" aria-hidden="true">📋</span>
+          <span class="pillar-icon" aria-hidden="true"><i class="bi bi-clipboard2-check-fill"></i></span>
           <div class="pillar-title">Transparent Quoting</div>
           <p class="pillar-desc">Every quote is itemised. You know exactly what you're paying for before a single tool is lifted. No surprises.</p>
         </div>
         <div class="pillar-card">
-          <span class="pillar-icon" aria-hidden="true">🔄</span>
+          <span class="pillar-icon" aria-hidden="true"><i class="bi bi-arrow-repeat"></i></span>
           <div class="pillar-title">Satisfaction Guaranteed</div>
           <p class="pillar-desc">Not happy with the result? We come back and we fix it. Our reputation is more important than any single job.</p>
         </div>
@@ -2299,7 +2414,7 @@
       </div>
 
       <div class="fl-bottom">
-        <p>© 2025 Verdant Landscapes. All rights reserved.</p>
+        <p>© 2026 Verdant Landscapes. All rights reserved.</p>
         <p>Built by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener noreferrer">JAMALINKS</a></p>
       </div>
     </div>
@@ -2309,21 +2424,45 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
+    // ===== MOBILE NAV DRAWER =====
+    const hamburger   = document.getElementById('navHamburger');
+    const drawer       = document.getElementById('mobileNavDrawer');
+    const backdrop      = document.getElementById('mobileNavBackdrop');
+    const drawerClose   = document.getElementById('mobileNavClose');
+
+    function openDrawer() {
+      drawer.classList.add('open');
+      backdrop.classList.add('open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      backdrop.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', openDrawer);
+    drawerClose.addEventListener('click', closeDrawer);
+    backdrop.addEventListener('click', closeDrawer);
+    drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+
     // ===== THEME =====
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon   = document.getElementById('themeIcon');
-    const themeLabel  = document.getElementById('themeLabel');
     const html        = document.documentElement;
 
     function applyTheme(dark) {
       if (dark) {
         html.setAttribute('data-theme', 'dark');
         themeIcon.className = 'bi bi-sun-fill';
-        themeLabel.textContent = 'Light';
+        themeToggle.setAttribute('title', 'Switch to light mode');
       } else {
         html.removeAttribute('data-theme');
         themeIcon.className = 'bi bi-moon-fill';
-        themeLabel.textContent = 'Dark';
+        themeToggle.setAttribute('title', 'Switch to dark mode');
       }
     }
 
